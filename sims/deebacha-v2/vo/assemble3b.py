@@ -1,7 +1,7 @@
 # Assemble narration cutting only inside real silences; padding goes into those silences.
 import json,wave,numpy as np
 D="/mnt/project-files/tafsir/deebacha-video/vo3/"
-R=48000; LEAD=1.5; TAIL=2.0; PRE=0.12; POST=0.30
+R=48000; LEAD=7.6; TAIL=2.0; PRE=0.12; POST=0.30
 REAL=0.30   # only a pause at least this long may be opened up; shorter gaps are run-ons and stay untouched
 MIN={0:0.7,1:1.6,2:2.8}
 EXTRA={0:0.6,1:1.4,2:2.6}  # on top of the natural pause, to keep v3's unhurried pacing

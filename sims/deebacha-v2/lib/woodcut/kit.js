@@ -10,17 +10,24 @@ export const dist = (x, y, F) => Math.hypot(x - F[0], y - F[1]);
 // lamp-light falloff: 1 at the flame, 0 at radius R
 export const lampTone = (F, R, k = 1.1, g = 1) => (x, y) => clamp(k * Math.pow(clamp(1 - dist(x, y, F) / R), g));
 
-// ---------- the clay oil lamp (flame at F, scale s) ----------
+// ---------- the lantern (flame at F, scale s) ----------
 export function lampBody(F, s, o = {}) {
+  // a lantern: stepped foot, a small burner under the flame, two posts round the glass, a cap with a bail handle
   const [fx, fy] = F, P = (a, b) => [fx + a * s, fy + b * s];
-  const body = WC.spline([P(-4, 7), P(-26, 4), P(-50, 12), P(-82, 9), P(-112, 15), P(-126, 30), P(-114, 46), P(-80, 53), P(-40, 48), P(-17, 30), P(-7, 15)], 3, true);
-  const foot = [P(-92, 50), P(-50, 50), P(-46, 64), P(-96, 64)];
-  const hole = WC.ellipse(fx - 70 * s, fy + 14 * s, 17 * s, 4.5 * s, 28);
-  const L = WC.light(.75, -.55, .45);
-  const sh = WC.shape([body], { light: L, sp: 3.4 * s, halo: 3.2 * s, R: 22 * s, dir: WC.dirRing(fx - 66 * s, fy - 230 * s, 1), seed: 41, lo: .28, hi: .9, reveal: o.reveal });
-  const ft = WC.shape([foot], { light: L, sp: 3 * s, halo: 2.4 * s, R: 8 * s, dir: 0, seed: 43, lo: .35, reveal: o.reveal });
-  const rim = WC.cutAlong(hole, { closed: true, w: 1.6 * s, kind: 'k', seg: [30, 90], seed: 44, reveal: o.reveal && { t0: o.reveal.t1 - .2, t1: o.reveal.t1, speed: 600 } });
-  return { draw(g, t, q = {}) { ft.draw(g, t, q); sh.draw(g, t, q); WC.drawStrokes(g, rim, { ...q, t }); }, occ: [body, foot] };
+  const foot = [P(-42, 64), P(42, 64), P(38, 54), P(32, 47), P(-32, 47), P(-38, 54)];
+  const plate = [P(-36, 47), P(36, 47), P(36, 37), P(-36, 37)];
+  const burner = [P(-16, 37), P(16, 37), P(11, 12), P(6, 7), P(-6, 7), P(-11, 12)];
+  const posts = [-1, 1].map(d => [P(d * 36, 37), P(d * 30, 37), P(d * 30, -88), P(d * 36, -88)]);
+  const cap = [P(-40, -88), P(40, -88), P(27, -103), P(-27, -103)];
+  const dome = WC.spline([P(-24, -102), P(-17, -114), P(0, -120), P(17, -114), P(24, -102)], 3, true);
+  const bail = [...WC.spline([P(-20, -108), P(-14, -132), P(0, -138), P(14, -132), P(20, -108)], 4), ...WC.spline([P(15, -108), P(10, -127), P(0, -132), P(-10, -127), P(-15, -108)], 4)];
+  const L = WC.light(.75, -.55, .45), rv = o.reveal;
+  const metal = WC.shape([foot, plate, burner, cap, dome], { light: L, sp: 3 * s, halo: 2.6 * s, R: 9 * s, dir: 0, seed: 41, lo: .3, hi: .9, reveal: rv });
+  const bars = WC.shape([...posts, bail], { light: L, sp: 2.6 * s, halo: 2.2 * s, R: 4 * s, dir: Math.PI / 2, seed: 43, lo: .35, reveal: rv });
+  // glints on the glass, carved, so the flame reads as behind a pane
+  const glint = WC.cutAlong([P(-22, -80), P(-23, -30)], { w: 1.8 * s, kind: 'k', seg: [40, 120], seed: 44, reveal: rv && { t0: rv.t1 - .2, t1: rv.t1, speed: 600 } })
+    .concat(WC.cutAlong([P(23, -76), P(22, -56)], { w: 1.3 * s, kind: 'k', seg: [20, 60], seed: 45, reveal: rv && { t0: rv.t1 - .2, t1: rv.t1, speed: 600 } }));
+  return { draw(g, t, q = {}) { metal.draw(g, t, q); bars.draw(g, t, q); WC.drawStrokes(g, glint, { ...q, t }); }, occ: [foot, plate, burner, cap, dome, ...posts, bail] };
 }
 
 // flame: white teardrop + a black wick, boiling on twos. a = 0..1 (size, for lighting / dying)

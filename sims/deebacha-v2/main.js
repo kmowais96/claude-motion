@@ -1,19 +1,22 @@
-// Before You Read the Qur'an: one page, fourteen sections, six hand-made styles.
+// Before You Read the Qur'an: one page, a cover and fourteen sections, six hand-made styles.
 import { W, H, timing, captionCues, drawCaption, resetTexts, capTexts, sheetOver, seg } from './shell.js';
 import s01 from './sec/s01.js'; import s02 from './sec/s02.js'; import s03 from './sec/s03.js';
 import s04 from './sec/s04.js'; import s05 from './sec/s05.js'; import s06 from './sec/s06.js';
 import s07 from './sec/s07.js'; import s08 from './sec/s08.js'; import s09 from './sec/s09.js';
 import s10 from './sec/s10.js'; import s11 from './sec/s11.js'; import s12 from './sec/s12.js';
-import s13 from './sec/s13.js'; import s14 from './sec/s14.js';
+import s13 from './sec/s13.js'; import s14 from './sec/s14.js'; import s00 from './sec/s00.js';
 
-const MODS = [s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14];
+const MODS = [s00, s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14];
 const TRANS = 1.1;   // seconds a sheet takes to lay down
 const TAIL = 4.0;    // the last picture holds after the voice ends
 
 const data = await (await fetch('sentences.json')).json();
+// the cover (n = 0) has no sentences: it holds the silence before the voice
+const COVER = 6.0;
 const SECS = MODS.map((m, n) => {
-  const sents = data.sentences.filter(s => s.sec === n + 1);
+  const sents = n ? data.sentences.filter(s => s.sec === n) : [{ start: 0, end: COVER, text: '' }];
   const T = timing(sents);
+  if (!n) return { m, T, cues: [] };
   return { m, T, cues: captionCues(sents, new Set(m.noCaption || [])) };
 });
 // boundary n sits halfway through the silence between section n and n+1
@@ -65,11 +68,11 @@ window.TEXTS = t => { window.render(t); const out = capTexts().slice(); for (con
 window.EV = [];
 SECS.forEach((S, n) => {
   if (n) window.EV.push({ t: S.a - TRANS / 2, type: 'sheet', from: SECS[n - 1].m.style, to: S.m.style });
-  if (S.m.events) for (const e of S.m.events(S.T)) window.EV.push({ ...e, sec: n + 1, style: S.m.style });
+  if (S.m.events) for (const e of S.m.events(S.T)) window.EV.push({ ...e, sec: n, style: S.m.style });
 });
 window.EV.sort((x, y) => x.t - y.t);
 window._SECS = SECS;
-window.SECTIONS = SECS.map((S, n) => ({ sec: n + 1, style: S.m.style, a: S.a, b: S.b, t0: S.T.t0, t1: S.T.t1 }));
+window.SECTIONS = SECS.map((S, n) => ({ sec: n, style: S.m.style, a: S.a, b: S.b, t0: S.T.t0, t1: S.T.t1 }));
 
 window.render(0);
 window.READY = true;

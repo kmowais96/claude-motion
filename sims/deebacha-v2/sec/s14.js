@@ -69,12 +69,14 @@ function build() {
     x.save(); x.translate(1110, 642); x.rotate(-.04); x.fillRect(0, -2, 170, 4); x.restore();
     x.beginPath(); x.ellipse(1260, 632, 22, 20, 0, 0, TAU); x.fill(); x.fillRect(1248, 604, 24, 12);
     x.save(); x.translate(1236, 600); x.rotate(-.9); x.fillRect(-2, -80, 4, 92); x.restore();
-    // the clay lamp
-    const l = LAMP;
-    x.beginPath(); x.ellipse(l.x, l.y - 18, 46, 18, 0, 0, TAU); x.fill();
-    x.beginPath(); x.moveTo(l.x + 30, l.y - 26); x.quadraticCurveTo(l.x + 64, l.y - 30, l.x + 70, l.y - 42); x.lineTo(l.x + 58, l.y - 40); x.quadraticCurveTo(l.x + 48, l.y - 28, l.x + 22, l.y - 26); x.fill();
-    x.fillRect(l.x - 22, l.y - 6, 44, 8);
-    x.lineWidth = 7; x.strokeStyle = '#5a2a12'; x.beginPath(); x.arc(l.x - 46, l.y - 22, 12, Math.PI * .5, Math.PI * 1.6); x.stroke();
+    // the lantern: foot, burner, two posts round the glass, cap and bail handle (flame at x + 66, y - 46)
+    const l = LAMP, cx = l.x + 66;
+    x.beginPath(); x.moveTo(cx - 30, l.y + 12); x.lineTo(cx + 30, l.y + 12); x.lineTo(cx + 25, l.y - 12); x.lineTo(cx - 25, l.y - 12); x.fill();
+    x.beginPath(); x.moveTo(cx - 10, l.y - 12); x.lineTo(cx + 10, l.y - 12); x.lineTo(cx + 5, l.y - 40); x.lineTo(cx - 5, l.y - 40); x.fill();
+    x.fillRect(cx - 27, l.y - 92, 5, 80); x.fillRect(cx + 22, l.y - 92, 5, 80);
+    x.beginPath(); x.moveTo(cx - 31, l.y - 90); x.lineTo(cx + 31, l.y - 90); x.lineTo(cx + 20, l.y - 101); x.lineTo(cx - 20, l.y - 101); x.fill();
+    x.beginPath(); x.ellipse(cx, l.y - 101, 16, 8, 0, Math.PI, TAU); x.fill();
+    x.lineWidth = 4; x.strokeStyle = '#5a2a12'; x.beginPath(); x.arc(cx, l.y - 104, 14, Math.PI * 1.05, Math.PI * 1.95); x.stroke();
   } });
   I.front = layer({ z: IZ.front, col: '#170904', trans: .05, light: ILIGHT, states: ist, mx: 160, my: 110, shadow: { dy: 16, blur: 20, a: .6 }, seed: 6, draw(x, R) {
     // stone arch of the cell, floor
