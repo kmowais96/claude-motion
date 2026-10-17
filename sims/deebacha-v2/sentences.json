@@ -1,0 +1,1454 @@
+{
+ "total": 625.255,
+ "sentences": [
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 0,
+   "text": "Multan.",
+   "start": 1.65,
+   "end": 2.806,
+   "idx": 0
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 0,
+   "text": "September 1949.",
+   "start": 3.406,
+   "end": 5.45,
+   "idx": 1
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "A prison cell.",
+   "start": 7.05,
+   "end": 8.428,
+   "idx": 2
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "One small lamp.",
+   "start": 9.028,
+   "end": 10.717,
+   "idx": 3
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "And a man bent over a page.",
+   "start": 11.317,
+   "end": 13.494,
+   "idx": 4
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "His name is Sayyid Abul A'la Mawdudi, rahimahullah.",
+   "start": 14.894,
+   "end": 19.561,
+   "idx": 5
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "He is writing the preface to a book he began seven years earlier.",
+   "start": 20.161,
+   "end": 24.828,
+   "idx": 6
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "A book that would travel far beyond that cell.",
+   "start": 25.428,
+   "end": 28.317,
+   "idx": 7
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 3,
+   "text": "Tafhim al-Qur'an.",
+   "start": 29.717,
+   "end": 31.317,
+   "idx": 8
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 3,
+   "text": "Making the Qur'an understood.",
+   "start": 31.917,
+   "end": 33.739,
+   "idx": 9
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Before the book, he wrote a short preface.",
+   "start": 35.294,
+   "end": 37.828,
+   "idx": 10
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Only nine pages.",
+   "start": 38.428,
+   "end": 39.761,
+   "idx": 11
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Most people skip it.",
+   "start": 40.361,
+   "end": 41.828,
+   "idx": 12
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "But in those nine pages, he tells you how to meet the Book of Allah.",
+   "start": 42.428,
+   "end": 46.25,
+   "idx": 13
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "So let's not skip it.",
+   "start": 46.85,
+   "end": 48.05,
+   "idx": 14
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "He begins with an honest question.",
+   "start": 50.45,
+   "end": 52.494,
+   "idx": 15
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "Shelves were already full of translations and tafsir.",
+   "start": 53.094,
+   "end": 56.739,
+   "idx": 16
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "So why add one more?",
+   "start": 57.339,
+   "end": 58.761,
+   "idx": 17
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "Writing another one just for the blessing of it, he says, is not a good use of time anymore.",
+   "start": 60.161,
+   "end": 65.761,
+   "idx": 18
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "It is only worth it if it fills a gap.",
+   "start": 66.361,
+   "end": 68.894,
+   "idx": 19
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "A need that the earlier works left unmet.",
+   "start": 69.494,
+   "end": 72.294,
+   "idx": 20
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "And he had seen that need for years.",
+   "start": 74.694,
+   "end": 77.05,
+   "idx": 21
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "Ordinary, educated Muslims wanted to reach the spirit of the Qur'an.",
+   "start": 77.65,
+   "end": 82.316,
+   "idx": 22
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "They wanted to know what this Book is really asking of them.",
+   "start": 82.916,
+   "end": 86.383,
+   "idx": 23
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 8,
+   "text": "The translators had done valuable work.",
+   "start": 88.072,
+   "end": 90.561,
+   "idx": 24
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 8,
+   "text": "And still, he writes, that longing stayed thirsty.",
+   "start": 91.161,
+   "end": 94.45,
+   "idx": 25
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 9,
+   "text": "He felt he could help quench that thirst.",
+   "start": 95.85,
+   "end": 98.383,
+   "idx": 26
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 9,
+   "text": "And those two feelings, the thirst he saw and the help he could give, became this book.",
+   "start": 98.983,
+   "end": 104.139,
+   "idx": 27
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "So who is it for?",
+   "start": 105.828,
+   "end": 107.028,
+   "idx": 28
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "Not the scholars.",
+   "start": 107.628,
+   "end": 108.828,
+   "idx": 29
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "They already have plenty.",
+   "start": 109.428,
+   "end": 110.983,
+   "idx": 30
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "It is for people like you and me.",
+   "start": 111.583,
+   "end": 113.405,
+   "idx": 31
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "People who did not study Arabic.",
+   "start": 114.005,
+   "end": 116.094,
+   "idx": 32
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "So he left out the debates that only specialists need.",
+   "start": 116.694,
+   "end": 119.761,
+   "idx": 33
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "His aim was simple.",
+   "start": 121.161,
+   "end": 122.316,
+   "idx": 34
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "That you understand what Allah is saying, clearly.",
+   "start": 122.916,
+   "end": 125.983,
+   "idx": 35
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "And that you feel what the Qur'an wants you to feel.",
+   "start": 126.583,
+   "end": 129.694,
+   "idx": 36
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "Where a doubt comes up, he answers it right there.",
+   "start": 130.294,
+   "end": 133.272,
+   "idx": 37
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 12,
+   "text": "And then, with real humility, he asks his readers and the scholars: show me where I fell short.",
+   "start": 134.739,
+   "end": 141.405,
+   "idx": 38
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 12,
+   "text": "This is not the last word.",
+   "start": 142.005,
+   "end": 143.605,
+   "idx": 39
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 0,
+   "text": "Then comes the heart of the preface.",
+   "start": 146.005,
+   "end": 148.316,
+   "idx": 40
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 0,
+   "text": "How do you carry the Qur'an into another language?",
+   "start": 148.916,
+   "end": 152.116,
+   "idx": 41
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "He chose a free rendering.",
+   "start": 153.516,
+   "end": 155.339,
+   "idx": 42
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "He calls it tarjumani.",
+   "start": 155.939,
+   "end": 158.116,
+   "idx": 43
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Not because word-for-word translation is wrong.",
+   "start": 158.716,
+   "end": 161.694,
+   "idx": 44
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Great scholars had done it beautifully: Shah Waliullah in Persian, and in Urdu Shah Abdul Qadir, Shah Rafiuddin, Mawlana Mahmud al-Hasan, Mawlana Ashraf Ali Thanawi, and Hafiz Fateh Muhammad Jalandhari.",
+   "start": 162.294,
+   "end": 179.316,
+   "idx": 45
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Word for word teaches you what every word means.",
+   "start": 179.916,
+   "end": 183.072,
+   "idx": 46
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "That is a real gift.",
+   "start": 183.672,
+   "end": 185.05,
+   "idx": 47
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 2,
+   "text": "But for someone who doesn't know Arabic, he says, it has weaknesses.",
+   "start": 186.45,
+   "end": 190.761,
+   "idx": 48
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 2,
+   "text": "And the first one is life.",
+   "start": 191.361,
+   "end": 193.05,
+   "idx": 49
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 3,
+   "text": "You read a literal translation, and the words just lie there.",
+   "start": 195.45,
+   "end": 199.538,
+   "idx": 50
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "Your heart is not moved.",
+   "start": 200.938,
+   "end": 202.627,
+   "idx": 51
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "The hair on your skin does not rise.",
+   "start": 203.227,
+   "end": 205.761,
+   "idx": 52
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "No tears come.",
+   "start": 206.361,
+   "end": 207.872,
+   "idx": 53
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "Nothing stirs inside you.",
+   "start": 208.472,
+   "end": 210.383,
+   "idx": 54
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 5,
+   "text": "And a terrible thought creeps in.",
+   "start": 211.783,
+   "end": 213.783,
+   "idx": 55
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 5,
+   "text": "Is this really the Book that challenged the whole world?",
+   "start": 214.383,
+   "end": 217.627,
+   "idx": 56
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "He says a literal translation is like a sieve.",
+   "start": 219.027,
+   "end": 222.272,
+   "idx": 57
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "The dry ingredients of the medicine pass through.",
+   "start": 222.872,
+   "end": 225.672,
+   "idx": 58
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "But the living spirit of the language flies away, above it.",
+   "start": 226.272,
+   "end": 229.961,
+   "idx": 59
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "And the Qur'an's power was in its language as much as in its teaching.",
+   "start": 231.361,
+   "end": 235.938,
+   "idx": 60
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "That is what melted hearts of stone.",
+   "start": 236.538,
+   "end": 238.627,
+   "idx": 61
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "That is what struck Arabia like lightning.",
+   "start": 239.227,
+   "end": 241.405,
+   "idx": 62
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "Its fiercest enemies were afraid that whoever listened to it would lose his heart to it.",
+   "start": 242.005,
+   "end": 246.849,
+   "idx": 63
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 8,
+   "text": "Had it come in the language of its translations, he says, it could never have done that.",
+   "start": 248.249,
+   "end": 253.361,
+   "idx": 64
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "The second weakness is flow.",
+   "start": 255.761,
+   "end": 258.027,
+   "idx": 65
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Translations sit between the lines, or on half a page.",
+   "start": 258.627,
+   "end": 262.583,
+   "idx": 66
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Fine for study.",
+   "start": 263.183,
+   "end": 264.472,
+   "idx": 67
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "But you cannot read them straight through, like a book.",
+   "start": 265.072,
+   "end": 267.961,
+   "idx": 68
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "English is even worse.",
+   "start": 268.56,
+   "end": 270.205,
+   "idx": 69
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Every verse cut out and numbered.",
+   "start": 270.805,
+   "end": 272.805,
+   "idx": 70
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 10,
+   "text": "Take any beautiful piece of writing, he says, and number its sentences.",
+   "start": 274.205,
+   "end": 278.205,
+   "idx": 71
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 10,
+   "text": "Half of its effect is gone.",
+   "start": 278.805,
+   "end": 280.672,
+   "idx": 72
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "And then a point he calls very important.",
+   "start": 283.072,
+   "end": 286.057,
+   "idx": 73
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "The Qur'an is speech.",
+   "start": 286.657,
+   "end": 288.524,
+   "idx": 74
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "Not writing.",
+   "start": 289.124,
+   "end": 290.013,
+   "idx": 75
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 1,
+   "text": "It did not come down as a printed book.",
+   "start": 291.702,
+   "end": 294.635,
+   "idx": 76
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 1,
+   "text": "As the call to Islam moved forward, Allah sent down an address for each moment, and the Prophet, sallallahu alayhi wa sallam, delivered it to people like a khutbah.",
+   "start": 295.235,
+   "end": 305.679,
+   "idx": 77
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "And speech works differently.",
+   "start": 307.079,
+   "end": 308.768,
+   "idx": 78
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "On paper, you first write the objection, then the answer.",
+   "start": 309.368,
+   "end": 312.924,
+   "idx": 79
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "In a speech, the objectors are standing right there.",
+   "start": 313.524,
+   "end": 316.19,
+   "idx": 80
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "So the answer simply comes.",
+   "start": 316.79,
+   "end": 318.835,
+   "idx": 81
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "On paper, you must describe the setting.",
+   "start": 319.435,
+   "end": 321.524,
+   "idx": 82
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "In a speech, the setting is all around.",
+   "start": 322.124,
+   "end": 324.328,
+   "idx": 83
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "And in a speech, the voice turns.",
+   "start": 325.728,
+   "end": 327.817,
+   "idx": 84
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "People are spoken about, then spoken to.",
+   "start": 328.417,
+   "end": 331.084,
+   "idx": 85
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "One person, then many.",
+   "start": 331.684,
+   "end": 333.239,
+   "idx": 86
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "Sometimes the speaker speaks for himself, sometimes for a group, sometimes on behalf of Allah.",
+   "start": 333.839,
+   "end": 339.395,
+   "idx": 87
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "And sometimes, Allah Himself speaks.",
+   "start": 339.995,
+   "end": 342.561,
+   "idx": 88
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "Heard aloud, this is beauty.",
+   "start": 343.961,
+   "end": 345.739,
+   "idx": 89
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "On paper, it can feel disconnected.",
+   "start": 346.339,
+   "end": 348.428,
+   "idx": 90
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "In Arabic, not one letter may be changed, so only notes can help.",
+   "start": 349.028,
+   "end": 353.25,
+   "idx": 91
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "But in another language, if the speech is carefully turned into written style, the gap closes.",
+   "start": 353.85,
+   "end": 359.495,
+   "idx": 92
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Every surah came for a moment.",
+   "start": 361.895,
+   "end": 363.806,
+   "idx": 93
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "It had a background, and a need it came to meet.",
+   "start": 364.406,
+   "end": 367.517,
+   "idx": 94
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Strip that away, and some things are not understood at all.",
+   "start": 368.117,
+   "end": 371.45,
+   "idx": 95
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Some are understood upside down.",
+   "start": 372.05,
+   "end": 374.139,
+   "idx": 96
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "So a rendering should carry some of that background with it.",
+   "start": 374.739,
+   "end": 378.121,
+   "idx": 97
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 6,
+   "text": "And the Qur'an has its own vocabulary.",
+   "start": 380.521,
+   "end": 383.144,
+   "idx": 98
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 6,
+   "text": "A language within the language.",
+   "start": 383.744,
+   "end": 385.788,
+   "idx": 99
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "Take one word.",
+   "start": 387.188,
+   "end": 388.299,
+   "idx": 100
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "Kufr.",
+   "start": 388.899,
+   "end": 389.744,
+   "idx": 101
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In one place it means complete disbelief.",
+   "start": 390.343,
+   "end": 392.877,
+   "idx": 102
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, simple denial.",
+   "start": 393.477,
+   "end": 395.21,
+   "idx": 103
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, only ingratitude.",
+   "start": 395.81,
+   "end": 397.943,
+   "idx": 104
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, falling short in something faith requires.",
+   "start": 398.543,
+   "end": 401.921,
+   "idx": 105
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, believing in principle, but refusing in practice.",
+   "start": 402.521,
+   "end": 406.077,
+   "idx": 106
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "And in another, obeying on the outside, while disbelieving inside.",
+   "start": 406.677,
+   "end": 410.688,
+   "idx": 107
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 8,
+   "text": "Translate it as kufr everywhere, and you are technically correct.",
+   "start": 412.088,
+   "end": 415.955,
+   "idx": 108
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 8,
+   "text": "But the reader will miss it here, misread it there, and get lost somewhere else.",
+   "start": 416.555,
+   "end": 421.088,
+   "idx": 109
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "So here is what he did.",
+   "start": 423.488,
+   "end": 425.118,
+   "idx": 110
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He did not dress the Qur'an's words in Urdu clothes.",
+   "start": 425.718,
+   "end": 429.229,
+   "idx": 111
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He read a passage.",
+   "start": 429.829,
+   "end": 431.34,
+   "idx": 112
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He took the meaning he understood, and the effect it left on his own heart.",
+   "start": 431.94,
+   "end": 437.051,
+   "idx": 113
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "And he carried that, as faithfully as he could, into his own language.",
+   "start": 437.651,
+   "end": 442.007,
+   "idx": 114
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "Clear Arabic should become clear Urdu.",
+   "start": 443.607,
+   "end": 446.807,
+   "idx": 115
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "The flow of speech should come through.",
+   "start": 447.407,
+   "end": 449.762,
+   "idx": 116
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "And the majesty of Allah's words should shine, as far as possible.",
+   "start": 450.362,
+   "end": 454.584,
+   "idx": 117
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 2,
+   "text": "That needed freedom.",
+   "start": 456.14,
+   "end": 457.784,
+   "idx": 118
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 2,
+   "text": "But this was the Word of Allah.",
+   "start": 458.384,
+   "end": 460.207,
+   "idx": 119
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 3,
+   "text": "So he writes: I used this freedom… while very much afraid.",
+   "start": 461.607,
+   "end": 466.718,
+   "idx": 120
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 4,
+   "text": "And he never stepped beyond what the Qur'an's own words allow.",
+   "start": 468.184,
+   "end": 472.096,
+   "idx": 121
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "What a rendering cannot carry, he gave you in two more ways.",
+   "start": 475.207,
+   "end": 479.296,
+   "idx": 122
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Before every surah, an introduction: when it came down, what was happening, where the call to Islam stood, and what it was facing.",
+   "start": 479.896,
+   "end": 489.407,
+   "idx": 123
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "And notes, but only in two kinds of places.",
+   "start": 490.007,
+   "end": 492.896,
+   "idx": 124
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Where a question would rise in your mind.",
+   "start": 493.496,
+   "end": 495.984,
+   "idx": 125
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "And where you might hurry past, and miss the real spirit of a verse.",
+   "start": 496.584,
+   "end": 500.762,
+   "idx": 126
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Nothing that pulls your eyes away from the Qur'an.",
+   "start": 501.362,
+   "end": 504.384,
+   "idx": 127
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "And then he gives you a way to read.",
+   "start": 506.784,
+   "end": 508.918,
+   "idx": 128
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "One.",
+   "start": 509.518,
+   "end": 510.14,
+   "idx": 129
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Read the surah's introduction, and come back to it as you go.",
+   "start": 510.74,
+   "end": 514.607,
+   "idx": 130
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Two.",
+   "start": 515.207,
+   "end": 515.829,
+   "idx": 131
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Take your daily portion, and first go through it word for word, verse by verse, in whatever language you like.",
+   "start": 516.429,
+   "end": 523.273,
+   "idx": 132
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Three.",
+   "start": 523.873,
+   "end": 524.584,
+   "idx": 133
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Read his rendering of that portion straight through, without the notes, so the whole message stands before you at once.",
+   "start": 525.184,
+   "end": 532.295,
+   "idx": 134
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Four.",
+   "start": 532.895,
+   "end": 533.562,
+   "idx": 135
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Go back, verse by verse, with the notes.",
+   "start": 534.162,
+   "end": 537.051,
+   "idx": 136
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "Read like this, he says, and an ordinary reader will come to know the Qur'an well.",
+   "start": 538.451,
+   "end": 543.695,
+   "idx": 137
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "Maybe not like a scholar.",
+   "start": 544.295,
+   "end": 545.807,
+   "idx": 138
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "But well, in sha' Allah.",
+   "start": 546.407,
+   "end": 548.273,
+   "idx": 139
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "He began in February 1942.",
+   "start": 550.673,
+   "end": 553.473,
+   "idx": 140
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "For more than five years he wrote, until he reached the end of Surah Yusuf.",
+   "start": 554.073,
+   "end": 558.784,
+   "idx": 141
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "Then life left him no time to write, or even to revise.",
+   "start": 559.384,
+   "end": 563.384,
+   "idx": 142
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 1,
+   "text": "Call it good luck or bad luck, he writes.",
+   "start": 564.784,
+   "end": 567.673,
+   "idx": 143
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 2,
+   "text": "In October 1948, he was suddenly arrested and taken to jail.",
+   "start": 569.073,
+   "end": 573.918,
+   "idx": 144
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 2,
+   "text": "And there, behind the bars, he found the time the book needed.",
+   "start": 574.518,
+   "end": 578.429,
+   "idx": 145
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 3,
+   "text": "He ends with a dua: that this work truly helps the servants of Allah understand the Qur'an.",
+   "start": 579.829,
+   "end": 586.54,
+   "idx": 146
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 3,
+   "text": "And one line in Arabic.",
+   "start": 587.14,
+   "end": 588.918,
+   "idx": 147
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 4,
+   "text": "Wa ma tawfiqi illa billah.",
+   "start": 590.318,
+   "end": 593.118,
+   "idx": 148
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 4,
+   "text": "My success is only through Allah.",
+   "start": 593.718,
+   "end": 596.295,
+   "idx": 149
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "A prison cell.",
+   "start": 598.695,
+   "end": 600.029,
+   "idx": 150
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "One small lamp.",
+   "start": 600.629,
+   "end": 602.14,
+   "idx": 151
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "And a book that travelled far beyond it.",
+   "start": 602.74,
+   "end": 605.273,
+   "idx": 152
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Now it is in your hands.",
+   "start": 606.673,
+   "end": 608.718,
+   "idx": 153
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Read the setting.",
+   "start": 609.318,
+   "end": 610.384,
+   "idx": 154
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Learn the words.",
+   "start": 610.984,
+   "end": 612.184,
+   "idx": 155
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Hear it whole.",
+   "start": 612.784,
+   "end": 613.94,
+   "idx": 156
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Then go deep.",
+   "start": 614.54,
+   "end": 615.589,
+   "idx": 157
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "Open Tafhim al-Qur'an.",
+   "start": 616.989,
+   "end": 618.944,
+   "idx": 158
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "Start with one surah.",
+   "start": 619.544,
+   "end": 621.144,
+   "idx": 159
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "And let it reach your heart.",
+   "start": 621.744,
+   "end": 623.255,
+   "idx": 160
+  }
+ ]
+}
