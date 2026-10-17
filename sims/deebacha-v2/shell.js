@@ -49,7 +49,8 @@ export function captionCues(sents, skip = new Set()) {
   for (let j = 0; j < cues.length; j++) {
     const c = cues[j], next = cues[j + 1];
     const want = Math.max(c.end + .45, c.show + 1.8);
-    c.hide = next ? Math.min(want, next.show - .05) : want;
+    c.hide = next ? Math.min(want, next.show - .24) : want;
+    c.next = !!next;
   }
   return cues;
 }
@@ -72,7 +73,9 @@ export const capTexts = () => capBox.list;
 
 export function drawCaption(ctx, style, cue, t) {
   const S = CAP[style];
-  const k = Math.min(S.fadeIn ? seg(t, cue.show, cue.show + S.fadeIn) : 1, 1 - seg(t, cue.hide, cue.hide + S.fadeOut));
+  // a caption followed by another fades out fast, so two never overlap
+  const fo = cue.next ? Math.min(S.fadeOut, .2) : S.fadeOut;
+  const k = Math.min(S.fadeIn ? seg(t, cue.show, cue.show + S.fadeIn) : 1, 1 - seg(t, cue.hide, cue.hide + fo));
   if (k <= 0) return;
   ctx.save();
   ctx.font = S.font; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';

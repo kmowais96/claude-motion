@@ -46,12 +46,18 @@ export function drawLine(ctx0, P, head, M, k, opts = {}) {
   const f = head - n;
   const kw = Math.max(k, 1.3);   // 线宽用的缩放：拉远时不再变细
   // 屏幕坐标
-  const sx = new Float32Array(n + 2), sy = new Float32Array(n + 2);
-  const F0 = Math.max(0, opts.from || 0);
+  let sx = new Float32Array(n + 2), sy = new Float32Array(n + 2);
+  let F0 = Math.max(0, opts.from || 0);
   for (let i = 0; i <= n; i++) { if (i < F0) { sx[i] = -1e5; sy[i] = -1e5; continue; } const p = M(X[i], Y[i]); sx[i] = p[0]; sy[i] = p[1]; }
   let m = n;
   if (f > 0 && n + 1 < P.N) { const p = M(lerp(X[n], X[n + 1], f), lerp(Y[n], Y[n + 1], f)); sx[n + 1] = p[0]; sy[n + 1] = p[1]; m = n + 1; }
-  const idx = i => Math.min(i, n);
+  // keep only points ≥ 1.3 px apart on screen (the polygon fill is the cost); j → original index K[j]
+  const osx = sx, osy = sy, K = [];
+  for (let i = F0; i <= m; i++) { if (!K.length || i === m) { K.push(i); continue; } const q = K[K.length - 1]; if (Math.abs(sx[i] - sx[q]) + Math.abs(sy[i] - sy[q]) >= 1.3) K.push(i); }
+  if (K.length < 2) return;
+  sx = Float32Array.from(K, i => osx[i]); sy = Float32Array.from(K, i => osy[i]);
+  const mOrig = m; m = K.length - 1; const FO = F0; F0 = 0;
+  const idx = j => Math.min(K[j], n);
   // 法线
   const nx = new Float32Array(m + 1), ny = new Float32Array(m + 1);
   for (let i = 0; i <= m; i++) {
@@ -64,7 +70,7 @@ export function drawLine(ctx0, P, head, M, k, opts = {}) {
   // 头部笔尖处线宽略收（笔刚到）
   const wAt = (i, scale) => {
     let w = WID[idx(i)] * kw * scale;
-    const back = (m - i) * 0.6; if (back < 3) w *= 0.75 + 0.25 * back / 3;
+    const back = (mOrig - K[i]) * 0.6; if (back < 3) w *= 0.75 + 0.25 * back / 3;
     return Math.max(w, 0.6);
   };
   // 按颜色/可见性/飞白断墨切成若干 run，每个 run 填一个多边形
@@ -102,16 +108,23 @@ export function drawLine(ctx0, P, head, M, k, opts = {}) {
   }
   const core = c => rgb(c);
   // 1 晕边（墨渗进纸纤维）：离屏画一遍加宽的线，整体模糊后低透明度叠回
+  const PR = window.OLPROF, qq = () => { if (PR) ctx0.getImageData(0, 0, 1, 1); return performance.now(); }; let tq = qq();
   const R0 = runs({});
   // (half-resolution layer: upscaling it is the blur, far cheaper than a blur filter)
   if (!drawLine.halo) { drawLine.halo = document.createElement('canvas'); drawLine.halo.width = Wd / 2; drawLine.halo.height = Ht / 2; }
   const hc = drawLine.halo, hx = hc.getContext('2d'); hx.setTransform(1, 0, 0, 1, 0, 0); hx.clearRect(0, 0, Wd / 2, Ht / 2); hx.setTransform(.5, 0, 0, .5, 0, 0);
   const main = ctx; ctx = hx;
   for (const r of R0) fillRun(r, 1.0 + 2.4 / Math.max(1, WID[idx(r.a)]), 0, core);
-  ctx = main;
-  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = .24; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(hc, 0, 0, Wd, Ht); ctx.restore();
+  ctx = main; if (PR) { hx.getImageData(0,0,1,1); PR.hfill = (PR.hfill || 0) + qq() - tq; tq = qq(); }
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = .24; ctx.imageSmoothingQuality = 'low';
+  { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let j = 0; j <= m; j++) if (vis[j]) { if (sx[j] < x0) x0 = sx[j]; if (sx[j] > x1) x1 = sx[j]; if (sy[j] < y0) y0 = sy[j]; if (sy[j] > y1) y1 = sy[j]; }
+    x0 = Math.max(0, Math.floor((x0 - 24) / 2)); y0 = Math.max(0, Math.floor((y0 - 24) / 2)); x1 = Math.min(Wd / 2, Math.ceil((x1 + 24) / 2)); y1 = Math.min(Ht / 2, Math.ceil((y1 + 24) / 2));
+    if (x1 > x0 && y1 > y0) ctx.drawImage(hc, x0, y0, x1 - x0, y1 - y0, x0 * 2, y0 * 2, (x1 - x0) * 2, (y1 - y0) * 2); }
+  ctx.restore();
+  if (PR) { PR.hcomp = (PR.hcomp || 0) + qq() - tq; tq = qq(); }
   // 2 主体
   for (const r of R0) fillRun(r, 1.0, 0, core);
+  if (PR) { PR.main = (PR.main || 0) + qq() - tq; tq = qq(); PR.runs = R0.length; PR.m = m; }
   // 3 老年飞白：几根笔毫轨迹穿过断墨处
   if (P.DRY[idx(m)] > 0 || opts.allDry) for (let s = 0; s < 3; s++) {
     const R = runs({ strand: s }).filter(r => DRY[idx(r.a)] > 0);
@@ -120,9 +133,10 @@ export function drawLine(ctx0, P, head, M, k, opts = {}) {
   }
   // 慢处积墨：速度很低的点加圆墨点
   ctx.fillStyle = rgb(INK);
-  for (let i = 0; i <= n; i += 2) {
-    if (!vis[i] || P.R[i]) continue; const v = P.V[i]; if (v > 45) continue;
-    const w = WID[i] * kw * (0.62 + 0.3 * (1 - v / 45)); ctx.fillStyle = core(COL[i]); ctx.beginPath(); ctx.arc(sx[i], sy[i], w, 0, Math.PI * 2); ctx.fill();
+  for (let i = FO; i <= n; i += 2) {
+    if (P.R[i]) continue; const v = P.V[i]; if (v > 45) continue;
+    const x = osx[i], y = osy[i]; if (x < -mg || x > Wd + mg || y < -mg || y > Ht + mg) continue;
+    const w = WID[i] * kw * (0.62 + 0.3 * (1 - v / 45)); ctx.fillStyle = core(COL[i]); ctx.beginPath(); ctx.arc(x, y, w, 0, Math.PI * 2); ctx.fill();
   }
   return { tip: [sx[m], sy[m]], dir: [sx[m] - sx[Math.max(0, m - 6)], sy[m] - sy[Math.max(0, m - 6)]] };
 }
