@@ -36,7 +36,7 @@ export { clamp, seg };
 import { vn2 } from './land.js';
 const QW = 480, QH = 270;
 let EN = null, EC = null, EF = null;
-export function creep(L, k, am = .62) {
+export function creep(L, k, am = .48) {
   if (k <= 0) return;
   if (!EN) {
     EN = new Float32Array(QW * QH);

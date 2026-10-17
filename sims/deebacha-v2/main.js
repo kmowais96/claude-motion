@@ -28,11 +28,12 @@ const cv = document.getElementById('c'), ctx = cv.getContext('2d');
 const off = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
 const A = off(), B = off();
 
-for (const S of SECS) if (S.m.init) await S.m.init(S.T);
 await document.fonts.ready;
 await Promise.all(['42px "IM Fell English"', '40px "IM Fell English SC"', '500 40px "Cormorant Garamond"', '600 40px "Cormorant Garamond"', '400 40px "Cormorant Garamond"', 'italic 500 40px "Cormorant Garamond"',
   '600 46px "Caveat"', '60px "Sacramento"', '40px "Bodoni Moda"', 'italic 40px "Bodoni Moda"', '40px "Pinyon Script"', '20px "IBM Plex Mono"',
   '60px "Amiri"', '700 60px "Amiri"'].map(f => document.fonts.load(f, f.includes('Amiri') ? 'وما' : 'Ab')));
+
+for (const S of SECS) if (S.m.init) await S.m.init(S.T);
 
 function drawSection(c, S, t) {
   c.save(); S.m.render(c, t, S.T); c.restore();
