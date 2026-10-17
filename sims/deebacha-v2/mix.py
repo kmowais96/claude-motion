@@ -47,7 +47,9 @@ def sound(e):
     if ty == 'sheet':   return rustle(.9), .10
     if ty == 'cut':     return knife(), .07 * g
     if ty == 'paper':   return rustle(d or .45), .06 * g
-    if ty == 'light':   return switch() + np.pad(shimmer(1.4), (2400, 0))[:len(shimmer(1.4))] * .5, .05 * g
+    if ty == 'light':
+        sh = np.pad(shimmer(1.4), (2400, 0)) * .5; sh[:len(switch())] += switch()
+        return sh, .05 * g
     if ty == 'shimmer': return shimmer(d or 1.6), .04 * g
     if ty == 'nib':     return scratch(d or .8, lo=3000, hi=9000), .035 * g
     if ty == 'pencil':  return scratch(d or .6, lo=2000, hi=7000), .035 * g

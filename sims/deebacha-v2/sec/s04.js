@@ -142,7 +142,7 @@ export default {
       { t: T.k(3, .3), type: 'brush', dur: 1.25 }, { t: T.k(3, .3) + 1.5, type: 'stamp' }, { t: T.at(4) + .3, type: 'brush', dur: 2.4, soft: true },
       { t: tA, type: 'wash', bloom: true }, { t: T.at(5) + .15, type: 'brush', dur: 1.8, soft: true }, { t: tB, type: 'wash', bloom: true },
       { t: T.at(7) + .7, type: 'stamp' }];
-    NAMES.forEach((n, i) => { const a = T.word(5, NAME_W[i]) - .05; ev.push({ t: a, type: 'brush', dur: .4 + n.tw / 520 }, { t: a + .55 + n.tw / 520, type: 'stamp', small: true }); });
+    NAMES.forEach((n, i) => { const tw = n.tw || 300, a = T.word(5, NAME_W[i]) - .05; ev.push({ t: a, type: 'brush', dur: .4 + tw / 520 }, { t: a + .55 + tw / 520, type: 'stamp', small: true }); });
     for (let i = 0; i < 4; i++) ev.push({ t: a0 + i * step, type: 'brush', dur: step * .9 });
     return ev.sort((a, b) => a.t - b.t);
   },
