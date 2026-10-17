@@ -10,4 +10,4 @@ cd "$LIB"
 node core/render/events.mjs "$HERE"
 node core/render/video.mjs "$HERE" --fps 24 --workers ${WORKERS:-4} --out "$HERE/out/video.mp4"
 "$LIB/.venv/bin/python" "$HERE/mix.py" "$HERE/events.json" "$VO" "$HERE/out/mix.wav"
-sh core/render/mux.sh "$HERE/out/video.mp4" "$HERE/out/mix.wav" "$HERE/out/before-you-read-the-quran.mp4" 24
+sh core/render/mux.sh "$HERE/out/video.mp4" "$HERE/out/mix.wav" "$HERE/out/deebacha.mp4" 24

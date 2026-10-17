@@ -39,7 +39,47 @@ def sift(d=2.0, v=1):
     tt = t_(d); x = hp(noise(d), 3000) * (rng.random(len(tt)) > .985) * 4
     return norm(lp(x, 9000) * swell(d)) * v
 
+# Recorded effects (ElevenLabs sound effects, not in git) for the moments Owais asked to hear:
+# a flame catching, thunder under the lightning, the pen while it writes, voices gathering as the light spreads,
+# and the azan (Owais's own recording) heard faintly while the minaret is on screen.
+import os
+SFX = os.environ.get('SFX_DIR', '/mnt/project-files/tafsir/deebacha-video/sfx')
+REC = {}
+def rec(name):
+    if name not in REC:
+        x, sr = sf.read(os.path.join(SFX, name + '.wav'), dtype='float32')
+        assert sr == SR; x = x.mean(1) if x.ndim > 1 else x
+        REC[name] = x / (np.abs(x).max() + 1e-9)
+    return REC[name]
+
+def fit(x, d, xf=.4):
+    # loop a recording to d seconds with crossfades, starting somewhere random so repeats differ
+    n, f = int(d * SR), int(xf * SR)
+    out, pos = np.zeros(n + f, np.float32), 0
+    while pos < n:
+        a = int(rng.integers(0, max(1, len(x) - f * 3))); seg_ = x[a:].copy()
+        r = np.ones(len(seg_), np.float32); r[:f] = np.linspace(0, 1, f); r[-f:] = np.linspace(1, 0, f)
+        seg_ = (seg_ * r)[:n + f - pos]; out[pos:pos + len(seg_)] += seg_; pos += len(seg_) - f
+    out = out[:n]; k = min(n // 3, int(.3 * SR)); out[:k] *= np.linspace(0, 1, k); out[-k:] *= np.linspace(1, 0, k)
+    return out
+
+RECORDED = {'ignite', 'thunder', 'pen', 'crowd', 'azan'}
+def recorded(e):
+    ty, d, g = e['type'], e.get('dur', 2.0), .6 if e.get('soft') else 1.0
+    if ty == 'ignite':  return rec('ignite'), .28 * g
+    if ty == 'thunder': return rec('thunder'), .45 * g
+    if ty == 'azan':    # Owais's recording, from its opening takbir: distant (dull top end), in over 2.5 s, out over 3 s
+        x = lp(rec('azan')[:int(d * SR)], 3200); n = len(x); r = np.ones(n, np.float32)
+        r[:int(2.5 * SR)] = np.linspace(0, 1, int(2.5 * SR)); r[-int(3 * SR):] = np.linspace(1, 0, int(3 * SR))
+        return x * r, .10
+    if ty == 'pen':     return fit(rec('pen'), max(d, .6)), .17 * g
+    # crowd: from silence, voices grow as the light spreads, then settle away
+    x = fit(rec("crowd"), d + 1.5); tt = np.arange(len(x)) / SR
+    x = x * np.clip(tt / d, 0, 1) ** 1.6 * np.clip((len(x) / SR - tt) / 1.5, 0, 1)
+    return x, .22 * g
+
 def sound(e):
+    if e.get('type') in RECORDED: return recorded(e)
     x, g = _sound(e)
     k = float(rng.uniform(.8, 1.25))           # small pitch/tempo change per instance
     idx = np.arange(0, len(x) - 1, k)
@@ -75,9 +115,11 @@ ev = json.load(open(sys.argv[1])); dur = ev['dur']
 # Thin the foley: every scene drawing a sound got repetitive. Accents (light, stamp, thud...) may sit
 # 3 s apart; textures (brush, nib, paper...) need 7 s of air, and the same sound twice in a row needs 14 s.
 ACCENT = {'light', 'stamp', 'thud', 'shimmer', 'sheet', 'cut', 'drop', 'sift'}
-kept, last_t, last_by = [], -99.0, {}
+kept, last_t, last_by = [e for e in ev['ev'] if e.get('type') in RECORDED], -99.0, {}
 for e in sorted(ev['ev'], key=lambda e: e['t']):
-    ty = e.get('type'); gap = 3.0 if ty in ACCENT else 7.0
+    ty = e.get('type')
+    if ty in RECORDED: continue
+    gap = 3.0 if ty in ACCENT else 7.0
     if e['t'] - last_t < gap or e['t'] - last_by.get(ty, -99.0) < 14.0: continue
     kept.append(e); last_t = e['t']; last_by[ty] = e['t']
 ev['ev'] = kept

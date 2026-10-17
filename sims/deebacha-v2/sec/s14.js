@@ -374,9 +374,10 @@ export default {
   },
   events(T) {
     return [
-      { t: T.word(1, 2) - .3, type: 'light' },
+      { t: T.word(1, 2) - .3, type: 'ignite' },
       { t: T.at(2) - .1, type: 'shimmer' },
       { t: T.at(2) + .5, type: 'light', soft: true },
+      { t: T.at(2) + .3, type: 'crowd', dur: T.at(3) - T.at(2) + 2.5 },   // town after town lights: voices gather
       { t: T.at(3) - .25, type: 'paper' },
       ...[4, 5, 6, 7].map(i => ({ t: T.at(i) - .2, type: 'paper' })),
       { t: T.at(8) - .5, type: 'paper', dir: 'out' },

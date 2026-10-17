@@ -132,7 +132,7 @@ export default {
       twoPlates(m, c, t);
     } else if (P.id === 'gate') {
       const tA = T.word(4, 5), tS = T.word(4, 6);
-      const zk = eo(clamp((t - tS) / .2)), shake = t > tS + .2 && t < tS + .34 ? [((Math.floor(t * 24) % 2) ? 4 : -4), 2] : [0, 0];
+      const zk = eo(clamp((t - tS) / .2)), shake = [0, 0];   // no shake on the snap: it read as a juddering frame
       cam = { x: 960, y: 470, z: 1 + .55 * zk, dx: J[0] + shake[0], dy: J[1] + shake[1] };
       begin(cam);
       gate(m, t, tA);
@@ -176,10 +176,10 @@ export default {
   events(T) {
     const ev = [{ t: T.at(0) - .7, type: 'cut' }, { t: T.word(0, 3) + .2, type: 'cut' }];
     for (const p of plates(T).slice(1)) ev.push({ t: p.from, type: 'paper' });
-    ev.push({ t: T.at(1) + .1, type: 'nib' }, { t: T.word(1, 13), type: 'paper' });
+    ev.push({ t: T.at(1) + .1, type: 'pen', dur: T.word(2, 4) - T.at(1) + .3 }, { t: T.word(1, 13), type: 'paper' });
     ev.push({ t: T.word(2, 11), type: 'light' });
     ev.push({ t: T.word(4, 5), type: 'cut' }, { t: T.word(4, 6), type: 'thud' });
-    ev.push({ t: T.at(5) + .35, type: 'light' }, { t: T.at(5) + .55, type: 'nib' }, { t: T.at(6) + .1, type: 'nib' });
+    ev.push({ t: T.at(5) + .35, type: 'ignite' }, { t: T.at(5) + .55, type: 'pen', dur: T.end(5) - T.at(5) - .55 }, { t: T.at(6) + .05, type: 'pen', dur: T.end(6) - T.at(6) - .2 });
     ev.push({ t: T.at(7) + .1, type: 'cut' }, { t: T.at(8) - .05, type: 'cut' }, { t: T.at(8) + .2, type: 'light' });
     return ev.sort((a, b) => a.t - b.t);
   },

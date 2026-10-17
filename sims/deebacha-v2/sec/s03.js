@@ -325,11 +325,13 @@ export default {
   },
   events(T) {
     return [
+      { t: T.t0 - 1.2, type: 'azan', dur: T.at(12) - T.t0 + 1.4 },   // faint, far off, while the town and its minaret are on screen
       { t: T.word(1, 0), type: 'light', soft: true },
       { t: T.at(3), type: 'light', soft: true },
-      { t: T.word(5, 4) - .3, type: 'light' },
+      { t: T.word(5, 4) - .3, type: 'ignite' },
       { t: T.word(5, 5) - .1, type: 'shimmer' },
       { t: T.at(6) + .1, type: 'shimmer' },
+      { t: T.at(6) + .1, type: 'crowd', dur: T.word(6, 14) - T.at(6) + 2.5 },   // voices gather as the windows light
       { t: T.word(6, 16) - .25, type: 'light', soft: true },
       { t: T.at(12) - .25, type: 'paper' },
       { t: T.word(12, 2) - .1, type: 'paper', dir: 'out' },

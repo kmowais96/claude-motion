@@ -178,7 +178,7 @@ export default {
       { t: T.at(5) + .1, type: 'wash', dur: 3 }, { t: qa, type: 'brush', dur: 1.3 }, { t: qa + 1.35, type: 'brush', dur: 1.45 },
       { t: tA, type: 'wash', bloom: true }, { t: tA + .25, type: 'brush', dur: 2 }, { t: T.at(8) + .2, type: 'sift', dur: T.end(8) - T.at(8) + .6 },
       { t: T.at(9) + .2, type: 'wash', dur: 2.5, soft: true }, { t: tB, type: 'wash', bloom: true }, { t: T.at(10) + .3, type: 'brush', dur: 2.9 },
-      { t: T.at(11) + .3, type: 'wash', dur: 2.4 }, { t: tC, type: 'wash', bloom: true }, { t: strike, type: 'brush', dur: .17, hard: true },
+      { t: T.at(11) + .3, type: 'wash', dur: 2.4 }, { t: tC, type: 'wash', bloom: true }, { t: strike, type: 'brush', dur: .17, hard: true }, { t: strike, type: 'thunder' },
       ...[0, 1, 2, 3, 4, 5].map(j => ({ t: strike + .3 + j * .85, type: 'drop', soft: true })), { t: T.at(14) + .8, type: 'brush', dur: 2.2, soft: true },
     ].sort((a, b) => a.t - b.t);
   },

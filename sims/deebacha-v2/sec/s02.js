@@ -174,7 +174,7 @@ export default {
   },
   events(T) {
     return [
-      { t: T.at(0) - .5, type: 'light' },
+      { t: T.at(0) - .5, type: 'ignite', soft: true },
       { t: T.word(2, 2) - .45, type: 'paper' },
       { t: T.word(2, 4) + .1, type: 'thud' },
       { t: T.at(3) + .4, type: 'light', dir: 'down' },

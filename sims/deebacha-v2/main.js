@@ -1,4 +1,4 @@
-// Before You Read the Qur'an: one page, a cover and fourteen sections, six hand-made styles.
+// Deebacha, the preface to Tafhim al-Qur'an: one page, a cover and fourteen sections, six hand-made styles.
 import { W, H, timing, captionCues, drawCaption, resetTexts, capTexts, sheetOver, seg } from './shell.js';
 import s01 from './sec/s01.js'; import s02 from './sec/s02.js'; import s03 from './sec/s03.js';
 import s04 from './sec/s04.js'; import s05 from './sec/s05.js'; import s06 from './sec/s06.js';

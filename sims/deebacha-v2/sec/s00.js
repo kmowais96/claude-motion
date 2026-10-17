@@ -7,8 +7,8 @@ import { seal } from '../lib/ink/seal.js';
 import { loadInkFonts } from '../lib/ink/fonts.js';
 
 const INK = '#1f1a15', RULE = 'rgba(52,40,28,.82)';
-const AR = 'تفهيم القرآن', EN = 'Towards Understanding the Qur\u2019an', TITLE = "Before You Read the Qur'an", BY = 'Sayyid Abul A\u2019la Mawdudi',
-  KICK = 'THE PREFACE TO TAFHIM AL-QUR’AN';
+const AR = 'تفهيم القرآن', EN = 'Towards Understanding the Qur\u2019an', TITLE = 'The Preface', BY = 'Sayyid Abul A\u2019la Mawdudi',
+  KICK = 'DEEBACHA';
 const ARF = '700 168px "Amiri"', ENF = 'italic 500 40px "Cormorant Garamond"', TF = '84px "IM Fell English"', BF = 'italic 500 46px "Cormorant Garamond"', KF = '30px "IM Fell English SC"';
 const Y = { kick: 250, ar: 430, en: 600, star: 682, title: 786, by: 876 };
 // beats (seconds from the start of the film)

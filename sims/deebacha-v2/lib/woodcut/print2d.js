@@ -71,11 +71,8 @@ export function camMatrix(cam) {
   return [cs, sn, -sn, cs, ox - (cs * x - sn * y), oy - (sn * x + cs * y)];
 }
 
-// misregistration jolt of a fresh impression: two frames of offset, then back
-export function jolt(t, tc) {
-  const f = Math.floor((t - tc) * 24);
-  return f === 0 ? [5, -3] : f === 1 ? [-2, 1] : [0, 0];
-}
+// a fresh impression used to jolt two frames out of register; it read as a shaking picture, so plates now land still
+export function jolt(t, tc) { return [0, 0]; }
 
 // start a plate: paper everywhere, black wood inside the ragged block edge, camera applied
 export function begin(cam = {}) {

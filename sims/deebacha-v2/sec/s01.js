@@ -221,13 +221,13 @@ export default {
   },
   events(T) {
     const A = T.at(0) - 1.1, ev = [];
-    ev.push({ t: A + .3, type: 'light' }, { t: A + .35, type: 'cut' });
+    ev.push({ t: A + .3, type: 'ignite' }, { t: A + .35, type: 'cut' });
     for (const u of [1.0, 2.0, 3.0, 4.2, 5.4, 6.6]) ev.push({ t: A + u, type: 'cut' });
     for (const p of plates(T).slice(1)) ev.push({ t: p.from, type: 'paper' });
-    ev.push({ t: T.at(4) + .15, type: 'nib' }, { t: T.at(6) + .2, type: 'nib' });
+    ev.push({ t: T.at(4) + .1, type: 'pen', dur: T.at(5) - T.at(4) - .2 }, { t: T.at(6) + .1, type: 'pen', dur: T.at(7) - T.at(6) - .2 });
     ev.push({ t: T.at(5) + .25, type: 'cut' }, { t: T.at(5) + 1.6, type: 'cut' });
     ev.push({ t: T.at(7) + .5, type: 'cut' });
-    ev.push({ t: T.at(8) + .1, type: 'cut' }, { t: T.at(9) - .2, type: 'light' });
+    ev.push({ t: T.at(8) + .1, type: 'cut' }, { t: T.at(9) - .3, type: 'ignite', soft: true });
     ev.push({ t: T.word(10, 6), type: 'cut' }, { t: T.at(11) + .2, type: 'cut' });
     ev.push({ t: T.at(12) + .12, type: 'paper' }, { t: T.at(13), type: 'light' }, { t: T.at(14) + .15, type: 'paper' });
     return ev.sort((a, b) => a.t - b.t);
