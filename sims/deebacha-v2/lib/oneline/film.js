@@ -171,10 +171,10 @@ function sec6(pb, T) {
   // a beautiful flourish, written right to left
   pb.L(3500, 190); pb.C(3540, 190, 3530, 90, 3480, 72);
   pb.win('ruled', e(5) + .1, a(6) - .05, { slowK: 1 });
-  { const s = 21, U = 860 / s;
-    for (let u = 0.25; u <= U; u += 0.25) {
-      const f = u / U, b = 6 + 32 * Math.pow(Math.sin(Math.PI * f), .6) * (0.75 + 0.5 * vnoise(u / 3));
-      pb.L(3480 - s * u - .55 * b * Math.sin(u), 80 - 1.3 * b * Math.cos(u) + 34 * Math.sin(u * .17 + .4) * Math.sin(Math.PI * f));
+  { const s = 17, U = 860 / s;
+    for (let u = 0.2; u <= U; u += 0.2) {
+      const f = u / U, b = 5 + 26 * Math.pow(Math.sin(Math.PI * f), .5) * (0.7 + 0.6 * vnoise(u / 2.3));
+      pb.L(3480 - s * u - 1.05 * b * Math.sin(u), 70 - 1.7 * b * Math.cos(u) + 30 * Math.sin(u * .16 + .4) * Math.sin(Math.PI * f));
     } }
   pb.C(2585, 110, 2592, 178, 2620, 190);
   pb.win('flourish', a(6) - .02, a(6) + (e(6) - a(6)) * .72, { slowK: 1.2 });
@@ -230,9 +230,9 @@ function sec7(pb, T) {
   // on paper: back to the book (along lines already there), the objection, then the answer
   pb.back(iTop); pb.Lr(-370, 0); pb.Lr(-460, 0); pb.Lr(-460, 300); pb.L(-780, 300); pb.Lr(-962, 300); pb.Lr(-962, 70);
   pb.win('to-paper', a(5) - .1, a(6) - .05, { slowK: .5 });
-  latinRow(pb, -962, -868, 70, 21, 1.1); qmark(pb, -846, 70, 40);
+  const iR1 = pb.idx(); latinRow(pb, -962, -868, 70, 21, 1.1); qmark(pb, -842, 70, 50);
   pb.win('objection', a(6), a(6) + (e(6) - a(6)) * .5, { slowK: 1.2 });
-  pb.C(-822, 70, -800, 96, -800, 120); latinRow(pb, -800, -958, 120, 22, 1.1); pb.L(-962, 120);
+  pb.over(pb.idx(), iR1); pb.Lr(-962, 120); const iR2 = pb.idx(); latinRow(pb, -962, -800, 120, 22, 1.1); pb.back(iR2);
   pb.win('answer', a(6) + (e(6) - a(6)) * .52, e(6) + .1, { slowK: 1.2 });
   // in a speech the objectors are right there: question marks standing on the ground
   pb.Lr(-962, 300); pb.Lr(-780, 300); pb.Lr(-100, 300);
@@ -396,14 +396,14 @@ function cams(T6, T7, T8, off7, off8) {
   const b = T7.at, d = T7.end, t4 = f => b(4) + (d(4) - b(4)) * f, t14 = f => b(14) + (d(14) - b(14)) * f;
   const c7 = sh(off7, [
     { t: b(0) - 2, x: -870, y: 150, z: 1.75, f: 0 }, { t: b(1) - .2, x: -860, y: 140, z: 1.6, f: 0 },
-    { t: b(2) + .3, x: -330, y: -180, z: .9, f: 0 }, { t: t4(.45), x: -300, y: -170, z: .92, f: 0 },
+    { t: b(2) + .3, x: -320, y: -110, z: .88, f: 0 }, { t: t4(.45), x: -300, y: -105, z: .89, f: 0 },
     { t: t4(.55), x: -310, y: 40, z: 1.3, f: 0 }, { t: d(4) + .5, x: -300, y: 40, z: 1.32, f: 0 },
     { t: b(6) - .2, x: -870, y: 170, z: 1.85, f: 0 }, { t: d(6) + .1, x: -870, y: 170, z: 1.9, f: 0 },
     { t: b(7) + .2, x: -160, y: 10, z: .95, f: 0 }, { t: d(8) + .1, x: -150, y: 10, z: .96, f: 0 },
     { t: b(9) + .2, x: -870, y: 170, z: 1.85, f: 0 }, { t: d(9) + .1, x: -870, y: 170, z: 1.9, f: 0 },
     { t: b(10) + .1, x: 80, y: 20, z: .86, f: 0 }, { t: d(10) + .7, x: 90, y: 20, z: .87, f: 0 },
     { t: b(11) + .5, x: 1700, y: 200, z: 1.3, f: .4 }, { t: b(12) - .3, x: 1860, y: 205, z: 1.55, f: 0 }, { t: t14(.64), x: 1870, y: 205, z: 1.58, f: 0 },
-    { t: d(14) - .2, x: 2060, y: -150, z: 1.0, f: .2 }, { t: b(15) - .1, x: 2000, y: -300, z: 1.15, f: 0 }, { t: d(15), x: 2000, y: -300, z: 1.2, f: 0 },
+    { t: d(14) - .2, x: 2050, y: -200, z: 1.2, f: 0 }, { t: b(15) - .1, x: 2000, y: -330, z: 1.2, f: 0 }, { t: d(15), x: 2000, y: -335, z: 1.25, f: 0 },
     { t: b(16) + .3, x: 2100, y: -60, z: .8, f: 0 }, { t: d(16) + .2, x: 2120, y: -50, z: .8, f: 0 },
     { t: b(17) + .2, x: 3190, y: 400, z: 1.3, f: 0 }, { t: d(19), x: 3190, y: 400, z: 1.42, f: 0 }, { t: d(19) + 3, x: 3190, y: 400, z: 1.44, f: 0 },
   ]);

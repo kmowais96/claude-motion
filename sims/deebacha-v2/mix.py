@@ -57,6 +57,7 @@ def sound(e):
     if ty == 'wash':    return wash(d or 1.4), .06 * g
     if ty == 'stamp':   return thump(1, 110), .09 * g
     if ty == 'thud':    return thump(1, 60), .16 * g
+    if ty == 'tap':     return switch(), .03 * g
     if ty == 'drop':    return pop(), .05 * g
     if ty == 'sift':    return sift(d or 2.0), .04 * g
     return rustle(.4), .04 * g
