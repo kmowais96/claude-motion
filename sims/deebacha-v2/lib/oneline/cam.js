@@ -2,7 +2,7 @@
 import { clamp, lerp } from '/core/lib.js';
 import { headAt, posAt } from './geom.js';
 
-export const BASE = 0.85;   // z=1 时每单位像素（整张脸入画）
+export const BASE = 1;   // z=1 时每单位像素（整张脸入画）
 
 const sm = t => t * t * (3 - 2 * t);
 function keyAt(keys, t) {
@@ -17,22 +17,23 @@ function keyAt(keys, t) {
   return { ...keys[keys.length - 1] };
 }
 
-export function camAt(P, keys, t, W = 1920, H = 1080) {
+export function camAt(P, keys, t, W = 1920, H = 1080, rng = [0, 1e9]) {
+  const hd = tt => Math.min(rng[1], Math.max(rng[0], headAt(P, tt)));
   const K = keyAt(keys, t);
   // 跟拍点：t-0.55 … t+0.4 的加权平均（先有延迟，再带一点预判）
   let fx = 0, fy = 0, ws = 0;
   for (let j = -11; j <= 8; j++) {
     const tt = t + j * 0.05, w = Math.exp(-((j + 1.5) * (j + 1.5)) / 40);
-    const p = posAt(P, headAt(P, tt)); fx += p[0] * w; fy += p[1] * w; ws += w;
+    const p = posAt(P, hd(tt)); fx += p[0] * w; fy += p[1] * w; ws += w;
   }
   fx /= ws; fy /= ws;
   let cx = lerp(K.x, fx, K.f), cy = lerp(K.y, fy, K.f);
   const k = BASE * K.z, r = K.r * Math.PI / 180;
   // 笔尖保持在画面内（软约束）
-  const pen = posAt(P, headAt(P, t));
+  const pen = posAt(P, hd(t));
   const c = Math.cos(-r), s = Math.sin(-r);
   let px = (pen[0] - cx) * k, py = (pen[1] - cy) * k; let sx = c * px - s * py, sy = s * px + c * py;
-  const mx = W * 0.36, my = H * 0.33;
+  const mx = W * 0.36, my = H * 0.3;
   const soft = (v, m) => { const a = Math.abs(v); if (a <= m) return 0; return Math.sign(v) * (a - m); };
   const ex = soft(sx, mx), ey = soft(sy, my);
   if (ex || ey) { // 屏幕偏移换回世界

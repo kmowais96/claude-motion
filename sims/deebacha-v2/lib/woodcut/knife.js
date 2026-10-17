@@ -14,6 +14,11 @@ const vn = (x, s) => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * 
 
 export function mkStroke(pts, w, o = {}) {
   // pts: [[x,y],...] or flat array
+  // a cut given by only a few points gets intermediate points, so the tool profile has room to swell
+  if (pts.length && Array.isArray(pts[0]) && pts.length < 8 && typeof w === 'number') {
+    let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    pts = resample(pts, Math.max(1.5, L / 24));
+  }
   const p = pts.length && Array.isArray(pts[0]) ? Float32Array.from(pts.flat()) : Float32Array.from(pts);
   const n = p.length / 2;
   const ws = typeof w === 'number' ? new Float32Array(n).fill(w) : Float32Array.from(w);

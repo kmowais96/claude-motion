@@ -5,7 +5,7 @@
 // وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ carved, copper glowing in the letters (Hud 11:88).
 import { clamp, eio, eo, mulberry } from '/core/lib.js';
 import { m, c, begin, end, print, jolt } from '../lib/woodcut/print2d.js';
-import { WC, carveText, border, lampBody, flame, flameRing, lampLight, q12 } from '../lib/woodcut/kit.js';
+import { WC, carveText, border, layer, lampBody, flame, flameRing, lampLight, q12 } from '../lib/woodcut/kit.js';
 import { drawDesk } from '../lib/woodcut/desk.js';
 
 const AYAH = 'وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ', REF = "Qur'an, Hud 11:88";
@@ -115,7 +115,8 @@ export default {
     if (P.id === 'cal') {
       begin(cam);
       WC.drawStrokes(m, K.nail, { t });
-      WC.drawStrokes(m, K.calCut, { t });
+      if (t > T.at(0) + .9) m.drawImage(layer('cal13', g => WC.drawStrokes(g, K.calCut, {})), 0, 0);
+      else WC.drawStrokes(m, K.calCut, { t });
       calText(m);
       WC.drawStrokes(m, K.calRing, { t, color: '#000' });
     } else if (P.id === 'desk') {

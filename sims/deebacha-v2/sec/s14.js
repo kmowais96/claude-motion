@@ -157,7 +157,7 @@ function build() {
   });
   const sh = mk(bw + 60, bh + 60, x => { x.filter = 'blur(10px)'; x.fillStyle = 'rgba(0,0,0,.6)'; x.fillRect(36, 44, bw, bh); });
   const strips = ['Read the setting.', 'Learn the words.', 'Hear it whole.', 'Then go deep.'].map((s, i) => ({ s, st: cutStrip(s, { size: 54, weight: 'italic 500', col: '#120c22', seed: 20 + i, h: 92, pad: 34 }) }));
-  const endStrip = cutStrip('TAFHIM AL-QUR’AN · SAYYID ABUL A’LA MAWDUDI', { size: 44, weight: 600, ls: 5, col: '#130a06', seed: 31, h: 100, pad: 56 });
+  const endStrip = cutStrip('TAFHIM AL-QUR’AN · SAYYID ABUL A’LA MAWDUDI', { size: 38, weight: 600, ls: 5, col: '#130a06', seed: 31, h: 100, pad: 56 });
   return { I, O, win, book: { cover, coverG, endp, pages, sh }, strips, endStrip, glow: new Glow(), gIn: new Glow(), IC: cv(W, H), ICh: cv(W / 2, H / 2) };
 }
 
@@ -200,8 +200,15 @@ export default {
       return;
     }
     // render the interior small, to be placed in the cell's window
-    const half = winScreenW < W * .5, IC = half ? S.ICh : S.IC, ic = IC.getContext('2d');
-    VIEW.s = half ? .5 : 1; this.interior(ic, t, T, S, VIEW.s); VIEW.s = 1;
+    const half = winScreenW < W * .5;
+    let IC;
+    if (winScreenW < 520) {   // small: a cached snapshot of the lit cell (built at a fixed time, so deterministic)
+      if (!S.snap || S.snapT !== T) { S.snap = cv(W / 2, H / 2); VIEW.s = .5; this.interior(S.snap.getContext('2d'), T.end(2) + 1, T, S, .5); VIEW.s = 1; S.snapT = T; }
+      IC = S.snap;
+    } else {
+      IC = half ? S.ICh : S.IC; const ic = IC.getContext('2d');
+      VIEW.s = half ? .5 : 1; this.interior(ic, t, T, S, VIEW.s); VIEW.s = 1;
+    }
     this.exterior(ctx, t, T, S, cam, IC, pull);
     vignette(ctx);
   },
@@ -232,8 +239,8 @@ export default {
     const blend = bl('night', 'warm', warm);
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#050410'; ctx.fillRect(0, 0, W, H);
     G.begin();
-    drawLayer(ctx, O.skyN, cam, [['a', 1]]);
-    if (warm > .002) drawLayer(ctx, O.skyW, cam, [['a', 1]], warm);
+    if (warm < .998) drawLayer(ctx, O.skyN, cam, [['a', 1]]);
+    if (warm > .002) drawLayer(ctx, O.skyW, cam, [['a', 1]], warm < .998 ? warm : 1);
     const winLight = (x, w) => {
       const a = clamp((winOn * 1.25 - w.d) / .12) * (w.seed < .3 ? warm : 1);
       const v = (w.seed < .3 ? a : Math.max(a, 0)) * flick(t, w.seed * 9);
@@ -263,6 +270,9 @@ export default {
     const fa = clamp((cam.d - .01) / .12);
     const pf = drawLayer(ctx, O.front, cam, blend, fa);
     if (pf) this.book(ctx, t, T, S, pf, G);
+    if (dim > 0) {   // the world goes dark; the book's light (bloom) and the end strip stay
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = `rgba(4,3,8,${.6 * dim})`; ctx.fillRect(0, 0, W, H);
+    }
     // strips in the sky
     const pq = proj(cam, OZ.paper);
     if (pq) {
@@ -270,25 +280,15 @@ export default {
       const away = TL.stripsAway(t);
       S.strips.forEach((s, i) => {
         const k = TL.strip(t, i); if (k <= 0 || away >= 1) return;
-        const [x0, y0] = SPOS[i];
-        drawStrip(ctx, s.st, x0, y0 - away * 560, k, '#ffcf86', .95);
-        G.at(ctx, pq, x => { if (x === ctx) return; x.save(); x.beginPath(); x.rect(x0, y0 - away * 560 - 20, s.st.w * k, s.st.h + 40); x.clip(); x.globalAlpha = .6; x.drawImage(s.st.G, x0 - 20, y0 - away * 560 - 20); x.restore(); }, 1);
+        const [x0, y0] = SPOS[i], y = y0 - away * 560;
+        drawStrip(ctx, s.st, x0, y, k, '#ffcf86', .95);
+        G.haze(pq, x => { x.beginPath(); x.rect(x0, y - 20, s.st.w * k, s.st.h + 40); x.clip(); x.globalAlpha = .6; x.drawImage(s.st.G, x0 - 20, y - 20); });
       });
-    }
-    // light from the open book (behind the dimming, so it stays last)
-    this.burst(ctx, t, T, S, cam, G, 1);
-    G.end(ctx, .9);
-    if (dim > 0) {   // the world goes dark; the book's light and the end strip stay
-      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = `rgba(4,3,8,${.62 * dim})`; ctx.fillRect(0, 0, W, H);
-      const g2 = S.glow; g2.begin(); this.burst(ctx, t, T, S, cam, g2, .55 * dim, true); g2.end(ctx, .7 * dim);
-    }
-    if (pq) {
       const e = TL.end(t);
       if (e > 0) {
         setT(ctx, pq);
         const es = S.endStrip, x0 = CX - es.w / 2, y0 = END.y;
-        const glowCol = '#ffd08c', shimmer = .9 + .1 * Math.sin(t * 1.3);
-        drawStrip(ctx, es, x0, y0, e, glowCol, shimmer);
+        drawStrip(ctx, es, x0, y0, e, '#ffd08c', .9 + .1 * Math.sin(t * 1.3));
         const sl = eio(seg(t, T.at(10) + .9, T.at(10) + 1.25)), sp = 1 + 1.1 * (1 - sl);
         if (sl > 0) {
           ctx.save(); ctx.translate(x0 + es.w + 34, y0 + es.h / 2); ctx.rotate(.05); ctx.scale(sp, sp); ctx.globalAlpha = sl;
@@ -298,11 +298,12 @@ export default {
           ctx.beginPath(); ctx.arc(0, 0, 9, 0, TAU); ctx.stroke();
           ctx.restore();
         }
-        const G4 = S.glow; G4.begin();
-        G4.at(ctx, pq, x => { if (x === ctx) return; x.save(); x.beginPath(); x.rect(x0, y0 - 20, es.w * e, es.h + 40); x.clip(); x.globalAlpha = .75; x.drawImage(es.G, x0 - 20, y0 - 20); x.restore(); }, 1);
-        G4.end(ctx, .8);
+        G.haze(pq, x => { x.beginPath(); x.rect(x0, y0 - 20, es.w * e, es.h + 40); x.clip(); x.globalAlpha = .75; x.drawImage(es.G, x0 - 20, y0 - 20); });
       }
     }
+    // light from the open book: soft rays, bloom only
+    this.burst(t, T, cam, G);
+    G.end(ctx, .9);
   },
   book(ctx, t, T, S, pf, G) {
     const rise = TL.rise(t); if (rise <= 0) return;
@@ -315,7 +316,7 @@ export default {
     if (open > 0) {
       ctx.drawImage(B.pages, bx - 1, y0 - 1);
       G.at(ctx, pf, x => {
-        x.globalAlpha = .55 * burst + .25 * open; x.fillStyle = '#ffd9a0'; x.fillRect(bx, y0, BOOK.w, bh);
+        x.globalAlpha = .16 * burst + .1 * open; x.fillStyle = '#ffcf8a'; x.fillRect(bx, y0, BOOK.w, bh);
         const one = TL.oneLine(t);
         if (one > 0) { x.globalAlpha = one; x.fillStyle = '#fff1cc'; x.fillRect(bx + 22, y0 + 28, BOOK.w - 44, 5); }
       }, .8);
@@ -339,30 +340,25 @@ export default {
     if (rise < 1 || open === 0) G.at(ctx, pf, x => { if (x === ctx) return; x.globalAlpha = .35 * rise; x.drawImage(tintC(B.coverG, '#ffc879'), bx - 1, y0 - 1); }, 1);
     ctx.restore();
   },
-  burst(ctx, t, T, S, cam, G, gain, only) {
+  burst(t, T, cam, G) {
     const b = TL.burst(t); if (b <= 0) return;
     const pf = proj(cam, OZ.front); if (!pf) return;
     const bh = BOOK.bot - BOOK.top, cx = BOOK.x + BOOK.w / 2, cy = BOOK.top + bh * .4;
-    const settle = 1 - .35 * eio(seg(t, T.end(8) + .3, T.at(10)));
-    G.at(ctx, pf, x => {
-      if (only && x === ctx) {   // after the dim: the pages again, softly
-        x.globalAlpha = gain * 1.4; x.fillStyle = '#ffd59a'; x.fillRect(BOOK.x, BOOK.top, BOOK.w, bh);
-      }
+    const k = b * (1 - .3 * eio(seg(t, T.end(8) + .3, T.at(10)))) * (1 - .25 * TL.dim(t));
+    G.haze(pf, x => {
       const R = 240 + 1100 * b;
-      // an upward fan of light (kept off the caption band below the ledge)
-      x.save(); x.beginPath(); x.rect(-600, -600, W + 1200, LEDGE + 600); x.clip();
+      x.beginPath(); x.rect(-600, -600, W + 1200, LEDGE + 600); x.clip();   // nothing below the ledge: the caption band stays dark
       const rg = x.createRadialGradient(cx, cy, 0, cx, cy, R);
-      rg.addColorStop(0, `rgba(255,222,160,${.55 * b * settle * gain})`); rg.addColorStop(.2, `rgba(255,186,100,${.22 * b * settle * gain})`); rg.addColorStop(1, 'rgba(255,170,90,0)');
-      x.globalAlpha = 1; x.fillStyle = rg; x.fillRect(cx - R, cy - R, R * 2, R * 2);
+      rg.addColorStop(0, `rgba(255,222,160,${.5 * k})`); rg.addColorStop(.2, `rgba(255,186,100,${.16 * k})`); rg.addColorStop(1, 'rgba(255,170,90,0)');
+      x.fillStyle = rg; x.fillRect(cx - R, cy - R, R * 2, R * 2);
       const Rr = mulberry(9);
       for (let i = 0; i < 16; i++) {
-        const a = -Math.PI / 2 + (i / 15 - .5) * 2.4 + (Rr() - .5) * .08 + .03 * Math.sin(t * .7 + i), len = (700 + Rr() * 700) * b, wd = .025 + Rr() * .045;
+        const a = -Math.PI / 2 + (i / 15 - .5) * 2.4 + (Rr() - .5) * .08 + .03 * Math.sin(t * .7 + i), len = (700 + Rr() * 700) * b, wd = .02 + Rr() * .035;
         const lg = x.createRadialGradient(cx, cy, 0, cx, cy, len);
-        lg.addColorStop(0, `rgba(255,214,150,${.26 * b * settle * gain})`); lg.addColorStop(1, 'rgba(255,200,130,0)');
+        lg.addColorStop(0, `rgba(255,214,150,${.3 * k})`); lg.addColorStop(1, 'rgba(255,200,130,0)');
         x.fillStyle = lg; x.beginPath(); x.moveTo(cx, cy); x.arc(cx, cy, len, a - wd, a + wd); x.closePath(); x.fill();
       }
-      x.restore();
-    }, .45);
+    });
   },
   texts(t, T) {
     if (!TL || TLT !== T) return [];

@@ -154,14 +154,19 @@ export class Glow {
     if (bloom > 0) { setT(this.x, p, .25); this.x.save(); this.x.globalAlpha = bloom; fn(this.x, bloom); this.x.restore(); }
   }
   end(ctx, gain = 1) {
+    // two blur radii mixed at quarter resolution, then one upscale onto the frame
     const b1 = this.B1.getContext('2d'), b2 = this.B2.getContext('2d');
-    b1.setTransform(1, 0, 0, 1, 0, 0); b1.clearRect(0, 0, W / 4, H / 4); b1.filter = 'blur(4px)'; b1.drawImage(this.L, 0, 0); b1.filter = 'none';
     b2.setTransform(1, 0, 0, 1, 0, 0); b2.clearRect(0, 0, W / 8, H / 8); b2.filter = 'blur(7px)'; b2.drawImage(this.L, 0, 0, W / 8, H / 8); b2.filter = 'none';
+    b1.setTransform(1, 0, 0, 1, 0, 0); b1.globalCompositeOperation = 'source-over'; b1.globalAlpha = 1; b1.clearRect(0, 0, W / 4, H / 4);
+    b1.filter = 'blur(4px)'; b1.globalAlpha = .9; b1.drawImage(this.L, 0, 0); b1.filter = 'none';
+    b1.globalCompositeOperation = 'lighter'; b1.globalAlpha = .8; b1.drawImage(this.B2, 0, 0, W / 4, H / 4);
+    b1.globalCompositeOperation = 'source-over'; b1.globalAlpha = 1;
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.save(); ctx.globalCompositeOperation = 'lighter';
-    ctx.globalAlpha = clamp(.9 * gain, 0, 1); ctx.drawImage(this.B1, 0, 0, W, H);
-    ctx.globalAlpha = clamp(.8 * gain, 0, 1); ctx.drawImage(this.B2, 0, 0, W, H);
+    ctx.globalAlpha = clamp(gain, 0, 1); ctx.drawImage(this.B1, 0, 0, W, H);
     ctx.restore();
   }
+  // light drawn only into the bloom (soft rays, haze): no full-resolution fill
+  haze(p, fn, a = 1) { setT(this.x, p, .25); this.x.save(); this.x.globalAlpha = a; fn(this.x, a); this.x.restore(); }
 }
 
 // lens vignette + darker lower band (captions sit on it)

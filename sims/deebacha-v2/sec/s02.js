@@ -116,7 +116,7 @@ export default {
     G.begin();
     const order = ['wall', 'far', 'mid', 'near', 'front'];
     order.forEach((name, n) => {
-      const f = clamp(litOf(n) * dim);
+      const f = litOf(n);
       const p = drawLayer(ctx, L[name], cam, bl('off', 'on', f));
       if (!p) return;
       if (name === 'far') {
@@ -130,7 +130,7 @@ export default {
             x.fillStyle = g; x.fillRect(GAP.x0 + 1, GAP.top - 10, GAP.x1 - GAP.x0 - 2, GAP.bot - GAP.top + 10);
           }
         }, 1);
-        G.at(ctx, p, (x, s) => {
+        G.haze(p, (x, s) => {
           const cxg = (GAP.x0 + GAP.x1) / 2, cyg = (GAP.top + GAP.bot) / 2 + 20;
           if (burst > 0) {
             const R = 120 + 1000 * burst, rg = x.createRadialGradient(cxg, cyg, 0, cxg, cyg, R);
@@ -145,7 +145,7 @@ export default {
               x.arc(cxg, cyg, len, a - wd, a + wd); x.closePath(); x.fill();
             }
           }
-        }, .3);
+        }, 1);
       }
       if (name === 'near') {
         // the new book slides in along the shelf from the right
@@ -168,6 +168,7 @@ export default {
         }, 1);
       }
     });
+    if (dim < .999) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = `rgba(10,4,0,${(1 - dim) * .8})`; ctx.fillRect(0, 0, W, H); }
     G.end(ctx, .9);
     vignette(ctx);
   },

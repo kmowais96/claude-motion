@@ -184,7 +184,7 @@ export default {
     if (camT !== T) { camF = camOf(T); camT = T; }
     const cam = drift(camF(t), t);
     // warmth of the whole ladder: cool night → warm as the windows light
-    const warm = .78 * eio(seg(t, T.k(5, .5), T.end(6))) + .22 * eio(seg(t, T.at(10), T.end(11)));
+    const warm = eio(seg(t, T.k(5, .5), T.end(6) + .8));
     const ember = .14 * eio(seg(t, T.word(1, 0), T.word(1, 4) + 1));
     const lantern = eio(seg(t, T.word(5, 4) - .3, T.word(5, 4) + .5));
     const chanF = eio(seg(t, T.word(5, 5) - .1, T.end(5) - .2));        // lantern → well
@@ -198,8 +198,8 @@ export default {
     G.begin();
     const blend = bl('cool', 'warm', warm);
     // sky
-    let p = drawLayer(ctx, L.skyC, cam, [['a', 1]]);
-    if (warm > .002) drawLayer(ctx, L.skyW, cam, [['a', 1]], warm);
+    let p = warm < .998 ? drawLayer(ctx, L.skyC, cam, [['a', 1]]) : null;
+    if (warm > .002) drawLayer(ctx, L.skyW, cam, [['a', 1]], warm < .998 ? warm : 1);
     // far hills + madrasa (lit from the start)
     p = drawLayer(ctx, L.far, cam, blend);
     G.at(ctx, p, x => {
