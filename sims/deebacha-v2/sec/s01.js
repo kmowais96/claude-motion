@@ -70,7 +70,7 @@ function drawLand(g, cp, t, t0, cam) {
 
 // ---------- nine sheets on the desk, lamp at right ----------
 const F3 = [1700, 470], S3 = 1.7;
-const sheetQuad = i => { const cx = 1470 - i * 157, y0 = 560, y1 = 760; return [[cx - 62, y0], [cx + 62, y0], [cx + 68, y1], [cx - 68, y1]]; };
+const sheetQuad = i => { const cx = 1372 - i * 147, y0 = 560, y1 = 760; return [[cx - 62, y0], [cx + 62, y0], [cx + 68, y1], [cx - 68, y1]]; };
 let NINE = null;
 function nine() {
   if (NINE) return NINE;
@@ -190,7 +190,7 @@ export default {
       begin(cam);
       nine().draw(m, 1e9, cam);
       const tw = T.word(10, 6), t11 = T.at(11) + .2, t12 = T.at(12) + .12, t14 = T.at(14) + .15;
-      const lift = eo(clamp((t - t14) / .5)) * .95 - .12 * Math.sin(clamp((t - t14 - .5) / .4) * Math.PI);
+      const lift = eo(clamp((t - t14) / .5)) * .75 - .1 * Math.sin(clamp((t - t14 - .5) / .4) * Math.PI);
       for (let i = 8; i >= 0; i--) {
         const k = i === 0 ? clamp((t - tw) / .4) : clamp((t - t11 - (i - 1) * .12) / .25);
         const p = clamp((q12(t) - t12 - i * .085) / .34);
@@ -199,7 +199,7 @@ export default {
         sheet(m, i, k, th);
         if (i === 0 && lift > .05) {   // the lifted edge catches the lamp: copper
           const Q = sheetQuad(0), xr = (Q[1][0] + Q[2][0]) / 2, x = xr - (xr - Q[0][0]) * Math.cos(th), dy = (xr - Q[0][0]) * Math.sin(th) * .22;
-          c.fillStyle = `rgba(0,0,0,${clamp(lift * 1.2)})`; c.beginPath(); c.moveTo(x - 3, Q[0][1] - dy - 2); c.lineTo(x + 10, Q[0][1] - dy); c.lineTo(x + 10, Q[3][1] - dy); c.lineTo(x - 3, Q[3][1] - dy + 2); c.closePath(); c.fill();
+          c.fillStyle = `rgba(0,0,0,${clamp(lift * 1.2)})`; c.beginPath(); c.moveTo(x - 3, Q[0][1] - dy - 2); c.lineTo(x + 16, Q[0][1] - dy); c.lineTo(x + 16, Q[3][1] - dy); c.lineTo(x - 3, Q[3][1] - dy + 2); c.closePath(); c.fill();
         }
       }
       // the light spreads over the pages as he "tells you how to meet the Book", then draws back

@@ -112,7 +112,7 @@ export function bloom(LA, LB, cx, cy, R) {
 }
 
 // ---- present -------------------------------------------------------------------
-const HA = mkc(HW, HH), HB = mkc(HW, HH), HO = mkc(HW, HH), TMP = mkc(W, H);
+const HA = mkc(HW, HH), HB = mkc(HW, HH), HO = mkc(HW, HH);
 // L: layer set already drawn (screen space). c: [s, tx, ty] camera for the paper. o: {bleed, rim, darken}
 export function present(ctx, L, c = [1, 0, 0], o = {}) {
   paper();
@@ -142,10 +142,7 @@ export function present(ctx, L, c = [1, 0, 0], o = {}) {
   ctx.drawImage(HO, 0, 0, W, H);
   // dry: paper tooth bites the ink
   const d = L.cd; d.save(); d.setTransform(1, 0, 0, 1, 0, 0); d.globalCompositeOperation = 'destination-out'; d.globalAlpha = .55; d.drawImage(TOOTH, 0, 0); d.restore();
-  // ink colour: the dry layer is drawn black; tint toward warm black
-  const t = TMP.getContext('2d'); t.clearRect(0, 0, W, H); t.globalCompositeOperation = 'source-over'; t.drawImage(L.dry, 0, 0);
-  t.globalCompositeOperation = 'source-in'; t.fillStyle = `rgb(${INK_RGB.join(',')})`; t.fillRect(0, 0, W, H); t.globalCompositeOperation = 'source-over';
-  ctx.drawImage(TMP, 0, 0);
+  ctx.drawImage(L.dry, 0, 0);   // drawn black: within a hair of the warm-black ink tone, and saves a full-frame pass
   // colour (vermilion), printed into the paper
   ctx.globalAlpha = .95; ctx.drawImage(L.col, 0, 0); ctx.globalAlpha = 1;
   if (o.darken) { ctx.fillStyle = `rgba(0,0,0,${o.darken})`; ctx.fillRect(0, 0, W, H); }

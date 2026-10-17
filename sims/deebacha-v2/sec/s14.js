@@ -156,7 +156,7 @@ function build() {
     x.fillStyle = 'rgba(0,0,0,.18)'; x.fillRect(0, 0, 10, bh);
   });
   const sh = mk(bw + 60, bh + 60, x => { x.filter = 'blur(10px)'; x.fillStyle = 'rgba(0,0,0,.6)'; x.fillRect(36, 44, bw, bh); });
-  const strips = ['Read the setting.', 'Learn the words.', 'Hear it whole.', 'Then go deep.'].map((s, i) => ({ s, st: cutStrip(s, { size: 54, weight: 500, font: 'italic 500 54px "Cormorant Garamond"'.replace('italic 500 54px ', ''), col: '#120c22', seed: 20 + i, h: 92, pad: 34 }) }));
+  const strips = ['Read the setting.', 'Learn the words.', 'Hear it whole.', 'Then go deep.'].map((s, i) => ({ s, st: cutStrip(s, { size: 54, weight: 'italic 500', col: '#120c22', seed: 20 + i, h: 92, pad: 34 }) }));
   const endStrip = cutStrip('TAFHIM AL-QUR’AN · SAYYID ABUL A’LA MAWDUDI', { size: 44, weight: 600, ls: 5, col: '#130a06', seed: 31, h: 100, pad: 56 });
   return { I, O, win, book: { cover, coverG, endp, pages, sh }, strips, endStrip, glow: new Glow(), gIn: new Glow(), IC: cv(W, H), ICh: cv(W / 2, H / 2) };
 }
@@ -298,7 +298,6 @@ export default {
           ctx.beginPath(); ctx.arc(0, 0, 9, 0, TAU); ctx.stroke();
           ctx.restore();
         }
-        const g3 = new Proxy({}, {});
         const G4 = S.glow; G4.begin();
         G4.at(ctx, pq, x => { if (x === ctx) return; x.save(); x.beginPath(); x.rect(x0, y0 - 20, es.w * e, es.h + 40); x.clip(); x.globalAlpha = .75; x.drawImage(es.G, x0 - 20, y0 - 20); x.restore(); }, 1);
         G4.end(ctx, .8);
