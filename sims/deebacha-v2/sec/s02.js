@@ -140,7 +140,7 @@ export default {
             for (let i = 0; i < 14; i++) {
               const a = -Math.PI / 2 + (i / 13 - .5) * 2.6 + (Rr() - .5) * .1, len = (600 + Rr() * 900) * burst, wd = .03 + Rr() * .05;
               const lg = x.createRadialGradient(cxg, cyg, 0, cxg, cyg, len);
-              lg.addColorStop(0, `rgba(255,205,140,${.2 * burst})`); lg.addColorStop(1, 'rgba(255,200,130,0)');
+              lg.addColorStop(0, `rgba(255,205,140,${.38 * burst})`); lg.addColorStop(1, 'rgba(255,200,130,0)');
               x.fillStyle = lg; x.beginPath(); x.moveTo(cxg, cyg);
               x.arc(cxg, cyg, len, a - wd, a + wd); x.closePath(); x.fill();
             }

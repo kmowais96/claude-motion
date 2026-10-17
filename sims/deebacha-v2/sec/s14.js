@@ -147,9 +147,9 @@ function build() {
     x.fillStyle = 'rgba(0,0,0,.35)'; x.fillRect(0, 0, 7, bh);
     x.globalCompositeOperation = 'destination-out'; x.drawImage(coverG, -1, -1);
   });
-  const endp = mk(bw, bh, x => { x.fillStyle = '#e2c58c'; x.fillRect(0, 0, bw, bh); grain(x, bw, bh, .9); x.strokeStyle = 'rgba(120,70,30,.5)'; x.lineWidth = 1.5; x.strokeRect(12, 12, bw - 24, bh - 24); x.fillStyle = 'rgba(0,0,0,.25)'; x.fillRect(bw - 8, 0, 8, bh); });
+  const endp = mk(bw, bh, x => { x.fillStyle = '#d4b47a'; x.fillRect(0, 0, bw, bh); grain(x, bw, bh, .9); x.strokeStyle = 'rgba(120,70,30,.5)'; x.lineWidth = 1.5; x.strokeRect(12, 12, bw - 24, bh - 24); x.fillStyle = 'rgba(0,0,0,.25)'; x.fillRect(bw - 8, 0, 8, bh); });
   const pages = mk(bw, bh, x => {
-    x.fillStyle = '#f3dfb0'; x.fillRect(0, 0, bw, bh); grain(x, bw, bh, .7);
+    x.fillStyle = '#e8cf98'; x.fillRect(0, 0, bw, bh); grain(x, bw, bh, .7);
     x.fillStyle = 'rgba(110,60,25,.45)';
     const R = mulberry(77);
     for (let r = 0; r < 11; r++) { let u = bw - 22; while (u > 26) { const l = 8 + R() * 22; x.fillRect(u - l, 30 + r * 18, l, 2.2); u -= l + 5; } }
@@ -288,7 +288,7 @@ export default {
       if (e > 0) {
         setT(ctx, pq);
         const es = S.endStrip, x0 = CX - es.w / 2, y0 = END.y;
-        drawStrip(ctx, es, x0, y0, e, '#ffd08c', .9 + .1 * Math.sin(t * 1.3));
+        drawStrip(ctx, es, x0, y0, e, '#ffd894', 1);
         const sl = eio(seg(t, T.at(10) + .9, T.at(10) + 1.25)), sp = 1 + 1.1 * (1 - sl);
         if (sl > 0) {
           ctx.save(); ctx.translate(x0 + es.w + 34, y0 + es.h / 2); ctx.rotate(.05); ctx.scale(sp, sp); ctx.globalAlpha = sl;
@@ -315,11 +315,12 @@ export default {
     // pages (seen once the cover lifts)
     if (open > 0) {
       ctx.drawImage(B.pages, bx - 1, y0 - 1);
-      G.at(ctx, pf, x => {
-        x.globalAlpha = .16 * burst + .1 * open; x.fillStyle = '#ffcf8a'; x.fillRect(bx, y0, BOOK.w, bh);
-        const one = TL.oneLine(t);
-        if (one > 0) { x.globalAlpha = one; x.fillStyle = '#fff1cc'; x.fillRect(bx + 22, y0 + 28, BOOK.w - 44, 5); }
-      }, .8);
+      G.haze(pf, x => { x.globalAlpha = .3 * burst + .2 * open; x.fillStyle = '#ffcf8a'; x.fillRect(bx, y0, BOOK.w, bh); });
+      const one = TL.oneLine(t);   // one line of the page catches the light: one surah
+      if (one > 0) G.at(ctx, pf, x => { x.globalAlpha = one * .9; x.fillStyle = '#ffd9a0'; x.fillRect(bx + 22, y0 + 28, BOOK.w - 44, 4); }, 1);
+      // the gutter
+      const gg = ctx.createLinearGradient(bx - 14, 0, bx + 14, 0); gg.addColorStop(0, 'rgba(60,30,10,0)'); gg.addColorStop(.5, 'rgba(60,30,10,.45)'); gg.addColorStop(1, 'rgba(60,30,10,0)');
+      if (open > .5) { ctx.fillStyle = gg; ctx.fillRect(bx - 14, y0, 28, bh); }
     }
     // the cover turns on its spine: width cos(angle), front face then the endpaper
     const sx = Math.cos(open * Math.PI);
