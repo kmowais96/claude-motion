@@ -40,6 +40,12 @@ def sift(d=2.0, v=1):
     return norm(lp(x, 9000) * swell(d)) * v
 
 def sound(e):
+    x, g = _sound(e)
+    k = float(rng.uniform(.8, 1.25))           # small pitch/tempo change per instance
+    idx = np.arange(0, len(x) - 1, k)
+    return np.interp(idx, np.arange(len(x)), x), g * float(rng.uniform(.7, 1.0))
+
+def _sound(e):
     ty, d = e.get('type'), e.get('dur', None)
     soft = .6 if e.get('soft') or e.get('small') else 1.0
     big = 1.4 if e.get('big') or e.get('hard') else 1.0
@@ -65,6 +71,16 @@ def sound(e):
     return rustle(.4), .04 * g
 
 ev = json.load(open(sys.argv[1])); dur = ev['dur']
+
+# Thin the foley: every scene drawing a sound got repetitive. Accents (light, stamp, thud...) may sit
+# 3 s apart; textures (brush, nib, paper...) need 7 s of air, and the same sound twice in a row needs 14 s.
+ACCENT = {'light', 'stamp', 'thud', 'shimmer', 'sheet', 'cut', 'drop', 'sift'}
+kept, last_t, last_by = [], -99.0, {}
+for e in sorted(ev['ev'], key=lambda e: e['t']):
+    ty = e.get('type'); gap = 3.0 if ty in ACCENT else 7.0
+    if e['t'] - last_t < gap or e['t'] - last_by.get(ty, -99.0) < 14.0: continue
+    kept.append(e); last_t = e['t']; last_by[ty] = e['t']
+ev['ev'] = kept
 voice, sr = sf.read(sys.argv[2], dtype='float32'); assert sr == SR
 if voice.ndim > 1: voice = voice.mean(1)
 n = int((dur + .5) * SR)
@@ -76,10 +92,10 @@ for e in ev['ev']:
 # duck foley ~6 dB under the voice
 from scipy.ndimage import uniform_filter1d
 venv = uniform_filter1d(np.abs(voice), int(.25 * SR))
-duck = 1 - .5 * np.clip(venv / (np.percentile(venv, 90) + 1e-9), 0, 1)
+duck = 1 - .7 * np.clip(venv / (np.percentile(venv, 90) + 1e-9), 0, 1)
 fx *= duck[:, None]
 vpk = np.abs(voice).max()
-mix = np.stack([voice, voice], 1) / vpk * .7 + fx
-mix = np.stack([limit(mix[:, 0], .95), limit(mix[:, 1], .95)], 1)
+mix = np.stack([voice, voice], 1) / vpk * .7 + fx * .7
+mix = np.stack([limit(mix[:, 0], .85), limit(mix[:, 1], .85)], 1)
 sf.write(sys.argv[3], mix, SR)
-print('wrote', sys.argv[3], round(n / SR, 2), 's,', len(ev['ev']), 'events')
+print('wrote', sys.argv[3], round(n / SR, 2), 's,', len(ev['ev']), 'events kept')
