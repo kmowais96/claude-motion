@@ -1,0 +1,7 @@
+Before You Read the Qur'an (version 2)
+Source text: Sayyid Abul A'la Mawdudi, Deebacha (preface) to Tafhim al-Qur'an, vol. 1 — paraphrased in English.
+Narration: ElevenLabs, voice "Vestal", eleven_v4 (one take per part), slowed 10 % in post.
+Styles and engines: Lemo-Opuscar library (github.com/lemomo-ai/lemo-opuscar) — woodcut, paper-lantern, ink-wash, one-line, engraving, watercolor; see its LICENSE.
+Fonts (SIL Open Font License): Amiri, IM Fell English / SC, Cormorant Garamond, Caveat, Sacramento, Bodoni Moda, Pinyon Script, IBM Plex Mono (Google Fonts).
+Sound: procedural foley (numpy/scipy), no music, no samples.
+Qur'an quotations: al-Fatihah 1:2 (example), Hud 11:88.
