@@ -1,0 +1,1615 @@
+{
+ "total": 710.08,
+ "sentences": [
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 0,
+   "text": "Multan.",
+   "ur": "ملتان۔",
+   "start": 7.71,
+   "end": 8.43,
+   "idx": 0
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 0,
+   "text": "September 1949.",
+   "ur": "ستمبر، انیس سو انچاس۔",
+   "start": 9.64,
+   "end": 11.99,
+   "idx": 1
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "A prison cell.",
+   "ur": "جیل کی ایک کوٹھڑی۔",
+   "start": 14.11,
+   "end": 15.59,
+   "idx": 2
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "One small lamp.",
+   "ur": "ایک چھوٹا سا چراغ۔",
+   "start": 16.71,
+   "end": 18.04,
+   "idx": 3
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 1,
+   "text": "And a man bent over a page.",
+   "ur": "اور ایک شخص، جو کاغذ پر جھکا ہوا ہے۔",
+   "start": 18.99,
+   "end": 21.52,
+   "idx": 4
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "His name is Sayyid Abul A'la Mawdudi, rahimahullah.",
+   "ur": "ان کا نام ہے سید ابوالاعلیٰ مودودی، رحمہ اللہ۔",
+   "start": 23.91,
+   "end": 27.41,
+   "idx": 5
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "He is writing the preface to a book he began seven years earlier.",
+   "ur": "وہ ایک ایسی کتاب کا دیباچہ لکھ رہے ہیں جو انہوں نے سات برس پہلے شروع کی تھی۔",
+   "start": 28.37,
+   "end": 33.07,
+   "idx": 6
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 2,
+   "text": "A book that would travel far beyond that cell.",
+   "ur": "ایک ایسی کتاب، جسے اس کوٹھڑی سے بہت دور تک پہنچنا تھا۔",
+   "start": 33.99,
+   "end": 37.78,
+   "idx": 7
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 3,
+   "text": "Tafhim al-Qur'an.",
+   "ur": "تفہیم القرآن۔",
+   "start": 39.73,
+   "end": 41.05,
+   "idx": 8
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 3,
+   "text": "",
+   "ur": "",
+   "start": 41.855,
+   "end": 41.855,
+   "idx": 9
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Before the book, he wrote a short preface.",
+   "ur": "کتاب سے پہلے، انہوں نے ایک مختصر سا دیباچہ لکھا۔",
+   "start": 43.025,
+   "end": 46.165,
+   "idx": 10
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Only nine pages.",
+   "ur": "صرف نو صفحے۔",
+   "start": 46.455,
+   "end": 47.315,
+   "idx": 11
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "Most people skip it.",
+   "ur": "اکثر لوگ اسے چھوڑ کر آگے بڑھ جاتے ہیں۔",
+   "start": 47.595,
+   "end": 49.695,
+   "idx": 12
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "But in those nine pages, he tells you how to meet the Book of Allah.",
+   "ur": "مگر انہی نو صفحوں میں وہ بتاتے ہیں کہ اللہ کی کتاب سے ملاقات کیسے کی جائے۔",
+   "start": 49.965,
+   "end": 55.005,
+   "idx": 13
+  },
+  {
+   "part": 1,
+   "sec": 1,
+   "para": 4,
+   "text": "So let's not skip it.",
+   "ur": "تو آئیے، اسے نہ چھوڑیں۔",
+   "start": 55.285,
+   "end": 56.615,
+   "idx": 14
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "He begins with an honest question.",
+   "ur": "وہ ایک سیدھے سچے سوال سے بات شروع کرتے ہیں۔",
+   "start": 60.405,
+   "end": 63.215,
+   "idx": 15
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "Shelves were already full of translations and tafsir.",
+   "ur": "ترجموں اور تفسیروں سے الماریاں پہلے ہی بھری ہوئی تھیں۔",
+   "start": 64.135,
+   "end": 67.415,
+   "idx": 16
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 5,
+   "text": "So why add one more?",
+   "ur": "تو پھر ایک اور کیوں؟",
+   "start": 67.645,
+   "end": 68.755,
+   "idx": 17
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "Writing another one just for the blessing of it, he says, is not a good use of time anymore.",
+   "ur": "وہ لکھتے ہیں کہ اب محض برکت و سعادت کی خاطر ایک نیا ترجمہ شائع کر دینا، وقت اور محنت کا کوئی صحیح مصرف نہیں ہے۔",
+   "start": 70.815,
+   "end": 78.575,
+   "idx": 18
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "It is only worth it if it fills a gap.",
+   "ur": "یہ کوشش اسی وقت معقول ہے جب یہ کوئی کمی پوری کرے۔",
+   "start": 78.845,
+   "end": 82.145,
+   "idx": 19
+  },
+  {
+   "part": 1,
+   "sec": 2,
+   "para": 6,
+   "text": "A need that the earlier works left unmet.",
+   "ur": "کوئی ایسی ضرورت، جو پچھلے ترجموں اور تفسیروں سے پوری نہ ہوتی ہو۔",
+   "start": 82.375,
+   "end": 86.605,
+   "idx": 20
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "And he had seen that need for years.",
+   "ur": "اور یہ ضرورت وہ ایک مدت سے محسوس کر رہے تھے۔",
+   "start": 90.215,
+   "end": 93.225,
+   "idx": 21
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "Ordinary, educated Muslims wanted to reach the spirit of the Qur'an.",
+   "ur": "عام تعلیم یافتہ مسلمانوں میں روحِ قرآن تک پہنچنے کی طلب پیدا ہو چکی تھی۔",
+   "start": 93.495,
+   "end": 98.345,
+   "idx": 22
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 7,
+   "text": "They wanted to know what this Book is really asking of them.",
+   "ur": "وہ جاننا چاہتے تھے کہ یہ کتاب ان سے اصل میں کیا چاہتی ہے۔",
+   "start": 98.595,
+   "end": 102.275,
+   "idx": 23
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 8,
+   "text": "The translators had done valuable work.",
+   "ur": "مترجمین نے قابلِ قدر کام کیا تھا۔",
+   "start": 104.655,
+   "end": 106.985,
+   "idx": 24
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 8,
+   "text": "And still, he writes, that longing stayed thirsty.",
+   "ur": "پھر بھی، وہ لکھتے ہیں، یہ طلب ہنوز تشنہ ہے۔",
+   "start": 107.285,
+   "end": 110.345,
+   "idx": 25
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 9,
+   "text": "He felt he could help quench that thirst.",
+   "ur": "انہیں محسوس ہوا کہ اس تشنگی کو بجھانے میں وہ بھی کچھ خدمت کر سکتے ہیں۔",
+   "start": 112.765,
+   "end": 117.175,
+   "idx": 26
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 9,
+   "text": "And those two feelings, the thirst he saw and the help he could give, became this book.",
+   "ur": "اور یہی دو احساسات، لوگوں کی پیاس اور خدمت کا جذبہ، اس کتاب کی بنیاد بن گئے۔",
+   "start": 117.455,
+   "end": 122.875,
+   "idx": 27
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "So who is it for?",
+   "ur": "تو یہ کتاب کس کے لیے ہے؟",
+   "start": 125.275,
+   "end": 126.595,
+   "idx": 28
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "Not the scholars.",
+   "ur": "علماء کے لیے نہیں۔",
+   "start": 126.875,
+   "end": 127.835,
+   "idx": 29
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "They already have plenty.",
+   "ur": "ان کی پیاس بجھانے کو بہت کچھ سامان پہلے سے موجود ہے۔",
+   "start": 128.055,
+   "end": 131.665,
+   "idx": 30
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "It is for people like you and me.",
+   "ur": "یہ آپ اور مجھ جیسے لوگوں کے لیے ہے۔",
+   "start": 131.795,
+   "end": 133.755,
+   "idx": 31
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "People who did not study Arabic.",
+   "ur": "ان کے لیے، جو عربی سے اچھی طرح واقف نہیں۔",
+   "start": 134.025,
+   "end": 136.775,
+   "idx": 32
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 10,
+   "text": "So he left out the debates that only specialists need.",
+   "ur": "اسی لیے انہوں نے وہ بحثیں چھوڑ دیں جن کی ضرورت صرف ماہرین کو ہوتی ہے۔",
+   "start": 137.015,
+   "end": 141.115,
+   "idx": 33
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "His aim was simple.",
+   "ur": "ان کا مقصد سیدھا سادہ تھا۔",
+   "start": 143.555,
+   "end": 145.195,
+   "idx": 34
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "That you understand what Allah is saying, clearly.",
+   "ur": "کہ آپ صاف صاف سمجھیں کہ اللہ کیا فرما رہا ہے۔",
+   "start": 145.445,
+   "end": 148.675,
+   "idx": 35
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "And that you feel what the Qur'an wants you to feel.",
+   "ur": "اور آپ کے دل پر وہی اثر ہو، جو قرآن ڈالنا چاہتا ہے۔",
+   "start": 148.925,
+   "end": 152.345,
+   "idx": 36
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 11,
+   "text": "Where a doubt comes up, he answers it right there.",
+   "ur": "جہاں کوئی الجھن پیدا ہو، اس کا جواب وہیں مل جائے۔",
+   "start": 152.575,
+   "end": 155.685,
+   "idx": 37
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 12,
+   "text": "And then, with real humility, he asks his readers and the scholars: show me where I fell short.",
+   "ur": "اور پھر بڑی عاجزی سے وہ اپنے قارئین اور علماء سے درخواست کرتے ہیں: مجھے میری غلطیوں سے آگاہ کیجیے۔",
+   "start": 158.005,
+   "end": 164.875,
+   "idx": 38
+  },
+  {
+   "part": 1,
+   "sec": 3,
+   "para": 12,
+   "text": "This is not the last word.",
+   "ur": "یہ حرفِ آخر نہیں ہے۔",
+   "start": 165.815,
+   "end": 166.985,
+   "idx": 39
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 0,
+   "text": "Then comes the heart of the preface.",
+   "ur": "پھر آتی ہے دیباچے کی اصل بات۔",
+   "start": 169.985,
+   "end": 172.775,
+   "idx": 40
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 0,
+   "text": "How do you carry the Qur'an into another language?",
+   "ur": "قرآن کو دوسری زبان میں کیسے منتقل کیا جائے؟",
+   "start": 173.825,
+   "end": 176.985,
+   "idx": 41
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "He chose a free rendering.",
+   "ur": "انہوں نے آزاد ترجمانی کا راستہ چنا۔",
+   "start": 179.225,
+   "end": 181.895,
+   "idx": 42
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "",
+   "ur": "",
+   "start": 182.705,
+   "end": 182.705,
+   "idx": 43
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Not because word-for-word translation is wrong.",
+   "ur": "اس لیے نہیں کہ لفظی ترجمہ غلط ہے۔",
+   "start": 182.93,
+   "end": 185.02,
+   "idx": 44
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Great scholars had done it beautifully: Shah Waliullah in Persian, and in Urdu Shah Abdul Qadir, Shah Rafiuddin, Mawlana Mahmud al-Hasan, Mawlana Ashraf Ali Thanawi, and Hafiz Fateh Muhammad Jalandhari.",
+   "ur": "بڑے بزرگ یہ کام بہترین طریقے پر کر چکے تھے: فارسی میں حضرت شاہ ولی اللہ، اور اردو میں شاہ عبدالقادر، شاہ رفیع الدین، مولانا محمود الحسن، مولانا اشرف علی تھانوی، اور حافظ فتح محمد جالندھری۔",
+   "start": 186.01,
+   "end": 199.88,
+   "idx": 45
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "Word for word teaches you what every word means.",
+   "ur": "لفظی ترجمے سے آدمی کو ہر لفظ کا مطلب معلوم ہو جاتا ہے۔",
+   "start": 200.87,
+   "end": 204.63,
+   "idx": 46
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 1,
+   "text": "That is a real gift.",
+   "ur": "یہ واقعی ایک نعمت ہے۔",
+   "start": 205.57,
+   "end": 206.84,
+   "idx": 47
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 2,
+   "text": "But for someone who doesn't know Arabic, he says, it has weaknesses.",
+   "ur": "مگر وہ کہتے ہیں کہ ایک غیر عربی داں کے لیے اس میں کئی کمزوریاں ہیں۔",
+   "start": 208.96,
+   "end": 213.94,
+   "idx": 48
+  },
+  {
+   "part": 2,
+   "sec": 4,
+   "para": 2,
+   "text": "And the first one is life.",
+   "ur": "اور پہلی کمزوری ہے، زندگی کی کمی۔",
+   "start": 214.93,
+   "end": 217.55,
+   "idx": 49
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 3,
+   "text": "You read a literal translation, and the words just lie there.",
+   "ur": "آپ لفظی ترجمہ پڑھتے ہیں، اور الفاظ بے جان پڑے رہتے ہیں۔",
+   "start": 221.12,
+   "end": 225.64,
+   "idx": 50
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "Your heart is not moved.",
+   "ur": "روح وجد میں نہیں آتی۔",
+   "start": 227.83,
+   "end": 229.39,
+   "idx": 51
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "The hair on your skin does not rise.",
+   "ur": "رونگٹے کھڑے نہیں ہوتے۔",
+   "start": 230.39,
+   "end": 231.81,
+   "idx": 52
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "No tears come.",
+   "ur": "آنکھوں سے آنسو جاری نہیں ہوتے۔",
+   "start": 232.77,
+   "end": 234.77,
+   "idx": 53
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 4,
+   "text": "Nothing stirs inside you.",
+   "ur": "جذبات میں کوئی طوفان برپا نہیں ہوتا۔",
+   "start": 235.07,
+   "end": 237.75,
+   "idx": 54
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 5,
+   "text": "And a terrible thought creeps in.",
+   "ur": "اور ایک خوفناک سا خیال دل میں آتا ہے۔",
+   "start": 239.94,
+   "end": 242.38,
+   "idx": 55
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 5,
+   "text": "Is this really the Book that challenged the whole world?",
+   "ur": "کیا واقعی یہی وہ کتاب ہے جس کی نظیر لانے کے لیے دنیا بھر کو چیلنج دیا گیا تھا؟",
+   "start": 243.33,
+   "end": 248.81,
+   "idx": 56
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "He says a literal translation is like a sieve.",
+   "ur": "وہ کہتے ہیں، لفظی ترجمہ ایک چھلنی کی طرح ہے۔",
+   "start": 250.95,
+   "end": 254.21,
+   "idx": 57
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "The dry ingredients of the medicine pass through.",
+   "ur": "دوا کے خشک اجزاء تو اس میں سے گزر جاتے ہیں۔",
+   "start": 254.5,
+   "end": 257.15,
+   "idx": 58
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 6,
+   "text": "But the living spirit of the language flies away, above it.",
+   "ur": "مگر ادب کی وہ تیز و تند اسپرٹ، چھلنی کے اوپر ہی سے اڑ جاتی ہے۔",
+   "start": 257.43,
+   "end": 262.58,
+   "idx": 59
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "And the Qur'an's power was in its language as much as in its teaching.",
+   "ur": "اور قرآن کی تاثیر میں اس کے ادب کا حصہ بھی اس کی تعلیم سے کم نہیں۔",
+   "start": 262.68,
+   "end": 267.13,
+   "idx": 60
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "That is what melted hearts of stone.",
+   "ur": "یہی تو وہ چیز ہے جو سنگ دل آدمی کا دل بھی پگھلا دیتی تھی۔",
+   "start": 268.06,
+   "end": 271.9,
+   "idx": 61
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "That is what struck Arabia like lightning.",
+   "ur": "یہی وہ چیز ہے جس نے بجلی کے کڑکے کی طرح عرب کی ساری زمین ہلا دی تھی۔",
+   "start": 272.16,
+   "end": 277.18,
+   "idx": 62
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 7,
+   "text": "Its fiercest enemies were afraid that whoever listened to it would lose his heart to it.",
+   "ur": "اس کے شدید ترین مخالفین ڈرتے تھے کہ جو اسے سنے گا، وہ آخرکار اپنا دل ہار بیٹھے گا۔",
+   "start": 277.46,
+   "end": 283.62,
+   "idx": 63
+  },
+  {
+   "part": 2,
+   "sec": 5,
+   "para": 8,
+   "text": "Had it come in the language of its translations, he says, it could never have done that.",
+   "ur": "وہ کہتے ہیں، اگر قرآن اسی طرح کی زبان میں نازل ہوا ہوتا جیسی اس کے ترجموں میں ہے، تو اسے یہ کامیابی ہرگز حاصل نہ ہوتی۔",
+   "start": 285.75,
+   "end": 294.04,
+   "idx": 64
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "The second weakness is flow.",
+   "ur": "دوسری کمزوری ہے، روانی۔",
+   "start": 297.58,
+   "end": 299.44,
+   "idx": 65
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Translations sit between the lines, or on half a page.",
+   "ur": "ترجمے سطروں کے بیچ میں ہوتے ہیں، یا آدھے صفحے پر۔",
+   "start": 300.38,
+   "end": 303.46,
+   "idx": 66
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Fine for study.",
+   "ur": "مطالعے کے لیے یہ ٹھیک ہے۔",
+   "start": 303.76,
+   "end": 305.12,
+   "idx": 67
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "But you cannot read them straight through, like a book.",
+   "ur": "مگر آپ انہیں ایک کتاب کی طرح مسلسل نہیں پڑھ سکتے۔",
+   "start": 305.35,
+   "end": 308.48,
+   "idx": 68
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "English is even worse.",
+   "ur": "انگریزی ترجموں کا حال اس سے بھی برا ہے۔",
+   "start": 308.76,
+   "end": 310.89,
+   "idx": 69
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 9,
+   "text": "Every verse cut out and numbered.",
+   "ur": "ہر آیت الگ، اور نمبر وار۔",
+   "start": 311.16,
+   "end": 313.12,
+   "idx": 70
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 10,
+   "text": "Take any beautiful piece of writing, he says, and number its sentences.",
+   "ur": "وہ کہتے ہیں، کسی بہترین تحریر کو لیجیے، اور اس کے فقروں پر نمبر ڈال دیجیے۔",
+   "start": 315.23,
+   "end": 320.05,
+   "idx": 71
+  },
+  {
+   "part": 2,
+   "sec": 6,
+   "para": 10,
+   "text": "Half of its effect is gone.",
+   "ur": "آدھا اثر بھی باقی نہیں رہے گا۔",
+   "start": 320.35,
+   "end": 322.14,
+   "idx": 72
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "And then a point he calls very important.",
+   "ur": "اور پھر ایک بات، جسے وہ بہت اہم کہتے ہیں۔",
+   "start": 324.96,
+   "end": 328.43,
+   "idx": 73
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "The Qur'an is speech.",
+   "ur": "قرآن کا طرزِ بیان تقریری ہے۔",
+   "start": 329.44,
+   "end": 331.65,
+   "idx": 74
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 0,
+   "text": "Not writing.",
+   "ur": "تحریری نہیں۔",
+   "start": 332.66,
+   "end": 333.45,
+   "idx": 75
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 1,
+   "text": "It did not come down as a printed book.",
+   "ur": "یہ لکھے ہوئے رسالوں کی شکل میں نازل نہیں ہوا تھا۔",
+   "start": 335.42,
+   "end": 338.38,
+   "idx": 76
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 1,
+   "text": "As the call to Islam moved forward, Allah sent down an address for each moment, and the Prophet, sallallahu alayhi wa sallam, delivered it to people like a khutbah.",
+   "ur": "دعوتِ اسلامی کے سلسلے میں ہر موقع کے مطابق ایک خطاب نازل ہوتا، اور نبی صلی اللہ علیہ وسلم اسے ایک خطبے کی شکل میں لوگوں کو سناتے تھے۔",
+   "start": 338.67,
+   "end": 347.85,
+   "idx": 77
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "And speech works differently.",
+   "ur": "اور تقریر کا انداز مختلف ہوتا ہے۔",
+   "start": 349.71,
+   "end": 351.98,
+   "idx": 78
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "On paper, you first write the objection, then the answer.",
+   "ur": "تحریر میں، پہلے اعتراض لکھا جاتا ہے، پھر جواب۔",
+   "start": 352.91,
+   "end": 356.26,
+   "idx": 79
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "In a speech, the objectors are standing right there.",
+   "ur": "تقریر میں، اعتراض کرنے والے خود سامنے موجود ہوتے ہیں۔",
+   "start": 357.16,
+   "end": 360.69,
+   "idx": 80
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "So the answer simply comes.",
+   "ur": "تو جواب خود بخود آ جاتا ہے۔",
+   "start": 360.89,
+   "end": 362.55,
+   "idx": 81
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "On paper, you must describe the setting.",
+   "ur": "تحریر میں، ماحول کو بیان کرنا پڑتا ہے۔",
+   "start": 362.83,
+   "end": 365.27,
+   "idx": 82
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 2,
+   "text": "In a speech, the setting is all around.",
+   "ur": "تقریر میں، ماحول خود چاروں طرف موجود ہوتا ہے۔",
+   "start": 365.53,
+   "end": 368.61,
+   "idx": 83
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "And in a speech, the voice turns.",
+   "ur": "اور تقریر میں، خطاب کا رخ بدلتا رہتا ہے۔",
+   "start": 370.48,
+   "end": 373.52,
+   "idx": 84
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "People are spoken about, then spoken to.",
+   "ur": "کبھی لوگوں کا ذکر ہوتا ہے، اور کبھی ان سے براہِ راست خطاب۔",
+   "start": 373.77,
+   "end": 377.21,
+   "idx": 85
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "One person, then many.",
+   "ur": "کبھی ایک شخص، کبھی بہت سے۔",
+   "start": 377.49,
+   "end": 379.34,
+   "idx": 86
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "Sometimes the speaker speaks for himself, sometimes for a group, sometimes on behalf of Allah.",
+   "ur": "کبھی بولنے والا اپنی طرف سے بولتا ہے، کبھی کسی گروہ کی طرف سے، کبھی اللہ کی طرف سے۔",
+   "start": 379.57,
+   "end": 384.81,
+   "idx": 87
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 3,
+   "text": "And sometimes, Allah Himself speaks.",
+   "ur": "اور کبھی، خود اللہ تعالیٰ کلام فرماتا ہے۔",
+   "start": 385.07,
+   "end": 387.85,
+   "idx": 88
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "Heard aloud, this is beauty.",
+   "ur": "سننے میں، یہ ایک حسن ہے۔",
+   "start": 389.77,
+   "end": 391.78,
+   "idx": 89
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "On paper, it can feel disconnected.",
+   "ur": "کاغذ پر، یہی چیز بے جوڑ محسوس ہو سکتی ہے۔",
+   "start": 392.74,
+   "end": 395.88,
+   "idx": 90
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "In Arabic, not one letter may be changed, so only notes can help.",
+   "ur": "عربی میں ایک حرف بھی بدلا نہیں جا سکتا، اس لیے وہاں صرف حواشی ہی مدد کر سکتے ہیں۔",
+   "start": 396.17,
+   "end": 401.34,
+   "idx": 91
+  },
+  {
+   "part": 3,
+   "sec": 7,
+   "para": 4,
+   "text": "But in another language, if the speech is carefully turned into written style, the gap closes.",
+   "ur": "لیکن دوسری زبان میں، اگر تقریر کو احتیاط کے ساتھ تحریر کی زبان میں ڈھال لیا جائے، تو یہ بے ربطی دور ہو جاتی ہے۔",
+   "start": 401.6,
+   "end": 408.92,
+   "idx": 92
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Every surah came for a moment.",
+   "ur": "ہر سورت ایک خاص موقع پر نازل ہوئی تھی۔",
+   "start": 413.53,
+   "end": 416.24,
+   "idx": 93
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "It had a background, and a need it came to meet.",
+   "ur": "اس کا ایک پس منظر تھا، اور ایک ضرورت، جسے پورا کرنے کے لیے وہ اتری تھی۔",
+   "start": 416.52,
+   "end": 420.88,
+   "idx": 94
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Strip that away, and some things are not understood at all.",
+   "ur": "اسے الگ کر دیجیے، تو بہت سی باتیں سمجھ ہی میں نہیں آئیں گی۔",
+   "start": 421.17,
+   "end": 424.62,
+   "idx": 95
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "Some are understood upside down.",
+   "ur": "اور بعض باتیں الٹی سمجھ لی جائیں گی۔",
+   "start": 424.85,
+   "end": 426.98,
+   "idx": 96
+  },
+  {
+   "part": 3,
+   "sec": 8,
+   "para": 5,
+   "text": "So a rendering should carry some of that background with it.",
+   "ur": "اس لیے ترجمانی کے ساتھ اس پس منظر کا کچھ حصہ بھی چلنا چاہیے۔",
+   "start": 427.23,
+   "end": 431.37,
+   "idx": 97
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 6,
+   "text": "And the Qur'an has its own vocabulary.",
+   "ur": "اور قرآن کی اپنی ایک اصطلاحی زبان بھی ہے۔",
+   "start": 435.55,
+   "end": 438.56,
+   "idx": 98
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 6,
+   "text": "A language within the language.",
+   "ur": "زبان کے اندر ایک زبان۔",
+   "start": 439.48,
+   "end": 441.3,
+   "idx": 99
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "Take one word.",
+   "ur": "ایک لفظ لیجیے۔",
+   "start": 443.69,
+   "end": 444.56,
+   "idx": 100
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "Kufr.",
+   "ur": "کفر۔",
+   "start": 445.5,
+   "end": 445.85,
+   "idx": 101
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In one place it means complete disbelief.",
+   "ur": "کہیں اس سے مراد مکمل غیر ایمانی حالت ہے۔",
+   "start": 446.8,
+   "end": 449.63,
+   "idx": 102
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, simple denial.",
+   "ur": "کہیں محض انکار۔",
+   "start": 449.84,
+   "end": 450.93,
+   "idx": 103
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, only ingratitude.",
+   "ur": "کہیں صرف ناشکری اور احسان فراموشی۔",
+   "start": 451.85,
+   "end": 454.4,
+   "idx": 104
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, falling short in something faith requires.",
+   "ur": "کہیں تقاضائے ایمان میں سے کسی کو پورا نہ کرنا۔",
+   "start": 454.63,
+   "end": 457.7,
+   "idx": 105
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "In another, believing in principle, but refusing in practice.",
+   "ur": "کہیں اعتقادی اقرار، مگر عملی انکار۔",
+   "start": 457.93,
+   "end": 460.8,
+   "idx": 106
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 7,
+   "text": "And in another, obeying on the outside, while disbelieving inside.",
+   "ur": "اور کہیں، ظاہری اطاعت، مگر باطنی بے اعتقادی۔",
+   "start": 461.08,
+   "end": 464.44,
+   "idx": 107
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 8,
+   "text": "Translate it as kufr everywhere, and you are technically correct.",
+   "ur": "اگر ہر جگہ کفر کا ترجمہ کفر ہی کرتے چلے جائیں، تو ترجمہ اپنی جگہ صحیح ہوگا۔",
+   "start": 466.41,
+   "end": 471.69,
+   "idx": 108
+  },
+  {
+   "part": 3,
+   "sec": 9,
+   "para": 8,
+   "text": "But the reader will miss it here, misread it there, and get lost somewhere else.",
+   "ur": "لیکن قاری کہیں مطلب سے محروم رہ جائے گا، کہیں غلط فہمی کا شکار ہوگا، اور کہیں الجھن میں پڑ جائے گا۔",
+   "start": 471.91,
+   "end": 477.98,
+   "idx": 109
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "So here is what he did.",
+   "ur": "تو انہوں نے یہ راستہ اختیار کیا۔",
+   "start": 480.99,
+   "end": 483.46,
+   "idx": 110
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He did not dress the Qur'an's words in Urdu clothes.",
+   "ur": "انہوں نے قرآن کے الفاظ کو اردو کا جامہ نہیں پہنایا۔",
+   "start": 484.48,
+   "end": 487.83,
+   "idx": 111
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He read a passage.",
+   "ur": "انہوں نے ایک عبارت پڑھی۔",
+   "start": 488.78,
+   "end": 490.3,
+   "idx": 112
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "He took the meaning he understood, and the effect it left on his own heart.",
+   "ur": "جو مفہوم ان کی سمجھ میں آیا، اور جو اثر ان کے دل پر پڑا، اسے لیا۔",
+   "start": 490.56,
+   "end": 495.04,
+   "idx": 113
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 0,
+   "text": "And he carried that, as faithfully as he could, into his own language.",
+   "ur": "اور اسے حتی الامکان صحت کے ساتھ اپنی زبان میں منتقل کر دیا۔",
+   "start": 495.3,
+   "end": 499.55,
+   "idx": 114
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "Clear Arabic should become clear Urdu.",
+   "ur": "عربیِ مبین کی ترجمانی، اردوئے مبین میں ہو۔",
+   "start": 501.83,
+   "end": 505.31,
+   "idx": 115
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "The flow of speech should come through.",
+   "ur": "تقریر کا ربط، فطری طریقے سے سامنے آئے۔",
+   "start": 506.25,
+   "end": 509.12,
+   "idx": 116
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 1,
+   "text": "And the majesty of Allah's words should shine, as far as possible.",
+   "ur": "اور کلامِ الٰہی کا شاہانہ وقار اور زورِ بیان، جہاں تک بس چلے، ترجمانی میں جھلک جائے۔",
+   "start": 509.4,
+   "end": 515.9,
+   "idx": 117
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 2,
+   "text": "That needed freedom.",
+   "ur": "اس کے لیے آزادی ضروری تھی۔",
+   "start": 518.02,
+   "end": 520.19,
+   "idx": 118
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 2,
+   "text": "But this was the Word of Allah.",
+   "ur": "لیکن معاملہ کلامِ الٰہی کا تھا۔",
+   "start": 521.12,
+   "end": 523.7,
+   "idx": 119
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 3,
+   "text": "So he writes: I used this freedom… while very much afraid.",
+   "ur": "اسی لیے وہ لکھتے ہیں: میں نے بہت ڈرتے ڈرتے… یہ آزادی برتی ہے۔",
+   "start": 525.78,
+   "end": 530.61,
+   "idx": 120
+  },
+  {
+   "part": 4,
+   "sec": 10,
+   "para": 4,
+   "text": "And he never stepped beyond what the Qur'an's own words allow.",
+   "ur": "اور جتنی گنجائش قرآن کی اپنی عبارت دیتی ہے، اس سے وہ کبھی آگے نہیں بڑھے۔",
+   "start": 532.71,
+   "end": 538.06,
+   "idx": 121
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "What a rendering cannot carry, he gave you in two more ways.",
+   "ur": "جو بات ترجمانی میں نہیں سما سکتی تھی، وہ انہوں نے دو اور طریقوں سے آپ تک پہنچائی۔",
+   "start": 542.67,
+   "end": 548.2,
+   "idx": 122
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Before every surah, an introduction: when it came down, what was happening, where the call to Islam stood, and what it was facing.",
+   "ur": "ہر سورت سے پہلے ایک دیباچہ: وہ کب نازل ہوئی، اس وقت کیا حالات تھے، اسلام کی تحریک کس مرحلے میں تھی، اور اسے کن مسائل کا سامنا تھا۔",
+   "start": 548.44,
+   "end": 557.75,
+   "idx": 123
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "And notes, but only in two kinds of places.",
+   "ur": "اور حواشی، مگر صرف دو قسم کے مقامات پر۔",
+   "start": 558.0,
+   "end": 560.82,
+   "idx": 124
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Where a question would rise in your mind.",
+   "ur": "جہاں آپ کے ذہن میں کوئی سوال پیدا ہو۔",
+   "start": 561.03,
+   "end": 563.35,
+   "idx": 125
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "And where you might hurry past, and miss the real spirit of a verse.",
+   "ur": "اور جہاں اندیشہ ہو کہ آپ سرسری گزر جائیں گے، اور آیت کی اصل روح آپ پر واضح نہ ہوگی۔",
+   "start": 563.54,
+   "end": 569.59,
+   "idx": 126
+  },
+  {
+   "part": 4,
+   "sec": 11,
+   "para": 5,
+   "text": "Nothing that pulls your eyes away from the Qur'an.",
+   "ur": "کوئی ایسی بحث نہیں، جو آپ کی توجہ قرآن سے ہٹا دے۔",
+   "start": 569.83,
+   "end": 573.26,
+   "idx": 127
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "And then he gives you a way to read.",
+   "ur": "اور پھر وہ آپ کو پڑھنے کا ایک طریقہ بتاتے ہیں۔",
+   "start": 576.92,
+   "end": 580.22,
+   "idx": 128
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "One.",
+   "ur": "ایک۔",
+   "start": 581.15,
+   "end": 581.53,
+   "idx": 129
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Read the surah's introduction, and come back to it as you go.",
+   "ur": "سورت کا دیباچہ غور سے پڑھیے، اور مطالعے کے دوران اس پر نظر ڈالتے رہیے۔",
+   "start": 581.76,
+   "end": 586.48,
+   "idx": 130
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Two.",
+   "ur": "دو۔",
+   "start": 586.74,
+   "end": 587.05,
+   "idx": 131
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Take your daily portion, and first go through it word for word, verse by verse, in whatever language you like.",
+   "ur": "روزانہ کا حصہ لیجیے، اور پہلے اس کا لفظی ترجمہ آیت بہ آیت پڑھ لیجیے، جس زبان میں بھی آپ چاہیں۔",
+   "start": 587.28,
+   "end": 593.79,
+   "idx": 132
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Three.",
+   "ur": "تین۔",
+   "start": 594.06,
+   "end": 594.38,
+   "idx": 133
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Read his rendering of that portion straight through, without the notes, so the whole message stands before you at once.",
+   "ur": "پھر اسی حصے کی ترجمانی، حواشی کے بغیر، ایک مسلسل عبارت کی طرح پڑھیے، تاکہ پورا مضمون ایک ساتھ آپ کے سامنے آ جائے۔",
+   "start": 594.59,
+   "end": 603.0,
+   "idx": 134
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Four.",
+   "ur": "چار۔",
+   "start": 603.27,
+   "end": 603.54,
+   "idx": 135
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 6,
+   "text": "Go back, verse by verse, with the notes.",
+   "ur": "پھر واپس جائیے، آیت بہ آیت، حواشی کے ساتھ۔",
+   "start": 603.81,
+   "end": 606.88,
+   "idx": 136
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "Read like this, he says, and an ordinary reader will come to know the Qur'an well.",
+   "ur": "وہ کہتے ہیں، اس طرح پڑھنے سے ایک عام قاری کو قرآن سے اچھی واقفیت حاصل ہو جائے گی۔",
+   "start": 608.92,
+   "end": 614.88,
+   "idx": 137
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "Maybe not like a scholar.",
+   "ur": "عالمانہ نہ سہی۔",
+   "start": 615.1,
+   "end": 616.07,
+   "idx": 138
+  },
+  {
+   "part": 4,
+   "sec": 12,
+   "para": 7,
+   "text": "But well, in sha' Allah.",
+   "ur": "مگر اچھی واقفیت، ان شاء اللہ۔",
+   "start": 616.26,
+   "end": 618.48,
+   "idx": 139
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "He began in February 1942.",
+   "ur": "انہوں نے یہ کام فروری انیس سو بیالیس میں شروع کیا۔",
+   "start": 621.42,
+   "end": 625.07,
+   "idx": 140
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "For more than five years he wrote, until he reached the end of Surah Yusuf.",
+   "ur": "پانچ سال سے زیادہ وہ لکھتے رہے، یہاں تک کہ سورۂ یوسف کے آخر تک پہنچ گئے۔",
+   "start": 626.11,
+   "end": 631.14,
+   "idx": 141
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 0,
+   "text": "Then life left him no time to write, or even to revise.",
+   "ur": "پھر حالات نے نہ آگے لکھنے کی مہلت دی، نہ نظرِ ثانی کی۔",
+   "start": 632.13,
+   "end": 635.94,
+   "idx": 142
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 1,
+   "text": "Call it a blessing in disguise, or a hardship, he writes.",
+   "ur": "وہ لکھتے ہیں: اسے حسنِ اتفاق کہیے، یا سوءِ اتفاق۔",
+   "start": 638.09,
+   "end": 643.28,
+   "idx": 143
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 2,
+   "text": "In October 1948, he was suddenly arrested and taken to jail.",
+   "ur": "اکتوبر انیس سو اڑتالیس میں، انہیں یکایک گرفتار کر کے جیل بھیج دیا گیا۔",
+   "start": 645.22,
+   "end": 650.42,
+   "idx": 144
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 2,
+   "text": "And there, behind the bars, he found the time the book needed.",
+   "ur": "اور وہیں، سلاخوں کے پیچھے، انہیں وہ فرصت مل گئی جو اس کتاب کو درکار تھی۔",
+   "start": 651.37,
+   "end": 656.77,
+   "idx": 145
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 3,
+   "text": "He ends with a dua: that this work truly helps the servants of Allah understand the Qur'an.",
+   "ur": "آخر میں وہ دعا کرتے ہیں کہ یہ کتاب قرآن مجید کو سمجھنے میں اللہ کے بندوں کے لیے واقعی مددگار ثابت ہو۔",
+   "start": 658.81,
+   "end": 666.33,
+   "idx": 146
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 3,
+   "text": "And one line in Arabic.",
+   "ur": "اور عربی کا ایک جملہ۔",
+   "start": 667.31,
+   "end": 668.63,
+   "idx": 147
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 4,
+   "text": "Wa ma tawfiqi illa billah.",
+   "ur": "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ۔",
+   "start": 670.46,
+   "end": 673.23,
+   "idx": 148
+  },
+  {
+   "part": 5,
+   "sec": 13,
+   "para": 4,
+   "text": "My success is only through Allah.",
+   "ur": "میری توفیق صرف اللہ ہی سے ہے۔",
+   "start": 674.24,
+   "end": 676.77,
+   "idx": 149
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "A prison cell.",
+   "ur": "جیل کی ایک کوٹھڑی۔",
+   "start": 680.83,
+   "end": 682.19,
+   "idx": 150
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "One small lamp.",
+   "ur": "ایک چھوٹا سا چراغ۔",
+   "start": 683.2,
+   "end": 684.57,
+   "idx": 151
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 5,
+   "text": "And a book that travelled far beyond it.",
+   "ur": "اور ایک کتاب، جو اس کوٹھڑی سے بہت دور تک پہنچی۔",
+   "start": 685.52,
+   "end": 689.07,
+   "idx": 152
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Now it is in your hands.",
+   "ur": "اب یہ آپ کے ہاتھ میں ہے۔",
+   "start": 691.23,
+   "end": 693.02,
+   "idx": 153
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Read the setting.",
+   "ur": "پس منظر پڑھیے۔",
+   "start": 693.3,
+   "end": 694.27,
+   "idx": 154
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Learn the words.",
+   "ur": "الفاظ سیکھیے۔",
+   "start": 694.54,
+   "end": 695.53,
+   "idx": 155
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Hear it whole.",
+   "ur": "پورا پیغام ایک ساتھ سنیے۔",
+   "start": 695.78,
+   "end": 697.69,
+   "idx": 156
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 6,
+   "text": "Then go deep.",
+   "ur": "پھر گہرائی میں اتریے۔",
+   "start": 697.95,
+   "end": 699.26,
+   "idx": 157
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "Open Tafhim al-Qur'an.",
+   "ur": "تفہیم القرآن کھولیے۔",
+   "start": 701.26,
+   "end": 702.81,
+   "idx": 158
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "Start with one surah.",
+   "ur": "ایک سورت سے شروع کیجیے۔",
+   "start": 703.74,
+   "end": 705.25,
+   "idx": 159
+  },
+  {
+   "part": 5,
+   "sec": 14,
+   "para": 7,
+   "text": "And let it reach your heart.",
+   "ur": "اور اسے اپنے دل تک پہنچنے دیجیے۔",
+   "start": 705.5,
+   "end": 707.83,
+   "idx": 160
+  }
+ ]
+}
