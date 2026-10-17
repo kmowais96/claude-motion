@@ -5,7 +5,7 @@
 import { vnoise, hash, clamp, lerp, ss } from '/core/lib.js';
 import { headAt, posAt } from './geom.js';
 import { prepare, drawLine, drawBlots } from './ink.js';
-import { makePaper, drawPaper, vignette, makeTooth, drawTooth } from './paper.js';
+import { makePaper, bakePaper, drawPaperFast, vignetteFast, makeTooth, drawTooth } from './paper.js';
 import { camAt, worldToScreen, BASE } from './cam.js';
 import { penShadow } from './hands.js';
 
@@ -428,7 +428,7 @@ function build() {
   sec7(pb, reg[7]); const off7 = [pb.ox, pb.oy]; const r7 = [r6[1], pb.idx()];
   sec8(pb, reg[8]); const off8 = [pb.ox, pb.oy]; const r8 = [r7[1], pb.idx()];
   const P = timeAll(pb); P.blots = blots.map(b => ({ ...b, sec: 6 })); prepare(P);
-  const paper = makePaper(), tooth = makeTooth();
+  const paper = bakePaper(makePaper()), tooth = makeTooth();
   F = { P, rng: { 6: r6, 7: r7, 8: r8 }, cams: cams(reg[6], reg[7], reg[8], off7, off8), paper, tooth };
   window.ONELINE = F;
 }
@@ -440,14 +440,14 @@ export function renderSec(n, ctx, t) {
   const M = worldToScreen(cam, W, H);
   ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
   const pr = window.OLPROF, q = () => performance.now(); let t0 = q();
-  drawPaper(ctx, paper, cam, W, H);
+  drawPaperFast(ctx, paper, cam, W, H);
   if (pr) { ctx.getImageData(0, 0, 1, 1); pr.paper = (pr.paper || 0) + q() - t0; t0 = q(); }
   const head = clamp(headAt(P, t), i0, i1);
   if (head > i0 + 1) drawLine(ctx, P, head, M, cam.k, { from: i0 });
   if (pr) { ctx.getImageData(0, 0, 1, 1); pr.line = (pr.line || 0) + q() - t0; t0 = q(); }
   drawBlots(ctx, { ...P, blots: P.blots.filter(b => b.sec === n) }, t, M, cam.k);
-  drawTooth(ctx, tooth, cam, W, H);
-  vignette(ctx, W, H);
+  if (cam.k > 1.3) drawTooth(ctx, tooth, cam, W, H);
+  vignetteFast(ctx, W, H);
   if (pr) { ctx.getImageData(0, 0, 1, 1); pr.rest = (pr.rest || 0) + q() - t0; t0 = q(); }
   // the pen is never drawn, only its shadow; it hovers before the first touch and lifts after the last stroke
   const tip = M(...posAt(P, head));
@@ -455,8 +455,14 @@ export function renderSec(n, ctx, t) {
   let lift = 0;
   if (n === 6) lift = clamp((tFirst - t) / .8);
   if (n === 8) lift = ss((t - tLast - .6) / 1.2);
-  const k = cam.k, ang = Math.atan2(.83, .56);
-  penShadow(ctx, tip, [Math.cos(ang), Math.sin(ang)], k, { lift, alpha: 1 - (n === 8 ? ss((t - tLast - 1.4) / 1.2) : 0) });
+  const alpha = 1 - (n === 8 ? ss((t - tLast - 1.4) / 1.2) : 0);
+  if (alpha > 0) {   // the pen's shadow, pre-blurred once as a sprite (blur filters are slow here)
+    if (!F.pen) { const c = document.createElement('canvas'); c.width = 900; c.height = 900; penShadow(c.getContext('2d'), [150, 150], [.56, .83], 1, { lift: 1e-4, alpha: 1 }); F.pen = c; }
+    const kk = Math.max(.8, cam.k), off = lift * 70 * Math.max(1, kk * .4);
+    ctx.globalAlpha = alpha; ctx.drawImage(F.pen, tip[0] - 150 * kk + .56 * off, tip[1] - 150 * kk + .83 * off, 900 * kk, 900 * kk);
+    if (lift < .05) { ctx.fillStyle = 'rgba(20,18,16,0.9)'; ctx.beginPath(); ctx.arc(tip[0], tip[1], Math.max(1.5, 1.05 * cam.k), 0, TAU); ctx.fill(); }
+    ctx.globalAlpha = 1;
+  }
   ctx.restore();
 }
 

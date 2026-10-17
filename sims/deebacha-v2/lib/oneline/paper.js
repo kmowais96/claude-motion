@@ -91,3 +91,30 @@ export function drawTooth(ctx, tooth, cam, W, H, alpha = .32) {
   ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = alpha * Math.min(1, Math.max(0, (cam.k - 1.2) / 1.5)); ctx.fillStyle = pat; ctx.fillRect(0, 0, W, H);
   ctx.restore();
 }
+
+// Fast path (sections 6–8 must render in ~150 ms): bake mottle + fibres into one coloured tile anchored
+// to the paper (1300 units, seamless), draw it with plain drawImage; bake the vignette once.
+const TILE = 1300, RES = 2;
+export function bakePaper(paper) {
+  const c = document.createElement('canvas'); c.width = c.height = TILE * RES; const g = c.getContext('2d');
+  g.fillStyle = 'rgb(244,239,228)'; g.fillRect(0, 0, c.width, c.height);
+  g.globalCompositeOperation = 'soft-light';
+  g.globalAlpha = .55; g.drawImage(paper.mottle, 0, 0, c.width, c.height);
+  g.globalAlpha = .5; const pat = g.createPattern(paper.fiber, 'repeat'); pat.setTransform(new DOMMatrix([260 * RES / 1024, 0, 0, 260 * RES / 1024, 0, 0])); g.fillStyle = pat; g.fillRect(0, 0, c.width, c.height);
+  g.globalAlpha = .3; const pat2 = g.createPattern(paper.fiber, 'repeat'); pat2.setTransform(new DOMMatrix([650 * RES / 1024, 0, 0, 650 * RES / 1024, 0, 0])); g.fillStyle = pat2; g.fillRect(0, 0, c.width, c.height);
+  return c;
+}
+export function drawPaperFast(ctx, tile, cam, W, H) {
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.imageSmoothingQuality = 'low';
+  const k = cam.k, x0 = cam.cx - W / 2 / k, x1 = cam.cx + W / 2 / k, y0 = cam.cy - H / 2 / k, y1 = cam.cy + H / 2 / k, S = TILE * k;
+  for (let i = Math.floor(x0 / TILE); i <= Math.floor(x1 / TILE); i++) for (let j = Math.floor(y0 / TILE); j <= Math.floor(y1 / TILE); j++) {
+    const sx = Math.floor((i * TILE - cam.cx) * k + W / 2), sy = Math.floor((j * TILE - cam.cy) * k + H / 2);
+    ctx.drawImage(tile, sx, sy, Math.ceil(S) + 1, Math.ceil(S) + 1);
+  }
+  ctx.restore();
+}
+let vig = null;
+export function vignetteFast(ctx, W, H, amt = .13) {
+  if (!vig) { vig = document.createElement('canvas'); vig.width = W; vig.height = H; const g = vig.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); vignette(g, W, H, amt); }
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'multiply'; ctx.drawImage(vig, 0, 0); ctx.restore();
+}

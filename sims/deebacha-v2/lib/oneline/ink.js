@@ -103,12 +103,13 @@ export function drawLine(ctx0, P, head, M, k, opts = {}) {
   const core = c => rgb(c);
   // 1 晕边（墨渗进纸纤维）：离屏画一遍加宽的线，整体模糊后低透明度叠回
   const R0 = runs({});
-  if (!drawLine.halo) { drawLine.halo = document.createElement('canvas'); drawLine.halo.width = Wd; drawLine.halo.height = Ht; }
-  const hc = drawLine.halo, hx = hc.getContext('2d'); hx.setTransform(1, 0, 0, 1, 0, 0); hx.clearRect(0, 0, Wd, Ht);
+  // (half-resolution layer: upscaling it is the blur, far cheaper than a blur filter)
+  if (!drawLine.halo) { drawLine.halo = document.createElement('canvas'); drawLine.halo.width = Wd / 2; drawLine.halo.height = Ht / 2; }
+  const hc = drawLine.halo, hx = hc.getContext('2d'); hx.setTransform(1, 0, 0, 1, 0, 0); hx.clearRect(0, 0, Wd / 2, Ht / 2); hx.setTransform(.5, 0, 0, .5, 0, 0);
   const main = ctx; ctx = hx;
-  for (const r of R0) fillRun(r, 1.0 + 1.6 / Math.max(1, WID[idx(r.a)]), 0, core);
+  for (const r of R0) fillRun(r, 1.0 + 2.4 / Math.max(1, WID[idx(r.a)]), 0, core);
   ctx = main;
-  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = .22; ctx.filter = `blur(${Math.max(.6, k * .9).toFixed(2)}px)`; ctx.drawImage(hc, 0, 0); ctx.restore();
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = .24; ctx.imageSmoothingQuality = 'high'; ctx.drawImage(hc, 0, 0, Wd, Ht); ctx.restore();
   // 2 主体
   for (const r of R0) fillRun(r, 1.0, 0, core);
   // 3 老年飞白：几根笔毫轨迹穿过断墨处
