@@ -210,7 +210,7 @@ function build(T) {
     // label block
     const left = k < 3, lx = left ? 425 : 1495, al = left ? 'left' : 'right';
     const lines = LAB[k], yb = lines.length === 1 ? [y + 16] : [y + 10, y + 48], ny = y - 34;
-    const lw = Math.max(...lines.map(s => measure(mctx, s, LABF).tw));
+    const lw = Math.max(...lines.map(s => measure(mctx, s, LABF).tw), measure(mctx, 'KUFR', STAMPF).tw);   // tablet must also hold the overstamp
     const lab = T.word(i, KW[k]);
     return { k, i, x, y, ink, a, done, cache: null, left, lx, al, lines, yb, ny, lw, lab, D };
   });

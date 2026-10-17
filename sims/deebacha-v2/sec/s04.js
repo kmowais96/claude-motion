@@ -101,7 +101,8 @@ function shots(T) {
       S.names.forEach((n, i) => {
         const a = T.word(5, NAME_W[i]) - .05, b = Math.min(a + .4 + n.tw / 520, (i < 5 ? T.word(5, NAME_W[i + 1]) : T.end(5)) - .1);
         n.paint(L, seg(t, a, b));
-        if (t > b + .15) seal(L.cc, COLX[i] - 13, 232 + n.tw + 22, 26, 1, i + 3);
+        const k = ss(seg(t, b + .15, b + .5));   // pressed in: lands slightly large and settles
+        if (k > 0) { const c = L.cc, x = COLX[i], y = 232 + n.tw + 35; c.save(); c.translate(x, y); c.scale(1.6 - .6 * k, 1.6 - .6 * k); seal(c, -13, -13, 26, k, i + 3); c.restore(); }
       });
     } },
     { cam: push(tB, T.t1 + 1.2, .03, 960, 520), paint: (L, t) => {
