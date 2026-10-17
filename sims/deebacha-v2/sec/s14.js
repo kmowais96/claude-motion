@@ -172,7 +172,7 @@ function timeline(T) {
     winOn: t => eio(seg(t, T.at(2) + .3, T.at(3) + .4)),
     rise: t => eo(seg(t, T.at(3) - .25, T.word(3, 3) + .2)),
     strip: (t, i) => eo(seg(t, T.at(4 + i) - .2, T.at(4 + i) + .45)),
-    stripsAway: t => ei(seg(t, T.at(8) - .5, T.at(8) + .25)),
+    stripsAway: t => ei(seg(t, T.at(8) + .3, T.at(8) + .9)),
     open: t => eio(seg(t, T.word(8, 0) + .05, T.word(8, 1) + .55)),    // "Open Tafhim…"
     burst: t => eio(seg(t, T.word(8, 1) - .1, T.end(8) + .2)),
     oneLine: t => eio(seg(t, T.word(9, 3) - .3, T.word(9, 3) + .5)),
