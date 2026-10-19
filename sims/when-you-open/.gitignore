@@ -1,0 +1,4 @@
+out/
+**/stills/
+*.mp4
+*.lock
