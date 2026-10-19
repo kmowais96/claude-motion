@@ -9,3 +9,8 @@ w0 180/375  445s
 w1 180/374  447s
 w0 240/375  652s
 w1 240/374  653s
+w0 300/375  838s
+w1 300/374  843s
+w0 360/375  1027s
+w1 360/374  1035s
+done /home/claude/claude-motion/sims/when-you-open/samples/s08-glass/sample.mp4 749 frames 1084s
