@@ -55,10 +55,10 @@ const compShader = {
 class ScenePass extends Pass {
   constructor(scene, camera, w, h, o) {
     super(); this.scene = scene; this.camera = camera; this.needsSwap = true;
-    this.rt = new THREE.WebGLRenderTarget(w, h, { samples: 4, type: THREE.HalfFloatType, depthTexture: new THREE.DepthTexture(w, h, THREE.FloatType) });
+    this.rt = new THREE.WebGLRenderTarget(w, h, { samples: o.msaa ?? 4, type: THREE.HalfFloatType, depthTexture: new THREE.DepthTexture(w, h, THREE.FloatType) });
     this.comp = new FullScreenQuad(new THREE.ShaderMaterial(compShader));
     this.u = this.comp.material.uniforms; this.u.res.value.set(w, h);
-    this.ao = new GTAOPass(scene, camera, w, h);
+    this.ao = new GTAOPass(scene, camera, Math.round(w * (o.aoRes ?? 1)), Math.round(h * (o.aoRes ?? 1)));   // AO at reduced resolution: software GL budget
     this.ao.output = GTAOPass.OUTPUT.Off;
     this.ao.updateGtaoMaterial({ radius: o.aoRadius ?? .6, distanceExponent: 1.4, thickness: o.aoThickness ?? .8, scale: o.aoScale ?? 1.6, distanceFallOff: .7, samples: 8 });
     this.ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 8, rings: 2, samples: 8 });
@@ -84,8 +84,8 @@ const tiltShader = {
       vec4 c = texture2D(tDiffuse, vUv);
       if (r < .3) { gl_FragColor = c; return; }
       vec3 acc = c.rgb; float ws = 1.;
-      for (int i = 0; i < 24; i++) {
-        float rr = r * sqrt((float(i) + .5) / 24.), th = float(i) * 2.39996;
+      for (int i = 0; i < 12; i++) {
+        float rr = r * sqrt((float(i) + .5) / 12.), th = float(i) * 2.39996;
         acc += texture2D(tDiffuse, vUv + vec2(cos(th), sin(th)) * rr / res).rgb; ws += 1.;
       }
       gl_FragColor = vec4(acc / ws, 1.);

@@ -4,7 +4,6 @@
 // market stalls switching on. A thread of light along the plate's front rim marks the years of the mission.
 // render(t) is a pure function of t (seeded hashes only).
 import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { makePost } from './lib/post.js';
 import { clamp, lerp, seg, ss, eio, eo, hash, track, env } from './lib/lib.js';
 import { estimate } from './timing.js';
@@ -106,13 +105,14 @@ palm(WELL[0] + .05, WELL[1] - .045, 99); palm(WELL[0] - .052, WELL[1] + .04, 98)
 
 // ------------------------------------------------------------------ the studio (after the lemo-opuscar white-model engine)
 const renderer = new THREE.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true });
-renderer.setPixelRatio(1); renderer.setSize(W, H);
+const RS = QS.has('full') ? 1 : 2;   // software GL: the 3D layer renders at 960×540 and is scaled up; the 2D layer stays 1080p
+renderer.setPixelRatio(1); renderer.setSize(W / RS, H / RS, false); renderer.domElement.style.width = W + 'px'; renderer.domElement.style.height = H + 'px';
 renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap; renderer.shadowMap.autoUpdate = false;
 document.getElementById('stage').appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(30, W / H, 0.05, 9);
-const post = makePost(renderer, scene, camera, W, H, { ssaa: 1, ao: false });
+const post = makePost(renderer, scene, camera, W / RS, H / RS, { ssaa: 1, ao: false });
 post.bloom.strength = .3; post.bloom.radius = .55; post.bloom.threshold = .85;
 post.vig.uniforms.amt.value = .42;
 if (QS.has('nobloom')) post.bloom.enabled = false;
@@ -124,23 +124,23 @@ if (QS.has('nomsaa')) post.dof.rt.samples = 0;
   g.fillStyle = gr; g.fillRect(0, 0, 512, 288);
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; scene.background = tex;
 }
-scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), .02).texture;
+// no environment map: Lambert surfaces take the hemisphere light instead
 
 const col = h => new THREE.Color(h);
-const PAL = { day: '#ffe0b5', night: '#1c2c66', shade: '#1c2c66', dust: '#d9ac6c', amber: '#ffa13d', fig: '#fff0d8', line: '#ffd59a' };
+const PAL = { day: '#fff3e2', night: '#1c2c66', shade: '#1c2c66', dust: '#c98a45', amber: '#ffa13d', fig: '#fff0d8', line: '#ffd59a' };
 const NF = QS.has('nofig') ? 1 : 64;
 const U = {
   uProj: { value: 0 }, uNow: { value: 0 }, uWashR: { value: -1 }, uWashRim: { value: 0 },
   uDay: { value: 0 }, uNight: { value: 0 }, uDawn: { value: 0 }, uDust: { value: 0 }, uLamp: { value: 0 },
   uStallOn: { value: 0 }, uStallT0: { value: 99 }, uStallDT: { value: .1 }, uLine: { value: 0 }, uLineOn: { value: 0 },
-  uFig: { value: Array.from({ length: NF }, () => new THREE.Vector4()) }, uSunMask: { value: 1 },
-  uProjPos: { value: new THREE.Vector3(0, 3.0, .6) }, uPlate: { value: new THREE.Vector2(PW, PD) },
+  uNFig: { value: 0 }, uFig: { value: Array.from({ length: NF }, () => new THREE.Vector4()) }, uSunMask: { value: 1 },
+  uProjPos: { value: new THREE.Vector3(.2, 2.4, 2.2) }, uPlate: { value: new THREE.Vector2(PW, PD) },
   cDay: { value: col(PAL.day) }, cNight: { value: col(PAL.night) }, cShade: { value: col(PAL.shade) }, cDust: { value: col(PAL.dust) },
   cAmber: { value: col(PAL.amber) }, cFig: { value: col(PAL.fig) }, cLine: { value: col(PAL.line) },
 };
 const HEAD = /* glsl */`
 uniform float uProj, uNow, uWashR, uWashRim, uDay, uNight, uDawn, uDust, uLamp, uStallOn, uStallT0, uStallDT, uLine, uLineOn;
-uniform vec4 uFig[${NF}];
+uniform vec4 uFig[${NF}]; uniform int uNFig;
 uniform vec3 uProjPos; uniform vec2 uPlate;
 uniform vec3 cDay, cNight, cShade, cDust, cAmber, cFig, cLine;
 varying vec4 vData; varying vec3 vWP; varying vec3 vWN;
@@ -157,12 +157,12 @@ vec3 projLight(float kind){
   float wash = smoothstep(.08, -.08, s1);
   float rim = uWashRim * exp(-s1 * s1 / .004) * .5;
   float k = kind < .5 ? vData.x : -1.;
-  vec3 c = cDay * uDay * .62 + cNight * uNight * .55 + cShade * uDawn * .42;
+  vec3 c = cDay * uDay * .5 + cNight * uNight * .55 + cShade * uDawn * .42;
   float n = vn(vWP.xz * 7. + vec2(uNow * .32, uNow * .07)) * .6 + vn(vWP.xz * 19. - vec2(uNow * .5, 0.)) * .4;
-  c += cDust * uDust * (.34 + .38 * n);
+  c += cDust * uDust * (.12 + .62 * n * n);
   c *= wash;
   // night: a few homes keep a lamp lit (warm light on their roofs)
-  if (k > -.5 && k < .5 && vData.y < .2 && N.y > .5) c += cAmber * uLamp * (.75 + .5 * vData.y * 5.);
+  if (k > -.5 && k < .5 && vData.y < .09 && N.y > .5) c += cAmber * uLamp * (.45 + 3. * vData.y);
   // market stalls switch on one by one with a short flash
   if (k > .5 && k < 1.5 && uStallOn > .5) {
     float e = uNow - (uStallT0 + vData.z * uStallDT), a = smoothstep(0., .2, e), fl = e > 0. ? exp(-e / .16) : 0.;
@@ -172,10 +172,10 @@ vec3 projLight(float kind){
   float gy = 1. - smoothstep(.0, .009, vWP.y);
   if (gy > 0. && kind < 1.5) {
     float acc = 0.;
-    for (int i = 0; i < ${NF}; i++) { vec4 f = uFig[i]; if (f.w <= 0.) continue;
+    for (int i = 0; i < ${NF}; i++) { if (i >= uNFig) break; vec4 f = uFig[i];
       vec2 d = vWP.xz - f.xy; float d2 = dot(d, d), rr = f.z * f.z;
-      acc += f.w * (smoothstep(rr * 1.2, rr * .5, d2) * .9 + .45 * exp(-d2 / (rr * 6.))); }
-    c += cFig * acc * gy * 2.2;
+      acc += f.w * (smoothstep(rr * 1.1, rr * .35, d2) * 1.2 + .3 * exp(-d2 / (rr * 5.))); }
+    c += cFig * acc * gy * 3.2;
   }
   // the years of the mission: a thread of light along the plate's front rim, a tick for every year
   if (kind > .5 && kind < 1.5 && vWP.y > -.001) {
@@ -193,7 +193,8 @@ vec3 projLight(float kind){
   return (c + vec3(1., .93, .82) * rim) * dirK * thr * uProj;
 }`;
 function projMaterial(kind, opts) {
-  const m = new THREE.MeshStandardMaterial(opts);
+  const { roughness, metalness, ...o2 } = opts;
+  const m = new THREE.MeshLambertMaterial(o2);   // matte white; Lambert keeps a frame affordable on software GL
   m.onBeforeCompile = sh => {
     Object.assign(sh.uniforms, U);
     sh.vertexShader = sh.vertexShader
@@ -225,12 +226,12 @@ const zero = g => { g.setAttribute('aData', new THREE.Float32BufferAttribute(new
 const house = new THREE.DirectionalLight('#ffffff', 2);
 house.position.setFromSphericalCoords(4, THREE.MathUtils.degToRad(40), THREE.MathUtils.degToRad(215)); house.castShadow = true;
 Object.assign(house.shadow.camera, { left: -1.1, right: 1.1, top: 1.1, bottom: -1.1, near: .5, far: 9 });
-house.shadow.mapSize.set(2048, 2048); house.shadow.radius = 5; house.shadow.bias = -.0002; house.shadow.normalBias = .001;
+house.shadow.mapSize.set(2048, 2048); house.shadow.radius = 5; house.shadow.bias = -.0006; house.shadow.normalBias = .002;
 scene.add(house, house.target);
 const sun = new THREE.DirectionalLight('#ffd9ad', 0);
 sun.castShadow = true;
 Object.assign(sun.shadow.camera, { left: -1.1, right: 1.1, top: 1.1, bottom: -1.1, near: .5, far: 11 });
-sun.shadow.mapSize.set(2048, 2048); sun.shadow.radius = 1.5; sun.shadow.bias = -.0003; sun.shadow.normalBias = .001;
+sun.shadow.mapSize.set(2048, 2048); sun.shadow.radius = 1.5; sun.shadow.bias = -.0008; sun.shadow.normalBias = .002;
 scene.add(sun, sun.target);
 const hemi = new THREE.HemisphereLight('#dfe7f2', '#141414', .3); scene.add(hemi);
 
@@ -242,7 +243,7 @@ function along(L, k) {
   return L[L.length - 1];
 }
 const F = [];   // {path, tIn, tOut, ta, tb, r, a, sway}
-const fig = o => F.push({ r: .0034, a: 1, sway: 1, ta: 0, tb: 1, ...o });
+const fig = o => F.push({ r: .0038, a: 1, sway: 1, ta: 0, tb: 1, ...o });
 const off = (p, dx, dz) => [p[0] + dx, p[1] + dz];
 // asking: three small clusters in the market square
 [[-.035, -.02], [-.028, -.03], [-.044, -.034], [.03, -.03], [.042, -.022], [.036, -.04], [.0, .035], [.012, .043], [-.012, .044]]
@@ -253,7 +254,7 @@ const off = (p, dx, dz) => [p[0] + dx, p[1] + dz];
 // searching: walkers come up the south lane into the market
 for (let i = 0; i < 4; i++) fig({ path: [[0.085, 0.47], [0.065, 0.25], off(M0, .02 - i * .012, .06)], tIn: 6.5 + i * .45, tOut: T.night0 + .4, ta: 6.5 + i * .45, tb: 9.9 + i * .45 });
 // resisting: some leave the market by the west road and walk out of town
-for (let i = 0; i < 3; i++) fig({ path: [off(M0, -.04, -.01), [-0.13, 0.08], WELL, [-0.45, 0.13], [-0.76, 0.14]].map((p, j) => j === 2 ? off(p, 0, .02) : p), tIn: 9.9 + i * .2, tOut: 12.5, ta: 10.1 + i * .3, tb: 13.6 + i * .3, fade: 1 });
+for (let i = 0; i < 3; i++) fig({ path: [off(M0, .03, -.02), [0.2, 0.0], [0.36, -0.02], [0.47, -0.2], [0.5, -0.36]], tIn: 9.9 + i * .2, tOut: 12.5, ta: 10.1 + i * .3, tb: 13.6 + i * .3, fade: 1 });
 // hope: at dawn two come out to the well
 for (let i = 0; i < 2; i++) fig({ path: [[-0.2 - i * .05, 0.22], off(WELL, .006 - i * .02, .03)], tIn: 15.7 + i * .4, tOut: DUR + 1, ta: 16.0 + i * .4, tb: 18.6 + i * .4 });
 // hardship: a few walk slowly to the well in the dry season
@@ -261,7 +262,7 @@ for (let i = 0; i < 3; i++) fig({ path: [[-0.4 + i * .03, 0.3], [-0.33, 0.2], of
 // victory: a caravan comes in along the west road; the market fills
 for (let i = 0; i < 9; i++) {
   const camel = i % 3 !== 0, t0 = 20.7 + i * .2;
-  fig({ path: [[-0.78, 0.14], [-0.45, 0.13], off(WELL, 0, -.03), [-0.13, 0.08], off(M0, -.06 + (i % 3) * .012, -.005 + Math.floor(i / 3) * .016)], tIn: t0, tOut: DUR + 1, ta: t0, tb: t0 + 3.3, r: camel ? .0052 : .0034, sway: .3 });
+  fig({ path: [[0.1, 0.52], [0.065, 0.25], off(M0, -.012 + (i % 3) * .014, .055 - Math.floor(i / 3) * .016)], tIn: t0, tOut: DUR + 1, ta: t0, tb: t0 + 3.3, r: camel ? .0056 : .0038, sway: .3 });
 }
 for (let i = 0; i < 14; i++) {
   const a = hash(i * 3.7) * 6.28, R = .02 + hash(i * 5.3) * .055;
@@ -279,19 +280,22 @@ function setFigs(t) {
     const pop = 1 + .8 * Math.exp(-Math.max(0, t - f.tIn) / .15) * (t > f.tIn ? 1 : 0);
     U.uFig.value[n++].set(x, z, f.r, a * pop);
   }
+  U.uNFig.value = n;
   for (; n < NF; n++) U.uFig.value[n].set(0, 0, .001, 0);
 }
 
 // ------------------------------------------------------------------ camera: [t, [tx, ty, tz, azimuth°, elevation°, distance]] (azimuth 0 = from the south)
 const CAM = track([
   [0.0, [-0.02, .012, .07, -28, 8, .42]],
-  [1.6, [-0.04, .01, .07, -22, 13, .56]],
-  [5.5, [-0.12, .0, .09, -12, 24, .78]],
-  [10.0, [-0.2, .0, .1, -2, 29, .92]],
-  [13.5, [-0.08, .0, .02, 10, 35, 1.18]],
-  [16.5, [0.0, .0, .02, 16, 30, 1.12]],
-  [19.6, [-0.12, .0, .07, 8, 27, .9]],
-  [22.4, [-0.1, .0, .08, 0, 25, .84]],
+  [1.6, [-0.03, .01, .07, -22, 13, .56]],
+  [3.6, [-0.12, .0, .08, -16, 20, .66]],
+  [5.6, [-0.33, .0, .12, -10, 25, .66]],
+  [8.6, [-0.08, .0, .14, -2, 28, .82]],
+  [11.6, [0.12, .0, .06, 8, 31, .92]],
+  [14.0, [0.0, .0, .02, 12, 36, 1.18]],
+  [16.6, [-0.05, .0, .03, 14, 30, 1.0]],
+  [19.4, [-0.3, .0, .1, 6, 27, .74]],
+  [22.4, [-0.05, .0, .12, 0, 25, .8]],
   [24.4, [-0.03, .0, .14, -6, 30, 1.45]],
   [DUR, [0.0, .0, .14, -9, 33, 1.85]],
 ]);
@@ -310,9 +314,9 @@ const yearK = t => seg(t, T.y0, T.y1);                     // 0 → 1 over Year 
 const sunVec = (alt, az) => { const a = THREE.MathUtils.degToRad(alt), z = THREE.MathUtils.degToRad(az); return new THREE.Vector3(Math.sin(z) * Math.cos(a), Math.sin(a), -Math.cos(z) * Math.cos(a)); };
 function setLight(t) {
   const out = ss(seg(t, T.lightsOut, T.lightsOut + .25)), back = ss(seg(t, T.lightsUp, T.lightsUp + 1.2));
-  const houseK = lerp(1, .05, out) * (1 - back) + .45 * back;
+  const houseK = lerp(1, .07, out) * (1 - back) + .45 * back;
   const sunK = ss(seg(t, T.sun0, T.sun0 + 1.2)) * (1 - ss(seg(t, T.sun1 - .5, T.sun1 + .4)));
-  house.intensity = 1.7 * houseK * (1 - sunK); hemi.intensity = .25 * houseK + .02;
+  house.intensity = 2.3 * houseK * (1 - sunK); hemi.intensity = 1.6 * houseK + .03;
   scene.environmentIntensity = lerp(.06, .75, houseK); scene.backgroundIntensity = lerp(.5, 1, houseK);
   post.bloom.threshold = lerp(1.6, .85, out * (1 - back));
   const strike = seg(t, T.lamp, T.lamp + .12), flick = t > T.lamp && t < T.lamp + .25 ? .75 + .25 * Math.sin((t - T.lamp) * 90) : 1;
@@ -323,7 +327,7 @@ function setLight(t) {
   const night = ss(seg(t, T.night0, T.night1)) * (1 - ss(seg(t, T.sun0, T.sun0 + 1.4)));
   const dust = ss(seg(t, T.dust0, T.dust0 + 1)) * (1 - ss(seg(t, T.dust1, T.dust1 + .8)));
   const day = (1 - ss(seg(t, T.night0, T.night1))) + ss(seg(t, T.day2, T.day2 + 1.2));
-  U.uDay.value = clamp(day) * (1 - dust * .75) * (1 - back * .6);
+  U.uDay.value = clamp(day) * (1 - dust * .85) * (1 - back * .6);
   U.uNight.value = night;
   U.uLamp.value = ss(seg(t, T.night0 + .3, T.night0 + 1.0)) * (1 - ss(seg(t, T.sun0 + .4, T.sun0 + 1.6)));
   U.uDawn.value = sunK;

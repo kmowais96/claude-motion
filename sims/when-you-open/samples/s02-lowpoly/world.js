@@ -144,7 +144,7 @@ const ISL = [
       if (c.r <= -1 && c.q >= 0 && c.d === 2) return { h: 1.15 + c.hs * .45, top: '#e0a27a', side: '#c4815c' };
       return { h: .36 + c.hs * .3, top: jit('#f3dfab', (c.hs - .5) * .08), side: '#e2c68e' }; },
     props(P) { P.on(1, 0, tree('palm', .3), .05, -.1); P.on(-1, 0, tree('palm', 1.4), 0, .1); P.on(0, 1, tree('palm', 2.2), -.1, 0);
-      const tent = new THREE.Group(); tent.add(M(gable(.5, .44, .32, 0), mat('#c9504a'))); tent.add(M(gableEnds(.49, .43, .32), mat('#efd9b4'))); tent.rotation.y = .5; P.on(1, 1, tent);
+      const tent = M(new THREE.ConeGeometry(.3, .4, 4), mat('#e9c9a0')); tent.position.y = .2; const tg = new THREE.Group(); tg.add(tent); P.on(1, 1, tg);
       const rk = M(new THREE.IcosahedronGeometry(.16, 0), mat('#c4a07e')); rk.scale.y = .6; P.on(-2, 1, rk); } },
   { name: 'city', drop: .82,
     tile(c) { return { h: .5 + (c.d === 2 ? c.hs * .08 : 0), top: jit('#e9dfcc', (c.hs - .5) * .06), side: '#cbbda6' }; },
@@ -212,7 +212,7 @@ export function buildWorld(scene) {
           const a = j * 2.4 + .3, rr = .4 + hash(j + 3) * 1.4, s = M(new THREE.IcosahedronGeometry(.06 + hash(j + 11) * .06, 0), starMat, false);
           s.position.set(Math.cos(a) * rr, 2.4 + hash(j + 5) * 1.1, Math.sin(a) * rr); G.add(s); stars.push({ obj: s, te: TM.stars + j * .14, y: s.position.y, ph: j });
         }
-        const m = M(crescent(), starMat, false); m.position.set(-.7, 3.55, 0); m.rotation.set(0, 45 * DEG, -.5); G.add(m); stars.push({ obj: m, te: TM.stars - .25, y: 3.55, ph: 0, moon: true });
+        const m = M(crescent(), starMat, false); m.position.set(-1.1, 3.75, .5); m.rotation.set(0, 45 * DEG, -.5); G.add(m); stars.push({ obj: m, te: TM.stars - .25, y: 3.75, ph: 0, moon: true });
       },
       storm() {
         cloud = new THREE.Group();
@@ -293,7 +293,7 @@ export function buildWorld(scene) {
     const st = ss(seg(t, TM.sink(5) + 1.2, TM.sink(5) + 2.5));
     STORM[2] = 2.2 * st; sea.U.uStorm.value.set(STORM[0], STORM[1], STORM[2]);
     const fl = Math.exp(-Math.pow((t - TM.flash[0]) / .06, 2)) + .6 * Math.exp(-Math.pow((t - TM.flash[1]) / .05, 2));
-    cloudMat.emissiveIntensity = .9 * fl;
+    cloudMat.emissiveIntensity = .55 * fl;
     if (cloud) cloud.rotation.y = t * .05;
     if (rain) {
       rain.visible = st > .01; rain.material.opacity = .45 * st;

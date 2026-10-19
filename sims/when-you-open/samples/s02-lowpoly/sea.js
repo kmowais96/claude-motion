@@ -65,7 +65,7 @@ export function makeSea(scene) {
     };
     return m;
   };
-  const geo = new THREE.PlaneGeometry(220, 220, 200, 200).toNonIndexed();
+  const geo = new THREE.PlaneGeometry(220, 220, 150, 150).toNonIndexed();
   const near = new THREE.Mesh(geo, mkMat(true)); near.rotation.x = -Math.PI / 2; near.receiveShadow = false; scene.add(near);
   const far = new THREE.Mesh(new THREE.PlaneGeometry(5000, 5000, 180, 180), mkMat(false)); far.rotation.x = -Math.PI / 2; far.position.y = -.55; scene.add(far);
 
