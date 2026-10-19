@@ -1,6 +1,7 @@
 // Scene 1 · The Invitation, in the calm ivory design: the closed mushaf rises out of the page as a blind emboss,
 // a beam of morning light travels slowly across it and comes to rest on it at the question; then everything holds.
 import { estimate } from './timing.js';
+import { makeLife } from './life.js';
 const W = 1920, H = 1080, C = document.getElementById('c'), X = C.getContext('2d');
 const TAU = Math.PI * 2;
 const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
@@ -71,24 +72,28 @@ const S = estimate([
 ], 4.0);
 const T_HOLD = S[12].start, DUR = S[12].end + 3.5;
 
+const life = makeLife(W, H, rnd);
+
 function render(t) {
   const tt = Math.min(t, T_HOLD + 1.2);                       // the light settles on the book, then the frame holds
   const rise = io((tt - .6) / 3.2);                           // the emboss lifts out of the page
   const beam = io((tt - 1) / (T_HOLD + 1.2 - 1));             // beam travels from far left to rest on the book
-  const zoom = lerp(1, 1.06, io(tt / (T_HOLD + 1.2)));         // a slow push in
-  X.save(); X.translate(W / 2, H * .48); X.scale(zoom, zoom); X.translate(-W / 2, -H * .48);
+  const u = t / DUR, zoom = lerp(1, 1.16, io(u * .9 + .05));   // the camera never stops: a slow push in with a gentle drift
+  X.save(); X.translate(W / 2 + lerp(50, -40, u), H * .48 + lerp(-24, 12, u)); X.scale(zoom, zoom); X.rotate(lerp(.006, -.004, u)); X.translate(-W / 2, -H * .48);
   const bg = X.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#f4ede0'); bg.addColorStop(1, '#e6dccb'); X.fillStyle = bg; X.fillRect(-100, -100, W + 200, H + 200);
   // the beam: a soft diagonal band whose centre moves from x≈-300 to the book
-  const bx0 = lerp(-420, 760, beam), g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H);
-  g.fillStyle = `rgba(255,236,196,${.25 + .5 * io(beam * 3)})`; g.beginPath(); g.moveTo(bx0 - 210, -60); g.lineTo(bx0 + 210, -60); g.lineTo(bx0 + 740, H + 60); g.lineTo(bx0 + 140, H + 60); g.closePath(); g.fill();
+  const bx0 = lerp(-420, 760, beam) + 70 * io((t - T_HOLD) / (DUR - T_HOLD)), g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H);
+  g.fillStyle = `rgba(255,236,196,${(.25 + .5 * io(beam * 3)) * life.flicker(t)})`; g.beginPath(); g.moveTo(bx0 - 210, -60); g.lineTo(bx0 + 210, -60); g.lineTo(bx0 + 740, H + 60); g.lineTo(bx0 + 140, H + 60); g.closePath(); g.fill();
   X.save(); X.filter = 'blur(60px)'; X.drawImage(BEAM, 0, 0); X.restore();
   // how much light the book catches: highest when the beam's centre crosses it
   const near = cl(1 - Math.abs((bx0 + 210) - 960) / 700), lit = .35 + .65 * near;
-  const cx = 960, cy = 520, bw = BW, bh = BH;
-  const sg = SHADOW.getContext('2d'); sg.clearRect(0, 0, W, H); sg.fillStyle = `rgba(50,36,20,${.42 * rise})`; sg.fillRect(cx - bw / 2 + 30 * rise, cy - bh / 2 + 38 * rise, bw + 10, bh);
+  const cx = 960, cy = 520, bw = BW, bh = BH, rot = lerp(-.035, .025, io(u));
+  X.save(); X.translate(cx, cy); X.rotate(rot); X.translate(-cx, -cy);
+  const sg = SHADOW.getContext('2d'); sg.clearRect(0, 0, W, H); sg.fillStyle = `rgba(50,36,20,${.42 * rise})`; const so = lerp(52, 18, beam); sg.fillRect(cx - bw / 2 + so * rise, cy - bh / 2 + 38 * rise, bw + 10, bh);
   X.save(); X.filter = `blur(${8 + 20 * rise}px)`; X.drawImage(SHADOW, 0, 0); X.restore();
   // the mushaf: page block on the right, then the cover; it settles down onto the paper as it fades in
   X.save(); X.globalAlpha = rise; X.translate(0, (1 - rise) * -14);
+  life.ribbon(X, t, cx + bw / 2 - 40, cy + bh / 2 - 12, 1.25, 150, ['#173f30', '#2d6a50']);
   X.fillStyle = '#ece3cf'; X.fillRect(cx - bw / 2 - 5, cy - bh / 2 + 7, 9, bh - 14);
   X.drawImage(COVER, cx - bw / 2, cy - bh / 2);
   // the gold catches the beam: a soft sheen travelling over the tooling only
@@ -96,7 +101,10 @@ function render(t) {
   const sx = (bx0 + 300) - (cx - bw / 2), sgr = sh.createLinearGradient(sx - 260, 0, sx + 260, BH); sgr.addColorStop(0, 'rgba(255,240,200,0)'); sgr.addColorStop(.5, `rgba(255,244,214,${.85 * lit})`); sgr.addColorStop(1, 'rgba(255,240,200,0)');
   sh.fillStyle = sgr; sh.fillRect(0, 0, BW, BH); sh.globalCompositeOperation = 'source-over';
   X.globalCompositeOperation = 'screen'; X.drawImage(SHEEN, cx - bw / 2, cy - bh / 2); X.globalCompositeOperation = 'source-over';
-  X.restore();
+  X.restore(); X.restore();
+  // the world outside the window: the branch's shadow swaying, dust glinting in the beam, a bird passing
+  life.leaves(X, t, io(t / 3)); life.motes(X, t, bx0, io(beam * 3));
+  life.bird(X, t, 22, 5.5, 330, 1); life.bird(X, t, 46, 6, 860, -1);
   // the one touch of colour: a fine gold rule, widening from the centre once the book has risen
   const rw = 120 * io((tt - 3.6) / 2.4); X.fillStyle = '#b8955a'; X.fillRect(cx - rw / 2, cy + bh / 2 + 56, rw, 1.5);
   X.restore();

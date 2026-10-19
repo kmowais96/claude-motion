@@ -1,6 +1,7 @@
 // Scene 11 · The First Page, in the ivory design: the same mushaf and the same resting light as the opening;
 // this time the cover opens on its spine and the first page lies in the daylight. No elaborate effects.
 import { estimate } from './timing.js';
+import { makeLife } from './life.js';
 const W = 1920, H = 1080, C = document.getElementById('c'), X = C.getContext('2d');
 const TAU = Math.PI * 2;
 const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
@@ -117,13 +118,16 @@ function turn(front, back, k, spine, y, w, h) {
     X.drawImage(back, spine, y, ww, h); X.fillStyle = `rgba(0,0,0,${.22 * lift})`; X.fillRect(spine, y, ww, h); }
 }
 
+const life = makeLife(W, H, rnd);
+
 function render(t) {
   const k = io((t - T_OPEN) / OPEN), k2 = io((t - T_TURN) / TURN), shift = -BW / 2 * io((t - T_OPEN - .6) / (OPEN + .8));   // the spread re-centres on the spine
   const day = io(t / (DUR - 3));
-  X.save(); X.translate(W / 2, H * .48); X.scale(1.06 - .02 * day, 1.06 - .02 * day); X.translate(-W / 2, -H * .48);
+  const u = t / DUR, zoom = lerp(1.1, .98, io(u));   // the camera keeps moving: it eases back as the book opens, drifting across
+  X.save(); X.translate(W / 2 + lerp(-40, 40, u), H * .48 + lerp(10, -14, u)); X.scale(zoom, zoom); X.rotate(lerp(-.005, .004, u)); X.translate(-W / 2, -H * .48);
   const bg = X.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#f6efe2'); bg.addColorStop(1, '#e7ddcc'); X.fillStyle = bg; X.fillRect(-100, -100, W + 200, H + 200);
   // daylight: the beam from the opening, resting where it stopped and widening as the morning comes
-  const g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H); g.fillStyle = `rgba(255,236,196,${.7 + .15 * day})`; const bx0 = 760 + shift * .5, wd = 210 + 160 * day;
+  const g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H); g.fillStyle = `rgba(255,236,196,${(.7 + .15 * day) * life.flicker(t)})`; const bx0 = 760 + shift * .5 + lerp(-60, 120, u), wd = 210 + 160 * day;
   g.beginPath(); g.moveTo(bx0 - wd, -60); g.lineTo(bx0 + wd, -60); g.lineTo(bx0 + 530 + wd, H + 60); g.lineTo(bx0 + 350 - wd * .3, H + 60); g.closePath(); g.fill();
   X.save(); X.filter = 'blur(60px)'; X.drawImage(BEAM, 0, 0); X.restore();
   const cx = 960 + shift, cy = 520, x0 = cx - BW / 2, y0 = cy - BH / 2, spine = cx + BW / 2, pw = BW - 6, ph = BH - 12, py = y0 + 6;
@@ -131,6 +135,7 @@ function render(t) {
   const sg = SHADOW.getContext('2d'); sg.clearRect(0, 0, W, H); sg.fillStyle = 'rgba(50,36,20,.42)'; sg.fillRect(x0 + 30, y0 + 38, BW + 10 + BW * k, BH);
   X.save(); X.filter = 'blur(28px)'; X.drawImage(SHADOW, 0, 0); X.restore();
   // the back board under the page block
+  life.ribbon(X, t, spine - 30, y0 + BH - 14, 1.75, 170, ['#173f30', '#2d6a50']);
   X.fillStyle = '#121722'; X.fillRect(x0, y0, BW, BH);
   X.drawImage(PAGE_L, spine - pw, py, pw, ph);
   if (k2 < .5) X.drawImage(FLY, spine - pw, py, pw, ph);
@@ -145,6 +150,8 @@ function render(t) {
   if (k2 > .5) { const gr = X.createLinearGradient(spine, 0, spine + 40, 0); gr.addColorStop(0, `rgba(90,64,30,${.2 * sh})`); gr.addColorStop(1, 'rgba(90,64,30,0)'); X.fillStyle = gr; X.fillRect(spine, py, 40, ph); }
   if (k > 0 && k < 1) turn(COVER, INSIDE, k, spine, y0, BW, BH);
   if (k <= 0) X.drawImage(COVER, x0, y0);
+  // the world outside the window: the branch's shadow swaying, dust glinting in the beam, a bird passing
+  life.leaves(X, t, 1); life.motes(X, t, bx0, 1); life.bird(X, t, 29, 5.5, 300, -1);
   X.restore();
   X.save(); X.globalAlpha = .07; X.globalCompositeOperation = 'overlay'; X.drawImage(GRAIN, 0, 0); X.restore();
   const cur = S.find(x => t >= x.start - .1 && t < x.end + .5);
