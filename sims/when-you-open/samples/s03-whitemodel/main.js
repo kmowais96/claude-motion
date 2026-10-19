@@ -388,10 +388,8 @@ function drawOverlay(t) {
     g.save(); g.globalAlpha = ra; g.fillStyle = PAL.line; g.fillRect(X, Y - 122, 46 * k + 2, 2); g.restore();
     txt('ri', '03', X, Y - 136, 'mono', 20, 'rgba(235,238,242,.72)', ra, { ls: 2 });
     txt('rn', 'THE YEARS OF THE MISSION', X + 52, Y - 135, 'lab', 22, '#eef1f4', ra, { ls: 3 });
-    const yr = 1 + Math.floor(yearK(t) * 22 + 1e-6);
-    txt(null, 'Year', X, Y - 8 - 60, 'lab3', 30, 'rgba(240,242,245,.85)', ra, { shadow: 10 });
-    const w = txt(null, String(yr), X - 6, Y + 56, 'num', 128, '#ffffff', ra, { shadow: 18 });
-    txt(null, 'of 23', X + w + 14, Y + 56, 'num', 44, 'rgba(255,255,255,.8)', ra, { shadow: 12 });
+    // no year numbers: the moments are illustrative, not dated
+    txt(null, 'Twenty-three years', X, Y + 40, 'lab3', 40, 'rgba(255,255,255,.9)', ra, { shadow: 12 });
     for (const [a0, a1, s] of LAYERS) {
       const la = env(t, a0, a1, .45, .35) * ra; if (la <= 0) continue;
       txt('L' + a0, s, X, Y + 108, 'lab', 30, '#f4f5f6', la, { shadow: 10 });
@@ -403,7 +401,7 @@ function drawOverlay(t) {
   }
   // the rim labels: Year 1, Year 13, Year 23 (appear as the thread reaches them)
   const x0 = -PW / 2 + .05, x1 = PW / 2 - .05, zl = PD / 2 + .026;
-  for (const [yy, kk] of [[1, 0], [13, 12 / 22], [23, 1]]) {
+  for (const [yy, kk] of [[1, 0], [23, 1]]) {
     const a = U.uLineOn.value * env(t, T.y0 + kk * (T.y1 - T.y0) - .2, DUR + 1, .4, .3); if (a <= 0) continue;
     const p = proj3(lerp(x0, x1, kk), 0, zl + .012); if (!p || p[1] > 960) continue;
     txt('rim' + yy, `Year ${yy}`, p[0], p[1] + 26, 'mono', 20, '#ffe2bd', a, { center: true, shadow: 10 });

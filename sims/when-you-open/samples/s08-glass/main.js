@@ -1,12 +1,13 @@
-// Scene 08 "When You Don't Understand" — Stained Glass sample.
+// Scene 08 "When You Don't Understand" — Stained Glass sample (v2: Islamic window).
 // Darkness: loose, unleaded fragments (some cut as question marks) drift, dim and apart. As the narration turns
-// to patience and context, light rises behind a round opening; the question marks slide away into the dark and the
-// fragments slide into their lead cames ring by ring (border, surroundings, ground, centre) until one 8-point star
-// rosette window glows warm. render(t) is pure in t; pieces step at 8 fps, light moves on ones.
+// to patience and context, light rises behind a pointed-arch opening in a warm plastered wall; the question marks
+// slide away into the dark and the fragments slide into their lead cames, outside in (border, surroundings,
+// ground, centre), until one khatam pattern of 8-point stars and crosses glows warm.
+// render(t) is pure in t; pieces step at 8 fps, light moves on ones.
 import { estimate } from './timing.js';
 import { drawCaption } from './caption.js';
 import { makeComp } from './comp.js';
-import { Pass, COL, poly, circle, brush, INK } from './glass.js';
+import { Pass, COL, poly, circle, brush } from './glass.js';
 import { mulberry, hash } from './lib.js';
 
 const LINES = [
@@ -35,88 +36,118 @@ const CAP = document.getElementById('cap').getContext('2d');
 const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const ss = (a, b, x) => { const u = cl((x - a) / (b - a)); return u * u * (3 - 2 * u); };
 const D = Math.PI / 180;
-const P = (r, a) => [r * Math.cos(a * D), r * Math.sin(a * D)];
-const arc = (r, a0, a1, n = 8) => Array.from({ length: n + 1 }, (_, i) => P(r, a0 + (a1 - a0) * i / n));
+const P = (r, a, c = [0, 0]) => [c[0] + r * Math.cos(a * D), c[1] + r * Math.sin(a * D)];
 
-// ---------- the window: an 8-point star rosette ----------
-const RA = 185, RI = RA * .7654, R2 = 205, R2F = 228, RS = 330, RB = 428, RW = 470, OPEN = 474;
-const pieces = [];
-const add = (pts, color, group, paint, o = {}) => pieces.push({ pts, color, group, paint, ...o });
-const ang = k => k * 45 - 90;
+// ---------- the opening: a pointed arch over upright jambs (convex) ----------
+const HA = 380, AR = 520, YS = -80, YB = 380, CX = AR - HA;   // half width, arch radius, springing, sill
+const CEN = [0, -95];
+function archPts(o) {   // outline offset by o (o < 0 = inward); equal sample counts for every o
+  const R = AR + o, al = Math.acos(CX / R) / D, pts = [];
+  for (let i = 0; i < 6; i++) pts.push([-(HA + o), YB + o + (YS - YB - o) * i / 6]);
+  for (let i = 0; i <= 12; i++) pts.push(P(R, 180 + al * i / 12, [CX, YS]));
+  for (let i = 1; i <= 12; i++) pts.push(P(R, -al + al * i / 12, [-CX, YS]));
+  for (let i = 1; i < 6; i++) pts.push([HA + o, YS + (YB + o - YS) * i / 6]);
+  for (let i = 0; i < 8; i++) pts.push([(HA + o) - 2 * (HA + o) * i / 8, YB + o]);
+  return pts;
+}
+const OPEN = archPts(4), GLASS = archPts(0), INNER = archPts(-42);
+const pathOf = pts => poly(pts);
+
+// Sutherland–Hodgman clip of a polygon against the convex inner outline
+const area = p => { let a = 0; for (let i = 0; i < p.length; i++) { const q = p[i], r = p[(i + 1) % p.length]; a += q[0] * r[1] - r[0] * q[1]; } return a / 2; };
+const CLIPSIGN = Math.sign(area(INNER));
+function clip(sub) {
+  let out = sub;
+  for (let i = 0; i < INNER.length && out.length; i++) {
+    const a = INNER[i], b = INNER[(i + 1) % INNER.length];
+    const side = p => CLIPSIGN * ((b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0])) >= 0;
+    const inp = out; out = [];
+    for (let j = 0; j < inp.length; j++) {
+      const p = inp[j], q = inp[(j + 1) % inp.length], ip = side(p), iq = side(q);
+      if (ip) out.push(p);
+      if (ip !== iq) {
+        const d1 = (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]), d2 = (b[0] - a[0]) * (q[1] - a[1]) - (b[1] - a[1]) * (q[0] - a[0]), u = d1 / (d1 - d2);
+        out.push([p[0] + (q[0] - p[0]) * u, p[1] + (q[1] - p[1]) * u]);
+      }
+    }
+  }
+  return out;
+}
 
 // grisaille helpers (world coordinates; the paint callback shifts into the piece frame)
 const dot = (g, x, y, r, a = .8) => { g.fillStyle = `rgba(44,26,12,${a})`; g.fill(circle(x, y, r)); };
 const pearl = (g, x, y, r) => { g.strokeStyle = 'rgba(44,26,12,.85)'; g.lineWidth = r * .55; g.stroke(circle(x, y, r)); };
-const band = (g, r, a0, a1, w, a = .5) => { g.strokeStyle = `rgba(52,30,14,${a})`; g.lineWidth = w; g.beginPath(); g.arc(0, 0, r, a0 * D, a1 * D); g.stroke(); };
 
-for (let k = 0; k < 8; k++) {
-  const A = ang(k), B = A + 45, M = A + 22.5;
-  // border: 16 segments, gold and ruby, with pearls
-  for (let h = 0; h < 2; h++) {
-    const a0 = A + h * 22.5, a1 = a0 + 22.5, gold = h === 0;
-    add([...arc(RB, a0, a1, 6), ...arc(RW, a1, a0, 6)], gold ? COL.gold : COL.ruby2, 0, g => {
-      for (let j = 0; j < 3; j++) pearl(g, ...P((RB + RW) / 2, a0 + (j + .5) * 7.5), 7);
-    }, { wash: .25 });
+const pieces = [];
+const add = (pts, color, group, paint, o = {}) => pieces.push({ pts, color, group, paint, ...o });
+
+// border band: gold and green segments with pearls
+{
+  const n = GLASS.length, step = 3;
+  for (let i0 = 0, k = 0; i0 < n; i0 += step, k++) {
+    const idx = []; for (let i = i0; i <= Math.min(i0 + step, n); i++) idx.push(i % n);
+    const pts = [...idx.map(i => GLASS[i]), ...idx.slice().reverse().map(i => INNER[i])];
+    const mid = idx.map(i => [(GLASS[i][0] + INNER[i][0]) / 2, (GLASS[i][1] + INNER[i][1]) / 2]);
+    add(pts, k % 2 ? COL.green2 : COL.gold, 0, g => { for (let j = 0; j < mid.length - 1; j++) pearl(g, (mid[j][0] + mid[j + 1][0]) / 2, (mid[j][1] + mid[j + 1][1]) / 2, 7); }, { wash: .2 });
   }
-  // surroundings: kite (ruby / green) and two cobalt sides
-  const kite = [P(R2F, M), P(RS, M - 11), P(RB, M), P(RS, M + 11)];
-  add(kite, k % 2 ? COL.green : COL.ruby, 1, g => {
-    brush(g, [P(R2F + 22, M), P((R2F + RB) / 2, M), P(RB - 24, M)], 5, { w0: .2, w1: .2 });
-    dot(g, ...P(RS, M), 9); dot(g, ...P(RS + 46, M), 5);
-  }, { shade: null });
-  add([...arc(R2F, A, M, 4), P(RS, M - 11), P(RB, M), ...arc(RB, M, A, 4)], k % 2 ? COL.deepblue : COL.cobalt, 1, g => {
-    band(g, RB - 26, A + 1, M - 1, 6, .35); dot(g, ...P(RS + 10, A + 9), 7, .6); dot(g, ...P(RS - 48, A + 6), 5, .6);
-  }, { wash: .18 });
-  add([...arc(R2F, M, B, 4), ...arc(RB, B, M, 4), P(RS, M + 11)], k % 2 ? COL.cobalt : COL.deepblue, 1, g => {
-    band(g, RB - 26, M + 1, B - 1, 6, .35); dot(g, ...P(RS + 10, B - 9), 7, .6); dot(g, ...P(RS - 48, B - 6), 5, .6);
-  }, { wash: .18 });
-  // background: gold fillet ring and the cobalt ground between the star points
-  add([...arc(R2, A, B, 6), ...arc(R2F, B, A, 6)], COL.gold2, 2, g => {
-    for (let j = 0; j < 4; j++) pearl(g, ...P((R2 + R2F) / 2, A + (j + .5) * 11.25), 5.5);
-  });
-  add([P(RA, A), P(RI, A + 22.5), P(RA, B), ...arc(R2, B, A, 6)], COL.blue2, 2, g => {
-    dot(g, ...P(188, M), 6); dot(g, ...P(178, M - 6), 4); dot(g, ...P(178, M + 6), 4);
-  }, { wash: .15 });
-  // centre: the star's points
-  add([P(RA, A), P(RI, A - 22.5), P(RI, A + 22.5)], COL.ruby, 3, g => {
-    brush(g, [P(RI + 6, A), P(RA - 14, A)], 5, { w0: .5, w1: .1 }); dot(g, ...P(RI + 14, A), 6);
-  });
 }
-add(Array.from({ length: 8 }, (_, k) => P(RI, ang(k) + 22.5)), COL.gold, 4, g => {
-  pearl(g, 0, 0, 30); for (let k = 0; k < 8; k++) { dot(g, ...P(70, ang(k)), 8); brush(g, [P(38, ang(k) + 22.5), P(112, ang(k) + 22.5)], 5, { w0: .3, w1: .1 }); }
-}, { wash: .1 });
+// khatam field: 8-point stars (two squares) on a square lattice, tips touching; crosses between them
+const SP = 196, RT = SP / 2, RIN = RT * .7654;
+const star = c => Array.from({ length: 16 }, (_, k) => P(k % 2 ? RIN : RT, k * 22.5, c));
+const arcOf = (c, a0, a1) => { const o = []; for (let a = a0; a <= a1 + 1e-6; a += 22.5) o.push(P(Math.round(a / 22.5) % 2 ? RIN : RT, a, c)); return o; };
+const field = [];
+for (let j = -4; j <= 3; j++) for (let i = -3; i <= 3; i++) {
+  const c = [CEN[0] + i * SP, CEN[1] + j * SP], central = i === 0 && j === 0;
+  field.push({ pts: clip(star(c)), color: central ? COL.gold2 : ((i + j) % 2 ? COL.ruby : COL.gold), lat: c, kind: 'star', central });
+  // cross centred at c + (SP/2, SP/2): bounded by the four surrounding stars
+  const A = c, Dd = [c[0], c[1] + SP], Cc = [c[0] + SP, c[1] + SP], B = [c[0] + SP, c[1]];
+  const cr = [...arcOf(A, 0, 67.5), ...arcOf(Dd, -90, -22.5), ...arcOf(Cc, 180, 247.5), ...arcOf(B, 90, 157.5)];
+  field.push({ pts: clip(cr), color: (i + j) % 2 ? COL.cobalt : COL.deepblue, lat: [c[0] + SP / 2, c[1] + SP / 2], kind: 'cross' });
+}
+const keep = field.filter(f => f.pts.length > 2 && Math.abs(area(f.pts)) > 700);
+keep.forEach(f => {
+  f.d = Math.hypot(f.lat[0] - CEN[0], f.lat[1] - CEN[1]);
+  f.paint = f.kind === 'star'
+    ? g => { const c = f.lat; g.strokeStyle = 'rgba(44,26,12,.7)'; g.lineWidth = 4; g.stroke(poly(Array.from({ length: 16 }, (_, k) => P(k % 2 ? RIN * .55 : RT * .55, k * 22.5, c)))); dot(g, c[0], c[1], f.central ? 12 : 8); if (f.central) pearl(g, c[0], c[1], 26); }
+    : g => { const c = f.lat; dot(g, c[0], c[1], 9); for (let k = 0; k < 4; k++) dot(g, ...P(36, k * 90 + 45, c), 5, .6); brush(g, [P(20, 0, c), P(58, 0, c)], 4); brush(g, [P(20, 180, c), P(58, 180, c)], 4); };
+});
+// outside in: surroundings, ground, centre, the central star last
+const ring = keep.filter(f => !f.central).sort((a, b) => b.d - a.d);
+const n1 = Math.round(ring.length * .45), n2 = Math.round(ring.length * .8);
+ring.forEach((f, i) => add(f.pts, f.color, i < n1 ? 1 : i < n2 ? 2 : 3, f.paint, { wash: f.kind === 'cross' ? .15 : 0 }));
+keep.filter(f => f.central).forEach(f => add(f.pts, f.color, 4, f.paint));
 
 // question marks: a hook and a dot, cut from pale and blue glass
-function qHook(s) {
-  const c = [...arc(40, 190, 390, 14), [16, 12], [2, 32], [0, 54]].map(p => [p[0] * s, (p[1] - 40) * s]);
-  const Lp = [], Rp = [], w = 13 * s;
+function qHook() {
+  const c = [...Array.from({ length: 15 }, (_, i) => P(40, 190 + 200 * i / 14)), [16, 12], [2, 32], [0, 54]].map(p => [p[0], p[1] - 40]);
+  const Lp = [], Rp = [], w = 13;
   for (let i = 0; i < c.length; i++) {
     const a = c[Math.max(0, i - 1)], b = c[Math.min(c.length - 1, i + 1)];
     let dx = b[0] - a[0], dy = b[1] - a[1]; const l = Math.hypot(dx, dy) || 1; dx /= l; dy /= l;
     Lp.push([c[i][0] - dy * w, c[i][1] + dx * w]); Rp.push([c[i][0] + dy * w, c[i][1] - dx * w]);
   }
-  return [...Lp, ...Rp.reverse()];
+  return poly([...Lp, ...Rp.reverse()]);
 }
-const QS = [];
-[[-640, -250, 1.25, -.25, COL.white], [610, -300, 1.0, .3, COL.sky], [-260, 300, .9, .5, COL.white], [700, 230, 1.15, -.4, COL.steel]].forEach(([x, y, s, r, col], i) => {
-  QS.push({ x, y, s, r, col, i });
-});
+const QHOOK = qHook(), QDOT = circle(0, 80, 15);
+const QS = [[-640, -330, 1.25, -.25, COL.white], [610, -380, 1.0, .3, COL.sky], [-260, 230, .9, .5, COL.white], [700, 150, 1.15, -.4, COL.steel]]
+  .map(([x, y, s, r, col], i) => ({ x: x, y: y, s, r, col, i }));
 
-// final-geometry metadata
+// final-geometry metadata + loose state
 pieces.forEach((p, i) => {
   let cx = 0, cy = 0; p.pts.forEach(q => { cx += q[0]; cy += q[1]; }); cx /= p.pts.length; cy /= p.pts.length;
   p.c = [cx, cy]; p.id = i + 1;
   p.path = poly(p.pts.map(q => [q[0] - cx, q[1] - cy]));
-  p.far = p.pts.reduce((m, q) => Math.hypot(...q) > Math.hypot(...m) ? q : m, p.pts[0]);
+  const dc = q => Math.hypot(q[0] - CEN[0], q[1] - CEN[1]);
+  p.far = p.pts.reduce((m, q) => dc(q) > dc(m) ? q : m, p.pts[0]);
+  p.ang = Math.atan2(cy - CEN[1], cx - CEN[0]);
   const rnd = mulberry(900 + i * 7);
-  // loose state: scattered in the dark room, turned, drifting
-  p.p0 = [-860 + rnd() * 1720, -470 + rnd() * 860]; p.v = [(rnd() - .5) * 26, (rnd() - .5) * 18];
+  p.p0 = [-900 + rnd() * 1800, -560 + rnd() * 900]; p.v = [(rnd() - .5) * 26, (rnd() - .5) * 18];
   p.r0 = (rnd() - .5) * 360; p.w = (rnd() - .5) * 10; p.sc = .8 + rnd() * .25;
 });
 // landing beats: border (patience), surroundings (the verses around), ground (background), centre (explanation)
 const span = [[at(5) - .5, end(5) + .6], [at(6) + .1, end(6) + .2], [at(7) - .1, end(7) + .4], [at(8), end(8) - .1], [end(8) + .25, end(8) + .25]];
 for (let gi = 0; gi < 5; gi++) {
-  const gs = pieces.filter(p => p.group === gi), [a, b] = span[gi];
+  const gs = pieces.filter(p => p.group === gi).sort((a, b) => (a.ang + 4) % 6.2832 - (b.ang + 4) % 6.2832), [a, b] = span[gi];
   gs.forEach((p, j) => { p.land = Math.round((a + (b - a) * (gs.length > 1 ? j / (gs.length - 1) : 0)) * 8) / 8; });
 }
 const SLIDE = 1.5;
@@ -130,31 +161,36 @@ function pose(p, t) {   // [x, y, rotDeg, scale, settled 0..1]
   if (t < ts) return [...loose(p, t), 0];
   if (t >= p.land) return [p.c[0], p.c[1], 0, 1, 1];
   const l = loose(p, ts), u = easeIO((t - ts) / SLIDE);
-  let dr = ((0 - l[2]) % 360 + 540) % 360 - 180;
-  const bump = Math.sin(cl((t - p.land + .3) / .3) * Math.PI) * 10, n = Math.hypot(...p.c) || 1;
-  return [l[0] + (p.c[0] - l[0]) * u + p.c[0] / n * bump, l[1] + (p.c[1] - l[1]) * u + p.c[1] / n * bump, l[2] + dr * u, l[3] + (1 - l[3]) * u, 0];
+  const dr = ((0 - l[2]) % 360 + 540) % 360 - 180;
+  const bump = Math.sin(cl((t - p.land + .3) / .3) * Math.PI) * 10, vx = p.c[0] - CEN[0], vy = p.c[1] - CEN[1], n = Math.hypot(vx, vy) || 1;
+  return [l[0] + (p.c[0] - l[0]) * u + vx / n * bump, l[1] + (p.c[1] - l[1]) * u + vy / n * bump, l[2] + dr * u, l[3] + (1 - l[3]) * u, 0];
 }
 
-// ---------- stone wall with a round, splayed opening (pre-rendered, world coords) ----------
-const SX = 1500, SY = 950;
-const stone = mk(SX * 2, SY * 2);
+// ---------- warm plastered wall with a moulded arch and a rectangular frame (pre-rendered, world coords) ----------
+const SX = 1550, SY = 1000;
+const wall = mk(SX * 2, SY * 2);
 {
-  const s = stone.getContext('2d'), rnd = mulberry(11);
-  s.translate(SX, SY); s.fillStyle = '#3e3832'; s.fillRect(-SX, -SY, SX * 2, SY * 2);
-  for (let row = -12; row < 12; row++) {
-    const CH = 92, y0 = row * CH; let x = -SX - hash(row * 7.3) * 200;
-    while (x < SX) {
-      const w = 150 + hash(row * 13.1 + x * .01) * 140, t = .78 + hash(row * 3.7 + x * .13) * .3;
-      s.fillStyle = `rgb(${92 * t | 0},${84 * t | 0},${74 * t | 0})`; s.fillRect(x + 2.5, y0 + 2.5, w - 5, CH - 5);
-      x += w;
-    }
+  const s = wall.getContext('2d'), rnd = mulberry(11);
+  s.translate(SX, SY); s.fillStyle = '#b48f66'; s.fillRect(-SX, -SY, SX * 2, SY * 2);
+  for (let i = 0; i < 260; i++) {   // lime-plaster mottling: soft blotches, lighter and darker
+    const x = -SX + rnd() * SX * 2, y = -SY + rnd() * SY * 2, r = 60 + rnd() * 260, lt = rnd() > .5;
+    const gr = s.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, lt ? 'rgba(236,206,160,.16)' : 'rgba(110,80,50,.14)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+    s.fillStyle = gr; s.fillRect(x - r, y - r, r * 2, r * 2);
   }
-  for (let i = 0; i < 9000; i++) { const v = rnd(); s.fillStyle = v > .5 ? 'rgba(255,245,225,.06)' : 'rgba(20,15,10,.10)'; s.fillRect(-SX + rnd() * SX * 2, -SY + rnd() * SY * 2, 2 + rnd() * 5, 2 + rnd() * 4); }
-  // splayed embrasure: dressed rings, lighter toward the glass
-  [[OPEN + 112, '#4f483e'], [OPEN + 96, '#655d50'], [OPEN + 60, '#726959'], [OPEN + 34, '#7d735f'], [OPEN + 14, '#887d68']].forEach(([r, c]) => { s.fillStyle = c; s.fill(circle(0, 0, r)); });
-  s.strokeStyle = 'rgba(40,34,28,.5)'; s.lineWidth = 3;
-  for (let k = 0; k < 16; k++) { const a = k * 22.5 + 11; s.beginPath(); s.moveTo(...P(OPEN + 96, a)); s.lineTo(...P(OPEN + 34, a)); s.stroke(); }
-  s.globalCompositeOperation = 'destination-out'; s.fill(circle(0, 0, OPEN));
+  for (let i = 0; i < 7000; i++) { s.fillStyle = rnd() > .5 ? 'rgba(255,240,215,.07)' : 'rgba(70,45,25,.08)'; s.fillRect(-SX + rnd() * SX * 2, -SY + rnd() * SY * 2, 1.5 + rnd() * 3, 1.5 + rnd() * 3); }
+  // rectangular frame around the arch (alfiz): moulded bands
+  const fr = (x0, y0, x1, y1, w, c) => { s.strokeStyle = c; s.lineWidth = w; s.strokeRect(x0, y0, x1 - x0, y1 - y0); };
+  fr(-560, -760, 560, 480, 30, '#c9a77c'); fr(-560, -760, 560, 480, 6, '#7d5f40'); fr(-600, -800, 600, 520, 10, '#9a7a55');
+  // spandrel stucco: small 8-point stars, shallow relief
+  for (const sx of [-1, 1]) {
+    const c = [sx * 430, -630];
+    s.fillStyle = 'rgba(90,64,40,.35)'; s.fill(poly(Array.from({ length: 16 }, (_, k) => P(k % 2 ? 38 : 50, k * 22.5, c))));
+    s.fillStyle = 'rgba(232,204,160,.25)'; s.fill(poly(Array.from({ length: 16 }, (_, k) => P(k % 2 ? 22 : 30, k * 22.5, c))));
+  }
+  // splayed reveal: arch-shaped moulded rings, lighter toward the glass
+  [[118, '#7e6243'], [100, '#c3a074'], [82, '#9a7a55'], [58, '#cfae84'], [32, '#b8966c'], [14, '#d6b78d']].forEach(([o, c]) => { s.fillStyle = c; s.fill(pathOf(archPts(o))); });
+  s.fillStyle = '#8a6c4b'; s.fillRect(-470, YB + 14, 940, 30); s.fillStyle = '#d0b089'; s.fillRect(-470, YB + 10, 940, 8);
+  s.globalCompositeOperation = 'destination-out'; s.fill(pathOf(OPEN));
 }
 
 // ---------- frame ----------
@@ -162,12 +198,12 @@ function light(t) { return ss(at(4), end(8) + .8, t) * .85 + ss(at(8), end(8) + 
 function render(t) {
   const { G, S: Sc, R, O } = Lc;
   for (const c of [G, Sc, R, O]) { c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, H); }
-  CAP.setTransform(1, 0, 0, 1, 0, 0); CAP.clearRect(0, 0, 1920, 1080); R.setTransform(K, 0, 0, K, 0, 0);
+  CAP.setTransform(1, 0, 0, 1, 0, 0); CAP.clearRect(0, 0, 1920, 1080);
   const tq = Math.floor(t * 8 + 1e-6) / 8;   // pieces step at 8 fps
-  const z = .86 + .09 * ss(0, DUR, t), cam = [0, 62 - 10 * ss(0, DUR, t), z];
+  const z = .82 + .06 * ss(0, DUR, t), cam = [0, -60 - 40 * ss(0, DUR, t), z];
   const M = new DOMMatrix().scale(K).translate(960, 540).scale(z).translate(-cam[0], -cam[1]);
   const I = light(t);
-  Sc.setTransform(M); Sc.drawImage(stone, -SX, -SY);
+  Sc.setTransform(M); Sc.drawImage(wall, -SX, -SY);
   const Pz = new Pass(G, Sc);
   const draw = (p, ps) => {
     Pz.setTransform(M.translate(ps[0], ps[1]).rotate(ps[2]).scale(ps[3]));
@@ -175,33 +211,36 @@ function render(t) {
   };
   const poses = pieces.map(p => pose(p, tq));
   pieces.forEach((p, i) => { if (poses[i][4]) draw(p, poses[i]); });
-  // the outer came and two iron saddle bars belong to the stone opening
-  if (poses.some(q => q[4])) { Sc.setTransform(M); Sc.strokeStyle = '#1d1f23'; Sc.lineWidth = 12; Sc.stroke(circle(0, 0, RW)); }
-  Sc.setTransform(M); Sc.fillStyle = '#26282c';
-  for (const y of [-RS + 40, RS - 40]) { const hw = Math.sqrt(OPEN * OPEN - y * y) + 18; Sc.fillRect(-hw, y - 6, hw * 2, 12); }
+  // the outer came and two iron saddle bars belong to the opening
+  Sc.setTransform(M);
+  if (poses.some(q => q[4])) { Sc.strokeStyle = '#1d1f23'; Sc.lineWidth = 12; Sc.stroke(pathOf(GLASS)); }
+  Sc.save(); Sc.clip(pathOf(archPts(18))); Sc.fillStyle = '#26282c';
+  for (const y of [CEN[1] - SP, CEN[1] + SP]) Sc.fillRect(-500, y - 6, 1000, 12);
+  Sc.restore();
   pieces.forEach((p, i) => { if (!poses[i][4]) draw(p, poses[i]); });
   // question marks: drifting in the dark, then sliding away out of the light
   const away = ss(at(5) - .4, at(6) + 1.8, tq);
   for (const q of QS) {
-    const n = Math.hypot(q.x, q.y), x = q.x + Math.sin(tq * .35 + q.i) * 30 + q.x / n * away * 900, y = q.y + Math.cos(tq * .27 + q.i * 2) * 20 + q.y / n * away * 700;
-    const rot = q.r * 40 + Math.sin(tq * .3 + q.i) * 8;
-    Pz.setTransform(M.translate(x, y).rotate(rot).scale(q.s));
-    Pz.piece(poly(qHook(1)), q.col, { id: 300 + q.i, lead: 2.4, edge: 7, matW: 9 });
-    Pz.piece(circle(0, 54 * 1 + 26, 15), q.col, { id: 320 + q.i, lead: 2.4, edge: 5, matW: 6 });
+    const vx = q.x - CEN[0], vy = q.y - CEN[1], n = Math.hypot(vx, vy);
+    const x = q.x + Math.sin(tq * .35 + q.i) * 30 + vx / n * away * 900, y = q.y + Math.cos(tq * .27 + q.i * 2) * 20 + vy / n * away * 700;
+    Pz.setTransform(M.translate(x, y).rotate(q.r * 40 + Math.sin(tq * .3 + q.i) * 8).scale(q.s));
+    Pz.piece(QHOOK, q.col, { id: 300 + q.i, lead: 2.4, edge: 7, matW: 9 });
+    Pz.piece(QDOT, q.col, { id: 320 + q.i, lead: 2.4, edge: 5, matW: 6 });
   }
   // light behind the empty opening (fades as the glass fills it) and weld sparks on each landing
   R.globalCompositeOperation = 'lighter';
-  const fill = pieces.filter((p, i) => poses[i][4]).length / pieces.length;
-  const gk = I * (1 - fill) * .55;
+  const fill = poses.filter(q => q[4]).length / pieces.length, gk = I * (1 - fill) * .55;
   if (gk > .01) {
-    const c0 = [960 - cam[0] * z, 540 - cam[1] * z], gr = R.createRadialGradient(...c0, 0, ...c0, OPEN * z);
+    R.setTransform(M);
+    const gr = R.createRadialGradient(CEN[0], CEN[1], 0, CEN[0], CEN[1], 620);
     const col = m => `rgb(${255 * gk * m | 0},${200 * gk * m | 0},${130 * gk * m | 0})`;
-    gr.addColorStop(0, col(1)); gr.addColorStop(.7, col(.55)); gr.addColorStop(1, col(0));
-    R.fillStyle = gr; R.fill(circle(...c0, OPEN * z));
+    gr.addColorStop(0, col(1)); gr.addColorStop(.7, col(.55)); gr.addColorStop(1, col(.1));
+    R.fillStyle = gr; R.fill(pathOf(OPEN));
   }
+  R.setTransform(K, 0, 0, K, 0, 0);
   for (const p of pieces) {
     const u = (t - p.land) / .35; if (u < 0 || u > 1) continue;
-    const [x, y] = [960 + (p.far[0] - cam[0]) * z, 540 + (p.far[1] - cam[1]) * z], a = (1 - u) * (1 - u), r = 26 * (1 - .5 * u);
+    const x = 960 + (p.far[0] - cam[0]) * z, y = 540 + (p.far[1] - cam[1]) * z, a = (1 - u) * (1 - u), r = 26 * (1 - .5 * u);
     const gr = R.createRadialGradient(x, y, 0, x, y, r);
     gr.addColorStop(0, `rgb(${255 * a | 0},${240 * a | 0},${200 * a | 0})`); gr.addColorStop(.25, `rgb(${255 * a * .5 | 0},${170 * a * .5 | 0},${80 * a * .5 | 0})`); gr.addColorStop(1, 'rgb(0,0,0)');
     R.fillStyle = gr; R.fill(circle(x, y, r));
@@ -210,8 +249,8 @@ function render(t) {
   drawCaption(CAP, S, t);
   const warm = [1, .8, .52];
   comp.render(L, {
-    cam: [cam[0], cam[1], z * K], sunI: 0, skyI: .17 + .06 * I, skyCol: [.55, .62, .85], amb: .035 + .025 * I, ambCol: [.8, .82, .9], haze: .3 - .15 * I,
-    pts: [[0, 0, 340 + 160 * I, 1.3 * I, warm], [0, 0, 700, .85 * I, warm]],
+    cam: [cam[0], cam[1], z * K], sunI: 0, skyI: .17 + .06 * I, skyCol: [.55, .62, .85], amb: .03 + .02 * I, ambCol: [.9, .85, .8], haze: .3 - .15 * I,
+    pts: [[CEN[0], CEN[1], 380 + 200 * I, 1.3 * I, warm], [CEN[0], CEN[1], 820, .85 * I, warm]],
     raysK: 1, expo: 1.15, bloom: .35 + .3 * I, thr: .5, vign: .5, sat: 1.1, contrast: .12, time: t,
   });
 }
@@ -221,6 +260,6 @@ window.DUR = DUR;
 window.render = render;
 window.TEXTS = t => S.filter(s => t >= s.start - .1 && t < s.end + .5).map(s => s.text);
 window.EV = [{ t: at(4), what: 'light begins behind the opening' }, { t: at(5), what: 'question marks slide away; border leaded' },
-  { t: at(6), what: 'surroundings slide in' }, { t: at(7), what: 'background ring' }, { t: at(8), what: 'star centre' }, { t: end(8) + .25, what: 'window whole and lit' }];
+  { t: at(6), what: 'surroundings slide in' }, { t: at(7), what: 'ground' }, { t: at(8), what: 'centre' }, { t: end(8) + .25, what: 'window whole and lit' }];
 render(0);
 window.READY = true;
