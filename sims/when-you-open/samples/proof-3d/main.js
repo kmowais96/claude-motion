@@ -13,7 +13,7 @@ const QS = new URLSearchParams(location.search);
 const RS = QS.has('full') ? 1 : 2;
 
 // ------------------------------------------------------------------ beats
-const T = { beam0: 0, beam1: 8, open0: 13, open1: 16.4, leaf0: 17.4, leaf1: 21, slit0: 21.6, slit1: 25.2, city: 31, sea: 38.2, out0: 43.6 };
+const T = { beam0: 0, beam1: 8, open0: 13, open1: 16.4, leaf0: 17.4, leaf1: 21, slit0: 23.2, slit1: 26.6, city: 31, sea: 38.2, out0: 43.6 };
 const breeze = t => .55 * Math.sin(t * .9) + .3 * Math.sin(t * 2.3 + 1.3) + .15 * Math.sin(t * 5.1 + .4) + .6 * Math.exp(-Math.pow((t % 11) - 6, 2) * .6);
 
 // ------------------------------------------------------------------ renderer
@@ -79,7 +79,7 @@ const coverMat = (() => {
 })();
 const insideMat = (() => {
   const c = canvas(512, 692), g = c.getContext('2d'); g.fillStyle = '#151b27'; g.fillRect(0, 0, 512, 692);
-  g.fillStyle = '#e8dcc2'; g.fillRect(22, 22, 468, 648); g.strokeStyle = 'rgba(150,110,50,.5)'; g.lineWidth = 2; g.strokeRect(36, 36, 440, 620);
+  g.fillStyle = '#e8dcc2'; g.fillRect(22, 22, 468, 648); for (let i = 0; i < 260; i++) { const y = 22 + rnd() * 648; g.strokeStyle = `rgba(${150 + rnd() * 40},${110 + rnd() * 30},${70 + rnd() * 30},${.05 + rnd() * .1})`; g.lineWidth = 1 + rnd() * 3; g.beginPath(); for (let x = 22; x <= 490; x += 12) g.lineTo(x, y + 9 * Math.sin(x * .03 + i) + 4 * Math.sin(x * .11 + i * 2)); g.stroke(); } g.strokeStyle = 'rgba(150,110,50,.5)'; g.lineWidth = 2; g.strokeRect(36, 36, 440, 620);
   return new THREE.MeshStandardMaterial({ map: tex(c), roughness: .9 });
 })();
 const edgeMat = (() => {
@@ -100,7 +100,7 @@ const cover = shadowAll(new THREE.Mesh(new THREE.BoxGeometry(BW, CT, BL), [cloth
 const LN = 40, LL = BW - .009;
 const leafGeo = new THREE.PlaneGeometry(1, BL - .01, LN, 2);
 const leaf = shadowAll(new THREE.Mesh(leafGeo, new THREE.MeshStandardMaterial({ color: '#f4ecdb', roughness: .9, side: THREE.DoubleSide, shadowSide: THREE.DoubleSide })));
-book.add(leaf);
+leaf.receiveShadow = false; book.add(leaf);
 function bendLeaf(p, lift) {
   const P = leafGeo.attributes.position, yb = TH - CT + .0006, th = Math.PI * eio(p), curl = 1.15 * Math.sin(Math.PI * p);
   const land = ss(seg(p, .72, 1)), drop = Math.asin(clamp((yb - CT - .0012) / (LL * .22), 0, 1));
@@ -197,7 +197,7 @@ function town(g, t) {
   skyGrad(g, '#c9a27a', '#efc58c', '#f6dcae');
   ridge(g, 210, 40, .009, 2, '#a98466', t); ridge(g, 245, 26, .013, 4, '#977259', t);
   // smoke from two hearths
-  for (const [sx, sy, k] of [[310, 300, 0], [560, 320, 3]]) for (let i = 0; i < 16; i++) { const a = ((t * .35 + i / 16 + k * .17) % 1), r = 6 + a * 34; g.fillStyle = `rgba(250,236,214,${.22 * (1 - a)})`; g.beginPath(); g.arc(SX + sx + a * 60 + Math.sin(t + i) * 6, SY + sy - a * 150, r, 0, TAU); g.fill(); }
+  for (const [sx, sy, k] of [[250, 330, 0], [610, 340, 3]]) for (let i = 0; i < 16; i++) { const a = ((t * .35 + i / 16 + k * .17) % 1), r = 6 + a * 34; g.fillStyle = `rgba(150,128,110,${.16 * (1 - a)})`; g.beginPath(); g.arc(SX + sx + a * 50 + Math.sin(t + i) * 6, SY + sy - a * 90, r, 0, TAU); g.fill(); }
   // flat-roofed houses terraced up the slope: one dark mass at dusk, lighter with distance, a few lamps
   for (let row = 0; row < 4; row++) {
     const v = 120 - row * 28; g.fillStyle = `rgb(${v + 22},${v + 4},${v - 14})`;
@@ -241,14 +241,20 @@ function drawProj(t) {
   const open = eio(seg(t, T.slit0, T.slit1));
   if (open <= 0) { projTex.needsUpdate = true; return 0; }
   const l = LAYER.getContext('2d'); l.clearRect(0, 0, 1024, 1024);
+  const blurT = [T.city, T.sea].reduce((m, c) => Math.max(m, 1 - Math.abs(t - c) / 1.2), 0);
   const scenes = [[desert, T.slit0 - 1, T.city + 1], [town, T.city - 1, T.sea + 1], [sea, T.sea - 1, DUR + 1]];
   for (const [fn, a, b] of scenes) {
-    const k = Math.min(seg(t, a, a + 2), 1 - seg(t, b - 2, b)); if (k <= 0) continue;
+    const k = ss(Math.min(seg(t, a + .4, a + 1.6), 1 - seg(t, b - 1.6, b - .4))); if (k <= 0) continue;
     const c = canvas(1024), cg = c.getContext('2d'); cg.beginPath(); cg.rect(SX, SY, SW, SH); cg.clip(); fn(cg, t); l.globalAlpha = k; l.drawImage(c, 0, 0); l.globalAlpha = 1;
   }
   // the slit: a line of light that opens into the picture, soft-edged like a lens
   const cx = SX + SW * .5, half = lerp(2, SW / 2 + 40, open);
-  g.save(); g.filter = 'blur(2.5px)'; g.beginPath(); g.rect(cx - half, SY - 10, half * 2, SH + 20); g.clip(); g.drawImage(LAYER, 0, 0); g.restore();
+  const sh = canvas(1024), shg = sh.getContext('2d');                      // heat shimmer: rows slide a little
+  for (let y = 0; y < 1024; y += 4) shg.drawImage(LAYER, 0, y, 1024, 4, 2.2 * Math.sin(y * .05 + t * 3.1) * (y > SY + 200 ? 1 : .3), y, 1024, 4);
+  g.save(); g.filter = `blur(${3.2 + 5 * Math.max(0, blurT)}px)`; g.drawImage(sh, 0, 0); g.restore();
+  g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .35; g.filter = 'blur(18px)'; g.drawImage(sh, 0, 0); g.restore();   // halation
+  const mk = canvas(1024), mg = mk.getContext('2d'); mg.filter = 'blur(26px)'; mg.fillStyle = '#fff'; mg.beginPath(); mg.roundRect(cx - half + 20, SY + 18, Math.max(0, half * 2 - 40), SH - 36, 60); mg.fill();
+  g.globalCompositeOperation = 'destination-in'; g.drawImage(mk, 0, 0); g.globalCompositeOperation = 'source-over';
   const v = g.createRadialGradient(512, SY + SH / 2, 120, 512, SY + SH / 2, 560); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.75)'); g.fillStyle = v; g.fillRect(0, 0, 1024, 1024);
   projTex.needsUpdate = true; return open;
 }
@@ -286,9 +292,10 @@ const CAM = track([
   [13, [-.12, .23, .45, .01, .03, 0]],
   [16.8, [.02, .3, .5, .07, .03, -.02]],
   [20.6, [.08, .31, .55, .09, .07, -.12]],
-  [24.8, [.1, .4, 1.12, .15, .6, WALLZ]],
-  [34, [.14, .44, 1.0, .16, .64, WALLZ]],
-  [45, [.16, .46, .9, .16, .66, WALLZ]],
+  [22.6, [.075, .33, .6, .09, .06, -.12]],
+  [26.6, [.1, .4, 1.12, .15, .6, WALLZ]],
+  [34, [.19, .45, 1.0, .17, .64, WALLZ]],
+  [45, [.12, .47, .88, .15, .66, WALLZ]],
 ]);
 const BOOKC = new THREE.Vector3(.02, .03, 0), WALLC = new THREE.Vector3(.16, .65, WALLZ);
 function setCamera(t) {
@@ -297,7 +304,7 @@ function setCamera(t) {
   // focus: a near mote in the light at the start pulls to the book, later the book hands focus to the wall
   const dBook = camera.position.distanceTo(BOOKC), dWall = camera.position.distanceTo(WALLC);
   let f = lerp(.32, dBook, eio(seg(t, 2.2, 6.2)));
-  f = lerp(f, dWall, eio(seg(t, 21.2, 24.6)));
+  f = lerp(f, dWall, eio(seg(t, 22.8, 26.2)));
   post.dof.focus = f; post.dof.aper = t < 21 ? 5.5 : 4; post.dof.maxCoc = 14;
 }
 
@@ -319,7 +326,7 @@ function setLight(t) {
   proj.intensity = 7 * open * (1 - seg(t, T.out0, DUR));
   const dim = ss(seg(t, T.leaf1 - .5, T.slit1)); scene.environmentIntensity = .16 - .1 * dim; dMat.uniforms.k.value = 1 - .7 * dim; bounce.intensity = .25 - .22 * dim;
   hemi.intensity = .55 - .37 * ss(seg(t, T.leaf1 - .5, T.slit1));          // the room settles darker so the picture reads
-  key.intensity *= 1 - .8 * ss(seg(t, T.leaf1 - .5, T.slit1));          // a cloud takes the sun as the picture opens
+  key.intensity *= 1 - ss(seg(t, T.leaf1 - .5, T.slit1));          // a cloud takes the sun as the picture opens
 }
 
 // ------------------------------------------------------------------ 2D overlay: film grain and the final fade

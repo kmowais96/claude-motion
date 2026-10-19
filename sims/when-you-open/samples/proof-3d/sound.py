@@ -5,7 +5,7 @@ import math, sys, wave
 import numpy as np
 
 SR, DUR = 48000, 45.0
-T = dict(open0=13, open1=16.4, leaf0=17.4, leaf1=21, slit0=21.6, slit1=25.2, city=31, sea=38.2, out0=43.6)
+T = dict(open0=13, open1=16.4, leaf0=17.4, leaf1=21, slit0=23.2, slit1=26.6, city=31, sea=38.2, out0=43.6)
 N = int(SR * DUR)
 t = np.arange(N) / SR
 rng = np.random.default_rng(11)
