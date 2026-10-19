@@ -14,7 +14,8 @@ function khatam(g, x, y, r) { for (const a of [0, Math.PI / 4]) { g.moveTo(x + M
 
 // ---------- the cover, built once: dark cloth, a gold-tooled border, corner pieces and a central lobed medallion with pendants
 const BW = 340, BH = 460;
-const cvs = () => { const c = document.createElement('canvas'); c.width = BW; c.height = BH; return c; };
+const R = 4;   // the book is drawn at four times its size so close-ups stay sharp
+const cvs = () => { const c = document.createElement('canvas'); c.width = BW * R; c.height = BH * R; c.getContext('2d').scale(R, R); return c; };
 const GOLD = cvs(), COVER = cvs(), SHEEN = cvs();
 function lobed(g, x, y, rx, ry, n, depth) { for (let k = 0; k <= 200; k++) { const a = k / 200 * TAU, r = 1 + depth * Math.pow(Math.abs(Math.cos(a * n / 2)), 6); const px = x + Math.sin(a) * rx * r, py = y - Math.cos(a) * ry * r; k ? g.lineTo(px, py) : g.moveTo(px, py); } g.closePath(); }
 function almond(g, x, y, rx, ry) { g.moveTo(x, y - ry); g.bezierCurveTo(x + rx * 1.05, y - ry * .45, x + rx * 1.05, y + ry * .45, x, y + ry); g.bezierCurveTo(x - rx * 1.05, y + ry * .45, x - rx * 1.05, y - ry * .45, x, y - ry); g.closePath(); }
@@ -50,9 +51,9 @@ function scroll(g, x, y, s, rot) { g.save(); g.translate(x, y); g.rotate(rot); g
   // colour the gold and lay it on the cloth
   const c = COVER.getContext('2d'), cl = c.createLinearGradient(0, 0, BW, BH); cl.addColorStop(0, '#1d2433'); cl.addColorStop(1, '#0e121b'); c.fillStyle = cl; c.fillRect(0, 0, BW, BH);
   c.fillStyle = 'rgba(255,255,255,.05)'; c.fillRect(BW - 10, 0, 10, BH);                                         // spine edge: a mushaf's spine is on the right
-  const gd = cvs(), gg = gd.getContext('2d'); gg.drawImage(GOLD, 0, 0); gg.globalCompositeOperation = 'source-in';
+  const gd = cvs(), gg = gd.getContext('2d'); gg.drawImage(GOLD, 0, 0, BW, BH); gg.globalCompositeOperation = 'source-in';
   const gl = gg.createLinearGradient(0, 0, BW, BH); gl.addColorStop(0, '#e8c97a'); gl.addColorStop(.45, '#b88d3e'); gl.addColorStop(1, '#8a6528'); gg.fillStyle = gl; gg.fillRect(0, 0, BW, BH);
-  c.drawImage(gd, 0, 0);
+  c.drawImage(gd, 0, 0, BW, BH);
 })();
 
 // the first page: cream paper inside an illuminated frame; the text is shown only as soft abstract bands
@@ -118,16 +119,45 @@ function turn(front, back, k, spine, y, w, h) {
     X.drawImage(back, spine, y, ww, h); X.fillStyle = `rgba(0,0,0,${.22 * lift})`; X.fillRect(spine, y, ww, h); }
 }
 
-const life = makeLife(W, H, rnd);
+const life = makeLife(W, H, rnd), GP = life.goldPoints(GOLD, 6 * R).map(([x, y]) => [x / R, y / R]);
+const FALL = life.fallingLeaves([{ t0: 5, dur: 7, x0: 1600, x1: 1460, y1: 830 }, { t0: 20, dur: 8, x0: 1300, x1: 430, y1: 320 }, { t0: 33, dur: 7.5, x0: 1750, x1: 1500, y1: 230 }]);
+
+// the shots, cut on the narration: wide (as scene 1 ended) → the medallion → the spine edge as the cover is about to lift
+// → a medium shot as it opens and the leaf turns → along the lines of the left page → into the header of the right page
+// → a slow pull out to the whole open book for the last words and the hold
+const SHOTS = [
+  { t: 0, a: { x: 960, y: 530, z: 1.5 }, b: { x: 960, y: 535, z: 1.25 } },
+  { t: S[2].start - .2, a: { x: 960, y: 520, z: 3.6, r: -.05 }, b: { x: 960, y: 520, z: 4.2, r: .02 }, dark: 1 },
+  { t: S[3].start - .2, a: { x: 1060, y: 470, z: 2.6, r: .04 }, b: { x: 1060, y: 520, z: 2.3, r: .02 }, dark: 1 },
+  { t: S[4].start - .6, a: { x: 1020, y: 520, z: 1.45 }, b: { x: 965, y: 520, z: 1.3 } },
+  { t: S[6].start - .2, a: { x: 795, y: 430, z: 2.7, r: -.02 }, b: { x: 790, y: 640, z: 2.9, r: -.01 } },
+  { t: S[8].start - .2, a: { x: 1127, y: 470, z: 2.4, r: .02 }, b: { x: 1127, y: 400, z: 3.2, r: 0 } },
+  { t: S[10].start - .2, a: { x: 960, y: 520, z: 1.7 }, b: { x: 960, y: 530, z: 1.02 } },
+];
+const XF = 1.3;
+const shotAt = t => { let i = 0; while (i + 1 < SHOTS.length && t >= SHOTS[i + 1].t) i++; return i; };
+function cam(i, t) {
+  const s = SHOTS[i], end = i + 1 < SHOTS.length ? SHOTS[i + 1].t + XF / 2 : DUR, k = cl((t - s.t + XF / 2) / (end - s.t + XF / 2)), e = k * .7 + io(k) * .3;
+  return { x: lerp(s.a.x, s.b.x, e) + 6 * Math.sin(t * .31), y: lerp(s.a.y, s.b.y, e) + 4 * Math.sin(t * .23 + 1), z: lerp(s.a.z, s.b.z, e), r: lerp(s.a.r || 0, s.b.r || 0, e) + .003 * Math.sin(t * .17) };
+}
+function camAt(t) {
+  // between shots the camera glides from one framing to the next (zoom eased in log space) instead of cutting
+  const i = shotAt(t), into = t - SHOTS[i].t;
+  if (i > 0 && into < XF / 2 || i + 1 < SHOTS.length && SHOTS[i + 1].t - t < XF / 2) {
+    const j = into < XF / 2 ? i - 1 : i, k = io((t - (SHOTS[j + 1].t - XF / 2)) / XF), p = cam(j, t), q = cam(j + 1, t);
+    return { x: lerp(p.x, q.x, k), y: lerp(p.y, q.y, k), z: Math.exp(lerp(Math.log(p.z), Math.log(q.z), k)), r: lerp(p.r, q.r, k) };
+  }
+  return cam(i, t);
+}
 
 function render(t) {
   const k = io((t - T_OPEN) / OPEN), k2 = io((t - T_TURN) / TURN), shift = -BW / 2 * io((t - T_OPEN - .6) / (OPEN + .8));   // the spread re-centres on the spine
   const day = io(t / (DUR - 3));
-  const u = t / DUR, zoom = lerp(1.1, .98, io(u));   // the camera keeps moving: it eases back as the book opens, drifting across
-  X.save(); X.translate(W / 2 + lerp(-40, 40, u), H * .48 + lerp(10, -14, u)); X.scale(zoom, zoom); X.rotate(lerp(-.005, .004, u)); X.translate(-W / 2, -H * .48);
-  const bg = X.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#f6efe2'); bg.addColorStop(1, '#e7ddcc'); X.fillStyle = bg; X.fillRect(-100, -100, W + 200, H + 200);
+  const u = t / DUR, c = camAt(t);
+  const bg = X.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#f6efe2'); bg.addColorStop(1, '#e7ddcc'); X.fillStyle = bg; X.fillRect(0, 0, W, H);
+  X.save(); X.translate(W / 2, H / 2); X.scale(c.z, c.z); X.rotate(c.r); X.translate(-c.x, -c.y); X.fillRect(-W, -H, 3 * W, 3 * H);
   // daylight: the beam from the opening, resting where it stopped and widening as the morning comes
-  const g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H); g.fillStyle = `rgba(255,236,196,${(.7 + .15 * day) * life.flicker(t)})`; const bx0 = 760 + shift * .5 + lerp(-60, 120, u), wd = 210 + 160 * day;
+  const g = BEAM.getContext('2d'); g.clearRect(0, 0, W, H); g.fillStyle = `rgba(255,236,196,${(.7 + .15 * day) * life.flicker(t) * (1 - life.shade(t))})`; const bx0 = 760 + shift * .5 + lerp(-60, 120, u), wd = 210 + 160 * day;
   g.beginPath(); g.moveTo(bx0 - wd, -60); g.lineTo(bx0 + wd, -60); g.lineTo(bx0 + 530 + wd, H + 60); g.lineTo(bx0 + 350 - wd * .3, H + 60); g.closePath(); g.fill();
   X.save(); X.filter = 'blur(60px)'; X.drawImage(BEAM, 0, 0); X.restore();
   const cx = 960 + shift, cy = 520, x0 = cx - BW / 2, y0 = cy - BH / 2, spine = cx + BW / 2, pw = BW - 6, ph = BH - 12, py = y0 + 6;
@@ -140,7 +170,7 @@ function render(t) {
   X.drawImage(PAGE_L, spine - pw, py, pw, ph);
   if (k2 < .5) X.drawImage(FLY, spine - pw, py, pw, ph);
   // the open cover lying to the right of the spine
-  if (k >= 1) X.drawImage(INSIDE, spine, y0);
+  if (k >= 1) X.drawImage(INSIDE, spine, y0, BW, BH);
   // the first leaf turning, landing on the inside of the cover
   if (k2 > 0 && k2 < 1) turn(FLY, PAGE_R, k2, spine, py, pw, ph);
   if (k2 >= 1) X.drawImage(PAGE_R, spine, py, pw, ph);
@@ -149,14 +179,22 @@ function render(t) {
   const gl = X.createLinearGradient(spine - 46, 0, spine, 0); gl.addColorStop(0, 'rgba(90,64,30,0)'); gl.addColorStop(1, `rgba(90,64,30,${.24 * k})`); X.fillStyle = gl; X.fillRect(spine - 46, py, 46, ph);
   if (k2 > .5) { const gr = X.createLinearGradient(spine, 0, spine + 40, 0); gr.addColorStop(0, `rgba(90,64,30,${.2 * sh})`); gr.addColorStop(1, 'rgba(90,64,30,0)'); X.fillStyle = gr; X.fillRect(spine, py, 40, ph); }
   if (k > 0 && k < 1) turn(COVER, INSIDE, k, spine, y0, BW, BH);
-  if (k <= 0) X.drawImage(COVER, x0, y0);
+  if (k <= 0) { X.drawImage(COVER, x0, y0, BW, BH); X.save(); X.translate(x0, y0); life.glints(X, t, GP, 1); X.restore(); }
+  // the breeze lifts the outer top corner of the open right-hand page and lets it fall
+  if (k2 >= 1) { const fc = 6 + 30 * cl(life.breeze(t) - .3), px = spine + pw, c = fc;
+    X.fillStyle = '#e9dfc8'; X.beginPath(); X.moveTo(px - c, py); X.lineTo(px, py); X.lineTo(px, py + c); X.closePath(); X.fill();
+    X.save(); X.filter = 'blur(4px)'; X.fillStyle = 'rgba(60,40,20,.25)'; X.beginPath(); X.moveTo(px - c, py); X.lineTo(px, py + c); X.lineTo(px - c - 3, py + c + 5); X.closePath(); X.fill(); X.restore();
+    const fg = X.createLinearGradient(px - c, py + c, px - c / 2, py + c / 2); fg.addColorStop(0, '#fbf5e8'); fg.addColorStop(1, '#e4d8bd');
+    X.fillStyle = fg; X.beginPath(); X.moveTo(px - c, py); X.lineTo(px, py + c); X.lineTo(px - c, py + c); X.closePath(); X.fill(); }
   // the world outside the window: the branch's shadow swaying, dust glinting in the beam, a bird passing
-  life.leaves(X, t, 1); life.motes(X, t, bx0, 1); life.bird(X, t, 29, 5.5, 300, -1);
+  life.leaves(X, t, 1); life.motes(X, t, bx0, 1); life.clouds(X, t); life.drawFalling(X, FALL, t); life.birds(X, t, 28, 6.5, 300, -1, 3);
   X.restore();
   X.save(); X.globalAlpha = .07; X.globalCompositeOperation = 'overlay'; X.drawImage(GRAIN, 0, 0); X.restore();
   const cur = S.find(x => t >= x.start - .1 && t < x.end + .5);
   if (cur) { const a = Math.min(1, (t - cur.start + .1) / .25, (cur.end + .5 - t) / .3);
-    X.save(); X.globalAlpha = Math.max(0, a); X.font = 'italic 500 40px "Cormorant Garamond"'; X.textAlign = 'center'; X.fillStyle = '#5b4a36'; X.fillText(cur.text, W / 2, 1000); X.restore(); }
+    X.save(); X.globalAlpha = Math.max(0, a); X.font = 'italic 500 40px "Cormorant Garamond"'; X.textAlign = 'center';
+    if (SHOTS[shotAt(t)].dark) { X.shadowColor = 'rgba(0,0,0,.7)'; X.shadowBlur = 18; X.fillStyle = '#f3e9d6'; } else X.fillStyle = '#5b4a36';
+    X.fillText(cur.text, W / 2, 1000); X.restore(); }
 }
 await document.fonts.ready; await document.fonts.load('italic 500 40px "Cormorant Garamond"', 'Ab');
 window.DUR = DUR; window.render = render; window.EV = [];
