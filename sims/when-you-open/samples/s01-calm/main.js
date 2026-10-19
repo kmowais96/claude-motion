@@ -48,7 +48,7 @@ function scroll(g, x, y, s, rot) { g.save(); g.translate(x, y); g.rotate(rot); g
   g.lineWidth = 1.2; g.beginPath(); g.arc(cx, cy, 50, 0, TAU); g.stroke(); g.lineWidth = 1; rosette(g, cx, cy, 44, 12); rosette(g, cx, cy, 28, 8); g.beginPath(); g.arc(cx, cy, 10, 0, TAU); g.stroke(); g.beginPath(); g.arc(cx, cy, 4, 0, TAU); g.fill();
   // colour the gold and lay it on the cloth
   const c = COVER.getContext('2d'), cl = c.createLinearGradient(0, 0, BW, BH); cl.addColorStop(0, '#1d2433'); cl.addColorStop(1, '#0e121b'); c.fillStyle = cl; c.fillRect(0, 0, BW, BH);
-  c.fillStyle = 'rgba(255,255,255,.05)'; c.fillRect(0, 0, 10, BH);                                         // spine edge
+  c.fillStyle = 'rgba(255,255,255,.05)'; c.fillRect(BW - 10, 0, 10, BH);                                         // spine edge: a mushaf's spine is on the right
   const gd = cvs(), gg = gd.getContext('2d'); gg.drawImage(GOLD, 0, 0); gg.globalCompositeOperation = 'source-in';
   const gl = gg.createLinearGradient(0, 0, BW, BH); gl.addColorStop(0, '#e8c97a'); gl.addColorStop(.45, '#b88d3e'); gl.addColorStop(1, '#8a6528'); gg.fillStyle = gl; gg.fillRect(0, 0, BW, BH);
   c.drawImage(gd, 0, 0);
@@ -89,7 +89,7 @@ function render(t) {
   X.save(); X.filter = `blur(${8 + 20 * rise}px)`; X.drawImage(SHADOW, 0, 0); X.restore();
   // the mushaf: page block on the right, then the cover; it settles down onto the paper as it fades in
   X.save(); X.globalAlpha = rise; X.translate(0, (1 - rise) * -14);
-  X.fillStyle = '#ece3cf'; X.fillRect(cx + bw / 2 - 4, cy - bh / 2 + 7, 9, bh - 14);
+  X.fillStyle = '#ece3cf'; X.fillRect(cx - bw / 2 - 5, cy - bh / 2 + 7, 9, bh - 14);
   X.drawImage(COVER, cx - bw / 2, cy - bh / 2);
   // the gold catches the beam: a soft sheen travelling over the tooling only
   const sh = SHEEN.getContext('2d'); sh.clearRect(0, 0, BW, BH); sh.drawImage(GOLD, 0, 0); sh.globalCompositeOperation = 'source-in';
