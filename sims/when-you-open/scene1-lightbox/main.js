@@ -37,6 +37,12 @@ const hand = (q, tx, ty, s) => {        // a sleeve and hand coming from the rig
   q.lineTo(tx + 520 * s, ty - 90 * s); q.lineTo(tx + 560 * s, ty + 60 * s); q.lineTo(tx + 250 * s, ty + 44 * s);
   q.bezierCurveTo(tx + 180 * s, ty + 40 * s, tx + 100 * s, ty + 30 * s, tx + 30 * s, ty + 14 * s); q.bezierCurveTo(tx + 8 * s, ty + 10 * s, tx - 6 * s, ty + 4 * s, tx, ty); q.closePath();
   q.moveTo(tx + 260 * s, ty - 80 * s); q.lineTo(tx + 600 * s, ty - 140 * s); q.lineTo(tx + 640 * s, ty + 110 * s); q.lineTo(tx + 280 * s, ty + 70 * s); q.closePath(); };
+// a modern desk lamp in profile: round foot, two straight arms, a cone shade tipped toward the desk (mouth at about x-118, y-274)
+const bar = (q, x1, y1, x2, y2, w) => { const a = Math.atan2(y2 - y1, x2 - x1), dx = Math.sin(a) * w / 2, dy = -Math.cos(a) * w / 2;
+  q.moveTo(x1 + dx, y1 + dy); q.lineTo(x2 + dx, y2 + dy); q.lineTo(x2 - dx, y2 - dy); q.lineTo(x1 - dx, y1 - dy); q.closePath(); circ(q, x2, y2, w * .8); };
+const deskLamp = (q, x, base) => { q.moveTo(x - 70, base); q.quadraticCurveTo(x - 66, base - 22, x, base - 24); q.quadraticCurveTo(x + 66, base - 22, x + 70, base); q.closePath();
+  bar(q, x, base - 20, x + 40, base - 170, 10); bar(q, x + 40, base - 170, x - 60, base - 300, 10);
+  q.moveTo(x - 50, base - 318); q.lineTo(x - 36, base - 296); q.lineTo(x - 98, base - 236); q.quadraticCurveTo(x - 128, base - 262, x - 138, base - 312); q.closePath(); };
 const domes = (q, x0, x1, base, seedv) => { seed = seedv; q.moveTo(x0, base); let x = x0; while (x < x1) { const w = 60 + rnd() * 120, h = 40 + rnd() * 90, kind = rnd();
   q.lineTo(x, base - h); if (kind > .7) { q.lineTo(x + w * .2, base - h); q.quadraticCurveTo(x + w * .5, base - h - w * .7, x + w * .8, base - h); q.lineTo(x + w, base - h); }
   else if (kind > .55) { q.lineTo(x + w * .4, base - h); q.lineTo(x + w * .4, base - h - 120); q.lineTo(x + w * .47, base - h - 150); q.lineTo(x + w * .54, base - h - 120); q.lineTo(x + w * .54, base - h); q.lineTo(x + w, base - h); }
@@ -115,7 +121,7 @@ const DESIGNS = {
       { col: '#1c0e06', trans: 0, shape: q => { rehal(q, 1120, DESK, 1.05); q.rect(BOX.x0, BOX.y0, 90, BOX.y1); q.moveTo(BOX.x0, BOX.y0); q.quadraticCurveTo(BOX.x0 + 260, BOX.y0 + 60, BOX.x0 + 150, BOX.y1); q.lineTo(BOX.x0, BOX.y1); q.closePath(); } },
     ] }),
   // 2 · Before dawn: a night-blue ladder, one warm lamp and the star on the cover as the only warm lights
-  2: () => ({ back: '#2a3a6a', rim: 'rgba(170,190,255,.55)', light: { x: 1180, y: 600, r: 520, rgb: '255,176,96' }, cap: "Before you open the Qur'an.",
+  2: () => ({ back: '#2a3a6a', rim: 'rgba(170,190,255,.55)', light: { x: 1300, y: 560, r: 560, rgb: '255,186,110' }, cap: "Before you open the Qur'an.",
     layers: [
       { col: '#1a2550', trans: .25, shape: q => q.rect(0, 0, W, 600), holes: q => { seed = 3; for (let k = 0; k < 90; k++) circ(q, BOX.x0 + rnd() * 1580, BOX.y0 + rnd() * 460, 1.5 + rnd() * 2.6); star8(q, 1520, 170, 10, .45); q.moveTo(560 + 40, 210); q.arc(560, 210, 40, 0, Math.PI * 2); },
         glow: burn(q => { q.moveTo(600, 210); q.arc(560, 210, 40, 0, Math.PI * 2); }, '#ffe9c0', .7) },
@@ -125,8 +131,8 @@ const DESIGNS = {
       { col: '#141c40', trans: .15, shape: q => { q.rect(BOX.x0, DESK, BOX.x1 - BOX.x0, 200); } },
       { col: '#efe0bd', rim: 'rgba(255,236,200,.9)', trans: .3, shape: q => { pages(q, 1050, DESK, 1); } },
       { col: '#1f4a3a', rim: 'rgba(255,200,130,.8)', trans: .25, shape: q => mushaf(q, 1050, DESK, 1), holes: q => { spine(q, 1050, DESK, 1); medallion(q, 1050, DESK, 1); frameHoles(q, 1050, DESK, 1); }, glow: burn(q => medallion(q, 1050, DESK, 1), '#ffc070', .8) },
-      { col: '#0a0e22', trans: 0, shape: q => { rehal(q, 1050, DESK, 1); q.moveTo(1300, DESK); q.lineTo(1300, DESK - 40); q.quadraticCurveTo(1330, DESK - 70, 1380, DESK - 60); q.lineTo(1400, DESK - 74); q.lineTo(1404, DESK - 60); q.quadraticCurveTo(1380, DESK - 20, 1370, DESK); q.closePath(); },
-        glow: burn(q => { q.ellipse(1402, DESK - 96, 9, 20, 0, 0, Math.PI * 2); }, '#ffb862', 1) },
+      { col: '#0a0e22', trans: 0, shape: q => { rehal(q, 1050, DESK, 1); deskLamp(q, 1470, DESK); },
+        glow: q => { shafts([[1352, 488]], [[1240, DESK]], [34], '255,196,120', .35)(q); burn(q => { q.ellipse(1352, 486, 30, 9, -.55, 0, Math.PI * 2); }, '#ffcf88', 1)(q); } },
     ] }),
   // 3 · Close: the mushaf large, light falling through a lattice, the cover waiting
   3: () => ({ back: '#f3cf92', rim: 'rgba(255,214,150,.9)', light: { x: 520, y: 220, r: 900, rgb: '255,190,110' }, cap: 'Something that might change the way you read it.',
