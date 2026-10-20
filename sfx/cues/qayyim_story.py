@@ -12,6 +12,8 @@ from sfx.synth import blip, chime, envelope, hat, impact, kick, pad, pop, riser,
 TIMELINE = "reels/qayyim-stories/01-doorstep.json"
 OUT = "public/qayyim-stories/01-doorstep.wav"
 TARGET_LUFS = -14.0
+# Kicks and hats overshoot more in AAC than the other cue sheets; leave extra headroom.
+CEILING_DB = -3.0
 
 # D minor: i - VI - III - VII, one chord per scene, resolving to D on the end card.
 CHORDS = [

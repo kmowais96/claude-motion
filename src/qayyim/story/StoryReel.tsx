@@ -20,9 +20,11 @@ const S = {
   accent: '#FF9A57',
   gold: '#FFB46B',
 };
-const SANS = '"Inter Variable", Inter, system-ui, sans-serif';
+// Amiri as fallback carries ﷺ, which Inter doesn't have.
+const SANS = '"Inter Variable", Inter, "Amiri", system-ui, sans-serif';
 const CX = 540;
 const CY = 880;
+const BOX = 1000;
 
 type Beat = {in: number; out: number; text: string; shape?: string; pills?: string[]; flare?: boolean};
 
@@ -79,7 +81,13 @@ const MorphingObject: React.FC<{tl: ReelTimeline; t: number; hide: number; glowB
   const glow = 0.8 + glowBoost;
 
   return (
-    <svg width={1080} height={1920} style={{position: 'absolute', inset: 0, opacity}}>
+    // The glow layer covers only the object's box: full-frame blurs left some frames half-painted.
+    <svg
+      width={BOX}
+      height={BOX}
+      viewBox={`${CX - BOX / 2} ${CY - BOX / 2} ${BOX} ${BOX}`}
+      style={{position: 'absolute', left: CX - BOX / 2, top: CY - BOX / 2, opacity, overflow: 'visible'}}
+    >
       <defs>
         <linearGradient id="hot" gradientUnits="userSpaceOnUse" x1={CX - 340} y1={CY - 300} x2={CX + 340} y2={CY + 300}>
           <stop offset="0%" stopColor={S.amber} />

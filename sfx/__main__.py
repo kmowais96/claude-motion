@@ -49,7 +49,7 @@ def main():
 
     mix = Mix(tl["duration"], seed=getattr(cues, "SEED", 11))
     cues.score(mix, tl)
-    stats = mix.master(target_lufs=getattr(cues, "TARGET_LUFS", -14.0))
+    stats = mix.master(target_lufs=getattr(cues, "TARGET_LUFS", -14.0), ceiling_db=getattr(cues, "CEILING_DB", -2.0))
     mix.write(out)
     print(
         f"wrote {out}: {tl['duration']}s, {mix.count} sounds, "
