@@ -3,7 +3,8 @@ import {AbsoluteFill} from 'remotion';
 import {Q, QH, QW} from './theme';
 
 /** Eight-point star lattice drifting upward, a lamp glow behind the motif, and a vignette. */
-export const Backdrop: React.FC<{t: number; glow: number}> = ({t, glow}) => (
+/** `turn` rotates the lattice in 22.5° steps (one per beat on cadence reels). */
+export const Backdrop: React.FC<{t: number; glow: number; turn?: number}> = ({t, glow, turn = 0}) => (
   <AbsoluteFill style={{background: Q.bg}}>
     <AbsoluteFill
       style={{
@@ -19,7 +20,7 @@ export const Backdrop: React.FC<{t: number; glow: number}> = ({t, glow}) => (
           width="120"
           height="120"
           patternUnits="userSpaceOnUse"
-          patternTransform={`translate(0 ${-t * 6})`}
+          patternTransform={`rotate(${turn * 22.5} 540 760) translate(0 ${-t * 6})`}
         >
           <g fill="none" stroke="rgba(212,168,90,0.11)" strokeWidth="1.2">
             <rect x="38" y="38" width="44" height="44" />

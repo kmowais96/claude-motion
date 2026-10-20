@@ -23,3 +23,13 @@ Scripts and storyboards first (English), then:
 ## Accuracy
 
 On-screen lines are paraphrases of well-known passages, not word-for-word translations. Check them against a reliable edition before publishing.
+
+## Sayings series
+
+10 reels · 15–24 s each · source: [`reels/qayyim-sayings/content.json`](../../reels/qayyim-sayings/content.json)
+
+> Great. Now do same for 10 of his sayings. Ensure the frame changes every 3 seconds.
+
+The content file sets `"cadence": 3`, so every card (and the end card) gets exactly 3 s. Cadence reels add a beat bar under the label and turn the star lattice one step per beat. Build with `npm run qayyim:sayings`.
+
+Sources: *Madarij al-Salikin* (the heart's scattering; reliance and turning back as the two halves of the religion; the religion is all character), *Al-Wabil al-Sayyib* (between a blessing and a sin; the hardness only dhikr melts), *Miftah Dar al-Sa'adah* (glass, not a sponge, his teacher's advice), *Al-Fawa'id* (seek your heart in three places; be rich with Allah), *Al-Jawab al-Kafi* (sins are wounds; du'a is a medicine). Closing lines such as "Turn back while there is time" and "So how do you treat people?" are reflections added for the reel, not his words.

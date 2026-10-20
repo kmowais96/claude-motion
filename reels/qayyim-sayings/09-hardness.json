@@ -1,0 +1,39 @@
+{
+  "fps": 30,
+  "duration": 15,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 09 / 10",
+  "motif": "candle",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Is your heart *hard?*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "There is a hardness in the heart"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "that only remembering Allah can *melt.*"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "So treat it with *dhikr.*"
+    }
+  ],
+  "marks": [
+    6.45
+  ],
+  "book": {
+    "in": 12,
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib"
+  }
+}

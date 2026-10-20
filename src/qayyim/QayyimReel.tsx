@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, continueRender, delayRender, useCurrentFrame} from 'remotion';
-import {clamp01, easeIn, easeOut, prog} from '../lib';
+import {clamp01, easeIn, easeInOut, easeOut, prog} from '../lib';
 import {Grain, Mask} from '../components/primitives';
 import {Backdrop} from './Backdrop';
 import {Motif, motifState} from './Motif';
@@ -38,7 +38,7 @@ const fontSize = (text: string) => {
   return n <= 20 ? 128 : n <= 42 ? 104 : n <= 64 ? 92 : 84;
 };
 
-const CardText: React.FC<{card: Card; t: number; first: boolean}> = ({card, t, first}) => {
+const CardText: React.FC<{card: Card; t: number; first: boolean; enter: number}> = ({card, t, first, enter}) => {
   if (t < card.in || t > card.out) return null;
   const words = parse(card.text);
   return (
@@ -55,7 +55,8 @@ const CardText: React.FC<{card: Card; t: number; first: boolean}> = ({card, t, f
       }}
     >
       {words.map((w, i) => {
-        const k = first ? 1 : prog(t, card.in + i * 0.09, card.in + i * 0.09 + 0.8, easeOut);
+        const lag = i * enter * 0.1125;
+        const k = first ? 1 : prog(t, card.in + lag, card.in + lag + enter, easeOut);
         const out = prog(t, card.out - EXIT + i * 0.015, card.out, easeIn);
         return (
           <React.Fragment key={i}>
@@ -71,6 +72,28 @@ const CardText: React.FC<{card: Card; t: number; first: boolean}> = ({card, t, f
           </React.Fragment>
         );
       })}
+    </div>
+  );
+};
+
+/** One segment per beat, filling over its slot, so the 3 s rhythm is visible. */
+const BeatBar: React.FC<{tl: ReelTimeline; t: number}> = ({tl, t}) => {
+  const starts = [...tl.cards.map((c) => c.in), tl.book.in];
+  const every = tl.cadence ?? 3;
+  return (
+    <div style={{position: 'absolute', top: 262, left: 240, width: 600, display: 'flex', gap: 8}}>
+      {starts.map((s, i) => (
+        <div key={i} style={{flex: 1, height: 3, borderRadius: 2, background: Q.faint, overflow: 'hidden'}}>
+          <div
+            style={{
+              height: '100%',
+              background: Q.gold,
+              transform: `scaleX(${clamp01((t - s) / every)})`,
+              transformOrigin: '0 50%',
+            }}
+          />
+        </div>
+      ))}
     </div>
   );
 };
@@ -119,10 +142,14 @@ export const QayyimReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
   const motifProps = {name: tl.motif, t, frame, fps: tl.fps, marks: tl.marks};
   const {glow} = motifState(motifProps);
   const end = clamp01((tl.duration - t) / 0.5);
+  const turn = tl.cadence
+    ? [...tl.cards.slice(1).map((c) => c.in), tl.book.in].reduce((a, s) => a + prog(t, s - 0.15, s + 0.6, easeInOut), 0)
+    : 0;
 
   return (
     <AbsoluteFill style={{opacity: 0.35 + 0.65 * end}}>
-      <Backdrop t={t} glow={glow} />
+      <Backdrop t={t} glow={glow} turn={turn} />
+      {tl.cadence ? <BeatBar tl={tl} t={t} /> : null}
       <div
         style={{
           position: 'absolute',
@@ -155,7 +182,7 @@ export const QayyimReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
       >
         {tl.cards.map((c, i) => (
           <div key={i} style={{position: 'absolute'}}>
-            <CardText card={c} t={t} first={i === 0} />
+            <CardText card={c} t={t} first={i === 0} enter={tl.enter ?? 0.8} />
           </div>
         ))}
         <BookCard tl={tl} t={t} />

@@ -1,0 +1,49 @@
+{
+  "fps": 30,
+  "duration": 21,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 04 / 10",
+  "motif": "crescent",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Where is your *heart?*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "Look for it when you hear the *Quran.*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Look for it in gatherings of *dhikr.*"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Look for it when you're *alone* with Him."
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "Not there? Ask Allah to give you a *heart,*"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "for you have *none.*"
+    }
+  ],
+  "marks": [
+    9.45
+  ],
+  "book": {
+    "in": 18,
+    "ar": "الفوائد",
+    "en": "Al-Fawa'id"
+  }
+}

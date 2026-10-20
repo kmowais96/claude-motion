@@ -1,0 +1,132 @@
+{
+  "fps": 30,
+  "label": "IBN AL-QAYYIM",
+  "tagPrefix": "SAYINGS",
+  "cadence": 3,
+  "reels": [
+    {
+      "id": "01-scattering",
+      "motif": "rosette",
+      "cards": [
+        {"text": "In the heart there is a *scattering*"},
+        {"text": "that only turning to Allah can *gather.*", "mark": true},
+        {"text": "A loneliness only His *company* removes.", "mark": true},
+        {"text": "A sadness only knowing Him can *lift.*", "mark": true},
+        {"text": "A restlessness only running to Him can *calm.*", "mark": true},
+        {"text": "A need only His *love* can fill.", "mark": true}
+      ],
+      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin"}
+    },
+    {
+      "id": "02-between",
+      "motif": "halves",
+      "cards": [
+        {"text": "You are always *between* two things:"},
+        {"text": "a blessing from Allah that needs your *gratitude,*", "mark": true},
+        {"text": "and a sin of yours that needs His *forgiveness.*", "mark": true},
+        {"text": "Gratitude and *istighfar:*"},
+        {"text": "two habits for every *day.*"}
+      ],
+      "book": {"ar": "الوابل الصيب", "en": "Al-Wabil al-Sayyib"}
+    },
+    {
+      "id": "03-glass",
+      "motif": "lamp",
+      "cards": [
+        {"text": "Don't let your heart be a *sponge.*"},
+        {"text": "His teacher, Ibn Taymiyyah, told him:"},
+        {"text": "a sponge soaks up every *doubt* it meets."},
+        {"text": "Make your heart like solid *glass.*", "mark": true},
+        {"text": "Doubts pass by. It sees them *clearly,*"},
+        {"text": "and pushes them *away.*"},
+        {"text": "No advice, he said, helped him *more.*"}
+      ],
+      "book": {"ar": "مفتاح دار السعادة", "en": "Miftah Dar al-Sa'adah"}
+    },
+    {
+      "id": "04-seek",
+      "motif": "crescent",
+      "cards": [
+        {"text": "Where is your *heart?*"},
+        {"text": "Look for it when you hear the *Quran.*"},
+        {"text": "Look for it in gatherings of *dhikr.*"},
+        {"text": "Look for it when you're *alone* with Him.", "mark": true},
+        {"text": "Not there? Ask Allah to give you a *heart,*"},
+        {"text": "for you have *none.*"}
+      ],
+      "book": {"ar": "الفوائد", "en": "Al-Fawa'id"}
+    },
+    {
+      "id": "05-wounds",
+      "motif": "hourglass",
+      "cards": [
+        {"text": "Sins are *wounds.*"},
+        {"text": "And many a wound lands where it *kills.*", "mark": true},
+        {"text": "Don't wait for the *last* one."},
+        {"text": "Turn back while there is *time.*"}
+      ],
+      "book": {"ar": "الجواب الكافي", "en": "Al-Jawab al-Kafi"}
+    },
+    {
+      "id": "06-dua",
+      "motif": "drop",
+      "cards": [
+        {"text": "Du'a is a *medicine.*"},
+        {"text": "One of the most *beneficial* of all."},
+        {"text": "It is the *enemy* of affliction.", "mark": true},
+        {"text": "It pushes it back and *treats* it."},
+        {"text": "It stops it from *coming down,*"},
+        {"text": "or lifts or *lightens* it when it does."}
+      ],
+      "book": {"ar": "الجواب الكافي", "en": "Al-Jawab al-Kafi"}
+    },
+    {
+      "id": "07-half",
+      "motif": "halves",
+      "cards": [
+        {"text": "Your religion has two *halves.*"},
+        {"text": "Half is relying on *Allah.*", "mark": true},
+        {"text": "Half is turning back to *Him.*", "mark": true},
+        {"text": "Relying on Him is asking His *help.*"},
+        {"text": "Turning to Him is *worship.*"},
+        {"text": "You alone we worship, You alone we ask for *help.*"}
+      ],
+      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin"}
+    },
+    {
+      "id": "08-character",
+      "motif": "rosette",
+      "cards": [
+        {"text": "The religion is all *character.*"},
+        {"text": "Whoever surpasses you in *character*", "mark": true},
+        {"text": "surpasses you in *religion.*", "mark": true},
+        {"text": "So how do you *treat* people?"}
+      ],
+      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin"}
+    },
+    {
+      "id": "09-hardness",
+      "motif": "candle",
+      "cards": [
+        {"text": "Is your heart *hard?*"},
+        {"text": "There is a hardness in the heart"},
+        {"text": "that only remembering Allah can *melt.*", "mark": true},
+        {"text": "So treat it with *dhikr.*"}
+      ],
+      "book": {"ar": "الوابل الصيب", "en": "Al-Wabil al-Sayyib"}
+    },
+    {
+      "id": "10-rich",
+      "motif": "boat",
+      "cards": [
+        {"text": "When people feel rich with the *world,*"},
+        {"text": "be rich with *Allah.*", "mark": true},
+        {"text": "When they find their joy in the *world,*"},
+        {"text": "find your joy in *Allah.*", "mark": true},
+        {"text": "When they find comfort in their *loved ones,*"},
+        {"text": "find your comfort in *Allah.*", "mark": true}
+      ],
+      "book": {"ar": "الفوائد", "en": "Al-Fawa'id"}
+    }
+  ]
+}

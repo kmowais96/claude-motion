@@ -1,0 +1,54 @@
+{
+  "fps": 30,
+  "duration": 24,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 03 / 10",
+  "motif": "lamp",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Don't let your heart be a *sponge.*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "His teacher, Ibn Taymiyyah, told him:"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "a sponge soaks up every *doubt* it meets."
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Make your heart like solid *glass.*"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "Doubts pass by. It sees them *clearly,*"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "and pushes them *away.*"
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "No advice, he said, helped him *more.*"
+    }
+  ],
+  "marks": [
+    9.45
+  ],
+  "book": {
+    "in": 21,
+    "ar": "مفتاح دار السعادة",
+    "en": "Miftah Dar al-Sa'adah"
+  }
+}

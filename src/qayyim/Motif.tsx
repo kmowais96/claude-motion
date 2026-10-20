@@ -264,6 +264,61 @@ export const Motif: React.FC<Props & {size: number}> = (props) => {
     );
   }
 
+  if (name === 'rosette') {
+    // An eight-point star; each mark lights one more ring around it, gathering inward.
+    const n = Math.max(1, props.marks.length);
+    const all = L(n - 1);
+    body = (
+      <>
+        {props.marks.map((_, i) => {
+          const r = 175 - (i * 95) / Math.max(1, n - 1);
+          const k = L(i);
+          return (
+            <g key={i} style={glowStyle(0.7 * k)}>
+              <circle cx={200} cy={200} r={r} fill="none" stroke={Q.faint} strokeWidth={2} opacity={draw} />
+              <path
+                d={`M200 ${200 - r} A${r} ${r} 0 1 1 199.9 ${200 - r}`}
+                pathLength={1}
+                fill="none"
+                stroke={Q.goldHi}
+                strokeWidth={3}
+                strokeLinecap="round"
+                strokeDasharray="1 1"
+                strokeDashoffset={1 - k}
+              />
+            </g>
+          );
+        })}
+        <g style={glowStyle(all)} transform={`rotate(${t * 4} 200 200)`}>
+          <Stroke d="M152 152 H248 V248 H152 Z" k={part(0)} fill={`rgba(235,199,126,${0.85 * all})`} />
+          <Stroke d="M200 132 L268 200 L200 268 L132 200 Z" k={part(1)} fill={`rgba(235,199,126,${0.85 * all})`} />
+        </g>
+      </>
+    );
+  }
+
+  if (name === 'halves') {
+    // One circle, two halves: each mark fills one side.
+    const half = (side: number, k: number) => (
+      <g style={glowStyle(k)}>
+        <path
+          d={side < 0 ? 'M196 70 A130 130 0 0 0 196 330 Z' : 'M204 70 A130 130 0 0 1 204 330 Z'}
+          fill={Q.gold}
+          opacity={0.85 * k}
+          transform={`translate(${side * 14 * (1 - k)} 0)`}
+        />
+      </g>
+    );
+    body = (
+      <>
+        {half(-1, L(0))}
+        {half(1, L(1))}
+        <Stroke d="M200 70 A130 130 0 1 1 199.9 70" k={part(0)} />
+        <Stroke d="M200 50 V350" k={part(1)} w={2} color={Q.creamDim} />
+      </>
+    );
+  }
+
   if (name === 'crescent') {
     const k = L(0);
     body = (

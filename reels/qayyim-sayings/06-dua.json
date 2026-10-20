@@ -1,0 +1,49 @@
+{
+  "fps": 30,
+  "duration": 21,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 06 / 10",
+  "motif": "drop",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Du'a is a *medicine.*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "One of the most *beneficial* of all."
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "It is the *enemy* of affliction."
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "It pushes it back and *treats* it."
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "It stops it from *coming down,*"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "or lifts or *lightens* it when it does."
+    }
+  ],
+  "marks": [
+    6.45
+  ],
+  "book": {
+    "in": 18,
+    "ar": "الجواب الكافي",
+    "en": "Al-Jawab al-Kafi"
+  }
+}

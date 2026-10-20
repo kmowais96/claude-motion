@@ -1,0 +1,53 @@
+{
+  "fps": 30,
+  "duration": 21,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 01 / 10",
+  "motif": "rosette",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "In the heart there is a *scattering*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "that only turning to Allah can *gather.*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "A loneliness only His *company* removes."
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "A sadness only knowing Him can *lift.*"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "A restlessness only running to Him can *calm.*"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "A need only His *love* can fill."
+    }
+  ],
+  "marks": [
+    3.45,
+    6.45,
+    9.45,
+    12.45,
+    15.45
+  ],
+  "book": {
+    "in": 18,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin"
+  }
+}

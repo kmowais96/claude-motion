@@ -1,0 +1,50 @@
+{
+  "fps": 30,
+  "duration": 21,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 07 / 10",
+  "motif": "halves",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Your religion has two *halves.*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "Half is relying on *Allah.*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Half is turning back to *Him.*"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Relying on Him is asking His *help.*"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "Turning to Him is *worship.*"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "You alone we worship, You alone we ask for *help.*"
+    }
+  ],
+  "marks": [
+    3.45,
+    6.45
+  ],
+  "book": {
+    "in": 18,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin"
+  }
+}

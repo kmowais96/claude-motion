@@ -1,0 +1,40 @@
+{
+  "fps": 30,
+  "duration": 15,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 08 / 10",
+  "motif": "rosette",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "The religion is all *character.*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "Whoever surpasses you in *character*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "surpasses you in *religion.*"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "So how do you *treat* people?"
+    }
+  ],
+  "marks": [
+    3.45,
+    6.45
+  ],
+  "book": {
+    "in": 12,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin"
+  }
+}

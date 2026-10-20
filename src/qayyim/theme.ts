@@ -9,6 +9,10 @@ export type Book = {in: number; ar: string; en: string; sub?: string};
 export type ReelTimeline = {
   fps: number;
   duration: number;
+  /** Seconds per card when the series runs on a fixed beat; shows the beat bar. */
+  cadence?: number;
+  /** Word reveal length in seconds (default 0.8). */
+  enter?: number;
   label: string;
   tag: string;
   motif: string;

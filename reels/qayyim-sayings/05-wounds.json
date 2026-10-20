@@ -1,0 +1,39 @@
+{
+  "fps": 30,
+  "duration": 15,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 05 / 10",
+  "motif": "hourglass",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Sins are *wounds.*"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "And many a wound lands where it *kills.*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Don't wait for the *last* one."
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Turn back while there is *time.*"
+    }
+  ],
+  "marks": [
+    3.45
+  ],
+  "book": {
+    "in": 12,
+    "ar": "الجواب الكافي",
+    "en": "Al-Jawab al-Kafi"
+  }
+}

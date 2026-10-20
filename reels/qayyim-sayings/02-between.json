@@ -1,0 +1,45 @@
+{
+  "fps": 30,
+  "duration": 18,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SAYINGS · 02 / 10",
+  "motif": "halves",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "You are always *between* two things:"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "a blessing from Allah that needs your *gratitude,*"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "and a sin of yours that needs His *forgiveness.*"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Gratitude and *istighfar:*"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "two habits for every *day.*"
+    }
+  ],
+  "marks": [
+    3.45,
+    6.45
+  ],
+  "book": {
+    "in": 15,
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib"
+  }
+}
