@@ -32,6 +32,12 @@ def score(mix, tl):
             put(c["in"] + 0.45, blip(CARD_NOTES[i % len(CARD_NOTES)], dur=0.5, tau=0.14), 0.1)
         put(c["out"] - 0.45, whoosh(0.4, 2600, 700, peak=0.4), 0.04)
 
+    if tl.get("cadence"):
+        # Every card is a new scene: a soft chime as its drawing lights.
+        for i, c in enumerate(cards[1:], start=1):
+            root = CARD_NOTES[i % len(CARD_NOTES)]
+            put(c["in"] + 0.6, chime([root, root * 1.5], dur=1.4, tau=0.5), 0.07, -0.25 + 0.1 * (i % 6))
+
     for i, m in enumerate(marks):
         if tl["motif"] == "candle" and i < len(marks) - 1:
             # The flame dimming: a low, falling note instead of a bright chord.

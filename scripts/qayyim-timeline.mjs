@@ -36,7 +36,12 @@ const onCadence = (cards, every) =>
 
 content.reels.forEach((reel, n) => {
   const slots = content.cadence ? onCadence(reel.cards, content.cadence) : timed(reel.cards);
-  const cards = reel.cards.map((c, i) => ({in: r2(slots[i].in), out: r2(slots[i].out), text: c.text}));
+  const cards = reel.cards.map((c, i) => ({
+    in: r2(slots[i].in),
+    out: r2(slots[i].out),
+    text: c.text,
+    ...(c.motif ? {motif: c.motif} : {}),
+  }));
   const marks = reel.cards.flatMap((c, i) => (c.mark ? [r2(slots[i].mark)] : []));
   const last = slots[slots.length - 1];
   const bookIn = content.cadence ? reel.cards.length * content.cadence : last.out + GAP;
@@ -50,7 +55,7 @@ content.reels.forEach((reel, n) => {
       (content.tagPrefix
         ? `${content.tagPrefix} · ${pad(n + 1)} / ${pad(content.reels.length)}`
         : `${pad(n)} / ${pad(content.reels.length - 1)}`),
-    motif: reel.motif,
+    motif: reel.motif ?? 'arch',
     cards,
     marks,
     book: {in: r2(bookIn), ...reel.book},

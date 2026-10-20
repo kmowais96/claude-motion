@@ -4,7 +4,7 @@ import {clamp01, easeIn, easeInOut, easeOut, prog} from '../lib';
 import {Grain, Mask} from '../components/primitives';
 import {Backdrop} from './Backdrop';
 import {Motif, motifState} from './Motif';
-import {Card, Q, QF, ReelTimeline} from './theme';
+import {Card, Q, QF, ReelTimeline, SCENE_TONES} from './theme';
 
 const EXIT = 0.45;
 
@@ -135,12 +135,49 @@ const BookCard: React.FC<{tl: ReelTimeline; t: number}> = ({tl, t}) => {
   );
 };
 
+// Cadence reels: every card is its own scene with its own drawing and tone.
+const SCENE_MARKS: Record<string, number[]> = {
+  bird: [0.6, 1.1],
+  halves: [0.6, 1.1],
+  boat: [0.5, 0.9, 1.3],
+  rosette: [0.5, 0.9, 1.3],
+  drop: [1.5],
+};
+const BOOK_MOTIF = 'arch';
+
+const hex = (c: string) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+const mix = (a: number[], b: number[], k: number) => a.map((v, i) => v + (b[i] - v) * k);
+
+type Scene = {motif: string; in: number; out: number};
+
+const scenesOf = (tl: ReelTimeline): Scene[] => [
+  ...tl.cards.map((c) => ({motif: c.motif ?? tl.motif, in: c.in, out: c.out})),
+  {motif: BOOK_MOTIF, in: tl.book.in, out: tl.duration + 1},
+];
+
+/** A scene's drawing on its own clock. The opening scene starts already drawn: frame 0 is the thumbnail. */
+const sceneMotif = (sc: Scene, i: number, t: number, fps: number) => {
+  const lead = i === 0 ? 1.2 : 0;
+  const local = t - sc.in + lead;
+  return {name: sc.motif, t: local, frame: Math.round(local * fps), fps, marks: SCENE_MARKS[sc.motif] ?? [0.6]};
+};
+
+const sceneTone = (scenes: Scene[], t: number) => {
+  const rgb = scenes.slice(1).reduce(
+    (acc, sc, j) => mix(acc, hex(SCENE_TONES[(j + 1) % SCENE_TONES.length]), prog(t, sc.in - 0.2, sc.in + 0.25, easeInOut)),
+    hex(SCENE_TONES[0]),
+  );
+  return `rgb(${rgb.map(Math.round).join(',')})`;
+};
+
 export const QayyimReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
   useReelFonts();
   const frame = useCurrentFrame();
   const t = frame / tl.fps;
   const motifProps = {name: tl.motif, t, frame, fps: tl.fps, marks: tl.marks};
-  const {glow} = motifState(motifProps);
+  const scenes = tl.cadence ? scenesOf(tl) : [];
+  const current = scenes.reduce((a, sc, i) => (t >= sc.in - 0.1 ? i : a), 0);
+  const {glow} = tl.cadence ? motifState(sceneMotif(scenes[current], current, t, tl.fps)) : motifState(motifProps);
   const end = clamp01((tl.duration - t) / 0.5);
   const turn = tl.cadence
     ? [...tl.cards.slice(1).map((c) => c.in), tl.book.in].reduce((a, s) => a + prog(t, s - 0.15, s + 0.6, easeInOut), 0)
@@ -148,7 +185,7 @@ export const QayyimReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
 
   return (
     <AbsoluteFill style={{opacity: 0.35 + 0.65 * end}}>
-      <Backdrop t={t} glow={glow} turn={turn} />
+      <Backdrop t={t} glow={glow} turn={turn} bg={tl.cadence ? sceneTone(scenes, t) : undefined} />
       {tl.cadence ? <BeatBar tl={tl} t={t} /> : null}
       <div
         style={{
@@ -166,9 +203,33 @@ export const QayyimReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
         <span style={{color: Q.gold, margin: '0 0.6em'}}>·</span>
         {tl.tag}
       </div>
-      <div style={{position: 'absolute', top: 290, left: 260, width: 560, height: 560}}>
-        <Motif {...motifProps} size={560} />
-      </div>
+      {tl.cadence ? (
+        scenes.map((sc, i) => {
+          if (t < sc.in - 0.25 || t > sc.out + 0.25) return null;
+          const k = i === 0 ? 1 : prog(t, sc.in - 0.15, sc.in + 0.3, easeOut);
+          const out = prog(t, sc.out - 0.2, sc.out + 0.15, easeIn);
+          return (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                top: 290,
+                left: 260,
+                width: 560,
+                height: 560,
+                opacity: k * (1 - out),
+                transform: `scale(${1.08 - 0.08 * k + 0.05 * out})`,
+              }}
+            >
+              <Motif {...sceneMotif(sc, i, t, tl.fps)} size={560} />
+            </div>
+          );
+        })
+      ) : (
+        <div style={{position: 'absolute', top: 290, left: 260, width: 560, height: 560}}>
+          <Motif {...motifProps} size={560} />
+        </div>
+      )}
       <div
         style={{
           position: 'absolute',

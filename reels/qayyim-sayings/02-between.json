@@ -5,38 +5,40 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 02 / 10",
-  "motif": "halves",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "You are always *between* two things:"
+      "text": "You are always *between* two things:",
+      "motif": "halves"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "a blessing from Allah that needs your *gratitude,*"
+      "text": "a blessing from Allah that needs your *gratitude,*",
+      "motif": "tree"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "and a sin of yours that needs His *forgiveness.*"
+      "text": "and a sin of yours that needs His *forgiveness.*",
+      "motif": "drop"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "Gratitude and *istighfar:*"
+      "text": "Gratitude and *istighfar:*",
+      "motif": "rosette"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "two habits for every *day.*"
+      "text": "two habits for every *day.*",
+      "motif": "hourglass"
     }
   ],
-  "marks": [
-    3.45,
-    6.45
-  ],
+  "marks": [],
   "book": {
     "in": 15,
     "ar": "الوابل الصيب",

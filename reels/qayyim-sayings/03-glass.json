@@ -5,47 +5,52 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 03 / 10",
-  "motif": "lamp",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "Don't let your heart be a *sponge.*"
+      "text": "Don't let your heart be a *sponge.*",
+      "motif": "drop"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "His teacher, Ibn Taymiyyah, told him:"
+      "text": "His teacher, Ibn Taymiyyah, told him:",
+      "motif": "book"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "a sponge soaks up every *doubt* it meets."
+      "text": "a sponge soaks up every *doubt* it meets.",
+      "motif": "mountain"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "Make your heart like solid *glass.*"
+      "text": "Make your heart like solid *glass.*",
+      "motif": "lamp"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "Doubts pass by. It sees them *clearly,*"
+      "text": "Doubts pass by. It sees them *clearly,*",
+      "motif": "sun"
     },
     {
       "in": 15,
       "out": 17.9,
-      "text": "and pushes them *away.*"
+      "text": "and pushes them *away.*",
+      "motif": "boat"
     },
     {
       "in": 18,
       "out": 20.9,
-      "text": "No advice, he said, helped him *more.*"
+      "text": "No advice, he said, helped him *more.*",
+      "motif": "rosette"
     }
   ],
-  "marks": [
-    9.45
-  ],
+  "marks": [],
   "book": {
     "in": 21,
     "ar": "مفتاح دار السعادة",

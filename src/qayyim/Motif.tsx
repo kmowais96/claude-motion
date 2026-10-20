@@ -319,6 +319,121 @@ export const Motif: React.FC<Props & {size: number}> = (props) => {
     );
   }
 
+  if (name === 'arch') {
+    // A mihrab arch with a small hanging lamp that lights.
+    const k = L(0);
+    body = (
+      <>
+        <Stroke d="M90 360 V185 C90 110 150 62 200 36 C250 62 310 110 310 185 V360" k={part(0)} />
+        <Stroke d="M132 360 V195 C132 140 170 108 200 90 C230 108 268 140 268 195 V360" k={part(1)} w={2.5} color={Q.creamDim} />
+        <Stroke d="M56 362 H344" k={part(2)} />
+        <Stroke d="M200 90 V150" k={part(3)} w={2} color={Q.creamDim} />
+        <g style={glowStyle(k)}>
+          <circle cx={200} cy={166} r={14} fill={`rgba(235,199,126,${k})`} stroke={Q.gold} strokeWidth={3} opacity={draw} />
+        </g>
+      </>
+    );
+  }
+
+  if (name === 'tree') {
+    // A tree whose fruit lights up.
+    const k = L(0);
+    body = (
+      <>
+        <Stroke d="M200 360 V226 M200 290 L158 248 M200 266 L244 224 M200 316 L238 288" k={part(0)} w={4} />
+        <Stroke d="M200 70 A100 100 0 1 1 199.9 70" k={part(1)} />
+        <Stroke d="M120 362 H280" k={part(2)} w={2.5} color={Q.creamDim} />
+        {[[160, 140], [240, 150], [200, 115], [175, 205], [232, 205]].map(([x, y], i) => (
+          <g key={i} style={glowStyle(clamp01(k * 1.6 - i * 0.15))}>
+            <circle cx={x} cy={y} r={11 * clamp01(k * 1.6 - i * 0.15)} fill={Q.goldHi} />
+          </g>
+        ))}
+      </>
+    );
+  }
+
+  if (name === 'sun') {
+    // A sun rising over the horizon, rays drawing out.
+    const k = L(0);
+    const rise = (1 - prog(t, 0, 1.4, easeOut)) * 40;
+    body = (
+      <>
+        <g transform={`translate(0 ${rise})`}>
+          <g style={glowStyle(k)}>
+            <circle cx={200} cy={210} r={62} fill={`rgba(235,199,126,${0.9 * k})`} />
+          </g>
+          <Stroke d="M200 148 A62 62 0 1 1 199.9 148" k={part(0)} />
+          {Array.from({length: 12}, (_, i) => {
+            const a = (i / 12) * Math.PI * 2;
+            const c = Math.cos(a);
+            const sn = Math.sin(a);
+            return (
+              <Stroke key={i} d={`M${200 + 84 * c} ${210 + 84 * sn} L${200 + 114 * c} ${210 + 114 * sn}`} k={part(1) * 1.2 - i * 0.02} w={3} />
+            );
+          })}
+        </g>
+        <Stroke d="M30 330 H370" k={part(2)} />
+        <Stroke d="M80 356 H320" k={part(3)} w={2} color={Q.creamDim} />
+      </>
+    );
+  }
+
+  if (name === 'book') {
+    // An open book; its lines light like a page being read.
+    const k = L(0);
+    body = (
+      <>
+        <Stroke d="M200 128 C160 102 104 100 58 116 V306 C104 290 160 292 200 318" k={part(0)} />
+        <Stroke d="M200 128 C240 102 296 100 342 116 V306 C296 290 240 292 200 318" k={part(1)} />
+        <Stroke d="M200 128 V318" k={part(2)} w={2} color={Q.creamDim} />
+        {[0, 1, 2, 3, 4].map((i) => {
+          const y = 158 + i * 28;
+          const kk = clamp01(k * 1.8 - i * 0.18);
+          return (
+            <g key={i} style={glowStyle(0.6 * kk)}>
+              <line x1={88} y1={y} x2={88 + 84 * kk} y2={y - 4} stroke={Q.goldHi} strokeWidth={3} strokeLinecap="round" opacity={kk} />
+              <line x1={222} y1={y - 4} x2={222 + 84 * kk} y2={y} stroke={Q.goldHi} strokeWidth={3} strokeLinecap="round" opacity={kk} />
+            </g>
+          );
+        })}
+      </>
+    );
+  }
+
+  if (name === 'mountain') {
+    // Heavy peaks; a moon lights above them.
+    const k = L(0);
+    body = (
+      <>
+        <g style={glowStyle(k)}>
+          <circle cx={292} cy={104} r={26} fill={`rgba(235,199,126,${k})`} stroke={Q.gold} strokeWidth={3} opacity={draw} />
+        </g>
+        <Stroke d="M24 336 L136 158 L196 246 L262 132 L376 336 Z" k={part(0)} />
+        <Stroke d="M112 196 L136 158 L160 194 M240 170 L262 132 L286 172" k={part(1)} w={2.5} color={Q.creamDim} />
+        <Stroke d="M14 352 H386" k={part(2)} w={2.5} />
+      </>
+    );
+  }
+
+  if (name === 'door') {
+    // An arched door that swings open onto light.
+    const k = L(0);
+    body = (
+      <>
+        <g style={glowStyle(k)}>
+          <path d="M138 340 V178 C138 124 262 124 262 178 V340 Z" fill={`rgba(235,199,126,${0.8 * k})`} />
+        </g>
+        <g transform={`translate(138 0) scale(${1 - 0.72 * k} 1) translate(-138 0)`}>
+          <path d="M138 340 V178 C138 124 262 124 262 178 V340 Z" fill={Q.bg} />
+          <Stroke d="M138 340 V178 C138 124 262 124 262 178 V340 Z" k={part(1)} w={2.5} color={Q.creamDim} />
+          <circle cx={244} cy={250} r={5} fill={Q.gold} opacity={draw} />
+        </g>
+        <Stroke d="M124 344 V172 C124 108 276 108 276 172 V344" k={part(0)} />
+        <Stroke d="M80 346 H320" k={part(2)} />
+      </>
+    );
+  }
+
   if (name === 'crescent') {
     const k = L(0);
     body = (

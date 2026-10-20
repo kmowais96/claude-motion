@@ -5,42 +5,46 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 06 / 10",
-  "motif": "drop",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "Du'a is a *medicine.*"
+      "text": "Du'a is a *medicine.*",
+      "motif": "drop"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "One of the most *beneficial* of all."
+      "text": "One of the most *beneficial* of all.",
+      "motif": "tree"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "It is the *enemy* of affliction."
+      "text": "It is the *enemy* of affliction.",
+      "motif": "mountain"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "It pushes it back and *treats* it."
+      "text": "It pushes it back and *treats* it.",
+      "motif": "boat"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "It stops it from *coming down,*"
+      "text": "It stops it from *coming down,*",
+      "motif": "crescent"
     },
     {
       "in": 15,
       "out": 17.9,
-      "text": "or lifts or *lightens* it when it does."
+      "text": "or lifts or *lightens* it when it does.",
+      "motif": "sun"
     }
   ],
-  "marks": [
-    6.45
-  ],
+  "marks": [],
   "book": {
     "in": 18,
     "ar": "الجواب الكافي",

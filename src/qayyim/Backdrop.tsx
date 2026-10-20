@@ -4,8 +4,13 @@ import {Q, QH, QW} from './theme';
 
 /** Eight-point star lattice drifting upward, a lamp glow behind the motif, and a vignette. */
 /** `turn` rotates the lattice in 22.5° steps (one per beat on cadence reels). */
-export const Backdrop: React.FC<{t: number; glow: number; turn?: number}> = ({t, glow, turn = 0}) => (
-  <AbsoluteFill style={{background: Q.bg}}>
+export const Backdrop: React.FC<{t: number; glow: number; turn?: number; bg?: string}> = ({
+  t,
+  glow,
+  turn = 0,
+  bg = Q.bg,
+}) => (
+  <AbsoluteFill style={{background: bg}}>
     <AbsoluteFill
       style={{
         background: `radial-gradient(ellipse 70% 38% at 50% 30%, rgba(212,168,90,${

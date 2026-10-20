@@ -5,42 +5,46 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 04 / 10",
-  "motif": "crescent",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "Where is your *heart?*"
+      "text": "Where is your *heart?*",
+      "motif": "hearts"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "Look for it when you hear the *Quran.*"
+      "text": "Look for it when you hear the *Quran.*",
+      "motif": "book"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "Look for it in gatherings of *dhikr.*"
+      "text": "Look for it in gatherings of *dhikr.*",
+      "motif": "rosette"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "Look for it when you're *alone* with Him."
+      "text": "Look for it when you're *alone* with Him.",
+      "motif": "crescent"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "Not there? Ask Allah to give you a *heart,*"
+      "text": "Not there? Ask Allah to give you a *heart,*",
+      "motif": "door"
     },
     {
       "in": 15,
       "out": 17.9,
-      "text": "for you have *none.*"
+      "text": "for you have *none.*",
+      "motif": "hourglass"
     }
   ],
-  "marks": [
-    9.45
-  ],
+  "marks": [],
   "book": {
     "in": 18,
     "ar": "الفوائد",

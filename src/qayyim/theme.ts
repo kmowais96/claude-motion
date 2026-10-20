@@ -4,7 +4,8 @@ import {sp} from '../lib';
 export const QW = 1080;
 export const QH = 1920;
 
-export type Card = {in: number; out: number; text: string};
+/** `motif` is set on cadence reels, where every card is its own scene. */
+export type Card = {in: number; out: number; text: string; motif?: string};
 export type Book = {in: number; ar: string; en: string; sub?: string};
 export type ReelTimeline = {
   fps: number;
@@ -33,6 +34,9 @@ export const Q = {
   goldHi: '#EBC77E',
   goldFaint: 'rgba(212,168,90,0.16)',
 };
+
+/** Background tones that cadence reels cycle through, one per scene: ink, deep green, deep maroon, deep navy. */
+export const SCENE_TONES = ['#1C1711', '#0F2A22', '#2E1418', '#13203A'];
 
 export const QF = {
   serif: '"Instrument Serif", "Amiri", Georgia, serif',

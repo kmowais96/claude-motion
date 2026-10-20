@@ -5,43 +5,46 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 07 / 10",
-  "motif": "halves",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "Your religion has two *halves.*"
+      "text": "Your religion has two *halves.*",
+      "motif": "halves"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "Half is relying on *Allah.*"
+      "text": "Half is relying on *Allah.*",
+      "motif": "bird"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "Half is turning back to *Him.*"
+      "text": "Half is turning back to *Him.*",
+      "motif": "door"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "Relying on Him is asking His *help.*"
+      "text": "Relying on Him is asking His *help.*",
+      "motif": "lamp"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "Turning to Him is *worship.*"
+      "text": "Turning to Him is *worship.*",
+      "motif": "arch"
     },
     {
       "in": 15,
       "out": 17.9,
-      "text": "You alone we worship, You alone we ask for *help.*"
+      "text": "You alone we worship, You alone we ask for *help.*",
+      "motif": "book"
     }
   ],
-  "marks": [
-    3.45,
-    6.45
-  ],
+  "marks": [],
   "book": {
     "in": 18,
     "ar": "مدارج السالكين",

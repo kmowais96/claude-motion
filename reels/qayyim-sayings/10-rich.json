@@ -5,44 +5,46 @@
   "enter": 0.6,
   "label": "IBN AL-QAYYIM",
   "tag": "SAYINGS · 10 / 10",
-  "motif": "boat",
+  "motif": "arch",
   "cards": [
     {
       "in": 0,
       "out": 2.9,
-      "text": "When people feel rich with the *world,*"
+      "text": "When people feel rich with the *world,*",
+      "motif": "tree"
     },
     {
       "in": 3,
       "out": 5.9,
-      "text": "be rich with *Allah.*"
+      "text": "be rich with *Allah.*",
+      "motif": "crescent"
     },
     {
       "in": 6,
       "out": 8.9,
-      "text": "When they find their joy in the *world,*"
+      "text": "When they find their joy in the *world,*",
+      "motif": "mountain"
     },
     {
       "in": 9,
       "out": 11.9,
-      "text": "find your joy in *Allah.*"
+      "text": "find your joy in *Allah.*",
+      "motif": "sun"
     },
     {
       "in": 12,
       "out": 14.9,
-      "text": "When they find comfort in their *loved ones,*"
+      "text": "When they find comfort in their *loved ones,*",
+      "motif": "hearts"
     },
     {
       "in": 15,
       "out": 17.9,
-      "text": "find your comfort in *Allah.*"
+      "text": "find your comfort in *Allah.*",
+      "motif": "lamp"
     }
   ],
-  "marks": [
-    3.45,
-    9.45,
-    15.45
-  ],
+  "marks": [],
   "book": {
     "in": 18,
     "ar": "الفوائد",
