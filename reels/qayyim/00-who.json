@@ -1,0 +1,43 @@
+{
+  "fps": 30,
+  "duration": 28.2,
+  "label": "IBN AL-QAYYIM",
+  "tag": "SERIES",
+  "motif": "lamp",
+  "cards": [
+    {
+      "in": 0,
+      "out": 4.5,
+      "text": "Nearly 700 years ago, he wrote about *your* heart."
+    },
+    {
+      "in": 4.7,
+      "out": 8.8,
+      "text": "Ibn Qayyim al-Jawziyya. Born in *Damascus,* 1292 CE."
+    },
+    {
+      "in": 9,
+      "out": 14,
+      "text": "The closest student of *Ibn Taymiyyah,* with him even in prison."
+    },
+    {
+      "in": 14.2,
+      "out": 19.8,
+      "text": "He wrote on the Prophet's way, on patience, on sin and its *cure.*"
+    },
+    {
+      "in": 20,
+      "out": 23.8,
+      "text": "This series: one book at a *time.*"
+    }
+  ],
+  "marks": [
+    5.25
+  ],
+  "book": {
+    "in": 24,
+    "ar": "ابن قيم الجوزية",
+    "en": "Ibn Qayyim al-Jawziyya",
+    "sub": "691–751 AH · DAMASCUS"
+  }
+}

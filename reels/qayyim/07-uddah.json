@@ -1,0 +1,44 @@
+{
+  "fps": 30,
+  "duration": 24.6,
+  "label": "IBN AL-QAYYIM",
+  "tag": "07 / 08",
+  "motif": "boat",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3,
+      "text": "Patience isn't just *waiting.*"
+    },
+    {
+      "in": 3.2,
+      "out": 7.3,
+      "text": "Patience in *obeying* Allah, even when it's heavy."
+    },
+    {
+      "in": 7.5,
+      "out": 11.6,
+      "text": "Patience in holding back from what He *forbids.*"
+    },
+    {
+      "in": 11.8,
+      "out": 16.5,
+      "text": "Patience with what He *decrees:* the pain you didn't choose."
+    },
+    {
+      "in": 16.7,
+      "out": 20.2,
+      "text": "Which one is *yours* right now?"
+    }
+  ],
+  "marks": [
+    3.75,
+    8.05,
+    12.35
+  ],
+  "book": {
+    "in": 20.4,
+    "ar": "عدة الصابرين",
+    "en": "'Uddat al-Sabirin"
+  }
+}

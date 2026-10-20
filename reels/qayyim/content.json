@@ -1,0 +1,119 @@
+{
+  "fps": 30,
+  "label": "IBN AL-QAYYIM",
+  "reels": [
+    {
+      "id": "00-who",
+      "motif": "lamp",
+      "tag": "SERIES",
+      "cards": [
+        {"text": "Nearly 700 years ago, he wrote about *your* heart."},
+        {"text": "Ibn Qayyim al-Jawziyya. Born in *Damascus,* 1292 CE.", "mark": true},
+        {"text": "The closest student of *Ibn Taymiyyah,* with him even in prison."},
+        {"text": "He wrote on the Prophet's way, on patience, on sin and its *cure.*"},
+        {"text": "This series: one book at a *time.*"}
+      ],
+      "book": {"ar": "ابن قيم الجوزية", "en": "Ibn Qayyim al-Jawziyya", "sub": "691–751 AH · DAMASCUS"}
+    },
+    {
+      "id": "01-fawaid",
+      "motif": "hourglass",
+      "cards": [
+        {"text": "Something is *worse* than death."},
+        {"text": "Wasting *time.*", "mark": true},
+        {"text": "Death cuts you off from this world and its people."},
+        {"text": "Wasted time cuts you off from *Allah* and the Hereafter."},
+        {"text": "So what will you do with the next *hour?*"}
+      ],
+      "book": {"ar": "الفوائد", "en": "Al-Fawa'id"}
+    },
+    {
+      "id": "02-madarij",
+      "motif": "bird",
+      "cards": [
+        {"text": "Your heart is a *bird.*"},
+        {"text": "On its journey to Allah, *love* is its head.", "mark": true},
+        {"text": "Hope and fear are its two *wings.*", "mark": true},
+        {"text": "Head and wings sound: it flies *well.*"},
+        {"text": "Lose the head, it dies. Lose a wing, it becomes *prey.*"},
+        {"text": "Keep all *three.*"}
+      ],
+      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin"}
+    },
+    {
+      "id": "03-ighathah",
+      "motif": "hearts",
+      "cards": [
+        {"text": "Which heart do *you* have?"},
+        {"text": "The *sound* heart: free of every desire that opposes Allah's command.", "mark": true},
+        {"text": "The *dead* heart: it doesn't know its Lord, and follows its desires.", "mark": true},
+        {"text": "The *sick* heart: it has life, and it has illness.", "mark": true},
+        {"text": "Whichever wins, it *leans* toward."},
+        {"text": "The work: move it toward the *first.*"}
+      ],
+      "book": {"ar": "إغاثة اللهفان", "en": "Ighathat al-Lahfan"}
+    },
+    {
+      "id": "04-wabil",
+      "motif": "drop",
+      "cards": [
+        {"text": "Restless, and can't say *why?*"},
+        {"text": "Ibn al-Qayyim heard his teacher, Ibn Taymiyyah, say:"},
+        {"text": "Dhikr is to the heart what *water* is to a fish.", "mark": true},
+        {"text": "So what happens to a fish taken *out* of the water?"},
+        {"text": "Get back in the *water.*"}
+      ],
+      "book": {"ar": "الوابل الصيب", "en": "Al-Wabil al-Sayyib"}
+    },
+    {
+      "id": "05-jawab",
+      "motif": "candle",
+      "cards": [
+        {"text": "Sin doesn't announce what it *takes.*"},
+        {"text": "It takes *knowledge,* a light Allah places in the heart.", "mark": true},
+        {"text": "It can take *provision.*", "mark": true},
+        {"text": "It brings a *loneliness* between you and Allah.", "mark": true},
+        {"text": "Doors close. Affairs become *hard.*", "mark": true},
+        {"text": "But the book is also about the *cure:* repentance, du'a, returning.", "mark": true}
+      ],
+      "book": {"ar": "الجواب الكافي", "en": "Al-Jawab al-Kafi"}
+    },
+    {
+      "id": "06-miftah",
+      "motif": "scale",
+      "cards": [
+        {"text": "Knowledge or *wealth?*"},
+        {"text": "Ibn al-Qayyim explains the famous answer of *Ali* ibn Abi Talib:"},
+        {"text": "Knowledge guards *you.* You guard wealth.", "mark": true},
+        {"text": "Wealth shrinks when spent. Knowledge *grows* when shared.", "mark": true},
+        {"text": "Then he gives over a *hundred* more reasons."},
+        {"text": "Start with one page *today.*"}
+      ],
+      "book": {"ar": "مفتاح دار السعادة", "en": "Miftah Dar al-Sa'adah"}
+    },
+    {
+      "id": "07-uddah",
+      "motif": "boat",
+      "cards": [
+        {"text": "Patience isn't just *waiting.*"},
+        {"text": "Patience in *obeying* Allah, even when it's heavy.", "mark": true},
+        {"text": "Patience in holding back from what He *forbids.*", "mark": true},
+        {"text": "Patience with what He *decrees:* the pain you didn't choose.", "mark": true},
+        {"text": "Which one is *yours* right now?"}
+      ],
+      "book": {"ar": "عدة الصابرين", "en": "'Uddat al-Sabirin"}
+    },
+    {
+      "id": "08-zad",
+      "motif": "crescent",
+      "cards": [
+        {"text": "Written on a *journey.*"},
+        {"text": "Provision for the Hereafter, from the guidance of the best of *creation.*", "mark": true},
+        {"text": "How he ﷺ prayed, ate, slept and *travelled.*"},
+        {"text": "How he traded, visited the sick, and treated *illness.*"},
+        {"text": "One habit from his life is a good place to *start.*"}
+      ],
+      "book": {"ar": "زاد المعاد", "en": "Zad al-Ma'ad"}
+    }
+  ]
+}

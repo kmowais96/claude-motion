@@ -1,0 +1,49 @@
+{
+  "fps": 30,
+  "duration": 30.7,
+  "label": "IBN AL-QAYYIM",
+  "tag": "03 / 08",
+  "motif": "hearts",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3.3,
+      "text": "Which heart do *you* have?"
+    },
+    {
+      "in": 3.5,
+      "out": 8.5,
+      "text": "The *sound* heart: free of every desire that opposes Allah's command."
+    },
+    {
+      "in": 8.7,
+      "out": 14,
+      "text": "The *dead* heart: it doesn't know its Lord, and follows its desires."
+    },
+    {
+      "in": 14.2,
+      "out": 18.9,
+      "text": "The *sick* heart: it has life, and it has illness."
+    },
+    {
+      "in": 19.1,
+      "out": 22.3,
+      "text": "Whichever wins, it *leans* toward."
+    },
+    {
+      "in": 22.5,
+      "out": 26.3,
+      "text": "The work: move it toward the *first.*"
+    }
+  ],
+  "marks": [
+    4.05,
+    9.25,
+    14.75
+  ],
+  "book": {
+    "in": 26.5,
+    "ar": "إغاثة اللهفان",
+    "en": "Ighathat al-Lahfan"
+  }
+}

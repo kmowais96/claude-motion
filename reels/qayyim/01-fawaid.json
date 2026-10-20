@@ -1,0 +1,42 @@
+{
+  "fps": 30,
+  "duration": 24.7,
+  "label": "IBN AL-QAYYIM",
+  "tag": "01 / 08",
+  "motif": "hourglass",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3.3,
+      "text": "Something is *worse* than death."
+    },
+    {
+      "in": 3.5,
+      "out": 5.9,
+      "text": "Wasting *time.*"
+    },
+    {
+      "in": 6.1,
+      "out": 10.8,
+      "text": "Death cuts you off from this world and its people."
+    },
+    {
+      "in": 11,
+      "out": 15.7,
+      "text": "Wasted time cuts you off from *Allah* and the Hereafter."
+    },
+    {
+      "in": 15.9,
+      "out": 20.3,
+      "text": "So what will you do with the next *hour?*"
+    }
+  ],
+  "marks": [
+    4.05
+  ],
+  "book": {
+    "in": 20.5,
+    "ar": "الفوائد",
+    "en": "Al-Fawa'id"
+  }
+}

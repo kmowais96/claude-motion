@@ -1,0 +1,42 @@
+{
+  "fps": 30,
+  "duration": 27,
+  "label": "IBN AL-QAYYIM",
+  "tag": "08 / 08",
+  "motif": "crescent",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3,
+      "text": "Written on a *journey.*"
+    },
+    {
+      "in": 3.2,
+      "out": 8.5,
+      "text": "Provision for the Hereafter, from the guidance of the best of *creation.*"
+    },
+    {
+      "in": 8.7,
+      "out": 12.8,
+      "text": "How he ﷺ prayed, ate, slept and *travelled.*"
+    },
+    {
+      "in": 13,
+      "out": 17.4,
+      "text": "How he traded, visited the sick, and treated *illness.*"
+    },
+    {
+      "in": 17.6,
+      "out": 22.6,
+      "text": "One habit from his life is a good place to *start.*"
+    }
+  ],
+  "marks": [
+    3.75
+  ],
+  "book": {
+    "in": 22.8,
+    "ar": "زاد المعاد",
+    "en": "Zad al-Ma'ad"
+  }
+}

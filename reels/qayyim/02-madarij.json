@@ -1,0 +1,48 @@
+{
+  "fps": 30,
+  "duration": 28.3,
+  "label": "IBN AL-QAYYIM",
+  "tag": "02 / 08",
+  "motif": "bird",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3.3,
+      "text": "Your heart is a *bird.*"
+    },
+    {
+      "in": 3.5,
+      "out": 7.9,
+      "text": "On its journey to Allah, *love* is its head."
+    },
+    {
+      "in": 8.1,
+      "out": 11.9,
+      "text": "Hope and fear are its two *wings.*"
+    },
+    {
+      "in": 12.1,
+      "out": 15.9,
+      "text": "Head and wings sound: it flies *well.*"
+    },
+    {
+      "in": 16.1,
+      "out": 21.1,
+      "text": "Lose the head, it dies. Lose a wing, it becomes *prey.*"
+    },
+    {
+      "in": 21.3,
+      "out": 23.9,
+      "text": "Keep all *three.*"
+    }
+  ],
+  "marks": [
+    4.05,
+    8.65
+  ],
+  "book": {
+    "in": 24.1,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin"
+  }
+}

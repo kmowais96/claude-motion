@@ -1,0 +1,51 @@
+{
+  "fps": 30,
+  "duration": 28.9,
+  "label": "IBN AL-QAYYIM",
+  "tag": "05 / 08",
+  "motif": "candle",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3.6,
+      "text": "Sin doesn't announce what it *takes.*"
+    },
+    {
+      "in": 3.8,
+      "out": 8.5,
+      "text": "It takes *knowledge,* a light Allah places in the heart."
+    },
+    {
+      "in": 8.7,
+      "out": 11.6,
+      "text": "It can take *provision.*"
+    },
+    {
+      "in": 11.8,
+      "out": 15.9,
+      "text": "It brings a *loneliness* between you and Allah."
+    },
+    {
+      "in": 16.1,
+      "out": 19.3,
+      "text": "Doors close. Affairs become *hard.*"
+    },
+    {
+      "in": 19.5,
+      "out": 24.5,
+      "text": "But the book is also about the *cure:* repentance, du'a, returning."
+    }
+  ],
+  "marks": [
+    4.35,
+    9.25,
+    12.35,
+    16.65,
+    20.05
+  ],
+  "book": {
+    "in": 24.7,
+    "ar": "الجواب الكافي",
+    "en": "Al-Jawab al-Kafi"
+  }
+}

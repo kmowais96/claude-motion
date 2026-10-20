@@ -1,0 +1,42 @@
+{
+  "fps": 30,
+  "duration": 25.8,
+  "label": "IBN AL-QAYYIM",
+  "tag": "04 / 08",
+  "motif": "drop",
+  "cards": [
+    {
+      "in": 0,
+      "out": 3.3,
+      "text": "Restless, and can't say *why?*"
+    },
+    {
+      "in": 3.5,
+      "out": 7.6,
+      "text": "Ibn al-Qayyim heard his teacher, Ibn Taymiyyah, say:"
+    },
+    {
+      "in": 7.8,
+      "out": 12.8,
+      "text": "Dhikr is to the heart what *water* is to a fish."
+    },
+    {
+      "in": 13,
+      "out": 18,
+      "text": "So what happens to a fish taken *out* of the water?"
+    },
+    {
+      "in": 18.2,
+      "out": 21.4,
+      "text": "Get back in the *water.*"
+    }
+  ],
+  "marks": [
+    8.35
+  ],
+  "book": {
+    "in": 21.6,
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib"
+  }
+}

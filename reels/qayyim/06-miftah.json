@@ -1,0 +1,48 @@
+{
+  "fps": 30,
+  "duration": 28,
+  "label": "IBN AL-QAYYIM",
+  "tag": "06 / 08",
+  "motif": "scale",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.7,
+      "text": "Knowledge or *wealth?*"
+    },
+    {
+      "in": 2.9,
+      "out": 7.9,
+      "text": "Ibn al-Qayyim explains the famous answer of *Ali* ibn Abi Talib:"
+    },
+    {
+      "in": 8.1,
+      "out": 11.6,
+      "text": "Knowledge guards *you.* You guard wealth."
+    },
+    {
+      "in": 11.8,
+      "out": 15.9,
+      "text": "Wealth shrinks when spent. Knowledge *grows* when shared."
+    },
+    {
+      "in": 16.1,
+      "out": 20.2,
+      "text": "Then he gives over a *hundred* more reasons."
+    },
+    {
+      "in": 20.4,
+      "out": 23.6,
+      "text": "Start with one page *today.*"
+    }
+  ],
+  "marks": [
+    8.65,
+    12.35
+  ],
+  "book": {
+    "in": 23.8,
+    "ar": "مفتاح دار السعادة",
+    "en": "Miftah Dar al-Sa'adah"
+  }
+}
