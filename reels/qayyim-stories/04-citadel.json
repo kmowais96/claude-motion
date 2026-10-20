@@ -1,0 +1,72 @@
+{
+  "fps": 60,
+  "duration": 27,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "Prison couldn't stop Ibn al-Qayyim",
+  "tag": "STORIES · 04 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "He was jailed in the Citadel of *Damascus,*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "kept apart from his *teacher.*",
+      "shape": "bars"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "So he turned to the *Quran.*",
+      "shape": "book"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Reciting slowly. Reflecting on every *verse.*",
+      "shape": "wave"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "And Allah opened great good to *him.*",
+      "shape": "star8",
+      "flare": true
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Prison",
+        "Quran",
+        "Opening"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "He was freed only after his teacher *died.*",
+      "shape": "line"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "His student Ibn Rajab recorded it *all.*",
+      "shape": "arch"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 24,
+    "ar": "ذيل طبقات الحنابلة",
+    "en": "Dhayl Tabaqat al-Hanabila",
+    "sub": "IBN RAJAB, HIS STUDENT"
+  }
+}

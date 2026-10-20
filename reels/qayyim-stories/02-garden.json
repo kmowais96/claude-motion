@@ -1,0 +1,78 @@
+{
+  "fps": 60,
+  "duration": 30,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "What his teacher said from a prison cell",
+  "tag": "STORIES · 02 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Damascus. His teacher was in *prison.*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "Ibn Taymiyyah, locked in the *Citadel.*",
+      "shape": "bars"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "He said: what can my enemies do to *me?*",
+      "shape": "ring"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "My paradise and my garden are in my *chest.*",
+      "shape": "tree"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "Wherever I go, it stays with *me.*",
+      "shape": "orbit"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Prison: solitude",
+        "Killing: martyrdom",
+        "Exile: a journey"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "When fear gripped us, we went to *him.*",
+      "shape": "wave"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "One look, a few words, and it all *lifted.*",
+      "shape": "sun",
+      "flare": true
+    },
+    {
+      "in": 24,
+      "out": 26.9,
+      "text": "Into openness, strength and *certainty.*",
+      "shape": "star8"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 27,
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+  }
+}

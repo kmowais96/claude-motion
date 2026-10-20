@@ -1,0 +1,72 @@
+{
+  "fps": 60,
+  "duration": 27,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "He collected books like no one else",
+  "tag": "STORIES · 07 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "He loved one thing *deeply:* books.",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "Works of the early and later *scholars.*",
+      "shape": "stack"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Others couldn't gather a *tenth* of them.",
+      "shape": "bars"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "He passed away in 751 *AH.*",
+      "shape": "line"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "His sons sold his books for a long *time,*",
+      "shape": "scatter"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Collected",
+        "Read",
+        "Wrote"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "besides the ones they kept for *themselves.*",
+      "shape": "book"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "Knowledge outlives the one who carries *it.*",
+      "shape": "star8",
+      "flare": true
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 24,
+    "ar": "الدرر الكامنة",
+    "en": "Al-Durar al-Kamina",
+    "sub": "IBN HAJAR · IBN KATHIR"
+  }
+}

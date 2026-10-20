@@ -36,12 +36,8 @@ const onCadence = (cards, every) =>
 
 content.reels.forEach((reel, n) => {
   const slots = content.cadence ? onCadence(reel.cards, content.cadence) : timed(reel.cards);
-  const cards = reel.cards.map((c, i) => ({
-    in: r2(slots[i].in),
-    out: r2(slots[i].out),
-    text: c.text,
-    ...(c.motif ? {motif: c.motif} : {}),
-  }));
+  // Extra card fields (motif, shape, pills, flare) pass straight through to the picture.
+  const cards = reel.cards.map(({mark, ...c}, i) => ({in: r2(slots[i].in), out: r2(slots[i].out), ...c}));
   const marks = reel.cards.flatMap((c, i) => (c.mark ? [r2(slots[i].mark)] : []));
   const last = slots[slots.length - 1];
   const bookIn = content.cadence ? reel.cards.length * content.cadence : last.out + GAP;
@@ -50,6 +46,7 @@ content.reels.forEach((reel, n) => {
     duration: r2(bookIn + (content.cadence ?? BOOK_HOLD)),
     ...(content.cadence ? {cadence: content.cadence, enter: 0.6} : {}),
     label: content.label,
+    ...(reel.hook ? {hook: reel.hook} : {}),
     tag:
       reel.tag ??
       (content.tagPrefix

@@ -1,0 +1,72 @@
+{
+  "fps": 60,
+  "duration": 27,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "What Ibn Kathir saw in his friend",
+  "tag": "STORIES · 06 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Ibn Kathir knew him *well.*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "“I was among the closest people to *him.*”",
+      "shape": "halves"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "“I know no one in our time who worshipped *more.*”",
+      "shape": "arch"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "He made his prayer very *long.*",
+      "shape": "line"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "Long bowing. Long *prostration.*",
+      "shape": "arcs"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Bowing",
+        "Prostration",
+        "Never rushed"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "His companions sometimes blamed him for *it.*",
+      "shape": "scatter"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "He never *stopped.*",
+      "shape": "ring",
+      "flare": true
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 24,
+    "ar": "البداية والنهاية",
+    "en": "Al-Bidaya wa'n-Nihaya",
+    "sub": "IBN KATHIR, HIS FRIEND"
+  }
+}

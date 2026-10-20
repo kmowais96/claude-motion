@@ -15,6 +15,8 @@ export type ReelTimeline = {
   /** Word reveal length in seconds (default 0.8). */
   enter?: number;
   label: string;
+  /** Story reels: the line pinned at the top for the whole reel. */
+  hook?: string;
   tag: string;
   motif: string;
   cards: Card[];

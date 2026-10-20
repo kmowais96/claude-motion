@@ -1,0 +1,78 @@
+{
+  "fps": 60,
+  "duration": 30,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "The morning routine of Ibn Taymiyyah",
+  "tag": "STORIES · 03 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Ibn al-Qayyim watched his teacher one *morning.*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "He prayed *Fajr.*",
+      "shape": "dawn"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Then he sat, remembering *Allah.*",
+      "shape": "ring"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "Hour after *hour,*",
+      "shape": "spiral"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "until it was nearly *midday.*",
+      "shape": "arcs"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Fajr",
+        "Dhikr",
+        "Midday"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "Then he turned to his student and *said:*",
+      "shape": "orbit"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "“This is my *breakfast.*”",
+      "shape": "sun",
+      "flare": true
+    },
+    {
+      "in": 24,
+      "out": 26.9,
+      "text": "“Without it, my strength would *collapse.*”",
+      "shape": "line"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 27,
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+  }
+}

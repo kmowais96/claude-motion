@@ -134,6 +134,29 @@ def impact(dur=1.2):
     return out
 
 
+def kick(f0=110, f1=44, dur=0.42):
+    """Soft kick drum: the pulse of a music bed. Keep it under the effects; one per beat at most."""
+    n = int(dur * SR)
+    out = []
+    ph = 0.0
+    for k in range(n):
+        tt = k / SR
+        f = f1 + (f0 - f1) * math.exp(-tt / 0.045)
+        ph += 2 * math.pi * f / SR
+        s = math.sin(ph) * math.exp(-tt / 0.16)
+        s += random.uniform(-1, 1) * math.exp(-tt / 0.003) * 0.15
+        out.append(math.tanh(1.4 * s) * min(1, tt / 0.001))
+    return out
+
+
+def hat(dur=0.07):
+    """Closed hi-hat tick: off-beats of a music bed. Very quiet; it should be felt more than heard."""
+    n = int(dur * SR)
+    noise = bandnoise(n, lambda k: 9000, q=0.4)
+    # A 1.5 ms attack: an instant noise onset makes AAC overshoot several dB.
+    return [noise[k] * min(1, k / (0.0015 * SR)) * math.exp(-k / (0.012 * SR)) * 1.8 for k in range(n)]
+
+
 def scratch(dur):
     """Pencil on paper: a sketch or line drawing itself on."""
     n = int(dur * SR)

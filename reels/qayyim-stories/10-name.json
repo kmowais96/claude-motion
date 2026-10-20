@@ -1,0 +1,72 @@
+{
+  "fps": 60,
+  "duration": 27,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
+  "tag": "STORIES · 10 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Damascus, 691 *AH.*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "His father looked after a school: *al-Jawziyya.*",
+      "shape": "arch"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "Its caretaker was called its *qayyim.*",
+      "shape": "book"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "So the son became *Ibn Qayyim al-Jawziyya.*",
+      "shape": "orbit"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "In 712 AH he met Ibn *Taymiyyah.*",
+      "shape": "halves"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "691 · Born",
+        "712 · His teacher",
+        "751 · Returned to Allah"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "Sixteen years at his teacher's *side.*",
+      "shape": "arcs"
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "Seven centuries on, we still read *him.*",
+      "shape": "star8",
+      "flare": true
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 24,
+    "ar": "ذيل طبقات الحنابلة",
+    "en": "Dhayl Tabaqat al-Hanabila",
+    "sub": "IBN RAJAB · IBN KATHIR"
+  }
+}

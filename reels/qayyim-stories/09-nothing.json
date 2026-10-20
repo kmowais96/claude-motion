@@ -1,0 +1,72 @@
+{
+  "fps": 60,
+  "duration": 27,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "The humility of Ibn Taymiyyah",
+  "tag": "STORIES · 09 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "Ibn al-Qayyim often heard his teacher *say:*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "“I own *nothing.*”",
+      "shape": "ring"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "“Nothing comes from *me.*”",
+      "shape": "line"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "“And there is nothing in *me.*”",
+      "shape": "scatter"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "When people praised him to his *face,*",
+      "shape": "halves"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "",
+      "pills": [
+        "Nothing mine",
+        "Nothing from me",
+        "Nothing in me"
+      ]
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "he said: “By Allah, I renew my Islam every *moment.*”",
+      "shape": "star8",
+      "flare": true
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "“I have not yet become a Muslim *properly.*”",
+      "shape": "wave"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 24,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+  }
+}

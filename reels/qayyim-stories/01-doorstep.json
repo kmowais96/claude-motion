@@ -1,0 +1,84 @@
+{
+  "fps": 60,
+  "duration": 33,
+  "cadence": 3,
+  "enter": 0.6,
+  "label": "IBN AL-QAYYIM",
+  "hook": "A story Ibn al-Qayyim told about mercy",
+  "tag": "STORIES · 01 / 10",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 2.9,
+      "text": "A man was walking down a quiet *street.*",
+      "shape": "spark"
+    },
+    {
+      "in": 3,
+      "out": 5.9,
+      "text": "A door flew open. A child ran *out,*",
+      "shape": "door"
+    },
+    {
+      "in": 6,
+      "out": 8.9,
+      "text": "crying, pushed out by his *mother.*",
+      "shape": "doorOut"
+    },
+    {
+      "in": 9,
+      "out": 11.9,
+      "text": "He walked away, then *stopped.*",
+      "shape": "road"
+    },
+    {
+      "in": 12,
+      "out": 14.9,
+      "text": "There was nowhere else to *go.*",
+      "shape": "scatter"
+    },
+    {
+      "in": 15,
+      "out": 17.9,
+      "text": "He came back. The door was *shut.*",
+      "shape": "doorShut"
+    },
+    {
+      "in": 18,
+      "out": 20.9,
+      "text": "",
+      "pills": [
+        "Pushed out",
+        "Nowhere to go",
+        "Came back"
+      ]
+    },
+    {
+      "in": 21,
+      "out": 23.9,
+      "text": "He laid his cheek on the doorstep and *slept.*",
+      "shape": "threshold"
+    },
+    {
+      "in": 24,
+      "out": 26.9,
+      "text": "She ran out and held him: *“Who else would shelter you?”*",
+      "shape": "heart",
+      "flare": true
+    },
+    {
+      "in": 27,
+      "out": 29.9,
+      "text": "And Allah is more merciful than any *mother.*",
+      "shape": "ring"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 30,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin",
+    "sub": "TOLD BY IBN AL-QAYYIM"
+  }
+}
