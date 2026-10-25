@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Prison: solitude",
-        "Killing: martyrdom",
-        "Exile: a journey"
+        {
+          "label": "Prison: solitude",
+          "at": 15.2
+        },
+        {
+          "label": "Killing: martyrdom",
+          "at": 15.9
+        },
+        {
+          "label": "Exile: a journey",
+          "at": 16.6
+        }
       ]
     },
     {

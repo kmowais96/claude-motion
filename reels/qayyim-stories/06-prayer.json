@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Bowing",
-        "Prostration",
-        "Never rushed"
+        {
+          "label": "Bowing",
+          "at": 15.2
+        },
+        {
+          "label": "Prostration",
+          "at": 15.9
+        },
+        {
+          "label": "Never rushed",
+          "at": 16.6
+        }
       ]
     },
     {

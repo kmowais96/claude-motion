@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Nothing mine",
-        "Nothing from me",
-        "Nothing in me"
+        {
+          "label": "Nothing mine",
+          "at": 15.2
+        },
+        {
+          "label": "Nothing from me",
+          "at": 15.9
+        },
+        {
+          "label": "Nothing in me",
+          "at": 16.6
+        }
       ]
     },
     {

@@ -2,6 +2,8 @@
 // Turns a series' content.json into one timeline per reel (<series dir>/<id>.json).
 // Without "cadence", card holds follow motion-design §4: longer text stays up longer.
 // With "cadence": N, a new card lands every N seconds exactly, end card included.
+// A reel whose cards carry "at" is cut to a voiceover instead: each card lands on the
+// second its line is spoken, and the reel needs "bookAt" and "end" too.
 //
 //   node scripts/qayyim-timeline.mjs [reels/qayyim]
 import fs from 'node:fs';
@@ -31,20 +33,42 @@ const timed = (cards) => {
   });
 };
 
+/** Voiceover mode: each card holds until the next one lands. */
+const onVoice = (cards, bookAt) =>
+  cards.map((c, i) => ({in: c.at, out: (cards[i + 1]?.at ?? bookAt) - 0.1, mark: c.at + 0.3}));
+
 const onCadence = (cards, every) =>
   cards.map((_, i) => ({in: i * every, out: (i + 1) * every - 0.1, mark: i * every + (i === 0 ? 0.3 : 0.45)}));
 
 content.reels.forEach((reel, n) => {
-  const slots = content.cadence ? onCadence(reel.cards, content.cadence) : timed(reel.cards);
+  const voiced = reel.cards[0].at !== undefined;
+  const slots = voiced
+    ? onVoice(reel.cards, reel.bookAt)
+    : content.cadence
+      ? onCadence(reel.cards, content.cadence)
+      : timed(reel.cards);
   // Extra card fields (motif, shape, pills, flare) pass straight through to the picture.
-  const cards = reel.cards.map(({mark, ...c}, i) => ({in: r2(slots[i].in), out: r2(slots[i].out), ...c}));
+  const cards = reel.cards.map(({mark, at, ...c}, i) => ({
+    in: r2(slots[i].in),
+    out: r2(slots[i].out),
+    ...c,
+    // Pills are always {label, at} by the time the picture sees them.
+    ...(c.pills
+      ? {
+          pills: c.pills.map((p, k) =>
+            typeof p === 'string' ? {label: p, at: r2(slots[i].in + 0.2 + k * 0.7)} : {...p, at: r2(p.at)},
+          ),
+        }
+      : {}),
+  }));
   const marks = reel.cards.flatMap((c, i) => (c.mark ? [r2(slots[i].mark)] : []));
   const last = slots[slots.length - 1];
-  const bookIn = content.cadence ? reel.cards.length * content.cadence : last.out + GAP;
+  const bookIn = voiced ? reel.bookAt : content.cadence ? reel.cards.length * content.cadence : last.out + GAP;
   const tl = {
     fps: content.fps,
-    duration: r2(bookIn + (content.cadence ?? BOOK_HOLD)),
-    ...(content.cadence ? {cadence: content.cadence, enter: 0.6} : {}),
+    duration: r2(voiced ? reel.end : bookIn + (content.cadence ?? BOOK_HOLD)),
+    ...(voiced ? {voice: reel.voice, flareAt: reel.flareAt} : {}),
+    ...(!voiced && content.cadence ? {cadence: content.cadence, enter: 0.6} : {}),
     label: content.label,
     ...(reel.hook ? {hook: reel.hook} : {}),
     tag:

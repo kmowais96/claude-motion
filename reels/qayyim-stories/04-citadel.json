@@ -44,9 +44,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Prison",
-        "Quran",
-        "Opening"
+        {
+          "label": "Prison",
+          "at": 15.2
+        },
+        {
+          "label": "Quran",
+          "at": 15.9
+        },
+        {
+          "label": "Opening",
+          "at": 16.6
+        }
       ]
     },
     {

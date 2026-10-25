@@ -17,6 +17,9 @@ export type ReelTimeline = {
   label: string;
   /** Story reels: the line pinned at the top for the whole reel. */
   hook?: string;
+  /** Story reels cut to a voiceover: the narration file and when its hero moment lands. */
+  voice?: {file: string; note?: string};
+  flareAt?: number;
   tag: string;
   motif: string;
   cards: Card[];

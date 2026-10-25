@@ -27,7 +27,16 @@ for id in "${ids[@]}"; do
     npx remotion render "$comp-$id" "out/$series-draft/$id.mp4" --scale=0.5 --crf=28 --log=error
   else
     mkdir -p "out/$series" "public/$series"
-    python3 -m sfx "sfx/cues/$cue" --timeline "$tl" --out "public/$series/$id.wav"
+    plan=reels/$series/audio/$id.json
+    if [[ -f $plan ]]; then
+      # Voiced reel: no music — narration, natural sound, and the movement layer.
+      dur=$(node -p "require('./$tl').duration")
+      python3 -m sfx sfx/cues/qayyim_story_vo.py --timeline "$tl" --out "public/$series/$id-moves.wav"
+      python3 scripts/mix-story-audio.py "$plan" "public/$series/$id.wav" --duration "$dur" \
+        --moves "public/$series/$id-moves.wav"
+    else
+      python3 -m sfx "sfx/cues/$cue" --timeline "$tl" --out "public/$series/$id.wav"
+    fi
     npx remotion render "$comp-$id" "out/$series/$id-silent.mp4" "${capture[@]}" --log=error
     # A half-painted frame is a visible flash: re-render one frame at a time if any slipped through.
     if ! python3 scripts/check-frames.py "out/$series/$id-silent.mp4"; then

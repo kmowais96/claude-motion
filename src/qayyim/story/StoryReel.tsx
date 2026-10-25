@@ -26,7 +26,8 @@ const CX = 540;
 const CY = 880;
 const BOX = 1000;
 
-type Beat = {in: number; out: number; text: string; shape?: string; pills?: string[]; flare?: boolean};
+type Pill = {label: string; at: number};
+type Beat = {in: number; out: number; text: string; shape?: string; pills?: Pill[]; flare?: boolean};
 
 const useStoryFonts = () => {
   const [handle] = useState(() => delayRender('fonts'));
@@ -76,7 +77,7 @@ const MorphingObject: React.FC<{tl: ReelTimeline; t: number; hide: number; glowB
   const lone = pts.filter((_, i) => brk[i] && (i === N - 1 || brk[i + 1]));
   const beads = pts.filter((_, i) => i % 12 === 6);
   // The opening spark grows in from nothing.
-  const grow = prog(t, 0, 0.6, easeOut);
+  const grow = 0.3 + 0.7 * prog(t, 0, 0.6, easeOut);
   const opacity = grow * (1 - hide);
   const glow = 0.8 + glowBoost;
 
@@ -221,9 +222,8 @@ const PILL_POS = [
 
 /** The light interlude: three pills joined by curves that draw on, like a small flow chart. */
 const Pills: React.FC<{beat: Beat; t: number; fps: number; frame: number}> = ({beat, t, fps, frame}) => {
-  const labels = beat.pills ?? [];
+  const pills = beat.pills ?? [];
   const out = prog(t, beat.out - 0.25, beat.out + 0.1, easeIn);
-  const at = (i: number) => beat.in + 0.2 + i * 0.7;
   return (
     <AbsoluteFill style={{opacity: 1 - out}}>
       <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
@@ -233,10 +233,10 @@ const Pills: React.FC<{beat: Beat; t: number; fps: number; frame: number}> = ({b
             <stop offset="100%" stopColor={S.orange} />
           </linearGradient>
         </defs>
-        {[0, 1].map((i) => {
+        {pills.slice(0, -1).map((p, i) => {
           const [x0, y0] = PILL_POS[i];
           const [x1, y1] = PILL_POS[i + 1];
-          const k = prog(t, at(i) + 0.15, at(i + 1), easeInOut);
+          const k = prog(t, p.at + 0.15, pills[i + 1].at, easeInOut);
           return (
             <path
               key={i}
@@ -251,9 +251,9 @@ const Pills: React.FC<{beat: Beat; t: number; fps: number; frame: number}> = ({b
           );
         })}
       </svg>
-      {labels.map((label, i) => {
-        const k = qsp(frame, at(i), fps, {damping: 12, stiffness: 190, mass: 0.75});
-        const last = i === labels.length - 1;
+      {pills.map((p, i) => {
+        const k = qsp(frame, p.at, fps, {damping: 12, stiffness: 190, mass: 0.75});
+        const last = i === pills.length - 1;
         return (
           <div
             key={i}
@@ -277,7 +277,7 @@ const Pills: React.FC<{beat: Beat; t: number; fps: number; frame: number}> = ({b
             }}
           >
             <span style={{width: 14, height: 14, borderRadius: 7, background: last ? '#FFE6C2' : S.orange, boxShadow: `0 0 14px ${S.orange}`}} />
-            {label}
+            {p.label}
           </div>
         );
       })}
@@ -316,7 +316,7 @@ export const StoryReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
     ? prog(t, pillBeat.in - 0.2, pillBeat.in + 0.3, easeInOut) * (1 - prog(t, pillBeat.out - 0.2, pillBeat.out + 0.2, easeInOut))
     : 0;
   const flareBeat = beats.find((b) => b.flare);
-  const fdt = flareBeat ? t - (flareBeat.in + 0.35) : -1;
+  const fdt = flareBeat ? t - (tl.flareAt ?? flareBeat.in + 0.35) : -1;
   const flare = fdt < 0 ? 0 : prog(fdt, 0, 0.25, easeOut) * Math.exp(-fdt / 1.1);
   const end = clamp01((tl.duration - t) / 0.6);
 

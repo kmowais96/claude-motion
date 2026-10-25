@@ -1,82 +1,100 @@
 {
   "fps": 60,
-  "duration": 33,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 46.2,
+  "voice": {
+    "file": "vo/01-doorstep.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times come from its word timings"
+  },
+  "flareAt": 34.9,
   "label": "IBN AL-QAYYIM",
   "hook": "A story Ibn al-Qayyim told about mercy",
   "tag": "STORIES · 01 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
+      "in": 3.9,
+      "out": 6.75,
       "text": "A man was walking down a quiet *street.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
+      "in": 6.85,
+      "out": 9.75,
       "text": "A door flew open. A child ran *out,*",
       "shape": "door"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "crying, pushed out by his *mother.*",
+      "in": 9.85,
+      "out": 12.85,
+      "text": "crying, pushed out by his own *mother.*",
       "shape": "doorOut"
     },
     {
-      "in": 9,
-      "out": 11.9,
-      "text": "He walked away, then *stopped.*",
+      "in": 12.95,
+      "out": 15.4,
+      "text": "He walked away... then *stopped.*",
       "shape": "road"
     },
     {
-      "in": 12,
-      "out": 14.9,
+      "in": 15.5,
+      "out": 17.4,
       "text": "There was nowhere else to *go.*",
       "shape": "scatter"
     },
     {
-      "in": 15,
-      "out": 17.9,
-      "text": "He came back. The door was *shut.*",
+      "in": 17.5,
+      "out": 20.8,
+      "text": "He came back. But the door was *shut.*",
       "shape": "doorShut"
     },
     {
-      "in": 18,
-      "out": 20.9,
+      "in": 20.9,
+      "out": 25.75,
       "text": "",
       "pills": [
-        "Pushed out",
-        "Nowhere to go",
-        "Came back"
+        {
+          "label": "Pushed out",
+          "at": 21.1
+        },
+        {
+          "label": "Nowhere to go",
+          "at": 22.5
+        },
+        {
+          "label": "Came back",
+          "at": 23.85
+        }
       ]
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 25.85,
+      "out": 29.45,
       "text": "He laid his cheek on the doorstep and *slept.*",
       "shape": "threshold"
     },
     {
-      "in": 24,
-      "out": 26.9,
-      "text": "She ran out and held him: *“Who else would shelter you?”*",
+      "in": 29.55,
+      "out": 34.4,
+      "text": "Then his mother came out. She ran and held him *close.*",
+      "shape": "door"
+    },
+    {
+      "in": 34.5,
+      "out": 37.5,
+      "text": "*“Who else would shelter you, but me?”*",
       "shape": "heart",
       "flare": true
     },
     {
-      "in": 27,
-      "out": 29.9,
+      "in": 37.6,
+      "out": 41.65,
       "text": "And Allah is more merciful than any *mother.*",
       "shape": "ring"
     }
   ],
   "marks": [],
   "book": {
-    "in": 30,
+    "in": 41.75,
     "ar": "مدارج السالكين",
     "en": "Madarij al-Salikin",
     "sub": "TOLD BY IBN AL-QAYYIM"

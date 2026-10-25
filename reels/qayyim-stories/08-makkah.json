@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Hajj",
-        "Tawaf",
-        "Worship"
+        {
+          "label": "Hajj",
+          "at": 15.2
+        },
+        {
+          "label": "Tawaf",
+          "at": 15.9
+        },
+        {
+          "label": "Worship",
+          "at": 16.6
+        }
       ]
     },
     {

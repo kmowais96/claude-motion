@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "Collected",
-        "Read",
-        "Wrote"
+        {
+          "label": "Collected",
+          "at": 15.2
+        },
+        {
+          "label": "Read",
+          "at": 15.9
+        },
+        {
+          "label": "Wrote",
+          "at": 16.6
+        }
       ]
     },
     {

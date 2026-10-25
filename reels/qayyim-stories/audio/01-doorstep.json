@@ -1,0 +1,15 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/01-doorstep",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {"file": "ambience.mp3", "rms_db": -45, "fade": 2.0},
+  "cues": [
+    {"at": 7.7, "file": "door-open.mp3", "rms_db": -29, "what": "the door flies open"},
+    {"at": 13.3, "file": "footsteps.mp3", "rms_db": -34, "what": "he walks away, then stops"},
+    {"at": 15.6, "file": "wind.mp3", "rms_db": -33, "what": "nowhere else to go"},
+    {"at": 20.2, "file": "door-shut.mp3", "rms_db": -30, "what": "the door was shut"},
+    {"at": 25.9, "file": "wind.mp3", "rms_db": -38, "what": "the doorstep, a colder gust"},
+    {"at": 29.65, "file": "door-gentle.mp3", "rms_db": -31, "what": "his mother opens the door"}
+  ]
+}

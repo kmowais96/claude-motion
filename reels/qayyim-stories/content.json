@@ -8,155 +8,528 @@
       "id": "01-doorstep",
       "hook": "A story Ibn al-Qayyim told about mercy",
       "cards": [
-        {"text": "A man was walking down a quiet *street.*", "shape": "spark"},
-        {"text": "A door flew open. A child ran *out,*", "shape": "door"},
-        {"text": "crying, pushed out by his *mother.*", "shape": "doorOut"},
-        {"text": "He walked away, then *stopped.*", "shape": "road"},
-        {"text": "There was nowhere else to *go.*", "shape": "scatter"},
-        {"text": "He came back. The door was *shut.*", "shape": "doorShut"},
-        {"text": "", "pills": ["Pushed out", "Nowhere to go", "Came back"]},
-        {"text": "He laid his cheek on the doorstep and *slept.*", "shape": "threshold"},
-        {"text": "She ran out and held him: *“Who else would shelter you?”*", "shape": "heart", "flare": true},
-        {"text": "And Allah is more merciful than any *mother.*", "shape": "ring"}
+        {
+          "at": 3.9,
+          "text": "A man was walking down a quiet *street.*",
+          "shape": "spark"
+        },
+        {
+          "at": 6.85,
+          "text": "A door flew open. A child ran *out,*",
+          "shape": "door"
+        },
+        {
+          "at": 9.85,
+          "text": "crying, pushed out by his own *mother.*",
+          "shape": "doorOut"
+        },
+        {
+          "at": 12.95,
+          "text": "He walked away... then *stopped.*",
+          "shape": "road"
+        },
+        {
+          "at": 15.5,
+          "text": "There was nowhere else to *go.*",
+          "shape": "scatter"
+        },
+        {
+          "at": 17.5,
+          "text": "He came back. But the door was *shut.*",
+          "shape": "doorShut"
+        },
+        {
+          "at": 20.9,
+          "text": "",
+          "pills": [
+            {
+              "label": "Pushed out",
+              "at": 21.1
+            },
+            {
+              "label": "Nowhere to go",
+              "at": 22.5
+            },
+            {
+              "label": "Came back",
+              "at": 23.85
+            }
+          ]
+        },
+        {
+          "at": 25.85,
+          "text": "He laid his cheek on the doorstep and *slept.*",
+          "shape": "threshold"
+        },
+        {
+          "at": 29.55,
+          "text": "Then his mother came out. She ran and held him *close.*",
+          "shape": "door"
+        },
+        {
+          "at": 34.5,
+          "text": "*“Who else would shelter you, but me?”*",
+          "shape": "heart",
+          "flare": true
+        },
+        {
+          "at": 37.6,
+          "text": "And Allah is more merciful than any *mother.*",
+          "shape": "ring"
+        }
       ],
-      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin", "sub": "TOLD BY IBN AL-QAYYIM"}
+      "book": {
+        "ar": "مدارج السالكين",
+        "en": "Madarij al-Salikin",
+        "sub": "TOLD BY IBN AL-QAYYIM"
+      },
+      "voice": {
+        "file": "vo/01-doorstep.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times come from its word timings"
+      },
+      "end": 46.2,
+      "bookAt": 41.75,
+      "flareAt": 34.9
     },
     {
       "id": "02-garden",
       "hook": "What his teacher said from a prison cell",
       "cards": [
-        {"text": "Damascus. His teacher was in *prison.*", "shape": "spark"},
-        {"text": "Ibn Taymiyyah, locked in the *Citadel.*", "shape": "bars"},
-        {"text": "He said: what can my enemies do to *me?*", "shape": "ring"},
-        {"text": "My paradise and my garden are in my *chest.*", "shape": "tree"},
-        {"text": "Wherever I go, it stays with *me.*", "shape": "orbit"},
-        {"text": "", "pills": ["Prison: solitude", "Killing: martyrdom", "Exile: a journey"]},
-        {"text": "When fear gripped us, we went to *him.*", "shape": "wave"},
-        {"text": "One look, a few words, and it all *lifted.*", "shape": "sun", "flare": true},
-        {"text": "Into openness, strength and *certainty.*", "shape": "star8"}
+        {
+          "text": "Damascus. His teacher was in *prison.*",
+          "shape": "spark"
+        },
+        {
+          "text": "Ibn Taymiyyah, locked in the *Citadel.*",
+          "shape": "bars"
+        },
+        {
+          "text": "He said: what can my enemies do to *me?*",
+          "shape": "ring"
+        },
+        {
+          "text": "My paradise and my garden are in my *chest.*",
+          "shape": "tree"
+        },
+        {
+          "text": "Wherever I go, it stays with *me.*",
+          "shape": "orbit"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Prison: solitude",
+            "Killing: martyrdom",
+            "Exile: a journey"
+          ]
+        },
+        {
+          "text": "When fear gripped us, we went to *him.*",
+          "shape": "wave"
+        },
+        {
+          "text": "One look, a few words, and it all *lifted.*",
+          "shape": "sun",
+          "flare": true
+        },
+        {
+          "text": "Into openness, strength and *certainty.*",
+          "shape": "star8"
+        }
       ],
-      "book": {"ar": "الوابل الصيب", "en": "Al-Wabil al-Sayyib", "sub": "IBN AL-QAYYIM ON HIS TEACHER"}
+      "book": {
+        "ar": "الوابل الصيب",
+        "en": "Al-Wabil al-Sayyib",
+        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+      }
     },
     {
       "id": "03-breakfast",
       "hook": "The morning routine of Ibn Taymiyyah",
       "cards": [
-        {"text": "Ibn al-Qayyim watched his teacher one *morning.*", "shape": "spark"},
-        {"text": "He prayed *Fajr.*", "shape": "dawn"},
-        {"text": "Then he sat, remembering *Allah.*", "shape": "ring"},
-        {"text": "Hour after *hour,*", "shape": "spiral"},
-        {"text": "until it was nearly *midday.*", "shape": "arcs"},
-        {"text": "", "pills": ["Fajr", "Dhikr", "Midday"]},
-        {"text": "Then he turned to his student and *said:*", "shape": "orbit"},
-        {"text": "“This is my *breakfast.*”", "shape": "sun", "flare": true},
-        {"text": "“Without it, my strength would *collapse.*”", "shape": "line"}
+        {
+          "text": "Ibn al-Qayyim watched his teacher one *morning.*",
+          "shape": "spark"
+        },
+        {
+          "text": "He prayed *Fajr.*",
+          "shape": "dawn"
+        },
+        {
+          "text": "Then he sat, remembering *Allah.*",
+          "shape": "ring"
+        },
+        {
+          "text": "Hour after *hour,*",
+          "shape": "spiral"
+        },
+        {
+          "text": "until it was nearly *midday.*",
+          "shape": "arcs"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Fajr",
+            "Dhikr",
+            "Midday"
+          ]
+        },
+        {
+          "text": "Then he turned to his student and *said:*",
+          "shape": "orbit"
+        },
+        {
+          "text": "“This is my *breakfast.*”",
+          "shape": "sun",
+          "flare": true
+        },
+        {
+          "text": "“Without it, my strength would *collapse.*”",
+          "shape": "line"
+        }
       ],
-      "book": {"ar": "الوابل الصيب", "en": "Al-Wabil al-Sayyib", "sub": "IBN AL-QAYYIM ON HIS TEACHER"}
+      "book": {
+        "ar": "الوابل الصيب",
+        "en": "Al-Wabil al-Sayyib",
+        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+      }
     },
     {
       "id": "04-citadel",
       "hook": "Prison couldn't stop Ibn al-Qayyim",
       "cards": [
-        {"text": "He was jailed in the Citadel of *Damascus,*", "shape": "spark"},
-        {"text": "kept apart from his *teacher.*", "shape": "bars"},
-        {"text": "So he turned to the *Quran.*", "shape": "book"},
-        {"text": "Reciting slowly. Reflecting on every *verse.*", "shape": "wave"},
-        {"text": "And Allah opened great good to *him.*", "shape": "star8", "flare": true},
-        {"text": "", "pills": ["Prison", "Quran", "Opening"]},
-        {"text": "He was freed only after his teacher *died.*", "shape": "line"},
-        {"text": "His student Ibn Rajab recorded it *all.*", "shape": "arch"}
+        {
+          "text": "He was jailed in the Citadel of *Damascus,*",
+          "shape": "spark"
+        },
+        {
+          "text": "kept apart from his *teacher.*",
+          "shape": "bars"
+        },
+        {
+          "text": "So he turned to the *Quran.*",
+          "shape": "book"
+        },
+        {
+          "text": "Reciting slowly. Reflecting on every *verse.*",
+          "shape": "wave"
+        },
+        {
+          "text": "And Allah opened great good to *him.*",
+          "shape": "star8",
+          "flare": true
+        },
+        {
+          "text": "",
+          "pills": [
+            "Prison",
+            "Quran",
+            "Opening"
+          ]
+        },
+        {
+          "text": "He was freed only after his teacher *died.*",
+          "shape": "line"
+        },
+        {
+          "text": "His student Ibn Rajab recorded it *all.*",
+          "shape": "arch"
+        }
       ],
-      "book": {"ar": "ذيل طبقات الحنابلة", "en": "Dhayl Tabaqat al-Hanabila", "sub": "IBN RAJAB, HIS STUDENT"}
+      "book": {
+        "ar": "ذيل طبقات الحنابلة",
+        "en": "Dhayl Tabaqat al-Hanabila",
+        "sub": "IBN RAJAB, HIS STUDENT"
+      }
     },
     {
       "id": "05-road",
       "hook": "He wrote a classic while travelling",
       "cards": [
-        {"text": "Zad al-Ma'ad: the Prophet's ﷺ *guidance.*", "shape": "spark"},
-        {"text": "He wrote it on a *journey.*", "shape": "road"},
-        {"text": "Not at home. Not *settled.*", "shape": "wave"},
-        {"text": "“My heart had a branch in every *valley.*”", "shape": "scatter"},
-        {"text": "Yet it covers prayer, trade, medicine and *more.*", "shape": "book"},
-        {"text": "", "pills": ["Travel", "A scattered heart", "Zad al-Ma'ad"]},
-        {"text": "Read and taught for nearly seven *centuries.*", "shape": "arcs", "flare": true},
-        {"text": "Its title: provision for the *Hereafter.*", "shape": "star8"}
+        {
+          "text": "Zad al-Ma'ad: the Prophet's ﷺ *guidance.*",
+          "shape": "spark"
+        },
+        {
+          "text": "He wrote it on a *journey.*",
+          "shape": "road"
+        },
+        {
+          "text": "Not at home. Not *settled.*",
+          "shape": "wave"
+        },
+        {
+          "text": "“My heart had a branch in every *valley.*”",
+          "shape": "scatter"
+        },
+        {
+          "text": "Yet it covers prayer, trade, medicine and *more.*",
+          "shape": "book"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Travel",
+            "A scattered heart",
+            "Zad al-Ma'ad"
+          ]
+        },
+        {
+          "text": "Read and taught for nearly seven *centuries.*",
+          "shape": "arcs",
+          "flare": true
+        },
+        {
+          "text": "Its title: provision for the *Hereafter.*",
+          "shape": "star8"
+        }
       ],
-      "book": {"ar": "زاد المعاد", "en": "Zad al-Ma'ad", "sub": "FROM HIS INTRODUCTION"}
+      "book": {
+        "ar": "زاد المعاد",
+        "en": "Zad al-Ma'ad",
+        "sub": "FROM HIS INTRODUCTION"
+      }
     },
     {
       "id": "06-prayer",
       "hook": "What Ibn Kathir saw in his friend",
       "cards": [
-        {"text": "Ibn Kathir knew him *well.*", "shape": "spark"},
-        {"text": "“I was among the closest people to *him.*”", "shape": "halves"},
-        {"text": "“I know no one in our time who worshipped *more.*”", "shape": "arch"},
-        {"text": "He made his prayer very *long.*", "shape": "line"},
-        {"text": "Long bowing. Long *prostration.*", "shape": "arcs"},
-        {"text": "", "pills": ["Bowing", "Prostration", "Never rushed"]},
-        {"text": "His companions sometimes blamed him for *it.*", "shape": "scatter"},
-        {"text": "He never *stopped.*", "shape": "ring", "flare": true}
+        {
+          "text": "Ibn Kathir knew him *well.*",
+          "shape": "spark"
+        },
+        {
+          "text": "“I was among the closest people to *him.*”",
+          "shape": "halves"
+        },
+        {
+          "text": "“I know no one in our time who worshipped *more.*”",
+          "shape": "arch"
+        },
+        {
+          "text": "He made his prayer very *long.*",
+          "shape": "line"
+        },
+        {
+          "text": "Long bowing. Long *prostration.*",
+          "shape": "arcs"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Bowing",
+            "Prostration",
+            "Never rushed"
+          ]
+        },
+        {
+          "text": "His companions sometimes blamed him for *it.*",
+          "shape": "scatter"
+        },
+        {
+          "text": "He never *stopped.*",
+          "shape": "ring",
+          "flare": true
+        }
       ],
-      "book": {"ar": "البداية والنهاية", "en": "Al-Bidaya wa'n-Nihaya", "sub": "IBN KATHIR, HIS FRIEND"}
+      "book": {
+        "ar": "البداية والنهاية",
+        "en": "Al-Bidaya wa'n-Nihaya",
+        "sub": "IBN KATHIR, HIS FRIEND"
+      }
     },
     {
       "id": "07-books",
       "hook": "He collected books like no one else",
       "cards": [
-        {"text": "He loved one thing *deeply:* books.", "shape": "spark"},
-        {"text": "Works of the early and later *scholars.*", "shape": "stack"},
-        {"text": "Others couldn't gather a *tenth* of them.", "shape": "bars"},
-        {"text": "He passed away in 751 *AH.*", "shape": "line"},
-        {"text": "His sons sold his books for a long *time,*", "shape": "scatter"},
-        {"text": "", "pills": ["Collected", "Read", "Wrote"]},
-        {"text": "besides the ones they kept for *themselves.*", "shape": "book"},
-        {"text": "Knowledge outlives the one who carries *it.*", "shape": "star8", "flare": true}
+        {
+          "text": "He loved one thing *deeply:* books.",
+          "shape": "spark"
+        },
+        {
+          "text": "Works of the early and later *scholars.*",
+          "shape": "stack"
+        },
+        {
+          "text": "Others couldn't gather a *tenth* of them.",
+          "shape": "bars"
+        },
+        {
+          "text": "He passed away in 751 *AH.*",
+          "shape": "line"
+        },
+        {
+          "text": "His sons sold his books for a long *time,*",
+          "shape": "scatter"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Collected",
+            "Read",
+            "Wrote"
+          ]
+        },
+        {
+          "text": "besides the ones they kept for *themselves.*",
+          "shape": "book"
+        },
+        {
+          "text": "Knowledge outlives the one who carries *it.*",
+          "shape": "star8",
+          "flare": true
+        }
       ],
-      "book": {"ar": "الدرر الكامنة", "en": "Al-Durar al-Kamina", "sub": "IBN HAJAR · IBN KATHIR"}
+      "book": {
+        "ar": "الدرر الكامنة",
+        "en": "Al-Durar al-Kamina",
+        "sub": "IBN HAJAR · IBN KATHIR"
+      }
     },
     {
       "id": "08-makkah",
       "hook": "The people of Makkah were amazed by him",
       "cards": [
-        {"text": "He performed Hajj many *times.*", "shape": "spark"},
-        {"text": "He stayed on in *Makkah.*", "shape": "cube"},
-        {"text": "Its people spoke of his *tawaf,*", "shape": "cubeOrbit"},
-        {"text": "circling again and *again,*", "shape": "spiral"},
-        {"text": "and of how hard he *worshipped.*", "shape": "arch"},
-        {"text": "", "pills": ["Hajj", "Tawaf", "Worship"]},
-        {"text": "Even Makkah's people found it *amazing.*", "shape": "sun", "flare": true},
-        {"text": "Ibn Rajab sat in his classes in his final *year.*", "shape": "book"}
+        {
+          "text": "He performed Hajj many *times.*",
+          "shape": "spark"
+        },
+        {
+          "text": "He stayed on in *Makkah.*",
+          "shape": "cube"
+        },
+        {
+          "text": "Its people spoke of his *tawaf,*",
+          "shape": "cubeOrbit"
+        },
+        {
+          "text": "circling again and *again,*",
+          "shape": "spiral"
+        },
+        {
+          "text": "and of how hard he *worshipped.*",
+          "shape": "arch"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Hajj",
+            "Tawaf",
+            "Worship"
+          ]
+        },
+        {
+          "text": "Even Makkah's people found it *amazing.*",
+          "shape": "sun",
+          "flare": true
+        },
+        {
+          "text": "Ibn Rajab sat in his classes in his final *year.*",
+          "shape": "book"
+        }
       ],
-      "book": {"ar": "ذيل طبقات الحنابلة", "en": "Dhayl Tabaqat al-Hanabila", "sub": "IBN RAJAB, HIS STUDENT"}
+      "book": {
+        "ar": "ذيل طبقات الحنابلة",
+        "en": "Dhayl Tabaqat al-Hanabila",
+        "sub": "IBN RAJAB, HIS STUDENT"
+      }
     },
     {
       "id": "09-nothing",
       "hook": "The humility of Ibn Taymiyyah",
       "cards": [
-        {"text": "Ibn al-Qayyim often heard his teacher *say:*", "shape": "spark"},
-        {"text": "“I own *nothing.*”", "shape": "ring"},
-        {"text": "“Nothing comes from *me.*”", "shape": "line"},
-        {"text": "“And there is nothing in *me.*”", "shape": "scatter"},
-        {"text": "When people praised him to his *face,*", "shape": "halves"},
-        {"text": "", "pills": ["Nothing mine", "Nothing from me", "Nothing in me"]},
-        {"text": "he said: “By Allah, I renew my Islam every *moment.*”", "shape": "star8", "flare": true},
-        {"text": "“I have not yet become a Muslim *properly.*”", "shape": "wave"}
+        {
+          "text": "Ibn al-Qayyim often heard his teacher *say:*",
+          "shape": "spark"
+        },
+        {
+          "text": "“I own *nothing.*”",
+          "shape": "ring"
+        },
+        {
+          "text": "“Nothing comes from *me.*”",
+          "shape": "line"
+        },
+        {
+          "text": "“And there is nothing in *me.*”",
+          "shape": "scatter"
+        },
+        {
+          "text": "When people praised him to his *face,*",
+          "shape": "halves"
+        },
+        {
+          "text": "",
+          "pills": [
+            "Nothing mine",
+            "Nothing from me",
+            "Nothing in me"
+          ]
+        },
+        {
+          "text": "he said: “By Allah, I renew my Islam every *moment.*”",
+          "shape": "star8",
+          "flare": true
+        },
+        {
+          "text": "“I have not yet become a Muslim *properly.*”",
+          "shape": "wave"
+        }
       ],
-      "book": {"ar": "مدارج السالكين", "en": "Madarij al-Salikin", "sub": "IBN AL-QAYYIM ON HIS TEACHER"}
+      "book": {
+        "ar": "مدارج السالكين",
+        "en": "Madarij al-Salikin",
+        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+      }
     },
     {
       "id": "10-name",
       "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
       "cards": [
-        {"text": "Damascus, 691 *AH.*", "shape": "spark"},
-        {"text": "His father looked after a school: *al-Jawziyya.*", "shape": "arch"},
-        {"text": "Its caretaker was called its *qayyim.*", "shape": "book"},
-        {"text": "So the son became *Ibn Qayyim al-Jawziyya.*", "shape": "orbit"},
-        {"text": "In 712 AH he met Ibn *Taymiyyah.*", "shape": "halves"},
-        {"text": "", "pills": ["691 · Born", "712 · His teacher", "751 · Returned to Allah"]},
-        {"text": "Sixteen years at his teacher's *side.*", "shape": "arcs"},
-        {"text": "Seven centuries on, we still read *him.*", "shape": "star8", "flare": true}
+        {
+          "text": "Damascus, 691 *AH.*",
+          "shape": "spark"
+        },
+        {
+          "text": "His father looked after a school: *al-Jawziyya.*",
+          "shape": "arch"
+        },
+        {
+          "text": "Its caretaker was called its *qayyim.*",
+          "shape": "book"
+        },
+        {
+          "text": "So the son became *Ibn Qayyim al-Jawziyya.*",
+          "shape": "orbit"
+        },
+        {
+          "text": "In 712 AH he met Ibn *Taymiyyah.*",
+          "shape": "halves"
+        },
+        {
+          "text": "",
+          "pills": [
+            "691 · Born",
+            "712 · His teacher",
+            "751 · Returned to Allah"
+          ]
+        },
+        {
+          "text": "Sixteen years at his teacher's *side.*",
+          "shape": "arcs"
+        },
+        {
+          "text": "Seven centuries on, we still read *him.*",
+          "shape": "star8",
+          "flare": true
+        }
       ],
-      "book": {"ar": "ذيل طبقات الحنابلة", "en": "Dhayl Tabaqat al-Hanabila", "sub": "IBN RAJAB · IBN KATHIR"}
+      "book": {
+        "ar": "ذيل طبقات الحنابلة",
+        "en": "Dhayl Tabaqat al-Hanabila",
+        "sub": "IBN RAJAB · IBN KATHIR"
+      }
     }
   ]
 }

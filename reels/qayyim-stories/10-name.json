@@ -43,9 +43,18 @@
       "out": 17.9,
       "text": "",
       "pills": [
-        "691 · Born",
-        "712 · His teacher",
-        "751 · Returned to Allah"
+        {
+          "label": "691 · Born",
+          "at": 15.2
+        },
+        {
+          "label": "712 · His teacher",
+          "at": 15.9
+        },
+        {
+          "label": "751 · Returned to Allah",
+          "at": 16.6
+        }
       ]
     },
     {
