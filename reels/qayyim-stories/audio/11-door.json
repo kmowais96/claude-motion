@@ -1,0 +1,23 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound only, no music. Cue times are the reel's own card times, so each sound lands on the line that names it. The door sounds are reused from earlier reels in this series rather than regenerated — same room, same library.",
+  "dir": "media/qayyim-stories/11-door",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -46,
+    "fade": 2.5
+  },
+  "cues": [
+    {"at": 1.80, "file": "door-shut.mp3", "rms_db": -31, "what": "ask people — the door shuts"},
+    {"at": 5.20, "file": "door-gentle.mp3", "rms_db": -32, "what": "ask Allah — it gives"},
+    {"at": 8.30, "file": "page.mp3", "rms_db": -34, "what": "the book is opened"},
+    {"at": 16.55, "file": "door-shut.mp3", "rms_db": -30, "what": "every door here closes a little"},
+    {"at": 19.10, "file": "door-shut.mp3", "rms_db": -34, "what": "and again, further off"},
+    {"at": 21.45, "file": "iron-door.mp3", "rms_db": -31, "what": "the less welcome you are — iron"},
+    {"at": 23.15, "file": "door-open.mp3", "rms_db": -27, "what": "His door is the opposite — the turn"},
+    {"at": 25.10, "file": "door-gentle.mp3", "rms_db": -31, "what": "the wider it opens"},
+    {"at": 33.95, "file": "door-gentle.mp3", "rms_db": -30, "what": "Ask."},
+    {"at": 34.85, "file": "dawn.mp3", "rms_db": -30, "what": "the only door that opens more"}
+  ]
+}

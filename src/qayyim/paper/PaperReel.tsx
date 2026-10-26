@@ -83,7 +83,7 @@ const Caption: React.FC<{text: string; k: number}> = ({text, k}) => {
       style={{
         position: 'absolute',
         left: 58,
-        bottom: 210,
+        bottom: 132,
         opacity: Math.min(1, k * 2.4),
         transform: `translateY(${26 * (1 - k)}px) rotate(-1.1deg)`,
       }}
@@ -183,35 +183,35 @@ export const PaperReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
         <div
           style={{
             transform: `rotateX(20deg) rotateZ(${-6 + dir * 1.4}deg) rotateY(${10 - push * 5 * dir}deg) scale(${
-              1.16 + push * 0.05
+              1.2 + push * 0.05
             })`,
             transformStyle: 'preserve-3d',
             position: 'relative',
             width: 840,
-            height: 1150,
+            height: 980,
           }}
         >
-          <svg width={840} height={1150} style={{overflow: 'visible', position: 'absolute', inset: 0}}>
+          <svg width={840} height={980} style={{overflow: 'visible', position: 'absolute', inset: 0}}>
             <defs>
               <filter id="slabsh" x="-50%" y="-50%" width="200%" height="200%">
                 <feDropShadow dx={16} dy={30} stdDeviation={24} floodColor="#000" floodOpacity={0.85} />
               </filter>
             </defs>
             <g filter="url(#slabsh)">
-              <path d={tornRect(840, 1150, 'core', 15)} fill={P.paper} transform="translate(-10,-10)" />
-              <path d={tornRect(822, 1132, 'slab', 13)} fill={P.slabLit} transform="translate(9,9)" />
-              <Fibre w={840} h={1150} seed="slabf" n={150} />
+              <path d={tornRect(840, 980, 'core', 15)} fill={P.paper} transform="translate(-10,-10)" />
+              <path d={tornRect(822, 962, 'slab', 13)} fill={P.slabLit} transform="translate(9,9)" />
+              <Fibre w={840} h={980} seed="slabf" n={150} />
             </g>
           </svg>
 
           {/* the hero print for this card, plus two supporting ones */}
-          <div style={{position: 'absolute', left: 64, top: 120, transform: 'translateZ(40px)'}}>
-            <PhotoCard src={photo} w={690} h={520} seed={`hero-${idx}`} k={k} rotate={-1.2} hold />
+          <div style={{position: 'absolute', left: 72, top: 66, transform: 'translateZ(40px)'}}>
+            <PhotoCard src={photo} w={690} h={580} seed={`hero-${idx}`} k={k} rotate={-1.2} hold />
           </div>
-          <div style={{position: 'absolute', left: 108, top: 690, transform: 'translateZ(66px)'}}>
+          <div style={{position: 'absolute', left: 112, top: 672, transform: 'translateZ(66px)'}}>
             <PhotoCard
               src={idx < 8 ? CLOSING : 'paper/ph-arch.jpg'}
-              w={560} h={300}
+              w={560} h={252}
               seed={`sub-${idx}`}
               k={arrive(t, card.in + 0.22)}
               rotate={1.3}
@@ -225,13 +225,13 @@ export const PaperReel: React.FC<{tl: ReelTimeline}> = ({tl}) => {
               key={i}
               style={{
                 position: 'absolute',
-                left: 762,
-                top: 300 + i * 250,
+                left: 694,
+                top: 262 + i * 212,
                 transform: `translateZ(${110 + i * 18}px) scale(${arrive(t, card.in + 0.3 + i * 0.1)})`,
               }}
             >
-              <Paper w={120} h={120} path={cutRect(120, 120)} lift={11} top={P.paper} under={P.accent}>
-                <Halftone w={120} h={120} gap={11} r={2.3} />
+              <Paper w={112} h={112} path={cutRect(112, 112)} lift={11} top={P.paper} under={P.accent}>
+                <Halftone w={112} h={112} gap={11} r={2.3} />
               </Paper>
             </div>
           ))}
