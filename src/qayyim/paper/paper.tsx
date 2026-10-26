@@ -81,8 +81,8 @@ export const Halftone: React.FC<{w: number; h: number; r?: number; gap?: number;
   const dots: React.ReactNode[] = [];
   for (let y = 0; y < h; y += gap)
     for (let x = 0; x < w; x += gap)
-      dots.push(<circle key={`${x}-${y}`} cx={x + (y / gap) % 2 ? gap / 2 : 0} cy={y} r={r} fill={color} />);
-  return <g opacity={0.26}>{dots}</g>;
+      dots.push(<circle key={`${x}-${y}`} cx={x + (Math.round(y / gap) % 2 ? gap / 2 : 0)} cy={y} r={r} fill={color} />);
+  return <g opacity={0.34}>{dots}</g>;
 };
 
 /** Paper fibre: fine light scratches along a torn edge. */

@@ -1,46 +1,76 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {QH, QW} from '../theme';
 import {Camera, cutRect, Fibre, Halftone, P, Paper, Threads, tornRect} from './paper';
 
-/**
- * One frame of the paper-cut treatment, to judge the look before any of it moves:
- * a door built from layered card on a tilted plane, with the caption as a torn
- * paper strip. Everything here is a stack of paper, never a flat shape.
- */
+/** A photograph as the reference uses one: a greyscale print on a torn paper
+ *  mount, with the orange layer showing as an edge beneath it. */
+const PhotoCard: React.FC<{
+  src: string;
+  w: number;
+  h: number;
+  seed: string;
+  rotate?: number;
+  lift?: number;
+}> = ({src, w, h, seed, rotate = 0, lift = 8}) => {
+  const m = 16; // the paper margin around the print
+  return (
+    <div style={{transform: `rotate(${rotate}deg)`}}>
+      <Paper w={w} h={h} path={tornRect(w, h, seed, 6)} lift={lift} top={P.paper} under={P.accent}>
+        <Fibre w={w} h={h} seed={`${seed}-f`} n={40} />
+      </Paper>
+      <div
+        style={{
+          position: 'absolute',
+          left: m,
+          top: m,
+          width: w - m * 2,
+          height: h - m * 2,
+          overflow: 'hidden',
+          filter: 'grayscale(1) contrast(1.25)',
+          boxShadow: 'inset 0 0 40px rgba(0,0,0,0.5)',
+        }}
+      >
+        <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+      </div>
+    </div>
+  );
+};
+
+/** One frame of the paper-cut treatment, to judge before anything moves. */
 export const PaperTest: React.FC = () => {
-  const slabW = 760;
-  const slabH = 980;
-  const openW = 330;
-  const openH = 700;
+  const slabW = 820;
+  const slabH = 1180;
 
   return (
     <AbsoluteFill style={{background: P.slab, overflow: 'hidden'}}>
-      {/* out-of-focus newsprint pinned behind everything */}
-      <AbsoluteFill style={{filter: 'blur(14px)', opacity: 0.3}}>
-        {Array.from({length: 8}, (_, i) => (
+      {/* newsprint pinned behind: legible as paper, not a grey wash */}
+      <AbsoluteFill style={{filter: 'blur(7px)', opacity: 0.22}}>
+        {Array.from({length: 9}, (_, i) => (
           <div
             key={i}
             style={{
               position: 'absolute',
-              left: (i % 3) * 400 - 90 + i * 11,
-              top: Math.floor(i / 3) * 560 + 40,
-              width: 360,
-              height: 470,
+              left: (i % 3) * 400 - 60,
+              top: Math.floor(i / 3) * 640 - 30,
+              width: 380,
+              height: 540,
               background: P.paperDim,
-              transform: `rotate(${(i % 2 ? 1 : -1) * (2 + i)}deg)`,
-              boxShadow: '0 30px 60px rgba(0,0,0,0.7)',
+              transform: `rotate(${(i % 2 ? 1 : -1) * (2 + (i % 4))}deg)`,
+              boxShadow: '0 24px 50px rgba(0,0,0,0.8)',
+              padding: '26px 22px',
             }}
           >
-            {Array.from({length: 16}, (__, k) => (
+            <div style={{height: 26, background: P.ink, opacity: 0.6, marginBottom: 16, width: '72%'}} />
+            {Array.from({length: 18}, (__, k) => (
               <div
                 key={k}
                 style={{
-                  height: 6,
-                  margin: '14px 22px',
+                  height: 5,
+                  margin: '9px 0',
                   background: P.ink,
-                  opacity: 0.34,
-                  width: `${55 + ((k * 37) % 40)}%`,
+                  opacity: 0.38,
+                  width: `${62 + ((k * 29) % 36)}%`,
                 }}
               />
             ))}
@@ -48,108 +78,85 @@ export const PaperTest: React.FC = () => {
         ))}
       </AbsoluteFill>
 
-      {/* the subject plane is tilted — the camera looks down and across it */}
-      <AbsoluteFill
-        style={{
-          perspective: 1800,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      {/* the subject plane, tilted — never flat-on */}
+      <AbsoluteFill style={{perspective: 2000, alignItems: 'center', justifyContent: 'center'}}>
         <div
           style={{
-            transform: 'rotateX(26deg) rotateZ(-7deg) rotateY(9deg)',
+            transform: 'rotateX(22deg) rotateZ(-6deg) rotateY(11deg)',
             transformStyle: 'preserve-3d',
             position: 'relative',
+            width: slabW,
+            height: slabH,
           }}
         >
-          {/* the wall: a dark card slab with a torn opening cut out of it */}
-          <svg width={slabW + 60} height={slabH + 60} style={{overflow: 'visible', display: 'block'}}>
+          {/* the tray: a dark card slab, torn open to show its cream core */}
+          <svg width={slabW} height={slabH} style={{overflow: 'visible', position: 'absolute', inset: 0}}>
             <defs>
               <filter id="slabsh" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx={18} dy={34} stdDeviation={26} floodColor="#000" floodOpacity={0.8} />
+                <feDropShadow dx={16} dy={30} stdDeviation={24} floodColor="#000" floodOpacity={0.85} />
               </filter>
-              <mask id="cutout">
-                <rect width={slabW} height={slabH} fill="#fff" />
-                <path
-                  d={tornRect(openW, openH, 'door-open', 11)}
-                  fill="#000"
-                  transform={`translate(${(slabW - openW) / 2},${(slabH - openH) / 2})`}
-                />
-              </mask>
             </defs>
-
-            {/* the light coming through the opening, on the paper beneath */}
-            <g transform={`translate(${(slabW - openW) / 2},${(slabH - openH) / 2})`}>
-              <path d={tornRect(openW + 26, openH + 26, 'glowpad', 13)} fill={P.accentDeep} opacity={0.9} transform="translate(-13,-13)" />
-              <path d={tornRect(openW, openH, 'glow', 11)} fill={P.accent} />
-              <path d={tornRect(openW - 40, openH - 44, 'glowin', 9)} fill="#F0A070" opacity={0.85} transform="translate(20,22)" />
-            </g>
-
-            <g filter="url(#slabsh)" mask="url(#cutout)">
-              <path d={tornRect(slabW, slabH, 'slab', 13)} fill={P.slabLit} />
-              <Fibre w={slabW} h={slabH} seed="slabf" n={160} />
-            </g>
-
-            {/* the cream core of the card, showing where it was torn */}
-            <g transform={`translate(${(slabW - openW) / 2 - 7},${(slabH - openH) / 2 - 7})`} opacity={0.95}>
-              <path
-                d={tornRect(openW + 14, openH + 14, 'core', 12)}
-                fill="none"
-                stroke={P.paper}
-                strokeWidth={9}
-              />
+            <g filter="url(#slabsh)">
+              <path d={tornRect(slabW, slabH, 'core', 14)} fill={P.paper} transform="translate(-10,-10)" />
+              <path d={tornRect(slabW - 18, slabH - 18, 'slab', 12)} fill={P.slabLit} transform="translate(9,9)" />
+              <Fibre w={slabW} h={slabH} seed="slabf" n={150} />
             </g>
           </svg>
 
-          {/* the door itself: a layered card leaf, swung open on its hinge */}
-          <div
-            style={{
-              position: 'absolute',
-              left: (slabW - openW) / 2 - 6,
-              top: (slabH - openH) / 2,
-              transformOrigin: 'left center',
-              transform: 'rotateY(-52deg) translateZ(30px)',
-            }}
-          >
-            <Paper w={openW} h={openH} path={tornRect(openW, openH, 'leaf', 8)} lift={9} top={P.paperDim} under={P.accentDeep}>
-              <Halftone w={openW} h={openH} gap={13} r={1.8} />
-            </Paper>
+          {/* the photographs, stacked down the tray in perspective */}
+          <div style={{position: 'absolute', left: 74, top: 96, transform: 'translateZ(26px)'}}>
+            <PhotoCard src="paper/ph-corridor.png" w={610} h={330} seed="pc1" rotate={-1.4} />
+          </div>
+          <div style={{position: 'absolute', left: 96, top: 462, transform: 'translateZ(44px)'}}>
+            <PhotoCard src="paper/ph-shut.png" w={600} h={320} seed="pc2" rotate={1.1} />
+          </div>
+          <div style={{position: 'absolute', left: 70, top: 808, transform: 'translateZ(66px)'}}>
+            <PhotoCard src="paper/ph-ajar.png" w={620} h={330} seed="pc3" rotate={-0.7} lift={10} />
           </div>
 
-          {/* the caption, a torn strip laid across the lower plane */}
-          <div style={{position: 'absolute', left: -70, top: slabH - 170, transform: 'translateZ(60px) rotateZ(-2deg)'}}>
-            <Paper w={690} h={132} path={tornRect(690, 132, 'cap', 7)} lift={8} top={P.paper} under={P.accent}>
-              <Fibre w={690} h={132} seed="capf" n={50} />
-            </Paper>
+          {/* extruded icons down the right edge, as the reference stacks them */}
+          {[0, 1, 2].map((i) => (
             <div
+              key={i}
               style={{
                 position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                alignItems: 'center',
-                paddingLeft: 42,
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontWeight: 800,
-                fontSize: 52,
-                letterSpacing: -1,
-                color: P.ink,
+                left: slabW - 96,
+                top: 300 + i * 230,
+                transform: `translateZ(${100 + i * 16}px)`,
               }}
             >
-              His door is the&nbsp;<span style={{color: P.accentDeep}}>opposite.</span>
+              <Paper w={132} h={132} path={cutRect(132, 132)} lift={12} top={P.paper} under={P.accent}>
+                <Halftone w={132} h={132} gap={11} r={2.4} />
+              </Paper>
             </div>
-          </div>
-
-          {/* one extruded icon, the way the reference stacks them */}
-          <div style={{position: 'absolute', left: slabW - 40, top: 210, transform: 'translateZ(90px)'}}>
-            <Paper w={150} h={150} path={cutRect(150, 150)} lift={11} top={P.paper} under={P.accent}>
-              <Halftone w={150} h={150} />
-            </Paper>
-          </div>
+          ))}
         </div>
       </AbsoluteFill>
 
-      <Threads w={QW} h={QH} n={8} />
+      {/* the caption: a torn strip, flat to camera so it stays readable */}
+      <div style={{position: 'absolute', left: 54, bottom: 190}}>
+        <Paper w={760} h={140} path={tornRect(760, 140, 'cap', 8)} lift={9} top={P.paper} under={P.accent}>
+          <Fibre w={760} h={140} seed="capf" n={48} />
+        </Paper>
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            paddingLeft: 40,
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontWeight: 800,
+            fontSize: 58,
+            letterSpacing: -1.5,
+            color: P.ink,
+          }}
+        >
+          His door is the&nbsp;<span style={{color: P.accentDeep}}>opposite.</span>
+        </div>
+      </div>
+
+      <Threads w={QW} h={QH} n={7} />
       <Camera w={QW} h={QH} />
     </AbsoluteFill>
   );
