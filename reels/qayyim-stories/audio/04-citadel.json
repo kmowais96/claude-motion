@@ -1,0 +1,37 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/04-citadel",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "cell.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 0.3,
+      "file": "iron-door.mp3",
+      "rms_db": -29,
+      "what": "they jailed him"
+    },
+    {
+      "at": 9.6,
+      "file": "page.mp3",
+      "rms_db": -33,
+      "what": "reciting slowly"
+    },
+    {
+      "at": 11.1,
+      "file": "page.mp3",
+      "rms_db": -34,
+      "what": "reflecting on every verse"
+    },
+    {
+      "at": 12.5,
+      "file": "page.mp3",
+      "rms_db": -35,
+      "what": "the last page before the opening"
+    }
+  ]
+}

@@ -1,79 +1,94 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 34,
+  "voice": {
+    "file": "vo/04-citadel.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 13.7,
   "label": "IBN AL-QAYYIM",
   "hook": "Prison couldn't stop Ibn al-Qayyim",
   "tag": "STORIES · 04 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
-      "text": "He was jailed in the Citadel of *Damascus,*",
+      "in": 0.05,
+      "out": 3.3,
+      "text": "They jailed him in the Citadel of *Damascus,*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
+      "in": 3.4,
+      "out": 5.4,
       "text": "kept apart from his *teacher.*",
       "shape": "bars"
     },
     {
-      "in": 6,
-      "out": 8.9,
+      "in": 5.5,
+      "out": 7.3,
+      "text": "*Alone.*",
+      "shape": "scatter"
+    },
+    {
+      "in": 7.4,
+      "out": 9.4,
       "text": "So he turned to the *Quran.*",
       "shape": "book"
     },
     {
-      "in": 9,
-      "out": 11.9,
+      "in": 9.5,
+      "out": 13.35,
       "text": "Reciting slowly. Reflecting on every *verse.*",
       "shape": "wave"
     },
     {
-      "in": 12,
-      "out": 14.9,
+      "in": 13.45,
+      "out": 15.8,
       "text": "And Allah opened great good to *him.*",
       "shape": "star8",
       "flare": true
     },
     {
-      "in": 15,
-      "out": 17.9,
+      "in": 15.9,
+      "out": 19.3,
       "text": "",
       "pills": [
         {
           "label": "Prison",
-          "at": 15.2
+          "at": 16.1
         },
         {
           "label": "Quran",
-          "at": 15.9
+          "at": 17
         },
         {
-          "label": "Opening",
-          "at": 16.6
+          "label": "An opening",
+          "at": 18.3
         }
       ]
     },
     {
-      "in": 18,
-      "out": 20.9,
-      "text": "He was freed only after his teacher *died.*",
+      "in": 19.4,
+      "out": 22.25,
+      "text": "He was not freed until his teacher had *died.*",
       "shape": "line"
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 22.35,
+      "out": 25.6,
       "text": "His student Ibn Rajab recorded it *all.*",
       "shape": "arch"
+    },
+    {
+      "in": 25.7,
+      "out": 29.1,
+      "text": "What breaks a man can be the thing that *opens* him.",
+      "shape": "door"
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 29.2,
     "ar": "ذيل طبقات الحنابلة",
     "en": "Dhayl Tabaqat al-Hanabila",
     "sub": "IBN RAJAB, HIS STUDENT"

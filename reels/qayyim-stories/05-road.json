@@ -1,79 +1,94 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 36.8,
+  "voice": {
+    "file": "vo/05-road.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 27.5,
   "label": "IBN AL-QAYYIM",
   "hook": "He wrote a classic while travelling",
   "tag": "STORIES · 05 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
-      "text": "Zad al-Ma'ad: the Prophet's ﷺ *guidance.*",
+      "in": 0.05,
+      "out": 3.75,
+      "text": "One of his greatest books was written on the *road.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "He wrote it on a *journey.*",
+      "in": 3.85,
+      "out": 8.4,
+      "text": "Zad al-Ma’ad: the Prophet’s ﷺ *guidance.*",
       "shape": "road"
     },
     {
-      "in": 6,
-      "out": 8.9,
+      "in": 8.5,
+      "out": 10.85,
       "text": "Not at home. Not *settled.*",
       "shape": "wave"
     },
     {
-      "in": 9,
-      "out": 11.9,
+      "in": 10.95,
+      "out": 14.55,
       "text": "“My heart had a branch in every *valley.*”",
       "shape": "scatter"
     },
     {
-      "in": 12,
-      "out": 14.9,
-      "text": "Yet it covers prayer, trade, medicine and *more.*",
+      "in": 14.65,
+      "out": 17.85,
+      "text": "Yet it covers how he prayed, ate and *travelled,*",
       "shape": "book"
     },
     {
-      "in": 15,
-      "out": 17.9,
+      "in": 17.95,
+      "out": 20.8,
+      "text": "how he traded, and treated the *sick.*",
+      "shape": "arcs"
+    },
+    {
+      "in": 20.9,
+      "out": 25.25,
       "text": "",
       "pills": [
         {
           "label": "Travel",
-          "at": 15.2
+          "at": 21
         },
         {
           "label": "A scattered heart",
-          "at": 15.9
+          "at": 22
         },
         {
-          "label": "Zad al-Ma'ad",
-          "at": 16.6
+          "label": "Zad al-Ma’ad",
+          "at": 23.4
         }
       ]
     },
     {
-      "in": 18,
-      "out": 20.9,
+      "in": 25.35,
+      "out": 28.4,
       "text": "Read and taught for nearly seven *centuries.*",
-      "shape": "arcs",
+      "shape": "star8",
       "flare": true
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 28.5,
+      "out": 31.5,
       "text": "Its title: provision for the *Hereafter.*",
-      "shape": "star8"
+      "shape": "crescent"
+    },
+    {
+      "in": 31.6,
+      "out": 32.9,
+      "text": "Stop waiting for the perfect *conditions.*",
+      "shape": "sun"
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 33,
     "ar": "زاد المعاد",
     "en": "Zad al-Ma'ad",
     "sub": "FROM HIS INTRODUCTION"

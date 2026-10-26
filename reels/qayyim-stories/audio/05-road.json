@@ -1,0 +1,37 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/05-road",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "desert.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 2.6,
+      "file": "caravan.mp3",
+      "rms_db": -33,
+      "what": "written on the road"
+    },
+    {
+      "at": 8.6,
+      "file": "caravan.mp3",
+      "rms_db": -35,
+      "what": "not at home, not settled"
+    },
+    {
+      "at": 14.9,
+      "file": "pen.mp3",
+      "rms_db": -33,
+      "what": "yet it covers how he prayed"
+    },
+    {
+      "at": 18.1,
+      "file": "pen.mp3",
+      "rms_db": -34,
+      "what": "how he traded and treated the sick"
+    }
+  ]
+}

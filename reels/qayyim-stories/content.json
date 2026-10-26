@@ -250,96 +250,164 @@
       "hook": "Prison couldn't stop Ibn al-Qayyim",
       "cards": [
         {
-          "text": "He was jailed in the Citadel of *Damascus,*",
+          "at": 0.05,
+          "text": "They jailed him in the Citadel of *Damascus,*",
           "shape": "spark"
         },
         {
+          "at": 3.4,
           "text": "kept apart from his *teacher.*",
           "shape": "bars"
         },
         {
+          "at": 5.5,
+          "text": "*Alone.*",
+          "shape": "scatter"
+        },
+        {
+          "at": 7.4,
           "text": "So he turned to the *Quran.*",
           "shape": "book"
         },
         {
+          "at": 9.5,
           "text": "Reciting slowly. Reflecting on every *verse.*",
           "shape": "wave"
         },
         {
+          "at": 13.45,
           "text": "And Allah opened great good to *him.*",
           "shape": "star8",
           "flare": true
         },
         {
+          "at": 15.9,
           "text": "",
           "pills": [
-            "Prison",
-            "Quran",
-            "Opening"
+            {
+              "label": "Prison",
+              "at": 16.1
+            },
+            {
+              "label": "Quran",
+              "at": 17.0
+            },
+            {
+              "label": "An opening",
+              "at": 18.3
+            }
           ]
         },
         {
-          "text": "He was freed only after his teacher *died.*",
+          "at": 19.4,
+          "text": "He was not freed until his teacher had *died.*",
           "shape": "line"
         },
         {
+          "at": 22.35,
           "text": "His student Ibn Rajab recorded it *all.*",
           "shape": "arch"
+        },
+        {
+          "at": 25.7,
+          "text": "What breaks a man can be the thing that *opens* him.",
+          "shape": "door"
         }
       ],
       "book": {
         "ar": "ذيل طبقات الحنابلة",
         "en": "Dhayl Tabaqat al-Hanabila",
         "sub": "IBN RAJAB, HIS STUDENT"
-      }
+      },
+      "voice": {
+        "file": "vo/04-citadel.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 34.0,
+      "bookAt": 29.2,
+      "flareAt": 13.7
     },
     {
       "id": "05-road",
       "hook": "He wrote a classic while travelling",
       "cards": [
         {
-          "text": "Zad al-Ma'ad: the Prophet's ﷺ *guidance.*",
+          "at": 0.05,
+          "text": "One of his greatest books was written on the *road.*",
           "shape": "spark"
         },
         {
-          "text": "He wrote it on a *journey.*",
+          "at": 3.85,
+          "text": "Zad al-Ma’ad: the Prophet’s ﷺ *guidance.*",
           "shape": "road"
         },
         {
+          "at": 8.5,
           "text": "Not at home. Not *settled.*",
           "shape": "wave"
         },
         {
+          "at": 10.95,
           "text": "“My heart had a branch in every *valley.*”",
           "shape": "scatter"
         },
         {
-          "text": "Yet it covers prayer, trade, medicine and *more.*",
+          "at": 14.65,
+          "text": "Yet it covers how he prayed, ate and *travelled,*",
           "shape": "book"
         },
         {
+          "at": 17.95,
+          "text": "how he traded, and treated the *sick.*",
+          "shape": "arcs"
+        },
+        {
+          "at": 20.9,
           "text": "",
           "pills": [
-            "Travel",
-            "A scattered heart",
-            "Zad al-Ma'ad"
+            {
+              "label": "Travel",
+              "at": 21.0
+            },
+            {
+              "label": "A scattered heart",
+              "at": 22.0
+            },
+            {
+              "label": "Zad al-Ma’ad",
+              "at": 23.4
+            }
           ]
         },
         {
+          "at": 25.35,
           "text": "Read and taught for nearly seven *centuries.*",
-          "shape": "arcs",
+          "shape": "star8",
           "flare": true
         },
         {
+          "at": 28.5,
           "text": "Its title: provision for the *Hereafter.*",
-          "shape": "star8"
+          "shape": "crescent"
+        },
+        {
+          "at": 31.6,
+          "text": "Stop waiting for the perfect *conditions.*",
+          "shape": "sun"
         }
       ],
       "book": {
         "ar": "زاد المعاد",
         "en": "Zad al-Ma'ad",
         "sub": "FROM HIS INTRODUCTION"
-      }
+      },
+      "voice": {
+        "file": "vo/05-road.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 36.8,
+      "bookAt": 33.0,
+      "flareAt": 27.5
     },
     {
       "id": "06-prayer",
