@@ -1,733 +1,822 @@
 {
-  "fps": 60,
-  "label": "IBN AL-QAYYIM",
-  "tagPrefix": "STORIES",
-  "cadence": 3,
-  "reels": [
+ "fps": 60,
+ "label": "IBN AL-QAYYIM",
+ "tagPrefix": "STORIES",
+ "cadence": 3,
+ "reels": [
+  {
+   "id": "01-doorstep",
+   "hook": "A story Ibn al-Qayyim told about mercy",
+   "cards": [
     {
-      "id": "01-doorstep",
-      "hook": "A story Ibn al-Qayyim told about mercy",
-      "cards": [
-        {
-          "at": 3.9,
-          "text": "A man was walking down a quiet *street.*",
-          "shape": "spark"
-        },
-        {
-          "at": 6.85,
-          "text": "A door flew open. A child ran *out,*",
-          "shape": "door"
-        },
-        {
-          "at": 9.85,
-          "text": "crying, pushed out by his own *mother.*",
-          "shape": "doorOut"
-        },
-        {
-          "at": 12.95,
-          "text": "He walked away... then *stopped.*",
-          "shape": "road"
-        },
-        {
-          "at": 15.5,
-          "text": "There was nowhere else to *go.*",
-          "shape": "scatter"
-        },
-        {
-          "at": 17.5,
-          "text": "He came back. But the door was *shut.*",
-          "shape": "doorShut"
-        },
-        {
-          "at": 20.9,
-          "text": "",
-          "pills": [
-            {
-              "label": "Pushed out",
-              "at": 21.1
-            },
-            {
-              "label": "Nowhere to go",
-              "at": 22.5
-            },
-            {
-              "label": "Came back",
-              "at": 23.85
-            }
-          ]
-        },
-        {
-          "at": 25.85,
-          "text": "He laid his cheek on the doorstep and *slept.*",
-          "shape": "threshold"
-        },
-        {
-          "at": 29.55,
-          "text": "Then his mother came out. She ran and held him *close.*",
-          "shape": "door"
-        },
-        {
-          "at": 34.5,
-          "text": "*“Who else would shelter you, but me?”*",
-          "shape": "heart",
-          "flare": true
-        },
-        {
-          "at": 37.6,
-          "text": "And Allah is more merciful than any *mother.*",
-          "shape": "ring"
-        }
-      ],
-      "book": {
-        "ar": "مدارج السالكين",
-        "en": "Madarij al-Salikin",
-        "sub": "TOLD BY IBN AL-QAYYIM"
-      },
-      "voice": {
-        "file": "vo/01-doorstep.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times come from its word timings"
-      },
-      "end": 46.2,
-      "bookAt": 41.75,
-      "flareAt": 34.9
+     "at": 3.9,
+     "text": "A man was walking down a quiet *street.*",
+     "shape": "spark"
     },
     {
-      "id": "02-garden",
-      "hook": "What his teacher said from a prison cell",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "Damascus. His teacher was in *prison.*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.8,
-          "text": "Ibn Taymiyyah, locked inside the *Citadel.*",
-          "shape": "bars"
-        },
-        {
-          "at": 7.2,
-          "text": "What can my enemies possibly do to *me?*",
-          "shape": "ring"
-        },
-        {
-          "at": 10.95,
-          "text": "My paradise and my garden are in my *chest.*",
-          "shape": "tree"
-        },
-        {
-          "at": 14.5,
-          "text": "Wherever I go, they go with *me.*",
-          "shape": "orbit"
-        },
-        {
-          "at": 17.15,
-          "text": "",
-          "pills": [
-            {
-              "label": "Prison: solitude",
-              "at": 17.3
-            },
-            {
-              "label": "Killing: martyrdom",
-              "at": 20.3
-            },
-            {
-              "label": "Exile: a journey",
-              "at": 22.9
-            }
-          ]
-        },
-        {
-          "at": 26.5,
-          "text": "When fear gripped us, we went to *him.*",
-          "shape": "wave"
-        },
-        {
-          "at": 30.8,
-          "text": "One look, a few words, and it all *lifted.*",
-          "shape": "sun",
-          "flare": true
-        },
-        {
-          "at": 34.75,
-          "text": "Into openness, strength and *certainty.*",
-          "shape": "star8"
-        }
-      ],
-      "book": {
-        "ar": "الوابل الصيب",
-        "en": "Al-Wabil al-Sayyib",
-        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      },
-      "voice": {
-        "file": "vo/02-garden.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 41.0,
-      "bookAt": 37.75,
-      "flareAt": 33.9
+     "at": 6.85,
+     "text": "A door flew open. A child ran *out,*",
+     "shape": "door"
     },
     {
-      "id": "03-breakfast",
-      "hook": "The morning routine of Ibn Taymiyyah",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "Ibn al-Qayyim watched his teacher one *morning.*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.2,
-          "text": "He prayed *Fajr.*",
-          "shape": "dawn"
-        },
-        {
-          "at": 4.5,
-          "text": "Then he sat. Remembering *Allah.*",
-          "shape": "ring"
-        },
-        {
-          "at": 8.3,
-          "text": "Hour... after *hour...*",
-          "shape": "spiral"
-        },
-        {
-          "at": 10.6,
-          "text": "until it was nearly *midday.*",
-          "shape": "arcs"
-        },
-        {
-          "at": 12.9,
-          "text": "",
-          "pills": [
-            {
-              "label": "Fajr",
-              "at": 13.1
-            },
-            {
-              "label": "Dhikr",
-              "at": 13.8
-            },
-            {
-              "label": "Midday",
-              "at": 14.5
-            }
-          ]
-        },
-        {
-          "at": 15.3,
-          "text": "“This... is my *breakfast.*”",
-          "shape": "sun",
-          "flare": true
-        },
-        {
-          "at": 17.7,
-          "text": "“Without it, my strength would *collapse.*”",
-          "shape": "line"
-        },
-        {
-          "at": 21.2,
-          "text": "What are you feeding your heart in the *morning?*",
-          "shape": "orbit"
-        }
-      ],
-      "book": {
-        "ar": "الوابل الصيب",
-        "en": "Al-Wabil al-Sayyib",
-        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      },
-      "voice": {
-        "file": "vo/03-breakfast.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 28.4,
-      "bookAt": 25.1,
-      "flareAt": 16.5
+     "at": 9.85,
+     "text": "crying, pushed out by his own *mother.*",
+     "shape": "doorOut"
     },
     {
-      "id": "04-citadel",
-      "hook": "Prison couldn't stop Ibn al-Qayyim",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "They jailed him in the Citadel of *Damascus,*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.4,
-          "text": "kept apart from his *teacher.*",
-          "shape": "bars"
-        },
-        {
-          "at": 5.5,
-          "text": "*Alone.*",
-          "shape": "scatter"
-        },
-        {
-          "at": 7.4,
-          "text": "So he turned to the *Quran.*",
-          "shape": "book"
-        },
-        {
-          "at": 9.5,
-          "text": "Reciting slowly. Reflecting on every *verse.*",
-          "shape": "wave"
-        },
-        {
-          "at": 13.45,
-          "text": "And Allah opened great good to *him.*",
-          "shape": "star8",
-          "flare": true
-        },
-        {
-          "at": 15.9,
-          "text": "",
-          "pills": [
-            {
-              "label": "Prison",
-              "at": 16.1
-            },
-            {
-              "label": "Quran",
-              "at": 17.0
-            },
-            {
-              "label": "An opening",
-              "at": 18.3
-            }
-          ]
-        },
-        {
-          "at": 19.4,
-          "text": "He was not freed until his teacher had *died.*",
-          "shape": "line"
-        },
-        {
-          "at": 22.35,
-          "text": "His student Ibn Rajab recorded it *all.*",
-          "shape": "arch"
-        },
-        {
-          "at": 25.7,
-          "text": "What breaks a man can be the thing that *opens* him.",
-          "shape": "door"
-        }
-      ],
-      "book": {
-        "ar": "ذيل طبقات الحنابلة",
-        "en": "Dhayl Tabaqat al-Hanabila",
-        "sub": "IBN RAJAB, HIS STUDENT"
-      },
-      "voice": {
-        "file": "vo/04-citadel.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 34.0,
-      "bookAt": 29.2,
-      "flareAt": 13.7
+     "at": 12.95,
+     "text": "He walked away... then *stopped.*",
+     "shape": "road"
     },
     {
-      "id": "05-road",
-      "hook": "He wrote a classic while travelling",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "One of his greatest books was written on the *road.*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.85,
-          "text": "Zad al-Ma’ad: the Prophet’s ﷺ *guidance.*",
-          "shape": "road"
-        },
-        {
-          "at": 8.5,
-          "text": "Not at home. Not *settled.*",
-          "shape": "wave"
-        },
-        {
-          "at": 10.95,
-          "text": "“My heart had a branch in every *valley.*”",
-          "shape": "scatter"
-        },
-        {
-          "at": 14.65,
-          "text": "Yet it covers how he prayed, ate and *travelled,*",
-          "shape": "book"
-        },
-        {
-          "at": 17.95,
-          "text": "how he traded, and treated the *sick.*",
-          "shape": "arcs"
-        },
-        {
-          "at": 20.9,
-          "text": "",
-          "pills": [
-            {
-              "label": "Travel",
-              "at": 21.0
-            },
-            {
-              "label": "A scattered heart",
-              "at": 22.0
-            },
-            {
-              "label": "Zad al-Ma’ad",
-              "at": 23.4
-            }
-          ]
-        },
-        {
-          "at": 25.35,
-          "text": "Read and taught for nearly seven *centuries.*",
-          "shape": "star8",
-          "flare": true
-        },
-        {
-          "at": 28.5,
-          "text": "Its title: provision for the *Hereafter.*",
-          "shape": "arch"
-        },
-        {
-          "at": 31.6,
-          "text": "Stop waiting for the perfect *conditions.*",
-          "shape": "sun"
-        }
-      ],
-      "book": {
-        "ar": "زاد المعاد",
-        "en": "Zad al-Ma'ad",
-        "sub": "FROM HIS INTRODUCTION"
-      },
-      "voice": {
-        "file": "vo/05-road.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 36.8,
-      "bookAt": 33.0,
-      "flareAt": 27.5
+     "at": 15.5,
+     "text": "There was nowhere else to *go.*",
+     "shape": "scatter"
     },
     {
-      "id": "06-prayer",
-      "hook": "What Ibn Kathir saw in his friend",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "Ibn Kathir knew him *well.*",
-          "shape": "spark"
-        },
-        {
-          "at": 2.05,
-          "text": "Not from books — in *person.*",
-          "shape": "halves"
-        },
-        {
-          "at": 4.45,
-          "text": "“I was among the closest people to *him.*”",
-          "shape": "arch"
-        },
-        {
-          "at": 7.7,
-          "text": "“I know no one in our time who worshipped *more.*”",
-          "shape": "star8"
-        },
-        {
-          "at": 11.55,
-          "text": "He made his prayer very *long.*",
-          "shape": "line"
-        },
-        {
-          "at": 14.15,
-          "text": "Long bowing. Long *prostration.*",
-          "shape": "arcs"
-        },
-        {
-          "at": 17.6,
-          "text": "His companions blamed him for *it.*",
-          "shape": "scatter"
-        },
-        {
-          "at": 19.9,
-          "text": "He never *stopped.*",
-          "shape": "ring",
-          "flare": true
-        },
-        {
-          "at": 21.65,
-          "text": "Some things are worth being *misunderstood* for.",
-          "shape": "emblem"
-        }
-      ],
-      "book": {
-        "ar": "البداية والنهاية",
-        "en": "Al-Bidaya wa'n-Nihaya",
-        "sub": "IBN KATHIR, HIS FRIEND"
-      },
-      "voice": {
-        "file": "vo/06-prayer.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 29.4,
-      "bookAt": 24.75,
-      "flareAt": 20.6
+     "at": 17.5,
+     "text": "He came back. But the door was *shut.*",
+     "shape": "doorShut"
     },
     {
-      "id": "07-books",
-      "hook": "He collected books like no one else",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "He loved one thing almost to *excess.*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.8,
-          "text": "*Books.*",
-          "shape": "stack"
-        },
-        {
-          "at": 5.1,
-          "text": "Works of the early scholars, and the *later* ones.",
-          "shape": "book"
-        },
-        {
-          "at": 8.1,
-          "text": "So many that others could not gather a *tenth* of them.",
-          "shape": "bars"
-        },
-        {
-          "at": 11.3,
-          "text": "Then, in the year 751, he *died.*",
-          "shape": "line"
-        },
-        {
-          "at": 15.6,
-          "text": "His sons kept selling his books for a long time *after,*",
-          "shape": "scatter"
-        },
-        {
-          "at": 19.6,
-          "text": "besides the ones they kept for *themselves.*",
-          "shape": "cube"
-        },
-        {
-          "at": 22.25,
-          "text": "A man dies. What he carried keeps *going.*",
-          "shape": "star8",
-          "flare": true
-        }
-      ],
-      "book": {
-        "ar": "الدرر الكامنة",
-        "en": "Al-Durar al-Kamina",
-        "sub": "IBN HAJAR · IBN KATHIR"
+     "at": 20.9,
+     "text": "",
+     "pills": [
+      {
+       "label": "Pushed out",
+       "at": 21.1
       },
-      "voice": {
-        "file": "vo/07-books.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      {
+       "label": "Nowhere to go",
+       "at": 22.5
       },
-      "end": 31.0,
-      "bookAt": 26.3,
-      "flareAt": 23.0
+      {
+       "label": "Came back",
+       "at": 23.85
+      }
+     ]
     },
     {
-      "id": "08-makkah",
-      "hook": "The people of Makkah were amazed by him",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "He made Hajj many *times.*",
-          "shape": "spark"
-        },
-        {
-          "at": 2.6,
-          "text": "And then... he *stayed.*",
-          "shape": "cube"
-        },
-        {
-          "at": 4.6,
-          "text": "He stayed on in *Makkah.*",
-          "shape": "cubeOrbit"
-        },
-        {
-          "at": 6.2,
-          "text": "The people of Makkah spoke about his *tawaf.*",
-          "shape": "orbit"
-        },
-        {
-          "at": 9.05,
-          "text": "Circling. And circling. And circling *again.*",
-          "shape": "spiral"
-        },
-        {
-          "at": 12.7,
-          "text": "They spoke about how hard he *worshipped.*",
-          "shape": "arch"
-        },
-        {
-          "at": 15.55,
-          "text": "The people of *Makkah,*",
-          "shape": "cube"
-        },
-        {
-          "at": 17.2,
-          "text": "who see worshippers every single *day.*",
-          "shape": "scatter"
-        },
-        {
-          "at": 20.05,
-          "text": "Even *they* found it amazing.",
-          "shape": "star8",
-          "flare": true
-        },
-        {
-          "at": 22.15,
-          "text": "Ibn Rajab sat in his classes in his final *year.*",
-          "shape": "book"
-        }
-      ],
-      "book": {
-        "ar": "ذيل طبقات الحنابلة",
-        "en": "Dhayl Tabaqat al-Hanabila",
-        "sub": "IBN RAJAB, HIS STUDENT"
-      },
-      "voice": {
-        "file": "vo/08-makkah.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 30.0,
-      "bookAt": 25.1,
-      "flareAt": 20.4
+     "at": 25.85,
+     "text": "He laid his cheek on the doorstep and *slept.*",
+     "shape": "threshold"
     },
     {
-      "id": "09-nothing",
-      "hook": "The humility of Ibn Taymiyyah",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "Ibn al-Qayyim often heard his teacher say three *things.*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.85,
-          "text": "“I own *nothing.*”",
-          "shape": "ring"
-        },
-        {
-          "at": 6.5,
-          "text": "“Nothing comes from *me.*”",
-          "shape": "line"
-        },
-        {
-          "at": 8.45,
-          "text": "“And there is nothing in *me.*”",
-          "shape": "scatter"
-        },
-        {
-          "at": 10.75,
-          "text": "This is the man they called the *Shaykh of Islam.*",
-          "shape": "emblem"
-        },
-        {
-          "at": 13.85,
-          "text": "And when people praised him to his *face,*",
-          "shape": "halves"
-        },
-        {
-          "at": 16.4,
-          "text": "he said: “By Allah, I renew my Islam every *moment.*”",
-          "shape": "star8",
-          "flare": true
-        },
-        {
-          "at": 20.9,
-          "text": "“I have not yet become a Muslim *properly.*”",
-          "shape": "wave"
-        },
-        {
-          "at": 23.7,
-          "text": "The closer he came, the *smaller* he felt.",
-          "shape": "spiral"
-        }
-      ],
-      "book": {
-        "ar": "مدارج السالكين",
-        "en": "Madarij al-Salikin",
-        "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      },
-      "voice": {
-        "file": "vo/09-nothing.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 31.4,
-      "bookAt": 26.9,
-      "flareAt": 17.5
+     "at": 29.55,
+     "text": "Then his mother came out. She ran and held him *close.*",
+     "shape": "door"
     },
     {
-      "id": "10-name",
-      "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
-      "cards": [
-        {
-          "at": 0.05,
-          "text": "Why is he called *Ibn Qayyim al-Jawziyya?*",
-          "shape": "spark"
-        },
-        {
-          "at": 3.5,
-          "text": "Damascus. The year *691.*",
-          "shape": "arch"
-        },
-        {
-          "at": 7.4,
-          "text": "His father looked after a school called *al-Jawziyya.*",
-          "shape": "book"
-        },
-        {
-          "at": 10.6,
-          "text": "And the one who looked after a school was called its *qayyim.*",
-          "shape": "stack"
-        },
-        {
-          "at": 14.25,
-          "text": "So the son became the son of the qayyim of *al-Jawziyya.*",
-          "shape": "orbit"
-        },
-        {
-          "at": 18.2,
-          "text": "In the year 712, he met *Ibn Taymiyyah.*",
-          "shape": "halves"
-        },
-        {
-          "at": 21.8,
-          "text": "Sixteen years at his teacher’s *side.*",
-          "shape": "arcs"
-        },
-        {
-          "at": 24.6,
-          "text": "751. He returns to *Allah.*",
-          "shape": "line"
-        },
-        {
-          "at": 28.3,
-          "text": "And seven centuries later, we are still reading *him.*",
-          "shape": "star8",
-          "flare": true
-        }
-      ],
-      "book": {
-        "ar": "ذيل طبقات الحنابلة",
-        "en": "Dhayl Tabaqat al-Hanabila",
-        "sub": "IBN RAJAB · IBN KATHIR"
-      },
-      "voice": {
-        "file": "vo/10-name.mp3",
-        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
-      },
-      "end": 36.0,
-      "bookAt": 31.8,
-      "flareAt": 28.6
+     "at": 34.5,
+     "text": "*“Who else would shelter you, but me?”*",
+     "shape": "heart",
+     "flare": true
+    },
+    {
+     "at": 37.6,
+     "text": "And Allah is more merciful than any *mother.*",
+     "shape": "ring"
     }
-  ]
+   ],
+   "book": {
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin",
+    "sub": "TOLD BY IBN AL-QAYYIM"
+   },
+   "voice": {
+    "file": "vo/01-doorstep.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times come from its word timings"
+   },
+   "end": 46.2,
+   "bookAt": 41.75,
+   "flareAt": 34.9
+  },
+  {
+   "id": "02-garden",
+   "hook": "What his teacher said from a prison cell",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "Damascus. His teacher was in *prison.*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.8,
+     "text": "Ibn Taymiyyah, locked inside the *Citadel.*",
+     "shape": "bars"
+    },
+    {
+     "at": 7.2,
+     "text": "What can my enemies possibly do to *me?*",
+     "shape": "ring"
+    },
+    {
+     "at": 10.95,
+     "text": "My paradise and my garden are in my *chest.*",
+     "shape": "tree"
+    },
+    {
+     "at": 14.5,
+     "text": "Wherever I go, they go with *me.*",
+     "shape": "orbit"
+    },
+    {
+     "at": 17.15,
+     "text": "",
+     "pills": [
+      {
+       "label": "Prison: solitude",
+       "at": 17.3
+      },
+      {
+       "label": "Killing: martyrdom",
+       "at": 20.3
+      },
+      {
+       "label": "Exile: a journey",
+       "at": 22.9
+      }
+     ]
+    },
+    {
+     "at": 26.5,
+     "text": "When fear gripped us, we went to *him.*",
+     "shape": "wave"
+    },
+    {
+     "at": 30.8,
+     "text": "One look, a few words, and it all *lifted.*",
+     "shape": "sun",
+     "flare": true
+    },
+    {
+     "at": 34.75,
+     "text": "Into openness, strength and *certainty.*",
+     "shape": "star8"
+    }
+   ],
+   "book": {
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+   },
+   "voice": {
+    "file": "vo/02-garden.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 41.0,
+   "bookAt": 37.75,
+   "flareAt": 33.9
+  },
+  {
+   "id": "03-breakfast",
+   "hook": "The morning routine of Ibn Taymiyyah",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "Ibn al-Qayyim watched his teacher one *morning.*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.2,
+     "text": "He prayed *Fajr.*",
+     "shape": "dawn"
+    },
+    {
+     "at": 4.5,
+     "text": "Then he sat. Remembering *Allah.*",
+     "shape": "ring"
+    },
+    {
+     "at": 8.3,
+     "text": "Hour... after *hour...*",
+     "shape": "spiral"
+    },
+    {
+     "at": 10.6,
+     "text": "until it was nearly *midday.*",
+     "shape": "arcs"
+    },
+    {
+     "at": 12.9,
+     "text": "",
+     "pills": [
+      {
+       "label": "Fajr",
+       "at": 13.1
+      },
+      {
+       "label": "Dhikr",
+       "at": 13.8
+      },
+      {
+       "label": "Midday",
+       "at": 14.5
+      }
+     ]
+    },
+    {
+     "at": 15.3,
+     "text": "“This... is my *breakfast.*”",
+     "shape": "sun",
+     "flare": true
+    },
+    {
+     "at": 17.7,
+     "text": "“Without it, my strength would *collapse.*”",
+     "shape": "line"
+    },
+    {
+     "at": 21.2,
+     "text": "What are you feeding your heart in the *morning?*",
+     "shape": "orbit"
+    }
+   ],
+   "book": {
+    "ar": "الوابل الصيب",
+    "en": "Al-Wabil al-Sayyib",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+   },
+   "voice": {
+    "file": "vo/03-breakfast.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 28.4,
+   "bookAt": 25.1,
+   "flareAt": 16.5
+  },
+  {
+   "id": "04-citadel",
+   "hook": "Prison couldn't stop Ibn al-Qayyim",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "They jailed him in the Citadel of *Damascus,*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.4,
+     "text": "kept apart from his *teacher.*",
+     "shape": "bars"
+    },
+    {
+     "at": 5.5,
+     "text": "*Alone.*",
+     "shape": "scatter"
+    },
+    {
+     "at": 7.4,
+     "text": "So he turned to the *Quran.*",
+     "shape": "book"
+    },
+    {
+     "at": 9.5,
+     "text": "Reciting slowly. Reflecting on every *verse.*",
+     "shape": "wave"
+    },
+    {
+     "at": 13.45,
+     "text": "And Allah opened great good to *him.*",
+     "shape": "star8",
+     "flare": true
+    },
+    {
+     "at": 15.9,
+     "text": "",
+     "pills": [
+      {
+       "label": "Prison",
+       "at": 16.1
+      },
+      {
+       "label": "Quran",
+       "at": 17.0
+      },
+      {
+       "label": "An opening",
+       "at": 18.3
+      }
+     ]
+    },
+    {
+     "at": 19.4,
+     "text": "He was not freed until his teacher had *died.*",
+     "shape": "line"
+    },
+    {
+     "at": 22.35,
+     "text": "His student Ibn Rajab recorded it *all.*",
+     "shape": "arch"
+    },
+    {
+     "at": 25.7,
+     "text": "What breaks a man can be the thing that *opens* him.",
+     "shape": "door"
+    }
+   ],
+   "book": {
+    "ar": "ذيل طبقات الحنابلة",
+    "en": "Dhayl Tabaqat al-Hanabila",
+    "sub": "IBN RAJAB, HIS STUDENT"
+   },
+   "voice": {
+    "file": "vo/04-citadel.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 34.0,
+   "bookAt": 29.2,
+   "flareAt": 13.7
+  },
+  {
+   "id": "05-road",
+   "hook": "He wrote a classic while travelling",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "One of his greatest books was written on the *road.*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.85,
+     "text": "Zad al-Ma’ad: the Prophet’s ﷺ *guidance.*",
+     "shape": "road"
+    },
+    {
+     "at": 8.5,
+     "text": "Not at home. Not *settled.*",
+     "shape": "wave"
+    },
+    {
+     "at": 10.95,
+     "text": "“My heart had a branch in every *valley.*”",
+     "shape": "scatter"
+    },
+    {
+     "at": 14.65,
+     "text": "Yet it covers how he prayed, ate and *travelled,*",
+     "shape": "book"
+    },
+    {
+     "at": 17.95,
+     "text": "how he traded, and treated the *sick.*",
+     "shape": "arcs"
+    },
+    {
+     "at": 20.9,
+     "text": "",
+     "pills": [
+      {
+       "label": "Travel",
+       "at": 21.0
+      },
+      {
+       "label": "A scattered heart",
+       "at": 22.0
+      },
+      {
+       "label": "Zad al-Ma’ad",
+       "at": 23.4
+      }
+     ]
+    },
+    {
+     "at": 25.35,
+     "text": "Read and taught for nearly seven *centuries.*",
+     "shape": "star8",
+     "flare": true
+    },
+    {
+     "at": 28.5,
+     "text": "Its title: provision for the *Hereafter.*",
+     "shape": "arch"
+    },
+    {
+     "at": 31.6,
+     "text": "Stop waiting for the perfect *conditions.*",
+     "shape": "sun"
+    }
+   ],
+   "book": {
+    "ar": "زاد المعاد",
+    "en": "Zad al-Ma'ad",
+    "sub": "FROM HIS INTRODUCTION"
+   },
+   "voice": {
+    "file": "vo/05-road.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 36.8,
+   "bookAt": 33.0,
+   "flareAt": 27.5
+  },
+  {
+   "id": "06-prayer",
+   "hook": "What Ibn Kathir saw in his friend",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "Ibn Kathir knew him *well.*",
+     "shape": "spark"
+    },
+    {
+     "at": 2.05,
+     "text": "Not from books — in *person.*",
+     "shape": "halves"
+    },
+    {
+     "at": 4.45,
+     "text": "“I was among the closest people to *him.*”",
+     "shape": "arch"
+    },
+    {
+     "at": 7.7,
+     "text": "“I know no one in our time who worshipped *more.*”",
+     "shape": "star8"
+    },
+    {
+     "at": 11.55,
+     "text": "He made his prayer very *long.*",
+     "shape": "line"
+    },
+    {
+     "at": 14.15,
+     "text": "Long bowing. Long *prostration.*",
+     "shape": "arcs"
+    },
+    {
+     "at": 17.6,
+     "text": "His companions blamed him for *it.*",
+     "shape": "scatter"
+    },
+    {
+     "at": 19.9,
+     "text": "He never *stopped.*",
+     "shape": "ring",
+     "flare": true
+    },
+    {
+     "at": 21.65,
+     "text": "Some things are worth being *misunderstood* for.",
+     "shape": "emblem"
+    }
+   ],
+   "book": {
+    "ar": "البداية والنهاية",
+    "en": "Al-Bidaya wa'n-Nihaya",
+    "sub": "IBN KATHIR, HIS FRIEND"
+   },
+   "voice": {
+    "file": "vo/06-prayer.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 29.4,
+   "bookAt": 24.75,
+   "flareAt": 20.6
+  },
+  {
+   "id": "07-books",
+   "hook": "He collected books like no one else",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "He loved one thing almost to *excess.*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.8,
+     "text": "*Books.*",
+     "shape": "stack"
+    },
+    {
+     "at": 5.1,
+     "text": "Works of the early scholars, and the *later* ones.",
+     "shape": "book"
+    },
+    {
+     "at": 8.1,
+     "text": "So many that others could not gather a *tenth* of them.",
+     "shape": "bars"
+    },
+    {
+     "at": 11.3,
+     "text": "Then, in the year 751, he *died.*",
+     "shape": "line"
+    },
+    {
+     "at": 15.6,
+     "text": "His sons kept selling his books for a long time *after,*",
+     "shape": "scatter"
+    },
+    {
+     "at": 19.6,
+     "text": "besides the ones they kept for *themselves.*",
+     "shape": "cube"
+    },
+    {
+     "at": 22.25,
+     "text": "A man dies. What he carried keeps *going.*",
+     "shape": "star8",
+     "flare": true
+    }
+   ],
+   "book": {
+    "ar": "الدرر الكامنة",
+    "en": "Al-Durar al-Kamina",
+    "sub": "IBN HAJAR · IBN KATHIR"
+   },
+   "voice": {
+    "file": "vo/07-books.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 31.0,
+   "bookAt": 26.3,
+   "flareAt": 23.0
+  },
+  {
+   "id": "08-makkah",
+   "hook": "The people of Makkah were amazed by him",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "He made Hajj many *times.*",
+     "shape": "spark"
+    },
+    {
+     "at": 2.6,
+     "text": "And then... he *stayed.*",
+     "shape": "cube"
+    },
+    {
+     "at": 4.6,
+     "text": "He stayed on in *Makkah.*",
+     "shape": "cubeOrbit"
+    },
+    {
+     "at": 6.2,
+     "text": "The people of Makkah spoke about his *tawaf.*",
+     "shape": "orbit"
+    },
+    {
+     "at": 9.05,
+     "text": "Circling. And circling. And circling *again.*",
+     "shape": "spiral"
+    },
+    {
+     "at": 12.7,
+     "text": "They spoke about how hard he *worshipped.*",
+     "shape": "arch"
+    },
+    {
+     "at": 15.55,
+     "text": "The people of *Makkah,*",
+     "shape": "cube"
+    },
+    {
+     "at": 17.2,
+     "text": "who see worshippers every single *day.*",
+     "shape": "scatter"
+    },
+    {
+     "at": 20.05,
+     "text": "Even *they* found it amazing.",
+     "shape": "star8",
+     "flare": true
+    },
+    {
+     "at": 22.15,
+     "text": "Ibn Rajab sat in his classes in his final *year.*",
+     "shape": "book"
+    }
+   ],
+   "book": {
+    "ar": "ذيل طبقات الحنابلة",
+    "en": "Dhayl Tabaqat al-Hanabila",
+    "sub": "IBN RAJAB, HIS STUDENT"
+   },
+   "voice": {
+    "file": "vo/08-makkah.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 30.0,
+   "bookAt": 25.1,
+   "flareAt": 20.4
+  },
+  {
+   "id": "09-nothing",
+   "hook": "The humility of Ibn Taymiyyah",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "Ibn al-Qayyim often heard his teacher say three *things.*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.85,
+     "text": "“I own *nothing.*”",
+     "shape": "ring"
+    },
+    {
+     "at": 6.5,
+     "text": "“Nothing comes from *me.*”",
+     "shape": "line"
+    },
+    {
+     "at": 8.45,
+     "text": "“And there is nothing in *me.*”",
+     "shape": "scatter"
+    },
+    {
+     "at": 10.75,
+     "text": "This is the man they called the *Shaykh of Islam.*",
+     "shape": "emblem"
+    },
+    {
+     "at": 13.85,
+     "text": "And when people praised him to his *face,*",
+     "shape": "halves"
+    },
+    {
+     "at": 16.4,
+     "text": "he said: “By Allah, I renew my Islam every *moment.*”",
+     "shape": "star8",
+     "flare": true
+    },
+    {
+     "at": 20.9,
+     "text": "“I have not yet become a Muslim *properly.*”",
+     "shape": "wave"
+    },
+    {
+     "at": 23.7,
+     "text": "The closer he came, the *smaller* he felt.",
+     "shape": "spiral"
+    }
+   ],
+   "book": {
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin",
+    "sub": "IBN AL-QAYYIM ON HIS TEACHER"
+   },
+   "voice": {
+    "file": "vo/09-nothing.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 31.4,
+   "bookAt": 26.9,
+   "flareAt": 17.5
+  },
+  {
+   "id": "10-name",
+   "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
+   "cards": [
+    {
+     "at": 0.05,
+     "text": "Why is he called *Ibn Qayyim al-Jawziyya?*",
+     "shape": "spark"
+    },
+    {
+     "at": 3.5,
+     "text": "Damascus. The year *691.*",
+     "shape": "arch"
+    },
+    {
+     "at": 7.4,
+     "text": "His father looked after a school called *al-Jawziyya.*",
+     "shape": "book"
+    },
+    {
+     "at": 10.6,
+     "text": "And the one who looked after a school was called its *qayyim.*",
+     "shape": "stack"
+    },
+    {
+     "at": 14.25,
+     "text": "So the son became the son of the qayyim of *al-Jawziyya.*",
+     "shape": "orbit"
+    },
+    {
+     "at": 18.2,
+     "text": "In the year 712, he met *Ibn Taymiyyah.*",
+     "shape": "halves"
+    },
+    {
+     "at": 21.8,
+     "text": "Sixteen years at his teacher’s *side.*",
+     "shape": "arcs"
+    },
+    {
+     "at": 24.6,
+     "text": "751. He returns to *Allah.*",
+     "shape": "line"
+    },
+    {
+     "at": 28.3,
+     "text": "And seven centuries later, we are still reading *him.*",
+     "shape": "star8",
+     "flare": true
+    }
+   ],
+   "book": {
+    "ar": "ذيل طبقات الحنابلة",
+    "en": "Dhayl Tabaqat al-Hanabila",
+    "sub": "IBN RAJAB · IBN KATHIR"
+   },
+   "voice": {
+    "file": "vo/10-name.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+   },
+   "end": 36.0,
+   "bookAt": 31.8,
+   "flareAt": 28.6
+  },
+  {
+   "id": "11-door",
+   "hook": "The one door that opens wider the more you knock",
+   "cards": [
+    {
+     "at": 0.0,
+     "text": "You have it *backwards.*",
+     "shape": "halves"
+    },
+    {
+     "at": 1.71,
+     "text": "Ask people — they like you *less.*",
+     "shape": "doorShut"
+    },
+    {
+     "at": 5.09,
+     "text": "Ask Allah — He loves you *more.*",
+     "shape": "door"
+    },
+    {
+     "at": 8.16,
+     "text": "Ibn al-Qayyim wrote it in *Madarij al-Salikin.*",
+     "shape": "book"
+    },
+    {
+     "at": 10.84,
+     "text": "Allah is displeased when you *stop* asking Him.",
+     "shape": "ring"
+    },
+    {
+     "at": 13.85,
+     "text": "People are displeased when you *ask* them.",
+     "shape": "scatter"
+    },
+    {
+     "at": 16.4,
+     "text": "Every door here closes a little each *knock.*",
+     "shape": "doorShut"
+    },
+    {
+     "at": 21.32,
+     "text": "The more you need, the less *welcome* you are.",
+     "shape": "threshold"
+    },
+    {
+     "at": 23.05,
+     "text": "His door is the *opposite.*",
+     "shape": "doorOut",
+     "flare": true
+    },
+    {
+     "at": 24.95,
+     "text": "The more you come, the wider it *opens.*",
+     "shape": "arch"
+    },
+    {
+     "at": 27.49,
+     "text": "If you stopped because you asked too *much* —",
+     "shape": "line"
+    },
+    {
+     "at": 30.98,
+     "text": "that is the one thing He does *not* want.",
+     "shape": "heart"
+    },
+    {
+     "at": 33.83,
+     "text": "*Ask.*",
+     "shape": "spark"
+    },
+    {
+     "at": 34.69,
+     "text": "The only door that opens more the more you *knock.*",
+     "shape": "dawn"
+    }
+   ],
+   "book": {
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin 2/98",
+    "sub": "IBN AL-QAYYIM"
+   },
+   "voice": {
+    "file": "vo/11-door.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times from the take's own pauses"
+   },
+   "end": 42.4,
+   "bookAt": 38.2,
+   "flareAt": 23.05
+  }
+ ]
 }

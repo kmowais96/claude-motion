@@ -1,0 +1,107 @@
+{
+  "fps": 60,
+  "duration": 42.4,
+  "voice": {
+    "file": "vo/11-door.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo (cinematic storyteller); card times from the take's own pauses"
+  },
+  "flareAt": 23.05,
+  "label": "IBN AL-QAYYIM",
+  "hook": "The one door that opens wider the more you knock",
+  "tag": "STORIES · 11 / 11",
+  "motif": "arch",
+  "cards": [
+    {
+      "in": 0,
+      "out": 1.61,
+      "text": "You have it *backwards.*",
+      "shape": "halves"
+    },
+    {
+      "in": 1.71,
+      "out": 4.99,
+      "text": "Ask people — they like you *less.*",
+      "shape": "doorShut"
+    },
+    {
+      "in": 5.09,
+      "out": 8.06,
+      "text": "Ask Allah — He loves you *more.*",
+      "shape": "door"
+    },
+    {
+      "in": 8.16,
+      "out": 10.74,
+      "text": "Ibn al-Qayyim wrote it in *Madarij al-Salikin.*",
+      "shape": "book"
+    },
+    {
+      "in": 10.84,
+      "out": 13.75,
+      "text": "Allah is displeased when you *stop* asking Him.",
+      "shape": "ring"
+    },
+    {
+      "in": 13.85,
+      "out": 16.3,
+      "text": "People are displeased when you *ask* them.",
+      "shape": "scatter"
+    },
+    {
+      "in": 16.4,
+      "out": 21.22,
+      "text": "Every door here closes a little each *knock.*",
+      "shape": "doorShut"
+    },
+    {
+      "in": 21.32,
+      "out": 22.95,
+      "text": "The more you need, the less *welcome* you are.",
+      "shape": "threshold"
+    },
+    {
+      "in": 23.05,
+      "out": 24.85,
+      "text": "His door is the *opposite.*",
+      "shape": "doorOut",
+      "flare": true
+    },
+    {
+      "in": 24.95,
+      "out": 27.39,
+      "text": "The more you come, the wider it *opens.*",
+      "shape": "arch"
+    },
+    {
+      "in": 27.49,
+      "out": 30.88,
+      "text": "If you stopped because you asked too *much* —",
+      "shape": "line"
+    },
+    {
+      "in": 30.98,
+      "out": 33.73,
+      "text": "that is the one thing He does *not* want.",
+      "shape": "heart"
+    },
+    {
+      "in": 33.83,
+      "out": 34.59,
+      "text": "*Ask.*",
+      "shape": "spark"
+    },
+    {
+      "in": 34.69,
+      "out": 38.1,
+      "text": "The only door that opens more the more you *knock.*",
+      "shape": "dawn"
+    }
+  ],
+  "marks": [],
+  "book": {
+    "in": 38.2,
+    "ar": "مدارج السالكين",
+    "en": "Madarij al-Salikin 2/98",
+    "sub": "IBN AL-QAYYIM"
+  }
+}
