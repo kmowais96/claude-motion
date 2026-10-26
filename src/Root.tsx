@@ -4,6 +4,7 @@ import {ArticleCover} from './ArticleCover';
 import {EffortVideo} from './EffortVideo';
 import {FPS, H, TL, W} from './lib';
 import {QayyimReel} from './qayyim/QayyimReel';
+import {PaperReel} from './qayyim/paper/PaperReel';
 import {PaperTest} from './qayyim/paper/PaperTest';
 import {StoryReel} from './qayyim/story/StoryReel';
 import {QH, QW, ReelTimeline} from './qayyim/theme';
@@ -82,6 +83,15 @@ const STORIES: {id: string; tl: ReelTimeline}[] = [
 
 export const Root: React.FC = () => (
   <>
+    <Composition
+      id="PaperDoor"
+      component={PaperReel}
+      defaultProps={{tl: t11}}
+      durationInFrames={Math.round(t11.duration * t11.fps)}
+      fps={t11.fps}
+      width={QW}
+      height={QH}
+    />
     <Still id="PaperTest" component={PaperTest} width={QW} height={QH} />
     <Composition
       id="EffortVideo"

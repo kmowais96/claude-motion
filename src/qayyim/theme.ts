@@ -5,7 +5,9 @@ export const QW = 1080;
 export const QH = 1920;
 
 /** `motif` is set on cadence reels, where every card is its own scene. */
-export type Card = {in: number; out: number; text: string; motif?: string};
+export type Card = {in: number; out: number; text: string; motif?: string;
+  /** Story reels name their subject per card; cadence reels use the reel-level motif. */
+  shape?: string; flare?: boolean};
 export type Book = {in: number; ar: string; en: string; sub?: string};
 export type ReelTimeline = {
   fps: number;

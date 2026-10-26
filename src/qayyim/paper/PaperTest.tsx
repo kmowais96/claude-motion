@@ -105,13 +105,13 @@ export const PaperTest: React.FC = () => {
 
           {/* the photographs, stacked down the tray in perspective */}
           <div style={{position: 'absolute', left: 74, top: 96, transform: 'translateZ(26px)'}}>
-            <PhotoCard src="paper/ph-corridor.png" w={610} h={330} seed="pc1" rotate={-1.4} />
+            <PhotoCard src="paper/ph-corridor.jpg" w={610} h={330} seed="pc1" rotate={-1.4} />
           </div>
           <div style={{position: 'absolute', left: 96, top: 462, transform: 'translateZ(44px)'}}>
-            <PhotoCard src="paper/ph-shut.png" w={600} h={320} seed="pc2" rotate={1.1} />
+            <PhotoCard src="paper/ph-shut.jpg" w={600} h={320} seed="pc2" rotate={1.1} />
           </div>
           <div style={{position: 'absolute', left: 70, top: 808, transform: 'translateZ(66px)'}}>
-            <PhotoCard src="paper/ph-ajar.png" w={620} h={330} seed="pc3" rotate={-0.7} lift={10} />
+            <PhotoCard src="paper/ph-ajar.jpg" w={620} h={330} seed="pc3" rotate={-0.7} lift={10} />
           </div>
 
           {/* extruded icons down the right edge, as the reference stacks them */}
