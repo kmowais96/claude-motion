@@ -4,6 +4,7 @@ import {ArticleCover} from './ArticleCover';
 import {EffortVideo} from './EffortVideo';
 import {FPS, H, TL, W} from './lib';
 import {QayyimReel} from './qayyim/QayyimReel';
+import {PaperTest} from './qayyim/paper/PaperTest';
 import {StoryReel} from './qayyim/story/StoryReel';
 import {QH, QW, ReelTimeline} from './qayyim/theme';
 import r00 from '../reels/qayyim/00-who.json';
@@ -81,6 +82,7 @@ const STORIES: {id: string; tl: ReelTimeline}[] = [
 
 export const Root: React.FC = () => (
   <>
+    <Still id="PaperTest" component={PaperTest} width={QW} height={QH} />
     <Composition
       id="EffortVideo"
       component={EffortVideo}
