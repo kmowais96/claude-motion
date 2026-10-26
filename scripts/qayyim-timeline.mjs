@@ -40,6 +40,22 @@ const onVoice = (cards, bookAt) =>
 const onCadence = (cards, every) =>
   cards.map((_, i) => ({in: i * every, out: (i + 1) * every - 0.1, mark: i * every + (i === 0 ? 0.3 : 0.45)}));
 
+// Story reels name a shape per card; an unknown one only fails deep inside a render,
+// so check them against src/qayyim/story/shapes.ts while the timelines are built.
+const shapesFile = path.join(ROOT, 'src/qayyim/story/shapes.ts');
+const known = fs.existsSync(shapesFile)
+  ? new Set([...fs.readFileSync(shapesFile, 'utf8').matchAll(/^  ([a-zA-Z0-9]+): \(\) =>/gm)].map((m) => m[1]))
+  : null;
+if (known) {
+  const bad = content.reels.flatMap((reel) =>
+    (reel.cards ?? []).filter((c) => c.shape && !known.has(c.shape)).map((c) => `${reel.id}: ${c.shape}`),
+  );
+  if (bad.length) {
+    console.error(`Unknown shape(s):\n  ${bad.join('\n  ')}\nKnown: ${[...known].join(', ')}`);
+    process.exit(1);
+  }
+}
+
 content.reels.forEach((reel, n) => {
   const voiced = reel.cards[0].at !== undefined;
   const slots = voiced
