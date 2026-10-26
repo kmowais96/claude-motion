@@ -1,85 +1,88 @@
 {
   "fps": 60,
-  "duration": 30,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 28.4,
+  "voice": {
+    "file": "vo/03-breakfast.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 16.5,
   "label": "IBN AL-QAYYIM",
   "hook": "The morning routine of Ibn Taymiyyah",
   "tag": "STORIES · 03 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
+      "in": 0.05,
+      "out": 3.1,
       "text": "Ibn al-Qayyim watched his teacher one *morning.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
+      "in": 3.2,
+      "out": 4.4,
       "text": "He prayed *Fajr.*",
       "shape": "dawn"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "Then he sat, remembering *Allah.*",
+      "in": 4.5,
+      "out": 8.2,
+      "text": "Then he sat. Remembering *Allah.*",
       "shape": "ring"
     },
     {
-      "in": 9,
-      "out": 11.9,
-      "text": "Hour after *hour,*",
+      "in": 8.3,
+      "out": 10.5,
+      "text": "Hour... after *hour...*",
       "shape": "spiral"
     },
     {
-      "in": 12,
-      "out": 14.9,
+      "in": 10.6,
+      "out": 12.8,
       "text": "until it was nearly *midday.*",
       "shape": "arcs"
     },
     {
-      "in": 15,
-      "out": 17.9,
+      "in": 12.9,
+      "out": 15.2,
       "text": "",
       "pills": [
         {
           "label": "Fajr",
-          "at": 15.2
+          "at": 13.1
         },
         {
           "label": "Dhikr",
-          "at": 15.9
+          "at": 13.8
         },
         {
           "label": "Midday",
-          "at": 16.6
+          "at": 14.5
         }
       ]
     },
     {
-      "in": 18,
-      "out": 20.9,
-      "text": "Then he turned to his student and *said:*",
-      "shape": "orbit"
-    },
-    {
-      "in": 21,
-      "out": 23.9,
-      "text": "“This is my *breakfast.*”",
+      "in": 15.3,
+      "out": 17.6,
+      "text": "“This... is my *breakfast.*”",
       "shape": "sun",
       "flare": true
     },
     {
-      "in": 24,
-      "out": 26.9,
+      "in": 17.7,
+      "out": 21.1,
       "text": "“Without it, my strength would *collapse.*”",
       "shape": "line"
+    },
+    {
+      "in": 21.2,
+      "out": 25,
+      "text": "What are you feeding your heart in the *morning?*",
+      "shape": "orbit"
     }
   ],
   "marks": [],
   "book": {
-    "in": 27,
+    "in": 25.1,
     "ar": "الوابل الصيب",
     "en": "Al-Wabil al-Sayyib",
     "sub": "IBN AL-QAYYIM ON HIS TEACHER"

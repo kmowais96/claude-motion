@@ -96,43 +96,61 @@
       "hook": "What his teacher said from a prison cell",
       "cards": [
         {
+          "at": 0.05,
           "text": "Damascus. His teacher was in *prison.*",
           "shape": "spark"
         },
         {
-          "text": "Ibn Taymiyyah, locked in the *Citadel.*",
+          "at": 3.8,
+          "text": "Ibn Taymiyyah, locked inside the *Citadel.*",
           "shape": "bars"
         },
         {
-          "text": "He said: what can my enemies do to *me?*",
+          "at": 7.2,
+          "text": "What can my enemies possibly do to *me?*",
           "shape": "ring"
         },
         {
+          "at": 10.95,
           "text": "My paradise and my garden are in my *chest.*",
           "shape": "tree"
         },
         {
-          "text": "Wherever I go, it stays with *me.*",
+          "at": 14.5,
+          "text": "Wherever I go, they go with *me.*",
           "shape": "orbit"
         },
         {
+          "at": 17.15,
           "text": "",
           "pills": [
-            "Prison: solitude",
-            "Killing: martyrdom",
-            "Exile: a journey"
+            {
+              "label": "Prison: solitude",
+              "at": 17.3
+            },
+            {
+              "label": "Killing: martyrdom",
+              "at": 20.3
+            },
+            {
+              "label": "Exile: a journey",
+              "at": 22.9
+            }
           ]
         },
         {
+          "at": 26.5,
           "text": "When fear gripped us, we went to *him.*",
           "shape": "wave"
         },
         {
+          "at": 30.8,
           "text": "One look, a few words, and it all *lifted.*",
           "shape": "sun",
           "flare": true
         },
         {
+          "at": 34.75,
           "text": "Into openness, strength and *certainty.*",
           "shape": "star8"
         }
@@ -141,59 +159,91 @@
         "ar": "الوابل الصيب",
         "en": "Al-Wabil al-Sayyib",
         "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      }
+      },
+      "voice": {
+        "file": "vo/02-garden.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 41.0,
+      "bookAt": 37.75,
+      "flareAt": 33.9
     },
     {
       "id": "03-breakfast",
       "hook": "The morning routine of Ibn Taymiyyah",
       "cards": [
         {
+          "at": 0.05,
           "text": "Ibn al-Qayyim watched his teacher one *morning.*",
           "shape": "spark"
         },
         {
+          "at": 3.2,
           "text": "He prayed *Fajr.*",
           "shape": "dawn"
         },
         {
-          "text": "Then he sat, remembering *Allah.*",
+          "at": 4.5,
+          "text": "Then he sat. Remembering *Allah.*",
           "shape": "ring"
         },
         {
-          "text": "Hour after *hour,*",
+          "at": 8.3,
+          "text": "Hour... after *hour...*",
           "shape": "spiral"
         },
         {
+          "at": 10.6,
           "text": "until it was nearly *midday.*",
           "shape": "arcs"
         },
         {
+          "at": 12.9,
           "text": "",
           "pills": [
-            "Fajr",
-            "Dhikr",
-            "Midday"
+            {
+              "label": "Fajr",
+              "at": 13.1
+            },
+            {
+              "label": "Dhikr",
+              "at": 13.8
+            },
+            {
+              "label": "Midday",
+              "at": 14.5
+            }
           ]
         },
         {
-          "text": "Then he turned to his student and *said:*",
-          "shape": "orbit"
-        },
-        {
-          "text": "“This is my *breakfast.*”",
+          "at": 15.3,
+          "text": "“This... is my *breakfast.*”",
           "shape": "sun",
           "flare": true
         },
         {
+          "at": 17.7,
           "text": "“Without it, my strength would *collapse.*”",
           "shape": "line"
+        },
+        {
+          "at": 21.2,
+          "text": "What are you feeding your heart in the *morning?*",
+          "shape": "orbit"
         }
       ],
       "book": {
         "ar": "الوابل الصيب",
         "en": "Al-Wabil al-Sayyib",
         "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      }
+      },
+      "voice": {
+        "file": "vo/03-breakfast.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 28.4,
+      "bookAt": 25.1,
+      "flareAt": 16.5
     },
     {
       "id": "04-citadel",

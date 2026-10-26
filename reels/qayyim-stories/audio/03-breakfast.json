@@ -1,0 +1,37 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/03-breakfast",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "dawn.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 4.6,
+      "file": "cloth.mp3",
+      "rms_db": -33,
+      "what": "then he sat"
+    },
+    {
+      "at": 11.2,
+      "file": "birds.mp3",
+      "rms_db": -36,
+      "what": "the morning opening toward midday"
+    },
+    {
+      "at": 11.8,
+      "file": "birds.mp3",
+      "rms_db": -34,
+      "what": "midday"
+    },
+    {
+      "at": 12.4,
+      "file": "birds.mp3",
+      "rms_db": -36,
+      "what": "midday tail"
+    }
+  ]
+}

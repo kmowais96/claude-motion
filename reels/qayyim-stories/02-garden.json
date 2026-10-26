@@ -1,85 +1,88 @@
 {
   "fps": 60,
-  "duration": 30,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 41,
+  "voice": {
+    "file": "vo/02-garden.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 33.9,
   "label": "IBN AL-QAYYIM",
   "hook": "What his teacher said from a prison cell",
   "tag": "STORIES · 02 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
+      "in": 0.05,
+      "out": 3.7,
       "text": "Damascus. His teacher was in *prison.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "Ibn Taymiyyah, locked in the *Citadel.*",
+      "in": 3.8,
+      "out": 7.1,
+      "text": "Ibn Taymiyyah, locked inside the *Citadel.*",
       "shape": "bars"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "He said: what can my enemies do to *me?*",
+      "in": 7.2,
+      "out": 10.85,
+      "text": "What can my enemies possibly do to *me?*",
       "shape": "ring"
     },
     {
-      "in": 9,
-      "out": 11.9,
+      "in": 10.95,
+      "out": 14.4,
       "text": "My paradise and my garden are in my *chest.*",
       "shape": "tree"
     },
     {
-      "in": 12,
-      "out": 14.9,
-      "text": "Wherever I go, it stays with *me.*",
+      "in": 14.5,
+      "out": 17.05,
+      "text": "Wherever I go, they go with *me.*",
       "shape": "orbit"
     },
     {
-      "in": 15,
-      "out": 17.9,
+      "in": 17.15,
+      "out": 26.4,
       "text": "",
       "pills": [
         {
           "label": "Prison: solitude",
-          "at": 15.2
+          "at": 17.3
         },
         {
           "label": "Killing: martyrdom",
-          "at": 15.9
+          "at": 20.3
         },
         {
           "label": "Exile: a journey",
-          "at": 16.6
+          "at": 22.9
         }
       ]
     },
     {
-      "in": 18,
-      "out": 20.9,
+      "in": 26.5,
+      "out": 30.7,
       "text": "When fear gripped us, we went to *him.*",
       "shape": "wave"
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 30.8,
+      "out": 34.65,
       "text": "One look, a few words, and it all *lifted.*",
       "shape": "sun",
       "flare": true
     },
     {
-      "in": 24,
-      "out": 26.9,
+      "in": 34.75,
+      "out": 37.65,
       "text": "Into openness, strength and *certainty.*",
       "shape": "star8"
     }
   ],
   "marks": [],
   "book": {
-    "in": 27,
+    "in": 37.75,
     "ar": "الوابل الصيب",
     "en": "Al-Wabil al-Sayyib",
     "sub": "IBN AL-QAYYIM ON HIS TEACHER"
