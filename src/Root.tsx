@@ -7,6 +7,7 @@ import {QayyimReel} from './qayyim/QayyimReel';
 import {PaperReel} from './qayyim/paper/PaperReel';
 import {PaperTest} from './qayyim/paper/PaperTest';
 import {StoryReel} from './qayyim/story/StoryReel';
+import {Showreel} from './showreel/Showreel';
 import {QH, QW, ReelTimeline} from './qayyim/theme';
 import r00 from '../reels/qayyim/00-who.json';
 import r01 from '../reels/qayyim/01-fawaid.json';
@@ -83,6 +84,7 @@ const STORIES: {id: string; tl: ReelTimeline}[] = [
 
 export const Root: React.FC = () => (
   <>
+    <Composition id="Showreel" component={Showreel} durationInFrames={900} fps={60} width={1920} height={1080} />
     <Composition
       id="PaperDoor"
       component={PaperReel}

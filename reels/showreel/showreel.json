@@ -1,0 +1,64 @@
+{
+ "fps": 60,
+ "duration": 15.0,
+ "label": "SHOWREEL",
+ "beats": [
+  {
+   "at": 0.0,
+   "name": "slam"
+  },
+  {
+   "at": 1.5,
+   "name": "arcs"
+  },
+  {
+   "at": 3.0,
+   "name": "ripple"
+  },
+  {
+   "at": 4.2,
+   "name": "type"
+  },
+  {
+   "at": 5.7,
+   "name": "bars"
+  },
+  {
+   "at": 7.0,
+   "name": "iso"
+  },
+  {
+   "at": 8.2,
+   "name": "converge"
+  },
+  {
+   "at": 9.5,
+   "name": "morph"
+  },
+  {
+   "at": 10.6,
+   "name": "panels"
+  },
+  {
+   "at": 11.5,
+   "name": "burst"
+  },
+  {
+   "at": 11.9,
+   "name": "line"
+  },
+  {
+   "at": 13.5,
+   "name": "sign"
+  }
+ ],
+ "hard": [
+  3.0,
+  9.5,
+  11.5
+ ],
+ "quiet": [
+  11.9,
+  13.5
+ ]
+}
