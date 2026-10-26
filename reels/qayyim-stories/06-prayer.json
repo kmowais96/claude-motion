@@ -1,79 +1,75 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 29.4,
+  "voice": {
+    "file": "vo/06-prayer.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 20.6,
   "label": "IBN AL-QAYYIM",
   "hook": "What Ibn Kathir saw in his friend",
   "tag": "STORIES · 06 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
+      "in": 0.05,
+      "out": 1.95,
       "text": "Ibn Kathir knew him *well.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "“I was among the closest people to *him.*”",
+      "in": 2.05,
+      "out": 4.35,
+      "text": "Not from books — in *person.*",
       "shape": "halves"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "“I know no one in our time who worshipped *more.*”",
+      "in": 4.45,
+      "out": 7.6,
+      "text": "“I was among the closest people to *him.*”",
       "shape": "arch"
     },
     {
-      "in": 9,
-      "out": 11.9,
+      "in": 7.7,
+      "out": 11.45,
+      "text": "“I know no one in our time who worshipped *more.*”",
+      "shape": "star8"
+    },
+    {
+      "in": 11.55,
+      "out": 14.05,
       "text": "He made his prayer very *long.*",
       "shape": "line"
     },
     {
-      "in": 12,
-      "out": 14.9,
+      "in": 14.15,
+      "out": 17.5,
       "text": "Long bowing. Long *prostration.*",
       "shape": "arcs"
     },
     {
-      "in": 15,
-      "out": 17.9,
-      "text": "",
-      "pills": [
-        {
-          "label": "Bowing",
-          "at": 15.2
-        },
-        {
-          "label": "Prostration",
-          "at": 15.9
-        },
-        {
-          "label": "Never rushed",
-          "at": 16.6
-        }
-      ]
-    },
-    {
-      "in": 18,
-      "out": 20.9,
-      "text": "His companions sometimes blamed him for *it.*",
+      "in": 17.6,
+      "out": 19.8,
+      "text": "His companions blamed him for *it.*",
       "shape": "scatter"
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 19.9,
+      "out": 21.55,
       "text": "He never *stopped.*",
       "shape": "ring",
       "flare": true
+    },
+    {
+      "in": 21.65,
+      "out": 24.65,
+      "text": "Some things are worth being *misunderstood* for.",
+      "shape": "emblem"
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 24.75,
     "ar": "البداية والنهاية",
     "en": "Al-Bidaya wa'n-Nihaya",
     "sub": "IBN KATHIR, HIS FRIEND"

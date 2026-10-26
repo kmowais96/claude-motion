@@ -1,79 +1,69 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 31,
+  "voice": {
+    "file": "vo/07-books.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 23,
   "label": "IBN AL-QAYYIM",
   "hook": "He collected books like no one else",
   "tag": "STORIES · 07 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
-      "text": "He loved one thing *deeply:* books.",
+      "in": 0.05,
+      "out": 3.7,
+      "text": "He loved one thing almost to *excess.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "Works of the early and later *scholars.*",
+      "in": 3.8,
+      "out": 5,
+      "text": "*Books.*",
       "shape": "stack"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "Others couldn't gather a *tenth* of them.",
-      "shape": "bars"
-    },
-    {
-      "in": 9,
-      "out": 11.9,
-      "text": "He passed away in 751 *AH.*",
-      "shape": "line"
-    },
-    {
-      "in": 12,
-      "out": 14.9,
-      "text": "His sons sold his books for a long *time,*",
-      "shape": "scatter"
-    },
-    {
-      "in": 15,
-      "out": 17.9,
-      "text": "",
-      "pills": [
-        {
-          "label": "Collected",
-          "at": 15.2
-        },
-        {
-          "label": "Read",
-          "at": 15.9
-        },
-        {
-          "label": "Wrote",
-          "at": 16.6
-        }
-      ]
-    },
-    {
-      "in": 18,
-      "out": 20.9,
-      "text": "besides the ones they kept for *themselves.*",
+      "in": 5.1,
+      "out": 8,
+      "text": "Works of the early scholars, and the *later* ones.",
       "shape": "book"
     },
     {
-      "in": 21,
-      "out": 23.9,
-      "text": "Knowledge outlives the one who carries *it.*",
+      "in": 8.1,
+      "out": 11.2,
+      "text": "So many that others could not gather a *tenth* of them.",
+      "shape": "bars"
+    },
+    {
+      "in": 11.3,
+      "out": 15.5,
+      "text": "Then, in the year 751, he *died.*",
+      "shape": "line"
+    },
+    {
+      "in": 15.6,
+      "out": 19.5,
+      "text": "His sons kept selling his books for a long time *after,*",
+      "shape": "scatter"
+    },
+    {
+      "in": 19.6,
+      "out": 22.15,
+      "text": "besides the ones they kept for *themselves.*",
+      "shape": "cube"
+    },
+    {
+      "in": 22.25,
+      "out": 26.2,
+      "text": "A man dies. What he carried keeps *going.*",
       "shape": "star8",
       "flare": true
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 26.3,
     "ar": "الدرر الكامنة",
     "en": "Al-Durar al-Kamina",
     "sub": "IBN HAJAR · IBN KATHIR"

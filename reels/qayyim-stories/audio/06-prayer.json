@@ -1,0 +1,31 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/06-prayer",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 11.7,
+      "file": "rug.mp3",
+      "rms_db": -33,
+      "what": "he made his prayer very long"
+    },
+    {
+      "at": 14.6,
+      "file": "rug.mp3",
+      "rms_db": -32,
+      "what": "long bowing"
+    },
+    {
+      "at": 16.2,
+      "file": "rug.mp3",
+      "rms_db": -31,
+      "what": "long prostration"
+    }
+  ]
+}

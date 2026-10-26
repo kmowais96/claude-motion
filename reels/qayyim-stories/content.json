@@ -414,87 +414,107 @@
       "hook": "What Ibn Kathir saw in his friend",
       "cards": [
         {
+          "at": 0.05,
           "text": "Ibn Kathir knew him *well.*",
           "shape": "spark"
         },
         {
-          "text": "“I was among the closest people to *him.*”",
+          "at": 2.05,
+          "text": "Not from books — in *person.*",
           "shape": "halves"
         },
         {
-          "text": "“I know no one in our time who worshipped *more.*”",
+          "at": 4.45,
+          "text": "“I was among the closest people to *him.*”",
           "shape": "arch"
         },
         {
+          "at": 7.7,
+          "text": "“I know no one in our time who worshipped *more.*”",
+          "shape": "star8"
+        },
+        {
+          "at": 11.55,
           "text": "He made his prayer very *long.*",
           "shape": "line"
         },
         {
+          "at": 14.15,
           "text": "Long bowing. Long *prostration.*",
           "shape": "arcs"
         },
         {
-          "text": "",
-          "pills": [
-            "Bowing",
-            "Prostration",
-            "Never rushed"
-          ]
-        },
-        {
-          "text": "His companions sometimes blamed him for *it.*",
+          "at": 17.6,
+          "text": "His companions blamed him for *it.*",
           "shape": "scatter"
         },
         {
+          "at": 19.9,
           "text": "He never *stopped.*",
           "shape": "ring",
           "flare": true
+        },
+        {
+          "at": 21.65,
+          "text": "Some things are worth being *misunderstood* for.",
+          "shape": "emblem"
         }
       ],
       "book": {
         "ar": "البداية والنهاية",
         "en": "Al-Bidaya wa'n-Nihaya",
         "sub": "IBN KATHIR, HIS FRIEND"
-      }
+      },
+      "voice": {
+        "file": "vo/06-prayer.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 29.4,
+      "bookAt": 24.75,
+      "flareAt": 20.6
     },
     {
       "id": "07-books",
       "hook": "He collected books like no one else",
       "cards": [
         {
-          "text": "He loved one thing *deeply:* books.",
+          "at": 0.05,
+          "text": "He loved one thing almost to *excess.*",
           "shape": "spark"
         },
         {
-          "text": "Works of the early and later *scholars.*",
+          "at": 3.8,
+          "text": "*Books.*",
           "shape": "stack"
         },
         {
-          "text": "Others couldn't gather a *tenth* of them.",
-          "shape": "bars"
-        },
-        {
-          "text": "He passed away in 751 *AH.*",
-          "shape": "line"
-        },
-        {
-          "text": "His sons sold his books for a long *time,*",
-          "shape": "scatter"
-        },
-        {
-          "text": "",
-          "pills": [
-            "Collected",
-            "Read",
-            "Wrote"
-          ]
-        },
-        {
-          "text": "besides the ones they kept for *themselves.*",
+          "at": 5.1,
+          "text": "Works of the early scholars, and the *later* ones.",
           "shape": "book"
         },
         {
-          "text": "Knowledge outlives the one who carries *it.*",
+          "at": 8.1,
+          "text": "So many that others could not gather a *tenth* of them.",
+          "shape": "bars"
+        },
+        {
+          "at": 11.3,
+          "text": "Then, in the year 751, he *died.*",
+          "shape": "line"
+        },
+        {
+          "at": 15.6,
+          "text": "His sons kept selling his books for a long time *after,*",
+          "shape": "scatter"
+        },
+        {
+          "at": 19.6,
+          "text": "besides the ones they kept for *themselves.*",
+          "shape": "cube"
+        },
+        {
+          "at": 22.25,
+          "text": "A man dies. What he carried keeps *going.*",
           "shape": "star8",
           "flare": true
         }
@@ -503,7 +523,14 @@
         "ar": "الدرر الكامنة",
         "en": "Al-Durar al-Kamina",
         "sub": "IBN HAJAR · IBN KATHIR"
-      }
+      },
+      "voice": {
+        "file": "vo/07-books.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 31.0,
+      "bookAt": 26.3,
+      "flareAt": 23.0
     },
     {
       "id": "08-makkah",

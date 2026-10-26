@@ -1,0 +1,43 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/07-books",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 4.4,
+      "file": "books.mp3",
+      "rms_db": -30,
+      "what": "books"
+    },
+    {
+      "at": 5.2,
+      "file": "page.mp3",
+      "rms_db": -35,
+      "what": "works of the early scholars"
+    },
+    {
+      "at": 8.2,
+      "file": "books.mp3",
+      "rms_db": -33,
+      "what": "so many others could not gather a tenth"
+    },
+    {
+      "at": 16.0,
+      "file": "books.mp3",
+      "rms_db": -34,
+      "what": "his sons kept selling his books"
+    },
+    {
+      "at": 19.7,
+      "file": "page.mp3",
+      "rms_db": -35,
+      "what": "the ones they kept"
+    }
+  ]
+}
