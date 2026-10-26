@@ -537,39 +537,53 @@
       "hook": "The people of Makkah were amazed by him",
       "cards": [
         {
-          "text": "He performed Hajj many *times.*",
+          "at": 0.05,
+          "text": "He made Hajj many *times.*",
           "shape": "spark"
         },
         {
-          "text": "He stayed on in *Makkah.*",
+          "at": 2.6,
+          "text": "And then... he *stayed.*",
           "shape": "cube"
         },
         {
-          "text": "Its people spoke of his *tawaf,*",
+          "at": 4.6,
+          "text": "He stayed on in *Makkah.*",
           "shape": "cubeOrbit"
         },
         {
-          "text": "circling again and *again,*",
+          "at": 6.2,
+          "text": "The people of Makkah spoke about his *tawaf.*",
+          "shape": "orbit"
+        },
+        {
+          "at": 9.05,
+          "text": "Circling. And circling. And circling *again.*",
           "shape": "spiral"
         },
         {
-          "text": "and of how hard he *worshipped.*",
+          "at": 12.7,
+          "text": "They spoke about how hard he *worshipped.*",
           "shape": "arch"
         },
         {
-          "text": "",
-          "pills": [
-            "Hajj",
-            "Tawaf",
-            "Worship"
-          ]
+          "at": 15.55,
+          "text": "The people of *Makkah,*",
+          "shape": "cube"
         },
         {
-          "text": "Even Makkah's people found it *amazing.*",
-          "shape": "sun",
+          "at": 17.2,
+          "text": "who see worshippers every single *day.*",
+          "shape": "scatter"
+        },
+        {
+          "at": 20.05,
+          "text": "Even *they* found it amazing.",
+          "shape": "star8",
           "flare": true
         },
         {
+          "at": 22.15,
           "text": "Ibn Rajab sat in his classes in his final *year.*",
           "shape": "book"
         }
@@ -578,94 +592,126 @@
         "ar": "ذيل طبقات الحنابلة",
         "en": "Dhayl Tabaqat al-Hanabila",
         "sub": "IBN RAJAB, HIS STUDENT"
-      }
+      },
+      "voice": {
+        "file": "vo/08-makkah.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 30.0,
+      "bookAt": 25.1,
+      "flareAt": 20.4
     },
     {
       "id": "09-nothing",
       "hook": "The humility of Ibn Taymiyyah",
       "cards": [
         {
-          "text": "Ibn al-Qayyim often heard his teacher *say:*",
+          "at": 0.05,
+          "text": "Ibn al-Qayyim often heard his teacher say three *things.*",
           "shape": "spark"
         },
         {
+          "at": 3.85,
           "text": "“I own *nothing.*”",
           "shape": "ring"
         },
         {
+          "at": 6.5,
           "text": "“Nothing comes from *me.*”",
           "shape": "line"
         },
         {
+          "at": 8.45,
           "text": "“And there is nothing in *me.*”",
           "shape": "scatter"
         },
         {
-          "text": "When people praised him to his *face,*",
+          "at": 10.75,
+          "text": "This is the man they called the *Shaykh of Islam.*",
+          "shape": "emblem"
+        },
+        {
+          "at": 13.85,
+          "text": "And when people praised him to his *face,*",
           "shape": "halves"
         },
         {
-          "text": "",
-          "pills": [
-            "Nothing mine",
-            "Nothing from me",
-            "Nothing in me"
-          ]
-        },
-        {
+          "at": 16.4,
           "text": "he said: “By Allah, I renew my Islam every *moment.*”",
           "shape": "star8",
           "flare": true
         },
         {
+          "at": 20.9,
           "text": "“I have not yet become a Muslim *properly.*”",
           "shape": "wave"
+        },
+        {
+          "at": 23.7,
+          "text": "The closer he came, the *smaller* he felt.",
+          "shape": "spiral"
         }
       ],
       "book": {
         "ar": "مدارج السالكين",
         "en": "Madarij al-Salikin",
         "sub": "IBN AL-QAYYIM ON HIS TEACHER"
-      }
+      },
+      "voice": {
+        "file": "vo/09-nothing.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 31.4,
+      "bookAt": 26.9,
+      "flareAt": 17.5
     },
     {
       "id": "10-name",
       "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
       "cards": [
         {
-          "text": "Damascus, 691 *AH.*",
+          "at": 0.05,
+          "text": "Why is he called *Ibn Qayyim al-Jawziyya?*",
           "shape": "spark"
         },
         {
-          "text": "His father looked after a school: *al-Jawziyya.*",
+          "at": 3.5,
+          "text": "Damascus. The year *691.*",
           "shape": "arch"
         },
         {
-          "text": "Its caretaker was called its *qayyim.*",
+          "at": 7.4,
+          "text": "His father looked after a school called *al-Jawziyya.*",
           "shape": "book"
         },
         {
-          "text": "So the son became *Ibn Qayyim al-Jawziyya.*",
+          "at": 10.6,
+          "text": "And the one who looked after a school was called its *qayyim.*",
+          "shape": "stack"
+        },
+        {
+          "at": 14.25,
+          "text": "So the son became the son of the qayyim of *al-Jawziyya.*",
           "shape": "orbit"
         },
         {
-          "text": "In 712 AH he met Ibn *Taymiyyah.*",
+          "at": 18.2,
+          "text": "In the year 712, he met *Ibn Taymiyyah.*",
           "shape": "halves"
         },
         {
-          "text": "",
-          "pills": [
-            "691 · Born",
-            "712 · His teacher",
-            "751 · Returned to Allah"
-          ]
-        },
-        {
-          "text": "Sixteen years at his teacher's *side.*",
+          "at": 21.8,
+          "text": "Sixteen years at his teacher’s *side.*",
           "shape": "arcs"
         },
         {
-          "text": "Seven centuries on, we still read *him.*",
+          "at": 24.6,
+          "text": "751. He returns to *Allah.*",
+          "shape": "line"
+        },
+        {
+          "at": 28.3,
+          "text": "And seven centuries later, we are still reading *him.*",
           "shape": "star8",
           "flare": true
         }
@@ -674,7 +720,14 @@
         "ar": "ذيل طبقات الحنابلة",
         "en": "Dhayl Tabaqat al-Hanabila",
         "sub": "IBN RAJAB · IBN KATHIR"
-      }
+      },
+      "voice": {
+        "file": "vo/10-name.mp3",
+        "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+      },
+      "end": 36.0,
+      "bookAt": 31.8,
+      "flareAt": 28.6
     }
   ]
 }

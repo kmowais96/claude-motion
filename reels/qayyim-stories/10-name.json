@@ -1,79 +1,75 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 36,
+  "voice": {
+    "file": "vo/10-name.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 28.6,
   "label": "IBN AL-QAYYIM",
   "hook": "Why was he called Ibn Qayyim al-Jawziyya?",
   "tag": "STORIES · 10 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
-      "text": "Damascus, 691 *AH.*",
+      "in": 0.05,
+      "out": 3.4,
+      "text": "Why is he called *Ibn Qayyim al-Jawziyya?*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "His father looked after a school: *al-Jawziyya.*",
+      "in": 3.5,
+      "out": 7.3,
+      "text": "Damascus. The year *691.*",
       "shape": "arch"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "Its caretaker was called its *qayyim.*",
+      "in": 7.4,
+      "out": 10.5,
+      "text": "His father looked after a school called *al-Jawziyya.*",
       "shape": "book"
     },
     {
-      "in": 9,
-      "out": 11.9,
-      "text": "So the son became *Ibn Qayyim al-Jawziyya.*",
+      "in": 10.6,
+      "out": 14.15,
+      "text": "And the one who looked after a school was called its *qayyim.*",
+      "shape": "stack"
+    },
+    {
+      "in": 14.25,
+      "out": 18.1,
+      "text": "So the son became the son of the qayyim of *al-Jawziyya.*",
       "shape": "orbit"
     },
     {
-      "in": 12,
-      "out": 14.9,
-      "text": "In 712 AH he met Ibn *Taymiyyah.*",
+      "in": 18.2,
+      "out": 21.7,
+      "text": "In the year 712, he met *Ibn Taymiyyah.*",
       "shape": "halves"
     },
     {
-      "in": 15,
-      "out": 17.9,
-      "text": "",
-      "pills": [
-        {
-          "label": "691 · Born",
-          "at": 15.2
-        },
-        {
-          "label": "712 · His teacher",
-          "at": 15.9
-        },
-        {
-          "label": "751 · Returned to Allah",
-          "at": 16.6
-        }
-      ]
-    },
-    {
-      "in": 18,
-      "out": 20.9,
-      "text": "Sixteen years at his teacher's *side.*",
+      "in": 21.8,
+      "out": 24.5,
+      "text": "Sixteen years at his teacher’s *side.*",
       "shape": "arcs"
     },
     {
-      "in": 21,
-      "out": 23.9,
-      "text": "Seven centuries on, we still read *him.*",
+      "in": 24.6,
+      "out": 28.2,
+      "text": "751. He returns to *Allah.*",
+      "shape": "line"
+    },
+    {
+      "in": 28.3,
+      "out": 31.7,
+      "text": "And seven centuries later, we are still reading *him.*",
       "shape": "star8",
       "flare": true
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 31.8,
     "ar": "ذيل طبقات الحنابلة",
     "en": "Dhayl Tabaqat al-Hanabila",
     "sub": "IBN RAJAB · IBN KATHIR"

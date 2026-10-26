@@ -1,79 +1,81 @@
 {
   "fps": 60,
-  "duration": 27,
-  "cadence": 3,
-  "enter": 0.6,
+  "duration": 30,
+  "voice": {
+    "file": "vo/08-makkah.mp3",
+    "note": "ElevenLabs eleven_v4, voice Seff Echo; card times come from its word timings"
+  },
+  "flareAt": 20.4,
   "label": "IBN AL-QAYYIM",
   "hook": "The people of Makkah were amazed by him",
   "tag": "STORIES · 08 / 10",
   "motif": "arch",
   "cards": [
     {
-      "in": 0,
-      "out": 2.9,
-      "text": "He performed Hajj many *times.*",
+      "in": 0.05,
+      "out": 2.5,
+      "text": "He made Hajj many *times.*",
       "shape": "spark"
     },
     {
-      "in": 3,
-      "out": 5.9,
-      "text": "He stayed on in *Makkah.*",
+      "in": 2.6,
+      "out": 4.5,
+      "text": "And then... he *stayed.*",
       "shape": "cube"
     },
     {
-      "in": 6,
-      "out": 8.9,
-      "text": "Its people spoke of his *tawaf,*",
+      "in": 4.6,
+      "out": 6.1,
+      "text": "He stayed on in *Makkah.*",
       "shape": "cubeOrbit"
     },
     {
-      "in": 9,
-      "out": 11.9,
-      "text": "circling again and *again,*",
+      "in": 6.2,
+      "out": 8.95,
+      "text": "The people of Makkah spoke about his *tawaf.*",
+      "shape": "orbit"
+    },
+    {
+      "in": 9.05,
+      "out": 12.6,
+      "text": "Circling. And circling. And circling *again.*",
       "shape": "spiral"
     },
     {
-      "in": 12,
-      "out": 14.9,
-      "text": "and of how hard he *worshipped.*",
+      "in": 12.7,
+      "out": 15.45,
+      "text": "They spoke about how hard he *worshipped.*",
       "shape": "arch"
     },
     {
-      "in": 15,
-      "out": 17.9,
-      "text": "",
-      "pills": [
-        {
-          "label": "Hajj",
-          "at": 15.2
-        },
-        {
-          "label": "Tawaf",
-          "at": 15.9
-        },
-        {
-          "label": "Worship",
-          "at": 16.6
-        }
-      ]
+      "in": 15.55,
+      "out": 17.1,
+      "text": "The people of *Makkah,*",
+      "shape": "cube"
     },
     {
-      "in": 18,
-      "out": 20.9,
-      "text": "Even Makkah's people found it *amazing.*",
-      "shape": "sun",
+      "in": 17.2,
+      "out": 19.95,
+      "text": "who see worshippers every single *day.*",
+      "shape": "scatter"
+    },
+    {
+      "in": 20.05,
+      "out": 22.05,
+      "text": "Even *they* found it amazing.",
+      "shape": "star8",
       "flare": true
     },
     {
-      "in": 21,
-      "out": 23.9,
+      "in": 22.15,
+      "out": 25,
       "text": "Ibn Rajab sat in his classes in his final *year.*",
       "shape": "book"
     }
   ],
   "marks": [],
   "book": {
-    "in": 24,
+    "in": 25.1,
     "ar": "ذيل طبقات الحنابلة",
     "en": "Dhayl Tabaqat al-Hanabila",
     "sub": "IBN RAJAB, HIS STUDENT"

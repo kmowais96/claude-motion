@@ -1,0 +1,31 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/10-name",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 7.5,
+      "file": "page.mp3",
+      "rms_db": -34,
+      "what": "a school called al-Jawziyya"
+    },
+    {
+      "at": 10.7,
+      "file": "books.mp3",
+      "rms_db": -34,
+      "what": "its qayyim"
+    },
+    {
+      "at": 21.9,
+      "file": "page.mp3",
+      "rms_db": -35,
+      "what": "sixteen years at his side"
+    }
+  ]
+}

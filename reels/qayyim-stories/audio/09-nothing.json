@@ -1,0 +1,25 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/09-nothing",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -44,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 16.5,
+      "file": "rug.mp3",
+      "rms_db": -34,
+      "what": "he said: by Allah"
+    },
+    {
+      "at": 23.8,
+      "file": "rug.mp3",
+      "rms_db": -36,
+      "what": "the closer he came"
+    }
+  ]
+}

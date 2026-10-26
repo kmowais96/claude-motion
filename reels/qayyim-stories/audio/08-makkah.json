@@ -1,0 +1,43 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. Natural sound: eleven_text_to_sound_v2. Cue times come from the narration's own word timings.",
+  "dir": "media/qayyim-stories/08-makkah",
+  "voice": "vo.mp3",
+  "moves": "sfx/cues/qayyim_story_vo.py",
+  "bed": {
+    "file": "air.mp3",
+    "rms_db": -45,
+    "fade": 2.0
+  },
+  "cues": [
+    {
+      "at": 6.3,
+      "file": "crowd.mp3",
+      "rms_db": -36,
+      "what": "the people of Makkah spoke"
+    },
+    {
+      "at": 9.0,
+      "file": "crowd.mp3",
+      "rms_db": -33,
+      "what": "circling"
+    },
+    {
+      "at": 10.2,
+      "file": "crowd.mp3",
+      "rms_db": -32,
+      "what": "and circling"
+    },
+    {
+      "at": 11.2,
+      "file": "crowd.mp3",
+      "rms_db": -31,
+      "what": "and circling again"
+    },
+    {
+      "at": 15.6,
+      "file": "crowd.mp3",
+      "rms_db": -35,
+      "what": "the people of Makkah"
+    }
+  ]
+}
