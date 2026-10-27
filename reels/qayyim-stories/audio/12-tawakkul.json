@@ -1,0 +1,26 @@
+{
+  "note": "Narrator: ElevenLabs eleven_v4, voice 'Seff Echo - Cinematic Storyteller'. NO MUSIC — no pad, no drums, no tonal bed of any kind. Only recorded sound: a stone hall under everything, and one real event per line. Cue times are the narration's own pauses, measured off the take, so each sound lands on the words that name it.",
+  "dir": "media/qayyim-stories/12-tawakkul",
+  "voice": "vo.mp3",
+  "bed": {
+    "file": "hall.mp3",
+    "rms_db": -44,
+    "fade": 3.0
+  },
+  "cues": [
+    {"at": 0.30, "file": "wind.mp3", "rms_db": -38, "what": "the opening: still, outdoors, nothing happening yet"},
+    {"at": 3.80, "file": "sword.mp3", "rms_db": -26, "what": "Umar draws his sword"},
+    {"at": 4.60, "file": "crowd.mp3", "rms_db": -33, "what": "the mosque reacts"},
+    {"at": 7.60, "file": "crowd.mp3", "rms_db": -31, "what": "the strongest man could not accept it"},
+    {"at": 10.85, "file": "footsteps.mp3", "rms_db": -30, "what": "Abu Bakr comes in"},
+    {"at": 12.58, "file": "cloth.mp3", "rms_db": -26, "what": "he uncovers his face"},
+    {"at": 15.70, "file": "wind.mp3", "rms_db": -36, "what": "and he wept — air, nothing more"},
+    {"at": 16.70, "file": "footsteps.mp3", "rms_db": -31, "what": "he walks back outside"},
+    {"at": 17.60, "file": "crowd.mp3", "rms_db": -34, "what": "the people waiting out there"},
+    {"at": 21.20, "file": "crowd.mp3", "rms_db": -38, "what": "they fall quiet to hear him"},
+    {"at": 24.45, "file": "dawn.mp3", "rms_db": -33, "what": "Allah is alive — the one open sound in the piece"},
+    {"at": 28.95, "file": "rug.mp3", "rms_db": -29, "what": "Umar's legs give under him"},
+    {"at": 31.70, "file": "rug.mp3", "rms_db": -25, "what": "he falls to the ground"},
+    {"at": 37.45, "file": "desert.mp3", "rms_db": -36, "what": "what holds when he is gone"}
+  ]
+}
