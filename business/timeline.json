@@ -1,52 +1,205 @@
 {
-  "fps": 30,
-  "duration": 59.5,
-  "handle": "TheTazkiyyahGuide",
-  "scenes": {
-    "hook": [0, 2.9],
-    "intro": [2.9, 10.1],
-    "halal": [10.1, 22.6],
-    "honest": [22.6, 33.0],
-    "tawakkul": [33.0, 44.7],
-    "ruling": [44.7, 53.6],
-    "cta": [53.6, 59.5]
-  },
-  "cues": {
-    "hook": {"income": 0.1, "test": 1.06, "clean": 1.9},
-    "intro": {"name": 2.94, "died": 4.06, "zad": 5.96, "madarij": 7.1, "four": 8.76},
-    "halal": {"one": 10.26, "trade": 12.08, "riba": 13.76, "hiyal": 14.88, "notAllowed": 18.36, "clever": 20.0},
-    "honest": {"two": 22.78, "prophet": 24.4, "quote": 26.46, "defects": 28.84, "fake": 30.02, "rep": 31.18},
-    "tawakkul": {"three": 33.12, "tie": 35.78, "quote": 37.0, "half": 39.32, "effort": 42.06, "result": 43.28},
-    "ruling": {"four": 44.94, "fatwa": 47.54, "time": 49.5, "place": 49.96, "custom": 50.5, "ask": 51.24},
-    "cta": {"clean": 53.8, "honest": 54.82, "camel": 55.8, "follow": 56.82}
-  },
-  "captions": [
-    [0.1, "Your income is a test."],
-    [1.9, "Is yours clean?"],
-    [2.94, "Ibn al-Qayyim, died 751 AH."],
-    [5.96, "Zad al-Ma'ad. Madarij al-Salikin."],
-    [8.76, "Four lessons for earning."],
-    [10.26, "One. Halal first."],
-    [12.08, "Allah made trade lawful, and riba haram."],
-    [14.88, "Ibn al-Qayyim sorted legal tricks (ḥiyal) into types,"],
-    [18.36, "some clearly not allowed."],
-    [20.0, "A clever contract is not a clean contract."],
-    [22.78, "Two. Be honest."],
-    [24.4, "The Prophet ﷺ said:"],
-    [26.46, "“Whoever cheats us is not one of us.”"],
-    [28.84, "No hidden defects. No fake discounts."],
-    [31.18, "Your reputation is your capital."],
-    [33.12, "Three. Work hard, then trust Allah."],
-    [35.78, "The Prophet told the man:"],
-    [37.0, "“Tie your camel, then rely on Allah.”"],
-    [39.32, "Ibn al-Qayyim called tawakkul half of the religion."],
-    [42.06, "Effort is your job."],
-    [43.28, "The result is Allah's."],
-    [44.94, "Four. Get the ruling for your actual deal."],
-    [47.54, "Ibn al-Qayyim: fatwas change with time, place and custom,"],
-    [51.24, "so ask a qualified scholar before you sign."],
-    [53.8, "Clean income. Honest deals."],
-    [55.8, "Tie your camel."],
-    [56.82, "Follow @TheTazkiyyahGuide"]
+ "fps": 30,
+ "duration": 57.0,
+ "handle": "TheTazkiyyahGuide",
+ "scenes": {
+  "hook": [
+   0,
+   2.9
+  ],
+  "hook2": [
+   2.9,
+   8.34
+  ],
+  "halal": [
+   8.34,
+   20.84
+  ],
+  "honest": [
+   20.84,
+   31.24
+  ],
+  "tawakkul": [
+   31.24,
+   42.94
+  ],
+  "ruling": [
+   42.94,
+   51.84
+  ],
+  "cta": [
+   51.84,
+   57.74
   ]
+ },
+ "cues": {
+  "hook": {
+   "income": 0.1,
+   "test": 1.06,
+   "clean": 1.9
+  },
+  "hook2": {
+   "most": 2.92,
+   "howmuch": 4.09,
+   "ask": 5.09,
+   "how": 6.36,
+   "four": 7.18
+  },
+  "halal": {
+   "one": 8.5,
+   "trade": 10.32,
+   "riba": 12.0,
+   "hiyal": 13.12,
+   "notAllowed": 16.6,
+   "clever": 18.24
+  },
+  "honest": {
+   "two": 21.02,
+   "prophet": 22.64,
+   "quote": 24.7,
+   "defects": 27.08,
+   "fake": 28.26,
+   "rep": 29.42
+  },
+  "tawakkul": {
+   "three": 31.36,
+   "tie": 34.02,
+   "quote": 35.24,
+   "half": 37.56,
+   "effort": 40.3,
+   "result": 41.52
+  },
+  "ruling": {
+   "four": 43.18,
+   "fatwa": 45.78,
+   "time": 47.74,
+   "place": 48.2,
+   "custom": 48.74,
+   "ask": 49.48
+  },
+  "cta": {
+   "clean": 52.04,
+   "honest": 53.06,
+   "camel": 54.04,
+   "follow": 55.06
+  }
+ },
+ "captions": [
+  [
+   0.1,
+   "Your income is a test."
+  ],
+  [
+   1.9,
+   "Is yours clean?"
+  ],
+  [
+   2.92,
+   "Most men ask:"
+  ],
+  [
+   4.09,
+   "“How much?”"
+  ],
+  [
+   5.09,
+   "Ask this first:"
+  ],
+  [
+   6.36,
+   "“How?”"
+  ],
+  [
+   7.18,
+   "Four rules."
+  ],
+  [
+   8.5,
+   "One. Halal first."
+  ],
+  [
+   10.32,
+   "Allah made trade lawful, and riba haram."
+  ],
+  [
+   13.12,
+   "Ibn al-Qayyim sorted legal tricks (ḥiyal) into types,"
+  ],
+  [
+   16.6,
+   "some clearly not allowed."
+  ],
+  [
+   18.24,
+   "A clever contract is not a clean contract."
+  ],
+  [
+   21.02,
+   "Two. Be honest."
+  ],
+  [
+   22.64,
+   "The Prophet ﷺ said:"
+  ],
+  [
+   24.7,
+   "“Whoever cheats us is not one of us.”"
+  ],
+  [
+   27.08,
+   "No hidden defects. No fake discounts."
+  ],
+  [
+   29.42,
+   "Your reputation is your capital."
+  ],
+  [
+   31.36,
+   "Three. Work hard, then trust Allah."
+  ],
+  [
+   34.02,
+   "The Prophet told the man:"
+  ],
+  [
+   35.24,
+   "“Tie your camel, then rely on Allah.”"
+  ],
+  [
+   37.56,
+   "Ibn al-Qayyim called tawakkul half of the religion."
+  ],
+  [
+   40.3,
+   "Effort is your job."
+  ],
+  [
+   41.52,
+   "The result is Allah's."
+  ],
+  [
+   43.18,
+   "Four. Get the ruling for your actual deal."
+  ],
+  [
+   45.78,
+   "Ibn al-Qayyim: fatwas change with time, place and custom,"
+  ],
+  [
+   49.48,
+   "so ask a qualified scholar before you sign."
+  ],
+  [
+   52.04,
+   "Clean income. Honest deals."
+  ],
+  [
+   54.04,
+   "Tie your camel."
+  ],
+  [
+   55.06,
+   "Follow @TheTazkiyyahGuide"
+  ]
+ ]
 }

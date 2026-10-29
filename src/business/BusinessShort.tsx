@@ -146,45 +146,53 @@ const Hook: React.FC<{t: number}> = ({t}) => {
   );
 };
 
-const Intro: React.FC<{t: number}> = ({t}) => {
-  const c = cu.intro;
-  const books = [
-    {t: c.zad, name: "Zad al-Ma'ad"},
-    {t: c.madarij, name: 'Madarij al-Salikin'},
-  ];
+const Hook2: React.FC<{t: number}> = ({t}) => {
+  const c = cu.hook2;
+  const wrong = 1 - band(t, c.ask - 0.1, c.ask + 0.3);
+  const how = rise(t, c.how, 0.3);
   return (
-    <Stage id="intro" t={t}>
-      <div style={{position: 'absolute', top: 330, left: 70, right: 70}}>
-        <div style={{fontFamily: FN.serif, fontSize: 150, lineHeight: 0.95, color: P.cream, whiteSpace: 'nowrap'}}>
-          <Mask k={rise(t, c.name, 0.5)}>Ibn al-Qayyim</Mask>
+    <Stage id="hook2" t={t}>
+      <div style={{position: 'absolute', top: 360, left: 70, right: 70}}>
+        <div style={{opacity: wrong}}>
+          <div style={{fontFamily: FN.mono, fontWeight: 600, fontSize: 40, color: P.muted, letterSpacing: 6, opacity: rise(t, c.most)}}>
+            MOST MEN ASK
+          </div>
+          <div style={{fontFamily: FN.sans, fontWeight: 900, fontSize: 210, lineHeight: 0.95, color: P.red, marginTop: 24, textTransform: 'uppercase'}}>
+            <Mask k={rise(t, c.howmuch, 0.35)}>How much?</Mask>
+          </div>
         </div>
-        <div style={{marginTop: 30}}>
-          <Chip k={rise(t, c.died)}>d. 751 AH</Chip>
+        <div style={{position: 'absolute', top: 0, left: 0, right: 0}}>
+          <div style={{fontFamily: FN.mono, fontWeight: 600, fontSize: 40, color: P.gold, letterSpacing: 6, opacity: rise(t, c.ask)}}>
+            ASK THIS FIRST
+          </div>
+          <div
+            style={{
+              fontFamily: FN.serif, fontStyle: 'italic', fontSize: 380, lineHeight: 0.95, color: P.green, marginTop: 10,
+              opacity: how, transform: `scale(${1.4 - 0.4 * how})`, transformOrigin: '0% 50%',
+            }}
+          >
+            How?
+          </div>
         </div>
       </div>
-      {books.map((b, i) => (
-        <Card key={b.name} k={rise(t, b.t)} top={880 + i * 150} h={110} tone={P.gold} style={{display: 'flex', alignItems: 'center', gap: 28, padding: '0 40px'}}>
-          <div style={{width: 14, height: 70, background: P.gold, borderRadius: 4}} />
-          <div style={{fontFamily: FN.serif, fontSize: 64, color: P.cream}}>{b.name}</div>
-        </Card>
-      ))}
-      <div style={{position: 'absolute', top: 1180, left: 70, right: 70, display: 'flex', gap: 22, alignItems: 'center'}}>
+      <div style={{position: 'absolute', top: 1060, left: 70, right: 70, display: 'flex', gap: 22, alignItems: 'center'}}>
         {[1, 2, 3, 4].map((n) => {
-          const k = rise(t, c.four + (n - 1) * 0.28, 0.3);
+          const k = rise(t, c.four + (n - 1) * 0.2, 0.3);
           return (
             <div
               key={n}
               style={{
-                width: 100, height: 100, borderRadius: 50, border: `3px solid ${P.gold}`,
+                width: 110, height: 110, borderRadius: 55, border: `3px solid ${P.gold}`,
                 background: k > 0.5 ? P.gold : 'transparent', color: k > 0.5 ? P.ink : P.gold,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: FN.mono, fontWeight: 600, fontSize: 44, transform: `scale(${0.8 + 0.2 * k})`, opacity: 0.4 + 0.6 * k,
+                fontFamily: FN.mono, fontWeight: 600, fontSize: 48, transform: `scale(${0.8 + 0.2 * k})`, opacity: 0.3 + 0.7 * k,
               }}
             >
               {n}
             </div>
           );
         })}
+        <div style={{fontFamily: FN.mono, fontWeight: 600, fontSize: 40, color: P.gold, marginLeft: 10, opacity: rise(t, c.four)}}>RULES</div>
       </div>
     </Stage>
   );
@@ -470,7 +478,7 @@ export const BusinessShort: React.FC = () => {
     <AbsoluteFill style={{background: P.bg}}>
       <Backdrop t={t} />
       <Hook t={t} />
-      <Intro t={t} />
+      <Hook2 t={t} />
       <Halal t={t} />
       <Honest t={t} />
       <Tawakkul t={t} />
