@@ -247,7 +247,7 @@ const Handle: React.FC<{t: number}> = ({t}) => {
         }}
       >
         @{TLR.handle}
-        <div style={{fontFamily: RF.sans, fontWeight: 400, fontSize: 30, color: R.creamDim, marginTop: 12}}>Follow for the heart work</div>
+        <div style={{fontFamily: RF.sans, fontWeight: 400, fontSize: 30, color: R.creamDim, marginTop: 12}}>Follow for similar posts</div>
       </div>
     </>
   );

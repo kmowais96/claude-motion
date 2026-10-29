@@ -1,4 +1,4 @@
-# Rise after falling (9:16 Short, 60.4 s)
+# Rise after falling (9:16 Short, 60.0 s)
 
 Second-person night narrative for Muslim men 25–35. Handle: **@TheTazkiyyahGuide** (spoken at 57 s, small on screen from 0.5 s, large end card from 57 s).
 
@@ -23,7 +23,7 @@ Render: `npx remotion render RiseVideo out/rise-silent.mp4`, then mux `public/ri
 | 29.9–44.8 | Ibn al-Qayyim, Madarij al-Salikin: repentance as a station the traveler never leaves; a fall can leave you broken, humble, needy of Allah, a closeness pride never gives. | Tag "Paraphrase … not a verbatim quote". Chips light up: BROKEN › HUMBLE › NEEDY › NEAR. Sky starts to lift. |
 | 45.3–52.0 | "So don't stay down. Make wudu. Pray two rak'ah. Say astaghfirullah. Allah loves those who keep turning back to Him." | Three step chips tick on, soft chime each. Warm horizon appears. |
 | 52.5–56.7 | "You didn't fall out of His mercy. You fell into your need for it. Now rise." | Dawn gradient, gold "Now rise." |
-| 57.0–60.4 | "Follow the Tazkiyyah Guide for the heart work nobody talks about." | End card @TheTazkiyyahGuide. |
+| 57.0–60.0 | "Follow the Tazkiyyah Guide for similar posts." | End card @TheTazkiyyahGuide. |
 
 ## Sourcing and what is NOT verified
 
