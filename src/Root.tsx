@@ -3,6 +3,10 @@ import {Composition, Still} from 'remotion';
 import {ArticleCover} from './ArticleCover';
 import {EffortVideo} from './EffortVideo';
 import {FPS, H, TL, W} from './lib';
+import {MercyVideo} from './mercy/MercyVideo';
+import {KishkVideo} from './kishk/KishkVideo';
+import {KFPS, KT} from './kishk/theme';
+import {MFPS, MH, MT, MW} from './mercy/theme';
 
 export const Root: React.FC = () => (
   <>
@@ -13,6 +17,22 @@ export const Root: React.FC = () => (
       fps={FPS}
       width={W}
       height={H}
+    />
+    <Composition
+      id="MercyVideo"
+      component={MercyVideo}
+      durationInFrames={Math.round(MT.duration * MFPS)}
+      fps={MFPS}
+      width={MW}
+      height={MH}
+    />
+    <Composition
+      id="KishkVideo"
+      component={KishkVideo}
+      durationInFrames={Math.round(KT.duration * KFPS)}
+      fps={KFPS}
+      width={MW}
+      height={MH}
     />
     <Still id="ArticleCover" component={ArticleCover} width={2000} height={800} />
   </>

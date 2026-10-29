@@ -7,3 +7,5 @@ __pycache__/
 .env
 drafts/
 sims/dist/
+public/mercy/*.wav
+public/kishk/*.wav

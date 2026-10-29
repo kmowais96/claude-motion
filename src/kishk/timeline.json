@@ -1,0 +1,432 @@
+{
+ "fps": 30,
+ "duration": 215.8,
+ "full": true,
+ "lines": [
+  {
+   "s": 3.7,
+   "e": 9.1,
+   "text": "Whoever wants a companion, Allah is sufficient for him.",
+   "key": "companion"
+  },
+  {
+   "s": 9.2,
+   "e": 15.7,
+   "text": "And whoever wants a proof, the Qur'an is sufficient for him.",
+   "key": "proof"
+  },
+  {
+   "s": 15.8,
+   "e": 21.9,
+   "text": "And whoever wants wealth, contentment is sufficient for him.",
+   "key": "wealth"
+  },
+  {
+   "s": 21.9,
+   "e": 28.3,
+   "text": "And whoever wants a reminder, death is sufficient for him.",
+   "key": "reminder"
+  },
+  {
+   "s": 29.0,
+   "e": 33.9,
+   "text": "Whoever wants a companion, Allah is sufficient for him.",
+   "key": "companion2"
+  },
+  {
+   "s": 34.7,
+   "e": 39.9,
+   "text": "And whoever wants a proof, the Qur'an is sufficient for him.",
+   "key": "proof2"
+  },
+  {
+   "s": 40.7,
+   "e": 45.5,
+   "text": "And whoever wants a reminder, death is sufficient for him.",
+   "key": "reminder2"
+  },
+  {
+   "s": 46.2,
+   "e": 50.9,
+   "text": "And whoever wants wealth, contentment is sufficient for him.",
+   "key": "wealth2"
+  },
+  {
+   "s": 51.1,
+   "e": 55.4,
+   "text": "And for whom none of that is sufficient\u2026",
+   "key": "none"
+  },
+  {
+   "s": 55.5,
+   "e": 60.3,
+   "text": "\u2026the Fire will surely be sufficient for him.",
+   "key": "fire"
+  },
+  {
+   "s": 68.0,
+   "e": 69.3,
+   "text": "O son of Adam,",
+   "key": "adam"
+  },
+  {
+   "s": 77.0,
+   "e": 80.4,
+   "text": "we weep over this lower life,",
+   "key": "weep"
+  },
+  {
+   "s": 84.0,
+   "e": 90.6,
+   "text": "but there has never been a gathering that death did not separate.",
+   "key": "separate"
+  },
+  {
+   "s": 93.9,
+   "e": 99.3,
+   "text": "Where are the mighty tyrants who amassed treasures?",
+   "key": "tyrants"
+  },
+  {
+   "s": 99.5,
+   "e": 102.2,
+   "text": "They did not survive, nor did their treasures.",
+   "key": "survive"
+  },
+  {
+   "s": 103.4,
+   "e": 107.6,
+   "text": "Where is the one who filled the wide sky with his army?",
+   "key": "army"
+  },
+  {
+   "s": 107.6,
+   "e": 112.0,
+   "text": "In the end, he ended in a narrow grave.",
+   "key": "grave"
+  },
+  {
+   "s": 113.0,
+   "e": 121.0,
+   "text": "When they are called, they will be silent, as if they never knew how to speak.",
+   "key": "silent"
+  },
+  {
+   "s": 122.1,
+   "e": 130.0,
+   "text": "\u201cThose who believe, and whose hearts find peace in the remembrance of Allah.\u201d",
+   "key": "believe"
+  },
+  {
+   "s": 130.6,
+   "e": 137.4,
+   "text": "\u201cVerily, in the remembrance of Allah do hearts find peace.\u201d",
+   "key": "verily1"
+  },
+  {
+   "s": 137.6,
+   "e": 143.8,
+   "text": "\u201cVerily, in the remembrance of Allah do hearts find peace.\u201d",
+   "key": "verily2"
+  },
+  {
+   "s": 144.0,
+   "e": 150.0,
+   "text": "\u201cVerily, in the remembrance of Allah do hearts find peace.\u201d",
+   "key": "verily3"
+  },
+  {
+   "s": 150.1,
+   "e": 152.2,
+   "text": "O you who affirm the oneness of Allah, tell me:",
+   "key": "tellme"
+  }
+ ],
+ "names": [
+  {
+   "s": 152.2,
+   "hit": 154.22,
+   "e": 155.0,
+   "name": "the One"
+  },
+  {
+   "s": 155.0,
+   "hit": 156.78,
+   "e": 156.7,
+   "name": "the Finder"
+  },
+  {
+   "s": 156.7,
+   "hit": 158.86,
+   "e": 159.0,
+   "name": "the Most Glorious"
+  },
+  {
+   "s": 159.0,
+   "hit": 160.93,
+   "e": 161.2,
+   "name": "the Entirely Merciful"
+  },
+  {
+   "s": 161.2,
+   "hit": 163.0,
+   "e": 163.2,
+   "name": "the Especially Merciful"
+  },
+  {
+   "s": 163.2,
+   "hit": 164.64,
+   "e": 164.5,
+   "name": "the King"
+  },
+  {
+   "s": 164.5,
+   "hit": 166.45,
+   "e": 166.9,
+   "name": "the Most Holy"
+  },
+  {
+   "s": 167.1,
+   "hit": 168.32,
+   "e": 168.4,
+   "name": "the Peace"
+  },
+  {
+   "s": 168.6,
+   "hit": 170.03,
+   "e": 170.0,
+   "name": "the Giver of Faith"
+  },
+  {
+   "s": 170.2,
+   "hit": 171.77,
+   "e": 172.0,
+   "name": "the Guardian"
+  },
+  {
+   "s": 172.2,
+   "hit": 173.53,
+   "e": 173.7,
+   "name": "the Almighty"
+  },
+  {
+   "s": 173.7,
+   "hit": 174.42,
+   "e": 175.2,
+   "name": "the Compeller"
+  },
+  {
+   "s": 175.2,
+   "hit": 177.72,
+   "e": 177.5,
+   "name": "the Supreme"
+  },
+  {
+   "s": 177.7,
+   "hit": 178.99,
+   "e": 179.1,
+   "name": "the Creator"
+  },
+  {
+   "s": 179.2,
+   "hit": 179.75,
+   "e": 180.5,
+   "name": "the Originator"
+  },
+  {
+   "s": 180.7,
+   "hit": 181.77,
+   "e": 182.6,
+   "name": "the Fashioner"
+  },
+  {
+   "s": 182.6,
+   "hit": 184.07,
+   "e": 184.3,
+   "name": "the Most Wise"
+  },
+  {
+   "s": 184.3,
+   "hit": 185.94,
+   "e": 186.5,
+   "name": "the Most Kind"
+  },
+  {
+   "s": 186.6,
+   "hit": 188.05,
+   "e": 187.9,
+   "name": "the Magnificent"
+  },
+  {
+   "s": 188.1,
+   "hit": 189.78,
+   "e": 190.0,
+   "name": "the Withholder"
+  },
+  {
+   "s": 190.0,
+   "hit": 191.52,
+   "e": 192.0,
+   "name": "the Extender"
+  },
+  {
+   "s": 192.0,
+   "hit": 193.02,
+   "e": 193.7,
+   "name": "the Exalter"
+  },
+  {
+   "s": 193.7,
+   "hit": 195.09,
+   "e": 195.6,
+   "name": "the Abaser"
+  },
+  {
+   "s": 195.6,
+   "hit": 197.04,
+   "e": 197.5,
+   "name": "the Most Majestic"
+  },
+  {
+   "s": 197.7,
+   "hit": 198.99,
+   "e": 199.5,
+   "name": "the Most Majestic"
+  },
+  {
+   "s": 199.5,
+   "hit": 200.87,
+   "e": 201.4,
+   "name": "the All-Powerful"
+  },
+  {
+   "s": 201.5,
+   "hit": 202.7,
+   "e": 203.2,
+   "name": "the Trustee"
+  },
+  {
+   "s": 203.2,
+   "hit": 204.71,
+   "e": 204.9,
+   "name": "the Nourisher"
+  },
+  {
+   "s": 204.9,
+   "hit": 206.24,
+   "e": 206.4,
+   "name": "the Finder"
+  },
+  {
+   "s": 206.4,
+   "hit": 208.17,
+   "e": 208.4,
+   "name": "the Most Glorious"
+  },
+  {
+   "s": 208.6,
+   "hit": 209.82,
+   "e": 209.6,
+   "name": "the Only One"
+  }
+ ],
+ "final": {
+  "s": 209.8,
+  "e": 212.6,
+  "text": "Affirm the oneness of the One, the Only!"
+ },
+ "key": {
+  "companion": [
+   3.7,
+   9.1
+  ],
+  "proof": [
+   9.2,
+   15.7
+  ],
+  "wealth": [
+   15.8,
+   21.9
+  ],
+  "reminder": [
+   21.9,
+   28.3
+  ],
+  "companion2": [
+   29.0,
+   33.9
+  ],
+  "proof2": [
+   34.7,
+   39.9
+  ],
+  "reminder2": [
+   40.7,
+   45.5
+  ],
+  "wealth2": [
+   46.2,
+   50.9
+  ],
+  "none": [
+   51.1,
+   55.4
+  ],
+  "fire": [
+   55.5,
+   60.3
+  ],
+  "adam": [
+   68.0,
+   69.3
+  ],
+  "weep": [
+   77.0,
+   80.4
+  ],
+  "separate": [
+   84.0,
+   90.6
+  ],
+  "tyrants": [
+   93.9,
+   99.3
+  ],
+  "survive": [
+   99.5,
+   102.2
+  ],
+  "army": [
+   103.4,
+   107.6
+  ],
+  "grave": [
+   107.6,
+   112.0
+  ],
+  "silent": [
+   113.0,
+   121.0
+  ],
+  "believe": [
+   122.1,
+   130.0
+  ],
+  "verily1": [
+   130.6,
+   137.4
+  ],
+  "verily2": [
+   137.6,
+   143.8
+  ],
+  "verily3": [
+   144.0,
+   150.0
+  ],
+  "tellme": [
+   150.1,
+   152.2
+  ]
+ }
+}
