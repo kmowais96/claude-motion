@@ -1,6 +1,6 @@
 """Sound for NamingShort: three stems placed from src/naming/timeline.json, then a ducked mix.
 
-  bed  - hummed vocal choir (additive, formant-shaped) in D Hijaz + daf-style frame drum. No instruments.
+  bed  - sung dhikr nasheed (voices only) + a soft daf-style frame drum. No melodic instruments.
   sfx  - whooshes on cuts, soft clinks as names land, ticks on the day chips and the recap.
   vo   - public/naming-vo.wav from naming_vo.py, given a small room so it doesn't sound studio-dry.
 
@@ -55,52 +55,44 @@ def bandnoise(n, lo, hi):
     return y / (np.max(np.abs(y)) + 1e-9)
 
 
-# ---------- vocal choir ----------
-FORMANTS = {'ah': [(700, 1.0, 130), (1150, 0.5, 160), (2600, 0.2, 250)],
-            'mm': [(260, 1.0, 90), (2200, 0.04, 300)]}
+# Sung dhikr (Ya Rahman, Ya Rahim, Allahumma barik): voices only, no instruments.
+# Two takes are laid end to end with a crossfade so it covers the whole Short.
+import subprocess
 
 
-def voice(f0, dur, vowel='ah', seed=0):
-    n = int(dur * SR)
-    tt = np.arange(n) / SR
-    r = np.random.default_rng(seed)
-    vib = 1 + 0.004 * np.sin(2 * np.pi * (4.8 + r.random()) * tt + r.random() * 6) + 0.002 * np.sin(2 * np.pi * 0.21 * tt)
-    phase = 2 * np.pi * np.cumsum(f0 * vib) / SR
-    y = np.zeros(n)
-    for h in range(1, int(4200 / f0)):
-        fh = h * f0
-        amp = sum(g * np.exp(-0.5 * ((fh - fc) / bw) ** 2) for fc, g, bw in FORMANTS[vowel]) + 0.02 / h
-        y += amp / h ** 0.4 * np.sin(h * phase + r.random() * 6.28)
-    breath = bandnoise(n, 500, 3000) * 0.015
-    return (y / (np.max(np.abs(y)) + 1e-9)) + breath
+def load(path):
+    pcm = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', path, '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(pcm, np.int16).astype(np.float64) / 32768
 
 
-def choir(notes, start, dur, gain, vowel='ah', fade=1.2):
-    n = int(dur * SR)
-    out = np.zeros(n)
-    for i, f in enumerate(notes):
-        for k, cents in enumerate((-7, 0, 6)):
-            out += voice(f * 2 ** (cents / 1200), dur, vowel, seed=i * 10 + k + int(start * 10))
-    e = np.minimum(1, np.minimum(np.arange(n) / (fade * SR), (n - np.arange(n)) / (fade * SR)))
-    put(bed, start, out / (3 * len(notes)) * e, gain)
+def place(x, start, fade_in, fade_out):
+    n = min(len(x), N - int(start * SR))
+    y = x[:n].copy()
+    fi, fo = int(fade_in * SR), int(fade_out * SR)
+    if fi:
+        y[:fi] *= np.linspace(0, 1, fi)
+    if fo:
+        y[-fo:] *= np.linspace(1, 0, fo)
+    bed[int(start * SR):int(start * SR) + n] += y
 
 
 bed = np.zeros(N)
-D2, D3, A3, D4, Eb4, Fs4, G4, A4 = 73.42, 146.83, 220.0, 293.66, 311.13, 369.99, 392.0, 440.0
+na, nb = load('public/naming-nasheed-a.mp3'), load('public/naming-nasheed-b.mp3')
+na, nb = na / np.max(np.abs(na)), nb / np.max(np.abs(nb))
+place(na, 0.0, 1.5, 3.0)
+place(nb, len(na) / SR - 3.0, 3.0, 2.0)
+# Soften it into the background: roll off the top, add a small hall.
+spec = np.fft.rfft(bed)
+f = np.fft.rfftfreq(N, 1 / SR)
+spec *= 1 / (1 + (f / 4500) ** 4)
+bed = np.fft.irfft(spec, N)
+ir = rng.standard_normal(int(1.2 * SR)) * np.exp(-np.arange(int(1.2 * SR)) / SR * 3.2)
+ir[:int(0.02 * SR)] = 0
+hall = np.fft.irfft(np.fft.rfft(bed, 2 * N) * np.fft.rfft(ir, 2 * N), 2 * N)[:N]
+bed = bed + hall / np.max(np.abs(hall)) * np.max(np.abs(bed)) * 0.35
 
-# Drone under everything; it opens up on the names and again at the close.
-choir([D3, A3], 0, D, 0.55, 'mm', fade=2.0)
-choir([D3, A3, D4], B['stays'], B['beloved'] - B['stays'] + 0.8, 0.42, 'ah', fade=1.5)
-choir([D3, A3, D4, Fs4], B['beloved'], B['rush'] - B['beloved'] + 0.8, 0.55, 'ah', fade=0.8)
-choir([D3, A3, D4], B['rush'], B['cta'] - B['rush'] + 0.8, 0.45, 'ah', fade=1.2)
-choir([D3, A3, D4, A4], B['cta'], D - B['cta'], 0.6, 'ah', fade=1.5)
-
-# Hummed Hijaz motif in the hook and the close.
-for start, line in [(0.3, [D4, Eb4, Fs4, G4, Fs4]), (B['cta'] + 0.2, [A4, G4, Fs4, Eb4, D4])]:
-    for i, f in enumerate(line):
-        choir([f], start + i * 1.05, 1.5, 0.32, 'mm', fade=0.35)
-
-# ---------- frame drum ----------
+# ---------- frame drum (daf): the one percussion instrument nasheed traditionally allows ----------
 def dum(gain=1.0):
     n = int(0.6 * SR)
     tt = np.arange(n) / SR
@@ -136,7 +128,7 @@ while bar < D:
 drums *= drum_gain
 put(drums, at('Abdullah') - 0.03, dum(1.2))
 put(drums, TL['voEnd'] + 0.5, dum(1.2))
-bed = bed / np.max(np.abs(bed)) * 0.5 + drums * 0.33
+bed = bed / np.max(np.abs(bed)) * 0.5 + drums * 0.16
 
 # ---------- sfx ----------
 sfx = np.zeros(N)
@@ -218,7 +210,7 @@ lvl = np.convolve(lvl, np.ones(int(0.25 * SR)) / int(0.25 * SR), 'same')
 duck = 1 - 0.6 * np.clip(lvl / 0.08, 0, 1)
 
 fade = np.clip((D - t) / 1.0, 0, 1)
-mix = vo * 1.0 + bed * 0.2 * duck * fade + sfx * 0.35 * fade
+mix = vo * 1.0 + bed * 0.55 * duck * fade + sfx * 0.35 * fade
 
 write('public/naming-bed.wav', bed * 0.5)
 write('public/naming-sfx.wav', sfx * 0.5)

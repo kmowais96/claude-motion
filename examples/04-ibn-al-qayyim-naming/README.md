@@ -16,7 +16,8 @@ The second Short in the series, after `03-ibn-al-qayyim-newborn`. It is for Musl
 | `public/naming/*.jpg` | The 10 photos used, from the client's set, resized to 2000 px |
 | `public/naming-vo-raw.mp3` | Narration: ElevenLabs eleven_v4, voice "Jerry B. - Hyper-Real Conversational Voice" |
 | `sfx/cues/naming_vo.py` | Speeds the take up 5%, cuts it at its pauses, drops the spoken follow line, writes the timeline |
-| `sfx/cues/naming_mix.py` | Bed, SFX, and voice with a small room and noise floor, ducked mix |
+| `public/naming-nasheed-a.mp3`, `-b.mp3` | Sung dhikr nasheed bed ("Ya Rahman, Ya Rahim, Allahumma barik"), ElevenLabs eleven_v4 `[singing]`, voices only |
+| `sfx/cues/naming_mix.py` | Nasheed bed + soft daf, SFX, and voice with a small room and noise floor, ducked mix |
 | `sfx/cues/naming_mux.py` | Compress, limit, two-pass loudnorm to −14 LUFS / −1.5 dBTP, mux |
 
 ## Build
@@ -28,7 +29,11 @@ npx remotion render NamingShort out/naming-silent.mp4
 python3 sfx/cues/naming_mux.py        # -> out/naming.mp4
 ```
 
-Final file measures −13.8 LUFS integrated, −1.1 dBFS peak, LRA 3.1.
+Final file measures −13.8 LUFS integrated, LRA ≈3.
+
+## Background: nasheed, not music
+
+The first cut used a synthesised hummed-choir drone, which read as "music". It is replaced by a vocals-only nasheed bed: two sung takes of dhikr ("Ya Rahman… Ya Rahim… Allahumma barik…") crossfaded across the Short, softened and given a small hall, ducked about 8 dB under the narration. The only other sound in the bed is a quiet frame drum (daf), which nasheed traditionally allows; there are no melodic instruments. These are AI-sung vocals; a licensed, human-recorded nasheed stem can replace the two mp3s without any code change.
 
 ## Making the voice sound less like AI
 
