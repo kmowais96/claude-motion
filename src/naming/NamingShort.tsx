@@ -68,7 +68,9 @@ const SHOTS: Shot[] = [
   {src: 'hand', w: 1500, h: 2000, from: B.rush, to: T.day - 0.1, fx: 0.4, fy: 0.5, zoom: [1.04, 1.1], drift: [0, 10]},
   {src: 'foot', w: 2000, h: 1334, from: T.day - 0.1, to: B.match, fx: 0.42, fy: 0.5, zoom: [1.02, 1.12], drift: [30, -30]},
   {src: 'book', w: 2000, h: 1334, from: B.match, to: B.change, fx: 0.55, fy: 0.5, zoom: [1.06, 1.16], drift: [-30, 20]},
-  {src: 'zaynab', w: 1334, h: 2000, from: B.change, to: B.father, fx: 0.5, fy: 0.45, zoom: [1.1, 1.2], drift: [10, -10]},
+  // Autumn leaves for "a bad name can change": yellow, turning red as the name becomes Jamila.
+  {src: 'leaves-a', w: 1334, h: 2000, from: B.change, to: T.jamila - 0.35, fx: 0.5, fy: 0.5, zoom: [1.04, 1.12], drift: [0, -10]},
+  {src: 'leaves-c', w: 1334, h: 2000, from: T.jamila - 0.35, to: B.father, fx: 0.5, fy: 0.5, zoom: [1.06, 1.16], drift: [0, 10]},
   {src: 'father', w: 1334, h: 2000, from: B.father, to: B.cta, fx: 0.4, fy: 0.3, zoom: [1.3, 1.42], drift: [0, -20], filter: 'grayscale(1) contrast(1.05)'},
   {src: 'toddlers', w: 2000, h: 1334, from: B.cta, to: T.follow - 0.3, fx: 0.5, fy: 0.5, zoom: [1.0, 1.08], drift: [0, 0]},
   {src: 'lattice', w: 1126, h: 2000, from: T.follow - 0.3, to: TL.duration + 1, fx: 0.5, fy: 0.5, zoom: [1.04, 1.1], drift: [0, 0]},

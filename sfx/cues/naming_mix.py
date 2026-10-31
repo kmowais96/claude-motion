@@ -69,8 +69,8 @@ nash = nash[:N]
 bed[:len(nash)] = nash
 fi = int(0.8 * SR)
 bed[:fi] *= np.linspace(0, 1, fi)
-# Sit it at about -31 dBFS RMS before ducking (voice speech is about -22 dBFS).
-bed *= 10 ** (-31 / 20) / np.sqrt(np.mean(bed ** 2))
+# Sit it at about -34 dBFS RMS before ducking (voice speech is about -22 dBFS).
+bed *= 10 ** (-34 / 20) / np.sqrt(np.mean(bed ** 2))
 
 # ---------- sfx ----------
 sfx = np.zeros(N)

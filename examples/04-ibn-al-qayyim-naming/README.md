@@ -29,11 +29,11 @@ npx remotion render NamingShort out/naming-silent.mp4
 python3 sfx/cues/naming_mux.py        # -> out/naming.mp4
 ```
 
-Final file measures −13.8 LUFS integrated, −1.1 dBFS peak, LRA 2.7.
+Final file measures about −14 LUFS integrated (see the mux step output).
 
 ## Background: nasheed, not music
 
-The first cut used a synthesised drone, which read as "music". The bed is now a real nasheed supplied by the client, used from 0:20, loudness-matched to about −31 dBFS and ducked about 8 dB under the narration. An AI-sung dhikr bed was tried and dropped: the names of Allah and a dua should not be put in a synthetic voice. Copyright: the track is third party, so the client is responsible for clearing it. YouTube Content ID may flag it.
+The first cut used a synthesised drone, which read as "music". The bed is now a real nasheed supplied by the client, used from 0:20, loudness-matched to about −34 dBFS and ducked about 8 dB under the narration. An AI-sung dhikr bed was tried and dropped: the names of Allah and a dua should not be put in a synthetic voice. Copyright: the track is third party, so the client is responsible for clearing it. YouTube Content ID may flag it.
 
 ## Making the voice sound less like AI
 
@@ -51,7 +51,7 @@ The first cut used a synthesised drone, which read as "music". The bed is now a 
 | 17.9–22.6 | "Second. The names Allah loves most? Abdullah and Abdurrahman." | "Abd" calligraphy photo. Header 02 with the hadith's opening. عبد الله and عبد الرحمن land on the spoken words. |
 | 23.0–32.1 | "Third, no rush. Honestly. Day one, day three, the aqiqah day… he says all of it's fine. The matter is wide." | Baby's hand, then foot. "Day 1 / Day 3 / Day 7 (aqiqah)" chips, then "The matter is wide." |
 | 32.5–40.4 | "Fourth, and I love this one. He says a name and the person carrying it tend to match. So pick a meaning you'd want him to grow into." | Open book. Header 04 with his Arabic line and its translation. |
-| 40.8–48.2 | "Fifth. A bad name can be changed. The Prophet changed Asiya, which means disobedient, to Jamila. Beautiful." | Zaynab calligraphy. عاصية is struck through, then → جميلة. "Also: Barra → Zaynab." |
+| 40.8–48.2 | "Fifth. A bad name can be changed. The Prophet changed Asiya, which means disobedient, to Jamila. Beautiful." | Autumn leaves: yellow, turning red on "Jamila". عاصية is struck through, then → جميلة. "Also: Barra → Zaynab." |
 | 48.7–54.5 | "And sixth. If you and his mother can't agree, the father names. But talk it through with her first." | Father photo, closer crop. Header 06 «فهي للأب». "…but talk it through with her first." |
 | 55.0–57.2 | "Save this before the birth certificate." | Toddlers running. A six-item recap ticks on. |
 | 57.7–61.0 | (no voice) | End card over the lattice: FOLLOW / The Tazkiyyah Guide / @TheTazkiyyahGuide / for similar posts / source line. |
