@@ -1,6 +1,6 @@
 """Sound for NamingShort: three stems placed from src/naming/timeline.json, then a ducked mix.
 
-  bed  - sung dhikr nasheed (voices only) + a soft daf-style frame drum. No melodic instruments.
+  bed  - the supplied nasheed from 0:20, loudness-matched and ducked under the voice.
   sfx  - whooshes on cuts, soft clinks as names land, ticks on the day chips and the recap.
   vo   - public/naming-vo.wav from naming_vo.py, given a small room so it doesn't sound studio-dry.
 
@@ -55,80 +55,22 @@ def bandnoise(n, lo, hi):
     return y / (np.max(np.abs(y)) + 1e-9)
 
 
-# Sung dhikr (Ya Rahman, Ya Rahim, Allahumma barik): voices only, no instruments.
-# Two takes are laid end to end with a crossfade so it covers the whole Short.
+# Bed: the client's supplied nasheed (voices, no melodic instruments), from 0:20, loudness-matched.
+# public/naming-nasheed.mp3 is supplied input and is not committed.
 import subprocess
 
-
-def load(path):
-    pcm = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', path, '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'],
-                         capture_output=True, check=True).stdout
-    return np.frombuffer(pcm, np.int16).astype(np.float64) / 32768
-
-
-def place(x, start, fade_in, fade_out):
-    n = min(len(x), N - int(start * SR))
-    y = x[:n].copy()
-    fi, fo = int(fade_in * SR), int(fade_out * SR)
-    if fi:
-        y[:fi] *= np.linspace(0, 1, fi)
-    if fo:
-        y[-fo:] *= np.linspace(1, 0, fo)
-    bed[int(start * SR):int(start * SR) + n] += y
-
-
+NASHEED_START = 20.0
+pcm = subprocess.run(['ffmpeg', '-loglevel', 'error', '-ss', str(NASHEED_START), '-i', 'public/naming-nasheed.mp3',
+                      '-t', str(D + 0.5), '-ac', '1', '-ar', str(SR), '-f', 's16le', '-'],
+                     capture_output=True, check=True).stdout
 bed = np.zeros(N)
-na, nb = load('public/naming-nasheed-a.mp3'), load('public/naming-nasheed-b.mp3')
-na, nb = na / np.max(np.abs(na)), nb / np.max(np.abs(nb))
-place(na, 0.0, 1.5, 3.0)
-place(nb, len(na) / SR - 3.0, 3.0, 2.0)
-# Soften it into the background: roll off the top, add a small hall.
-spec = np.fft.rfft(bed)
-f = np.fft.rfftfreq(N, 1 / SR)
-spec *= 1 / (1 + (f / 4500) ** 4)
-bed = np.fft.irfft(spec, N)
-ir = rng.standard_normal(int(1.2 * SR)) * np.exp(-np.arange(int(1.2 * SR)) / SR * 3.2)
-ir[:int(0.02 * SR)] = 0
-hall = np.fft.irfft(np.fft.rfft(bed, 2 * N) * np.fft.rfft(ir, 2 * N), 2 * N)[:N]
-bed = bed + hall / np.max(np.abs(hall)) * np.max(np.abs(bed)) * 0.35
-
-# ---------- frame drum (daf): the one percussion instrument nasheed traditionally allows ----------
-def dum(gain=1.0):
-    n = int(0.6 * SR)
-    tt = np.arange(n) / SR
-    f = 52 + 70 * np.exp(-tt * 22)
-    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt * 7)
-    skin = bandnoise(n, 80, 900) * np.exp(-tt * 40) * 0.35
-    return (body + skin) * gain
-
-
-def tak(gain=1.0):
-    n = int(0.35 * SR)
-    tt = np.arange(n) / SR
-    slap = bandnoise(n, 1800, 5000) * np.exp(-tt * 55)
-    jingle = bandnoise(n, 5500, 11000) * np.exp(-tt * 14) * 0.35
-    return (slap + jingle) * gain
-
-
-BPM = 84
-beat = 60 / BPM
-PATTERN = [(0, 'D', 1.0), (1.5, 'T', 0.55), (2, 'D', 0.6), (3, 'T', 0.7), (3.5, 'T', 0.35)]
-# Drum sits out under the hadith and the Muhammad calligraphy, and under the father's beat.
-drum_gain = env([(0, 0), (B['stays'] - 0.1, 0), (B['stays'] + 0.4, 0.6), (at('called') - 0.5, 0.6), (at('called'), 0.0),
-                 (B['beloved'] - 0.1, 0), (B['beloved'] + 0.3, 0.85), (B['father'] - 0.3, 0.8), (B['father'] + 0.3, 0.35),
-                 (B['cta'] - 0.2, 0.35), (B['cta'] + 0.4, 0.6), (TL['voEnd'], 0.6), (TL['voEnd'] + 0.8, 0), (D, 0)])
-drums = np.zeros(N)
-bar = B['stays']
-while bar < D:
-    for off, kind, g in PATTERN:
-        s = bar + off * beat
-        if s < D:
-            put(drums, s, dum(g) if kind == 'D' else tak(g) * (0.85 + 0.3 * rng.random()))
-    bar += 4 * beat
-drums *= drum_gain
-put(drums, at('Abdullah') - 0.03, dum(1.2))
-put(drums, TL['voEnd'] + 0.5, dum(1.2))
-bed = bed / np.max(np.abs(bed)) * 0.5 + drums * 0.16
+nash = np.frombuffer(pcm, np.int16).astype(np.float64) / 32768
+nash = nash[:N]
+bed[:len(nash)] = nash
+fi = int(0.8 * SR)
+bed[:fi] *= np.linspace(0, 1, fi)
+# Sit it at about -31 dBFS RMS before ducking (voice speech is about -22 dBFS).
+bed *= 10 ** (-31 / 20) / np.sqrt(np.mean(bed ** 2))
 
 # ---------- sfx ----------
 sfx = np.zeros(N)
@@ -210,9 +152,9 @@ lvl = np.convolve(lvl, np.ones(int(0.25 * SR)) / int(0.25 * SR), 'same')
 duck = 1 - 0.6 * np.clip(lvl / 0.08, 0, 1)
 
 fade = np.clip((D - t) / 1.0, 0, 1)
-mix = vo * 1.0 + bed * 0.55 * duck * fade + sfx * 0.35 * fade
+mix = vo * 1.0 + bed * duck * fade + sfx * 0.35 * fade
 
-write('public/naming-bed.wav', bed * 0.5)
+write('public/naming-bed.wav', bed * 3)
 write('public/naming-sfx.wav', sfx * 0.5)
 write('public/naming-mix.wav', mix / np.max(np.abs(mix)) * 0.89)
 print('ok', round(float(np.max(np.abs(mix))), 3))
