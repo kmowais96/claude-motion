@@ -1,0 +1,938 @@
+{
+ "fps": 30,
+ "duration": 37.0,
+ "speechEnd": 32.6,
+ "end": 32.9,
+ "lines": [
+  {
+   "s": 0.1,
+   "e": 1.0,
+   "text": "He wanted to ask Allah.",
+   "key": "ask",
+   "words": [
+    {
+     "t": "He",
+     "s": 0.1,
+     "e": 0.204
+    },
+    {
+     "t": "wanted",
+     "s": 0.224,
+     "e": 0.452
+    },
+    {
+     "t": "to",
+     "s": 0.472,
+     "e": 0.577
+    },
+    {
+     "t": "ask",
+     "s": 0.597,
+     "e": 0.732
+    },
+    {
+     "t": "Allah.",
+     "s": 0.752,
+     "e": 0.98
+    }
+   ]
+  },
+  {
+   "s": 1.3,
+   "e": 2.65,
+   "text": "He meant to mention one need,",
+   "key": "mention",
+   "words": [
+    {
+     "t": "He",
+     "s": 1.3,
+     "e": 1.43
+    },
+    {
+     "t": "meant",
+     "s": 1.45,
+     "e": 1.692
+    },
+    {
+     "t": "to",
+     "s": 1.712,
+     "e": 1.842
+    },
+    {
+     "t": "mention",
+     "s": 1.862,
+     "e": 2.18
+    },
+    {
+     "t": "one",
+     "s": 2.2,
+     "e": 2.367
+    },
+    {
+     "t": "need,",
+     "s": 2.387,
+     "e": 2.63
+    }
+   ]
+  },
+  {
+   "s": 2.75,
+   "e": 4.05,
+   "text": "and another came to him.",
+   "key": "another",
+   "words": [
+    {
+     "t": "and",
+     "s": 2.75,
+     "e": 2.947
+    },
+    {
+     "t": "another",
+     "s": 2.967,
+     "e": 3.337
+    },
+    {
+     "t": "came",
+     "s": 3.357,
+     "e": 3.597
+    },
+    {
+     "t": "to",
+     "s": 3.617,
+     "e": 3.77
+    },
+    {
+     "t": "him.",
+     "s": 3.79,
+     "e": 4.03
+    }
+   ]
+  },
+  {
+   "s": 4.5,
+   "e": 5.1,
+   "text": "He reached for a second,",
+   "key": "second",
+   "words": [
+    {
+     "t": "He",
+     "s": 4.5,
+     "e": 4.56
+    },
+    {
+     "t": "reached",
+     "s": 4.58,
+     "e": 4.74
+    },
+    {
+     "t": "for",
+     "s": 4.76,
+     "e": 4.84
+    },
+    {
+     "t": "a",
+     "s": 4.86,
+     "e": 4.9
+    },
+    {
+     "t": "second,",
+     "s": 4.92,
+     "e": 5.08
+    }
+   ]
+  },
+  {
+   "s": 5.15,
+   "e": 5.95,
+   "text": "and a third came to him.",
+   "key": "third",
+   "words": [
+    {
+     "t": "and",
+     "s": 5.15,
+     "e": 5.259
+    },
+    {
+     "t": "a",
+     "s": 5.279,
+     "e": 5.336
+    },
+    {
+     "t": "third",
+     "s": 5.356,
+     "e": 5.517
+    },
+    {
+     "t": "came",
+     "s": 5.537,
+     "e": 5.672
+    },
+    {
+     "t": "to",
+     "s": 5.692,
+     "e": 5.775
+    },
+    {
+     "t": "him.",
+     "s": 5.795,
+     "e": 5.93
+    }
+   ]
+  },
+  {
+   "s": 6.0,
+   "e": 7.1,
+   "text": "So he said: “O my Lord, everything…",
+   "key": "lord",
+   "words": [
+    {
+     "t": "So",
+     "s": 6.0,
+     "e": 6.082
+    },
+    {
+     "t": "he",
+     "s": 6.102,
+     "e": 6.185
+    },
+    {
+     "t": "said:",
+     "s": 6.205,
+     "e": 6.364
+    },
+    {
+     "t": "“O",
+     "s": 6.384,
+     "e": 6.466
+    },
+    {
+     "t": "my",
+     "s": 6.486,
+     "e": 6.568
+    },
+    {
+     "t": "Lord,",
+     "s": 6.588,
+     "e": 6.747
+    },
+    {
+     "t": "everything…",
+     "s": 6.767,
+     "e": 7.08
+    }
+   ]
+  },
+  {
+   "s": 7.45,
+   "e": 8.3,
+   "text": "…everything.”",
+   "key": "everything",
+   "words": [
+    {
+     "t": "…everything.”",
+     "s": 7.45,
+     "e": 8.28
+    }
+   ]
+  },
+  {
+   "s": 8.45,
+   "e": 9.4,
+   "text": "And there is no harm in that.",
+   "key": "noharm",
+   "words": [
+    {
+     "t": "And",
+     "s": 8.45,
+     "e": 8.558
+    },
+    {
+     "t": "there",
+     "s": 8.578,
+     "e": 8.738
+    },
+    {
+     "t": "is",
+     "s": 8.758,
+     "e": 8.841
+    },
+    {
+     "t": "no",
+     "s": 8.861,
+     "e": 8.944
+    },
+    {
+     "t": "harm",
+     "s": 8.964,
+     "e": 9.098
+    },
+    {
+     "t": "in",
+     "s": 9.118,
+     "e": 9.2
+    },
+    {
+     "t": "that.",
+     "s": 9.22,
+     "e": 9.38
+    }
+   ]
+  },
+  {
+   "s": 9.5,
+   "e": 10.3,
+   "text": "He is turning to the Most Generous,",
+   "key": "generous",
+   "words": [
+    {
+     "t": "He",
+     "s": 9.5,
+     "e": 9.554
+    },
+    {
+     "t": "is",
+     "s": 9.574,
+     "e": 9.629
+    },
+    {
+     "t": "turning",
+     "s": 9.649,
+     "e": 9.796
+    },
+    {
+     "t": "to",
+     "s": 9.816,
+     "e": 9.871
+    },
+    {
+     "t": "the",
+     "s": 9.891,
+     "e": 9.964
+    },
+    {
+     "t": "Most",
+     "s": 9.984,
+     "e": 10.075
+    },
+    {
+     "t": "Generous,",
+     "s": 10.095,
+     "e": 10.28
+    }
+   ]
+  },
+  {
+   "s": 11.5,
+   "e": 13.55,
+   "text": "to the One whose Hand pours freely,",
+   "key": "hand",
+   "words": [
+    {
+     "t": "to",
+     "s": 11.5,
+     "e": 11.724
+    },
+    {
+     "t": "the",
+     "s": 11.744,
+     "e": 12.03
+    },
+    {
+     "t": "One",
+     "s": 12.05,
+     "e": 12.336
+    },
+    {
+     "t": "whose",
+     "s": 12.356,
+     "e": 12.763
+    },
+    {
+     "t": "Hand",
+     "s": 12.783,
+     "e": 13.13
+    },
+    {
+     "t": "pours",
+     "s": 13.15,
+     "e": 13.305
+    },
+    {
+     "t": "freely,",
+     "s": 13.325,
+     "e": 13.53
+    }
+   ]
+  },
+  {
+   "s": 13.9,
+   "e": 14.95,
+   "text": "night and day.",
+   "key": "nightday",
+   "words": [
+    {
+     "t": "night",
+     "s": 13.9,
+     "e": 14.201
+    },
+    {
+     "t": "and",
+     "s": 14.221,
+     "e": 14.43
+    },
+    {
+     "t": "day.",
+     "s": 14.45,
+     "e": 14.93
+    }
+   ]
+  },
+  {
+   "s": 15.5,
+   "e": 17.15,
+   "text": "No spending can drain it.",
+   "key": "drain",
+   "words": [
+    {
+     "t": "No",
+     "s": 15.5,
+     "e": 15.693
+    },
+    {
+     "t": "spending",
+     "s": 15.713,
+     "e": 16.225
+    },
+    {
+     "t": "can",
+     "s": 16.245,
+     "e": 16.491
+    },
+    {
+     "t": "drain",
+     "s": 16.511,
+     "e": 16.864
+    },
+    {
+     "t": "it.",
+     "s": 16.884,
+     "e": 17.13
+    }
+   ]
+  },
+  {
+   "s": 17.25,
+   "e": 18.25,
+   "text": "What He has never decreases.",
+   "key": "never",
+   "words": [
+    {
+     "t": "What",
+     "s": 17.25,
+     "e": 17.406
+    },
+    {
+     "t": "He",
+     "s": 17.426,
+     "e": 17.524
+    },
+    {
+     "t": "has",
+     "s": 17.544,
+     "e": 17.671
+    },
+    {
+     "t": "never",
+     "s": 17.691,
+     "e": 17.877
+    },
+    {
+     "t": "decreases.",
+     "s": 17.897,
+     "e": 18.23
+    }
+   ]
+  },
+  {
+   "s": 18.7,
+   "e": 19.2,
+   "text": "“O My servants,",
+   "key": "servants",
+   "words": [
+    {
+     "t": "“O",
+     "s": 18.7,
+     "e": 18.785
+    },
+    {
+     "t": "My",
+     "s": 18.805,
+     "e": 18.891
+    },
+    {
+     "t": "servants,",
+     "s": 18.911,
+     "e": 19.18
+    }
+   ]
+  },
+  {
+   "s": 19.8,
+   "e": 21.05,
+   "text": "if the first of you and the last of you,",
+   "key": "first",
+   "words": [
+    {
+     "t": "if",
+     "s": 19.8,
+     "e": 19.877
+    },
+    {
+     "t": "the",
+     "s": 19.897,
+     "e": 19.999
+    },
+    {
+     "t": "first",
+     "s": 20.019,
+     "e": 20.169
+    },
+    {
+     "t": "of",
+     "s": 20.189,
+     "e": 20.266
+    },
+    {
+     "t": "you",
+     "s": 20.286,
+     "e": 20.387
+    },
+    {
+     "t": "and",
+     "s": 20.407,
+     "e": 20.509
+    },
+    {
+     "t": "the",
+     "s": 20.529,
+     "e": 20.63
+    },
+    {
+     "t": "last",
+     "s": 20.65,
+     "e": 20.78
+    },
+    {
+     "t": "of",
+     "s": 20.8,
+     "e": 20.88
+    },
+    {
+     "t": "you,",
+     "s": 20.9,
+     "e": 21.03
+    }
+   ]
+  },
+  {
+   "s": 21.2,
+   "e": 22.95,
+   "text": "your humans and your jinn,",
+   "key": "humans",
+   "words": [
+    {
+     "t": "your",
+     "s": 21.2,
+     "e": 21.336
+    },
+    {
+     "t": "humans",
+     "s": 21.356,
+     "e": 21.544
+    },
+    {
+     "t": "and",
+     "s": 21.564,
+     "e": 21.674
+    },
+    {
+     "t": "your",
+     "s": 21.694,
+     "e": 21.83
+    },
+    {
+     "t": "jinn,",
+     "s": 21.85,
+     "e": 22.93
+    }
+   ]
+  },
+  {
+   "s": 23.5,
+   "e": 25.15,
+   "text": "stood together on one plain,",
+   "key": "stood",
+   "words": [
+    {
+     "t": "stood",
+     "s": 23.5,
+     "e": 23.82
+    },
+    {
+     "t": "together",
+     "s": 23.84,
+     "e": 24.305
+    },
+    {
+     "t": "on",
+     "s": 24.325,
+     "e": 24.499
+    },
+    {
+     "t": "one",
+     "s": 24.519,
+     "e": 24.742
+    },
+    {
+     "t": "plain,",
+     "s": 24.762,
+     "e": 25.13
+    }
+   ]
+  },
+  {
+   "s": 25.4,
+   "e": 26.3,
+   "text": "and asked of Me,",
+   "key": "asked",
+   "words": [
+    {
+     "t": "and",
+     "s": 25.4,
+     "e": 25.594
+    },
+    {
+     "t": "asked",
+     "s": 25.614,
+     "e": 25.894
+    },
+    {
+     "t": "of",
+     "s": 25.914,
+     "e": 26.066
+    },
+    {
+     "t": "Me,",
+     "s": 26.086,
+     "e": 26.28
+    }
+   ]
+  },
+  {
+   "s": 26.7,
+   "e": 29.3,
+   "text": "and I gave every one of them what they asked,",
+   "key": "gave",
+   "words": [
+    {
+     "t": "and",
+     "s": 26.7,
+     "e": 27.001
+    },
+    {
+     "t": "I",
+     "s": 27.021,
+     "e": 27.194
+    },
+    {
+     "t": "gave",
+     "s": 27.214,
+     "e": 27.58
+    },
+    {
+     "t": "every",
+     "s": 27.6,
+     "e": 27.863
+    },
+    {
+     "t": "one",
+     "s": 27.883,
+     "e": 28.066
+    },
+    {
+     "t": "of",
+     "s": 28.086,
+     "e": 28.228
+    },
+    {
+     "t": "them",
+     "s": 28.248,
+     "e": 28.47
+    },
+    {
+     "t": "what",
+     "s": 28.49,
+     "e": 28.713
+    },
+    {
+     "t": "they",
+     "s": 28.733,
+     "e": 28.956
+    },
+    {
+     "t": "asked,",
+     "s": 28.976,
+     "e": 29.28
+    }
+   ]
+  },
+  {
+   "s": 30.1,
+   "e": 32.45,
+   "text": "that would not decrease My dominion in the least.”",
+   "key": "decrease",
+   "words": [
+    {
+     "t": "that",
+     "s": 30.1,
+     "e": 30.343
+    },
+    {
+     "t": "would",
+     "s": 30.363,
+     "e": 30.649
+    },
+    {
+     "t": "not",
+     "s": 30.669,
+     "e": 30.867
+    },
+    {
+     "t": "decrease",
+     "s": 30.887,
+     "e": 31.305
+    },
+    {
+     "t": "My",
+     "s": 31.325,
+     "e": 31.48
+    },
+    {
+     "t": "dominion",
+     "s": 31.5,
+     "e": 31.98
+    },
+    {
+     "t": "in",
+     "s": 32.0,
+     "e": 32.08
+    },
+    {
+     "t": "the",
+     "s": 32.1,
+     "e": 32.205
+    },
+    {
+     "t": "least.”",
+     "s": 32.225,
+     "e": 32.43
+    }
+   ]
+  }
+ ],
+ "key": {
+  "ask": [
+   0.1,
+   1.0
+  ],
+  "mention": [
+   1.3,
+   2.65
+  ],
+  "another": [
+   2.75,
+   4.05
+  ],
+  "second": [
+   4.5,
+   5.1
+  ],
+  "third": [
+   5.15,
+   5.95
+  ],
+  "lord": [
+   6.0,
+   7.1
+  ],
+  "everything": [
+   7.45,
+   8.3
+  ],
+  "noharm": [
+   8.45,
+   9.4
+  ],
+  "generous": [
+   9.5,
+   10.3
+  ],
+  "hand": [
+   11.5,
+   13.55
+  ],
+  "nightday": [
+   13.9,
+   14.95
+  ],
+  "drain": [
+   15.5,
+   17.15
+  ],
+  "never": [
+   17.25,
+   18.25
+  ],
+  "servants": [
+   18.7,
+   19.2
+  ],
+  "first": [
+   19.8,
+   21.05
+  ],
+  "humans": [
+   21.2,
+   22.95
+  ],
+  "stood": [
+   23.5,
+   25.15
+  ],
+  "asked": [
+   25.4,
+   26.3
+  ],
+  "gave": [
+   26.7,
+   29.3
+  ],
+  "decrease": [
+   30.1,
+   32.45
+  ]
+ },
+ "word": {
+  "ask.he": 0.1,
+  "ask.wanted": 0.224,
+  "ask.to": 0.472,
+  "ask.ask": 0.597,
+  "ask.allah": 0.752,
+  "mention.he": 1.3,
+  "mention.meant": 1.45,
+  "mention.to": 1.712,
+  "mention.mention": 1.862,
+  "mention.one": 2.2,
+  "mention.need": 2.387,
+  "another.and": 2.75,
+  "another.another": 2.967,
+  "another.came": 3.357,
+  "another.to": 3.617,
+  "another.him": 3.79,
+  "second.he": 4.5,
+  "second.reached": 4.58,
+  "second.for": 4.76,
+  "second.a": 4.86,
+  "second.second": 4.92,
+  "third.and": 5.15,
+  "third.a": 5.279,
+  "third.third": 5.356,
+  "third.came": 5.537,
+  "third.to": 5.692,
+  "third.him": 5.795,
+  "lord.so": 6.0,
+  "lord.he": 6.102,
+  "lord.said:": 6.205,
+  "lord.o": 6.384,
+  "lord.my": 6.486,
+  "lord.lord": 6.588,
+  "lord.everything": 6.767,
+  "everything.everything": 7.45,
+  "noharm.and": 8.45,
+  "noharm.there": 8.578,
+  "noharm.is": 8.758,
+  "noharm.no": 8.861,
+  "noharm.harm": 8.964,
+  "noharm.in": 9.118,
+  "noharm.that": 9.22,
+  "generous.he": 9.5,
+  "generous.is": 9.574,
+  "generous.turning": 9.649,
+  "generous.to": 9.816,
+  "generous.the": 9.891,
+  "generous.most": 9.984,
+  "generous.generous": 10.095,
+  "hand.to": 11.5,
+  "hand.the": 11.744,
+  "hand.one": 12.05,
+  "hand.whose": 12.356,
+  "hand.hand": 12.783,
+  "hand.pours": 13.15,
+  "hand.freely": 13.325,
+  "nightday.night": 13.9,
+  "nightday.and": 14.221,
+  "nightday.day": 14.45,
+  "drain.no": 15.5,
+  "drain.spending": 15.713,
+  "drain.can": 16.245,
+  "drain.drain": 16.511,
+  "drain.it": 16.884,
+  "never.what": 17.25,
+  "never.he": 17.426,
+  "never.has": 17.544,
+  "never.never": 17.691,
+  "never.decreases": 17.897,
+  "servants.o": 18.7,
+  "servants.my": 18.805,
+  "servants.servants": 18.911,
+  "first.if": 19.8,
+  "first.the": 20.529,
+  "first.first": 20.019,
+  "first.of": 20.8,
+  "first.you": 20.9,
+  "first.and": 20.407,
+  "first.last": 20.65,
+  "humans.your": 21.694,
+  "humans.humans": 21.356,
+  "humans.and": 21.564,
+  "humans.jinn": 21.85,
+  "stood.stood": 23.5,
+  "stood.together": 23.84,
+  "stood.on": 24.325,
+  "stood.one": 24.519,
+  "stood.plain": 24.762,
+  "asked.and": 25.4,
+  "asked.asked": 25.614,
+  "asked.of": 25.914,
+  "asked.me": 26.086,
+  "gave.and": 26.7,
+  "gave.i": 27.021,
+  "gave.gave": 27.214,
+  "gave.every": 27.6,
+  "gave.one": 27.883,
+  "gave.of": 28.086,
+  "gave.them": 28.248,
+  "gave.what": 28.49,
+  "gave.they": 28.733,
+  "gave.asked": 28.976,
+  "decrease.that": 30.1,
+  "decrease.would": 30.363,
+  "decrease.not": 30.669,
+  "decrease.decrease": 30.887,
+  "decrease.my": 31.325,
+  "decrease.dominion": 31.5,
+  "decrease.in": 32.0,
+  "decrease.the": 32.1,
+  "decrease.least": 32.225
+ }
+}
