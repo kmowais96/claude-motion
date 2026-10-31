@@ -6,6 +6,8 @@ import {FPS, H, TL, W} from './lib';
 import {MercyVideo} from './mercy/MercyVideo';
 import {KishkVideo} from './kishk/KishkVideo';
 import {KFPS, KT} from './kishk/theme';
+import {GenerousVideo} from './generous/GenerousVideo';
+import {GFPS, GT} from './generous/theme';
 import {MFPS, MH, MT, MW} from './mercy/theme';
 
 export const Root: React.FC = () => (
@@ -31,6 +33,14 @@ export const Root: React.FC = () => (
       component={KishkVideo}
       durationInFrames={Math.round(KT.duration * KFPS)}
       fps={KFPS}
+      width={MW}
+      height={MH}
+    />
+    <Composition
+      id="GenerousVideo"
+      component={GenerousVideo}
+      durationInFrames={Math.round(GT.duration * GFPS)}
+      fps={GFPS}
       width={MW}
       height={MH}
     />
