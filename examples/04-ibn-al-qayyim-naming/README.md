@@ -13,7 +13,7 @@ The second Short in the series, after `03-ibn-al-qayyim-newborn`. It is for Musl
 | `src/naming/NamingShort.tsx` | Composition `NamingShort` (palette and fonts reused from `src/newborn/theme.ts`) |
 | `src/naming/words.json` | Word timings of the raw narration (ElevenLabs Scribe) |
 | `src/naming/timeline.json` | Generated: beat starts and shifted word timings |
-| `public/naming/*.jpg` | The 11 photos used, from the client's set, resized to 2000 px |
+| `public/naming/*.jpg` | The 10 photos used, from the client's set, resized to 2000 px |
 | `public/naming-vo-raw.mp3` | Narration: ElevenLabs eleven_v4, voice "Jerry B. - Hyper-Real Conversational Voice" |
 | `sfx/cues/naming_vo.py` | Speeds the take up 5%, cuts it at its pauses, drops the spoken follow line, writes the timeline |
 | `sfx/cues/naming_mix.py` | Bed, SFX, and voice with a small room and noise floor, ducked mix |
@@ -66,4 +66,4 @@ The hook, "and I love this one", "Honestly", the recap list and "Save this befor
 
 **Left out on purpose:** the list of names the Prophet ﷺ disliked (hadith of Samura, p.115–116), at the client's request.
 
-**Photos not used:** the "A new chapter" tiles, the Fatima and Hussain calligraphy, and the "alina" cup. Each pulled attention to a specific name or brand that the script doesn't discuss.
+**Photos not used:** the "A new chapter" tiles, the Fatima and Hussain calligraphy, and the "alina" cup, and the blue-tile window. The first four each pulled attention to a specific name or brand that the script doesn't discuss.
