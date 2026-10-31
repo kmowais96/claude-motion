@@ -69,8 +69,8 @@ nash = nash[:N]
 bed[:len(nash)] = nash
 fi = int(0.8 * SR)
 bed[:fi] *= np.linspace(0, 1, fi)
-# Sit it at about -34 dBFS RMS before ducking (voice speech is about -22 dBFS).
-bed *= 10 ** (-34 / 20) / np.sqrt(np.mean(bed ** 2))
+# Sit it at about -40 dBFS RMS before ducking (voice speech is about -22 dBFS).
+bed *= 10 ** (-40 / 20) / np.sqrt(np.mean(bed ** 2))
 
 # ---------- sfx ----------
 sfx = np.zeros(N)
@@ -149,7 +149,7 @@ dry = np.zeros(N)
 dry[:len(v)] = v[:N] / np.max(np.abs(v))
 lvl = np.sqrt(np.convolve(dry ** 2, np.ones(int(0.05 * SR)) / int(0.05 * SR), 'same'))
 lvl = np.convolve(lvl, np.ones(int(0.25 * SR)) / int(0.25 * SR), 'same')
-duck = 1 - 0.6 * np.clip(lvl / 0.08, 0, 1)
+duck = 1 - 0.65 * np.clip(lvl / 0.08, 0, 1)
 
 fade = np.clip((D - t) / 1.0, 0, 1)
 mix = vo * 1.0 + bed * duck * fade + sfx * 0.35 * fade

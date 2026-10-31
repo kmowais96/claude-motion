@@ -33,7 +33,7 @@ Final file measures about −14 LUFS integrated (see the mux step output).
 
 ## Background: nasheed, not music
 
-The first cut used a synthesised drone, which read as "music". The bed is now a real nasheed supplied by the client, used from 0:20, loudness-matched to about −34 dBFS and ducked about 8 dB under the narration. An AI-sung dhikr bed was tried and dropped: the names of Allah and a dua should not be put in a synthetic voice. Copyright: the track is third party, so the client is responsible for clearing it. YouTube Content ID may flag it.
+The first cut used a synthesised drone, which read as "music". The bed is now a real nasheed supplied by the client, used from 0:20, loudness-matched to about −40 dBFS and ducked about 10 dB under the narration. An AI-sung dhikr bed was tried and dropped: the names of Allah and a dua should not be put in a synthetic voice. Copyright: the track is third party, so the client is responsible for clearing it. YouTube Content ID may flag it.
 
 ## Making the voice sound less like AI
 
