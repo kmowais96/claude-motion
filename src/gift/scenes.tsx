@@ -75,6 +75,128 @@ export const Bowl: React.FC<{x: number; y: number; sc: number; t: number; o?: nu
   );
 };
 
+// ---------- the other gifts: clothing, a shield, a horse, a camel, a bow ----------
+export type GiftKind = 'food' | 'cloth' | 'shield' | 'horse' | 'camel' | 'bow';
+export const KINDS: GiftKind[] = ['food', 'cloth', 'shield', 'horse', 'camel', 'bow'];
+const LEATHER = '#7A4E2A';
+const LEATHER_D = '#4A2E18';
+
+const Halo: React.FC<{id: string; glow: number}> = ({id, glow}) => (
+  <>
+    <defs>
+      <radialGradient id={`${id}H`} cx="50%" cy="50%" r="50%">
+        <stop offset="0.2" stopColor={M.gold} stopOpacity={0.3 * glow} />
+        <stop offset="1" stopColor={M.gold} stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <ellipse cx={0} cy={0} rx={250} ry={210} fill={`url(#${id}H)`} />
+  </>
+);
+
+export const Gift: React.FC<{kind: GiftKind; x: number; y: number; sc: number; t: number; o?: number; glow?: number; id: string}> = ({
+  kind,
+  x,
+  y,
+  sc,
+  t,
+  o = 1,
+  glow = 1,
+  id,
+}) => {
+  if (o <= 0.001 || sc <= 0.001) return null;
+  if (kind === 'food') return <Bowl x={x} y={y + 20 * sc} sc={sc} t={t} o={o} glow={glow} id={id} />;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${sc})`} opacity={o}>
+      <Halo id={id} glow={glow} />
+      {kind === 'cloth' && (
+        // a folded-open robe with a gold border
+        <g>
+          <path d="M-46 -112 L46 -112 L128 -70 L104 -6 L64 -30 L64 118 L-64 118 L-64 -30 L-104 -6 L-128 -70 Z" fill={M.cream} />
+          <path d="M-46 -112 L0 -60 L46 -112" fill="none" stroke={M.goldDeep} strokeWidth={8} strokeLinejoin="round" />
+          <path d="M0 -60 L0 118" stroke={M.gold} strokeWidth={6} />
+          <path d="M-64 104 L64 104" stroke={M.gold} strokeWidth={8} />
+          <path d="M-128 -70 L-104 -6 M128 -70 L104 -6" stroke={M.gold} strokeWidth={8} strokeLinecap="round" />
+          <path d="M-50 -20 L-50 90 M50 -20 L50 90" stroke="#CFC4B1" strokeWidth={3} />
+        </g>
+      )}
+      {kind === 'shield' && (
+        // a round leather shield with a metal boss
+        <g>
+          <circle cx={0} cy={0} r={118} fill={LEATHER} />
+          <circle cx={0} cy={0} r={118} fill="none" stroke={M.gold} strokeWidth={9} />
+          <circle cx={0} cy={0} r={84} fill="none" stroke={LEATHER_D} strokeWidth={5} />
+          {Array.from({length: 12}, (_, i) => (
+            <circle key={i} cx={Math.cos((i / 12) * Math.PI * 2) * 101} cy={Math.sin((i / 12) * Math.PI * 2) * 101} r={6} fill={M.goldHi} />
+          ))}
+          <circle cx={0} cy={0} r={36} fill={M.gold} />
+          <circle cx={-10} cy={-12} r={12} fill={M.goldHi} opacity={0.8} />
+        </g>
+      )}
+      {kind === 'horse' && (
+        <g fill={M.cream} stroke={M.cream} strokeLinecap="round">
+          {[[-62, 18, -74, 112], [-34, 22, -30, 114], [52, 20, 44, 112], [74, 14, 92, 108]].map(([a, b, c, d], i) => (
+            <line key={i} x1={a} y1={b} x2={c} y2={d} strokeWidth={15} />
+          ))}
+          <ellipse cx={0} cy={0} rx={96} ry={40} stroke="none" />
+          <path d="M58 -24 L92 -104 L122 -96 L100 4 Z" stroke="none" />
+          <path d="M92 -106 Q104 -122 122 -110 L160 -70 Q166 -58 152 -54 L116 -70 Z" stroke="none" />
+          <path d="M96 -112 L104 -134 L112 -112 Z" stroke="none" />
+          <path d="M-92 -12 Q-132 6 -122 70" fill="none" strokeWidth={16} />
+          <path d="M86 -100 Q66 -60 60 -24" fill="none" stroke={M.gold} strokeWidth={9} />
+          <rect x={-30} y={-46} width={64} height={14} rx={4} fill={M.gold} stroke="none" />
+        </g>
+      )}
+      {kind === 'camel' && (
+        <g fill={M.cream} stroke={M.cream} strokeLinecap="round">
+          {[[-66, 26, -70, 116], [-40, 30, -36, 116], [46, 30, 42, 116], [70, 24, 76, 116]].map(([a, b, c, d], i) => (
+            <line key={i} x1={a} y1={b} x2={c} y2={d} strokeWidth={14} />
+          ))}
+          <path d="M-100 34 Q-110 -6 -72 -20 Q-38 -104 6 -28 Q36 -40 64 -14 Q98 -8 98 34 Z" stroke="none" />
+          <path d="M86 0 Q132 4 138 -70" fill="none" strokeWidth={26} />
+          <ellipse cx={154} cy={-80} rx={28} ry={15} stroke="none" />
+          <path d="M-100 12 L-112 52" fill="none" strokeWidth={8} />
+          <path d="M-60 -22 Q-36 -40 -12 -24" fill="none" stroke={M.red} strokeWidth={14} />
+          <path d="M-62 -10 L-20 -10" stroke={M.gold} strokeWidth={6} />
+        </g>
+      )}
+      {kind === 'bow' && (
+        <g strokeLinecap="round">
+          <path d="M-36 -126 Q96 0 -36 126" fill="none" stroke={LEATHER} strokeWidth={16} />
+          <path d="M-36 -126 Q96 0 -36 126" fill="none" stroke={M.gold} strokeWidth={4} strokeDasharray="10 16" />
+          <line x1={-36} y1={-126} x2={-36} y2={126} stroke={M.cream} strokeWidth={3} />
+          {[-1, 1].map((d, i) => (
+            <g key={i} transform={`rotate(${d * 14})`}>
+              <line x1={-120} y1={0} x2={110} y2={0} stroke={M.cream} strokeWidth={6} />
+              <path d="M110 0 L88 -12 L88 12 Z" fill={M.goldHi} />
+              <path d="M-120 0 L-100 -14 L-86 -14 L-104 0 L-86 14 L-100 14 Z" fill={M.red} />
+            </g>
+          ))}
+        </g>
+      )}
+    </g>
+  );
+};
+
+/** Gifts one after another, each popping in, `period` seconds apiece. */
+export const GiftCycle: React.FC<{t: number; start: number; period: number; x: number; y: number; sc: number; o: number; id: string; offset?: number}> = ({
+  t,
+  start,
+  period,
+  x,
+  y,
+  sc,
+  o,
+  id,
+  offset = 0,
+}) => {
+  if (o <= 0.001) return null;
+  const u = Math.max(0, t - start) / period;
+  const i = Math.floor(u);
+  const local = u - i;
+  const pop = easeOut(clamp01(local * 3.2));
+  return <Gift kind={KINDS[(i + offset) % KINDS.length]} x={x} y={y} sc={sc * lerp(0.82, 1, pop)} t={t} o={o * lerp(0.2, 1, pop)} id={`${id}${(i + offset) % KINDS.length}`} />;
+};
+
 // ======================= 1. Who he was =======================
 export const Intro: React.FC<P> = ({t, frame}) => {
   const z = s('dhahabi') - 0.4;
@@ -87,7 +209,7 @@ export const Intro: React.FC<P> = ({t, frame}) => {
   return (
     <div style={{position: 'absolute', inset: 0, opacity: o}}>
       <svg width={MW} height={H} style={{position: 'absolute', inset: 0}}>
-        <Bowl x={540} y={lerp(560, 470, prog(t, name - 0.6, name + 0.3, easeInOut))} sc={lerp(0.6, 1.25, Math.min(bowlIn, 1.05))} t={t} o={1 - bowlOut} id="intro" />
+        <GiftCycle t={t} start={0} period={0.42} x={540} y={lerp(540, 450, prog(t, name - 0.6, name + 0.3, easeInOut))} sc={lerp(0.6, 1.15, Math.min(bowlIn, 1.05))} o={1 - bowlOut} id="intro" />
       </svg>
       <Line t={t} at={0.25} out={name - 0.55} y={760} size={74} italic color={M.cream}>
         The man who sent the Prophet
@@ -125,77 +247,38 @@ export const Intro: React.FC<P> = ({t, frame}) => {
   );
 };
 
-// ======================= 2. Al-Dhahabi's Siyar =======================
-const PAGE_LINES = Array.from({length: 13}, (_, i) => 0.55 + rand(i * 4.7) * 0.4);
-
+// ======================= 2. Al-Dhahabi's Siyar: the book, plain, with its name =======================
 export const Siyar: React.FC<P> = ({t, frame}) => {
   const a = s('dhahabi') - 0.2;
   const z = s('khazraj') - 0.6;
   const o = vis(t, a, z, 0.4, 0.4);
   if (o <= 0.001) return null;
   const rise = spring(frame, a, SOFT);
-  const open = prog(t, w('siyar.in') - 0.1, w('siyar.in') + 0.7, easeInOut);
-  const mark = prog(t, s('sad2') - 0.05, s('sad2') + 0.6, easeOut);
   const cx = 540;
-  const cy = 760;
-  const pw = 360; // page width
-  const ph = 500;
+  const cy = 700;
+  const bw = 480;
+  const bh = 640;
   return (
     <div style={{position: 'absolute', inset: 0, opacity: o, transform: `translateY(${(1 - Math.min(rise, 1)) * 60}px)`}}>
-      <Mono t={t} at={a + 0.1} out={z} y={300} text="IMAM AL-DHAHABI · 673–748 AH" color={M.gold} size={30} />
       <svg width={MW} height={H} style={{position: 'absolute', inset: 0}}>
-        <ellipse cx={cx} cy={cy + ph / 2 + 30} rx={440} ry={36} fill="#000" opacity={0.35} />
-        {/* the open spread underneath */}
-        <g opacity={open}>
-          <path d={`M${cx} ${cy - ph / 2} Q${cx - pw / 2} ${cy - ph / 2 - 22} ${cx - pw} ${cy - ph / 2} L${cx - pw} ${cy + ph / 2} Q${cx - pw / 2} ${cy + ph / 2 - 22} ${cx} ${cy + ph / 2} Z`} fill={M.paper} />
-          <path d={`M${cx} ${cy - ph / 2} Q${cx + pw / 2} ${cy - ph / 2 - 22} ${cx + pw} ${cy - ph / 2} L${cx + pw} ${cy + ph / 2} Q${cx + pw / 2} ${cy + ph / 2 - 22} ${cx} ${cy + ph / 2} Z`} fill="#E6DDCE" />
-          <line x1={cx} y1={cy - ph / 2} x2={cx} y2={cy + ph / 2} stroke="#B9AE9B" strokeWidth={3} />
-          {PAGE_LINES.map((len, i) => (
-            <g key={i}>
-              <rect x={cx - pw + 40} y={cy - ph / 2 + 50 + i * 33} width={(pw - 80) * len} height={9} rx={4} fill={M.ink} opacity={0.22} />
-              {i !== 4 && <rect x={cx + 40} y={cy - ph / 2 + 50 + i * 33} width={(pw - 80) * PAGE_LINES[(i + 5) % 13]} height={9} rx={4} fill={M.ink} opacity={0.22} />}
-            </g>
-          ))}
-          {/* the entry being read */}
-          <rect x={cx + 30} y={cy - ph / 2 + 30 + 4 * 33} width={(pw - 60) * mark} height={46} fill={M.gold} opacity={0.85} />
-        </g>
-        {/* the closed cover, swinging open */}
-        <g transform={`translate(${cx - pw / 2 + (pw / 2) * open} ${cy}) scale(${1 - open * 1.02} 1)`} opacity={1 - prog(t, w('siyar.in') + 0.3, w('siyar.in') + 0.6)}>
-          <rect x={-pw / 2 - 30} y={-ph / 2 - 10} width={pw + 60} height={ph + 20} rx={10} fill="#3A2416" />
-          <rect x={-pw / 2 - 30} y={-ph / 2 - 10} width={pw + 60} height={ph + 20} rx={10} fill="none" stroke={M.goldDeep} strokeWidth={4} />
-          <rect x={-pw / 2 - 6} y={-ph / 2 + 14} width={pw + 12} height={ph - 28} rx={4} fill="none" stroke={M.gold} strokeOpacity={0.6} strokeWidth={2} />
-          <circle cx={0} cy={-30} r={70} fill="none" stroke={M.gold} strokeOpacity={0.5} strokeWidth={2} />
-          <circle cx={0} cy={-30} r={52} fill="none" stroke={M.gold} strokeOpacity={0.35} strokeWidth={2} />
-        </g>
+        <ellipse cx={cx} cy={cy + bh / 2 + 26} rx={300} ry={26} fill="#000" opacity={0.4} />
+        {/* page edges, then the cover */}
+        <rect x={cx - bw / 2 + 14} y={cy - bh / 2 + 10} width={bw} height={bh} rx={8} fill="#D9CFBD" />
+        <rect x={cx - bw / 2} y={cy - bh / 2} width={bw} height={bh} rx={8} fill="#3A2416" />
+        <rect x={cx - bw / 2} y={cy - bh / 2} width={22} height={bh} rx={6} fill="#2C1B10" />
+        <rect x={cx - bw / 2 + 44} y={cy - bh / 2 + 26} width={bw - 70} height={bh - 52} rx={4} fill="none" stroke={M.gold} strokeOpacity={0.55} strokeWidth={2} />
       </svg>
-      {/* cover title, folding away with the cover */}
-      <div style={{opacity: 1 - prog(t, w('siyar.in') - 0.1, w('siyar.in') + 0.25)}}>
-        <Center y={cy - 64} style={{fontFamily: MF.serif, fontSize: 64, lineHeight: 1, color: M.goldHi}}>
-          Siyar
-        </Center>
-        <Center y={cy + 70} style={{fontFamily: MF.mono, fontWeight: 600, fontSize: 21, letterSpacing: '0.2em', color: M.gold}}>
-          A‘LĀM AN-NUBALĀ’
-        </Center>
-        <Center y={cy + 160} style={{fontFamily: MF.mono, fontWeight: 600, fontSize: 18, letterSpacing: '0.24em', color: M.goldDeep}}>
-          AL-DHAHABI
-        </Center>
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          left: cx + 46,
-          top: cy - ph / 2 + 44 + 4 * 33,
-          fontFamily: MF.sans,
-          fontWeight: 800,
-          fontSize: 28,
-          letterSpacing: '0.02em',
-          color: M.ink,
-          opacity: prog(t, s('sad2') + 0.15, s('sad2') + 0.45),
-        }}
-      >
-        SA‘D IBN ‘UBADAH
-      </div>
-      <Mono t={t} at={open > 0.5 ? w('siyar.in') + 0.4 : 999} out={z} y={1100} text="LIVES OF THE NOBLE FIGURES" color={M.muted} size={26} />
+      <Center y={cy - 150} style={{fontFamily: MF.serif, fontSize: 92, lineHeight: 1, color: M.goldHi, paddingLeft: 22, boxSizing: 'border-box'}}>
+        Siyar
+      </Center>
+      <Center y={cy - 40} style={{fontFamily: MF.serif, fontStyle: 'italic', fontSize: 56, lineHeight: 1.1, color: M.gold, paddingLeft: 22, boxSizing: 'border-box'}}>
+        A‘lām an-Nubalā’
+      </Center>
+      <div style={{position: 'absolute', left: cx - 60 + 11, top: cy + 70, width: 120, height: 2, background: M.gold, opacity: 0.6}} />
+      <Center y={cy + 110} style={{fontFamily: MF.mono, fontWeight: 600, fontSize: 26, letterSpacing: '0.24em', color: M.cream, paddingLeft: 22, boxSizing: 'border-box'}}>
+        AL-DHAHABI
+      </Center>
+      <Mono t={t} at={s('sad2') - 0.05} out={z} y={cy + bh / 2 + 80} text="ON SA‘D IBN ‘UBADAH" color={M.gold} size={30} />
     </div>
   );
 };
@@ -302,9 +385,10 @@ const HERO = CELLS[23 * COLS + 41];
 
 export const Days: React.FC<P> = ({t, frame}) => {
   const a = s('know') - 0.2;
-  const z = s('among') - 0.4;
-  const o = vis(t, a, z, 0.4, 0.5);
+  const z = s('among') + 0.1;
+  const o = vis(t, a, z, 0.4, 0.4);
   if (o <= 0.001) return null;
+  const imagine = s('imagine');
   const ten = w('ten.ten');
   const years = prog(t, s('ten') - 0.1, s('ten') + 1.4, easeInOut);
   const every = w('every.every');
@@ -313,18 +397,17 @@ export const Days: React.FC<P> = ({t, frame}) => {
   const count = prog(t, s('days3650') + 0.1, n3650 + 0.35, easeOut);
   const gift0 = s('gift1');
   const gifts = prog(t, gift0, w('gift1.gift') + 0.5, (x) => x);
-  const imagine = s('imagine');
-  const dive = prog(t, s('hardly2') - 0.1, s('gift2') + 0.3, easeInOut);
-  const bowlK = prog(t, s('hardly2') + 0.8, s('gift2') + 0.5, easeOut);
+  const dive = prog(t, imagine - 0.1, imagine + 1.1, easeInOut);
+  const bowlK = prog(t, imagine + 0.6, imagine + 1.2, easeOut);
   const dim = prog(t, s('hardly') - 0.1, s('hardly') + 0.5, easeInOut) * (1 - prog(t, gift0, gift0 + 0.4));
 
   // camera: dive into one day
-  const zoom = Math.pow(9, dive);
+  const zoom = Math.pow(5, dive);
   const fx = HERO.x + CELL / 2;
   const fy = HERO.y + CELL / 2;
   const camX = lerp(0, 540 - fx, dive);
   const camY = lerp(0, 760 - fy, dive);
-  const gridO = 1 - prog(t, s('hardly2') + 0.3, s('gift2') + 0.1, easeInOut);
+  const gridO = 1 - prog(t, imagine + 0.05, imagine + 0.7, easeInOut);
 
   // ruler of ten years, then each year split into its days
   const RX = 120;
@@ -391,7 +474,7 @@ export const Days: React.FC<P> = ({t, frame}) => {
       <Mono t={t} at={s('ten')} out={every - 0.3} y={940} text="YEAR" color={M.muted} size={22} />
 
       {/* 3,650 days */}
-      <svg width={MW} height={H} style={{position: 'absolute', inset: 0, opacity: grid * gridO, filter: `blur(${dive * 6}px)`}}>
+      <svg width={MW} height={H} style={{position: 'absolute', inset: 0, opacity: grid * gridO, filter: `blur(${dive * 10}px)`}}>
         <g transform={`translate(${camX + fx} ${camY + fy}) scale(${zoom}) translate(${-fx} ${-fy})`}>
           {CELLS.map((c, i) => {
             const appear = clamp01((grid - c.wave * 0.7) / 0.3);
@@ -422,15 +505,14 @@ export const Days: React.FC<P> = ({t, frame}) => {
       <Line t={t} at={w('gift1.gift') - 0.1} out={imagine - 0.3} y={1130} size={64} italic color={M.gold}>
         without a gift.
       </Line>
-      <Line t={t} at={imagine + 0.1} out={s('hardly2') + 0.4} y={270} size={130} italic color={M.gold}>
+      <Line t={t} at={imagine + 0.1} out={z - 0.5} y={270} size={130} italic color={M.gold}>
         Imagine that.
       </Line>
       {/* the one day, up close */}
       <svg width={MW} height={H} style={{position: 'absolute', inset: 0}}>
-        <Bowl x={540} y={780} sc={lerp(0.2, 1.45, bowlK)} t={t} o={bowlK * (1 - prog(t, z - 0.5, z))} id="day" />
+        <GiftCycle t={t} start={imagine + 0.6} period={0.36} x={540} y={760} sc={lerp(0.2, 1.3, bowlK)} o={bowlK * (1 - prog(t, z - 0.6, z - 0.2))} id="day" offset={1} />
       </svg>
-      <Mono t={t} at={s('gift2') + 0.5} out={z - 0.5} y={480} text="ONE DAY OF 3,650" color={M.creamDim} size={28} />
-      <Mono t={t} at={w('gift2.peace') + 0.2} out={z - 0.5} y={1060} text="A BOWL OF THARID, DAILY · AL-DHAHABI" color={M.gold} size={24} />
+      <Mono t={t} at={imagine + 0.9} out={z - 0.5} y={1060} text="A GIFT, NEARLY EVERY DAY" color={M.creamDim} size={28} />
     </div>
   );
 };
@@ -478,14 +560,14 @@ const DuaLine: React.FC<{t: number; keys: string[]; y: number; size: number; at:
 const RAYS = Array.from({length: 46}, (_, i) => ({x: (rand(i * 2.7) - 0.5) * 2, v: 300 + rand(i * 4.1) * 380, p: rand(i * 6.3), r: 2 + rand(i * 1.9) * 3}));
 
 export const Dua: React.FC<P> = ({t, frame}) => {
-  const a = s('among') - 0.2;
+  const a = s('among') - 0.35;
   const z = END - 0.35;
   const o = vis(t, a, z, 0.5, 0.35);
   if (o <= 0.001) return null;
   const raise = prog(t, s('used') + 0.3, s('dua1a') + 0.4, easeOut);
   const enrich = prog(t, s('enrich1') - 0.2, w('enrich1.enrich') + 0.8, easeInOut);
-  const light = Math.max(enrich * (1 - prog(t, s('rich') - 0.4, s('rich'))), prog(t, s('enrich2') - 0.2, w('enrich2.enrich') + 0.6, easeInOut));
-  const tagsOut = prog(t, s('enrich2') - 0.5, s('enrich2') - 0.1, easeInOut);
+  const light = enrich * (1 - prog(t, s('rich') - 0.4, s('rich')) * 0.6);
+  const tagsOut = 0;
   const give = prog(t, w('giving.giving'), w('giving.giving') + 1.3, (x) => x);
   const figY = 1215;
   return (
@@ -509,15 +591,15 @@ export const Dua: React.FC<P> = ({t, frame}) => {
           const fade = 1 - clamp01((y - 800) / 250);
           return <circle key={i} cx={540 + d.x * 250} cy={y} r={d.r} fill={M.goldHi} opacity={light * fade * (0.3 + 0.5 * rand(i * 9.1))} />;
         })}
-        <ellipse cx={540} cy={figY + 6} rx={150} ry={16} fill="#000" opacity={0.35} />
+        <ellipse cx={540} cy={figY + 6} rx={150} ry={16} fill="#000" opacity={0.35 * prog(t, a, a + 0.6)} />
         <Person x={540} y={figY} s={2.3} fill={M.cream} raise={raise} o={prog(t, a, a + 0.6)} />
       </svg>
 
       <Mono t={t} at={s('among') + 0.1} out={s('dua1a') - 0.3} y={560} text="HIS SUPPLICATION" color={M.gold} size={30} />
       <Mono t={t} at={s('dua1a') - 0.2} out={s('enrich1') - 0.4} y={300} text="SA‘D IBN ‘UBADAH USED TO SAY" color={M.muted} size={24} />
-      <DuaLine t={t} keys={['dua1a', 'dua2a']} y={340} size={88} at={s('dua1a') - 0.15} out={s('enrich1') - 0.4} />
-      <DuaLine t={t} keys={['dua1b', 'dua2b']} y={590} size={88} at={s('dua1b') - 0.15} out={s('enrich1') - 0.4} />
-      <Line t={t} at={s('karim') - 0.1} out={s('dua2a') - 0.5} y={830} size={58} italic color={M.gold}>
+      <DuaLine t={t} keys={['dua1a']} y={340} size={88} at={s('dua1a') - 0.15} out={s('enrich1') - 0.4} />
+      <DuaLine t={t} keys={['dua1b']} y={590} size={88} at={s('dua1b') - 0.15} out={s('enrich1') - 0.4} />
+      <Line t={t} at={s('karim') - 0.1} out={s('enrich1') - 0.4} y={830} size={58} italic color={M.gold}>
         A generous man.
       </Line>
       <DuaLine t={t} keys={['enrich1']} y={360} size={104} at={s('enrich1') - 0.15} out={s('rich') - 0.5} italic />
@@ -530,7 +612,7 @@ export const Dua: React.FC<P> = ({t, frame}) => {
         <Tag
           parts={[{t: 'GIVING', red: true}]}
           x={600}
-          y={830}
+          y={790}
           size={84}
           rot={3}
           k={spring(frame, w('giving.giving') - 0.05)}
@@ -546,11 +628,10 @@ export const Dua: React.FC<P> = ({t, frame}) => {
               const d = lerp(60, 560, easeOut(k));
               const x = 600 + side * d;
               const y = 830 + (i - 3) * 34 - Math.sin(k * Math.PI) * 60;
-              return <Bowl key={i} x={x} y={y} sc={0.3} t={t} o={Math.sin(k * Math.PI) * 0.95} glow={0.5} id={`g${i}`} />;
+              return <Gift key={i} kind={KINDS[i % KINDS.length]} x={x} y={y} sc={0.3} t={t} o={Math.sin(k * Math.PI) * 0.95} glow={0.5} id={`g${i}`} />;
             })}
         </svg>
       </div>
-      <DuaLine t={t} keys={['enrich2']} y={400} size={112} at={s('enrich2') - 0.15} out={z} italic />
     </div>
   );
 };

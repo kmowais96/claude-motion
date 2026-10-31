@@ -7,7 +7,7 @@ import {Days, Dua, EndCard, Hijrah, Intro, Siyar, Subtitles} from './scenes';
 import {AFPS, END, s} from './theme';
 
 // lines the scene shows in full, so no subtitle under them
-const SHOWN = new Set(['imagine', 'dua1a', 'dua1b', 'karim', 'dua2a', 'dua2b', 'enrich1', 'enrich2']);
+const SHOWN = new Set(['imagine', 'dua1a', 'dua1b', 'karim', 'enrich1']);
 
 /** Sheikh 'Uthman al-Khamees on Sa'd ibn 'Ubadah's daily gift: his voice untouched, every scene in English. 1080×1920 at 30 fps. */
 export const GiftVideo: React.FC = () => {
@@ -22,7 +22,7 @@ export const GiftVideo: React.FC = () => {
     band(0, s('dhahabi')) * 0.9,
     band(s('says'), s('among')) * 1.1,
     band(s('enrich1'), s('rich')) * 1.2,
-    band(s('enrich2'), END) * 1.2,
+    band(s('giving'), END) * 0.9,
   );
   const warmY = t < s('dhahabi') ? 34 : t > s('among') ? 26 : 42;
   const p = {t, frame};
