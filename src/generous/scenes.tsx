@@ -416,9 +416,8 @@ export const EndCard: React.FC<P> = ({t, frame}) => {
       </Center>
       <div style={{position: 'absolute', left: 540 - 330 * line, top: 830, width: 660 * line, height: 4, borderRadius: 2, background: M.gold}} />
       <Line t={t} at={END + 0.5} out={999} y={880} size={58} italic color={M.cream}>
-        Ask Him for everything.
+        Ask Allah for everything.
       </Line>
-      <Mono t={t} at={END + 1.2} out={999} y={1180} text="ORIGINAL REEL: @MOHAMED_ELBORNO" color={M.muted} size={22} />
       {pill > 0.01 && (
         <div
           style={{

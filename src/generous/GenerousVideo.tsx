@@ -6,7 +6,7 @@ import {Bg, Handle, Overlay} from '../mercy/parts';
 import {Asking, EndCard, Least, Plain, Pouring, Spending, Subtitles} from './scenes';
 import {END, GFPS, s, w} from './theme';
 
-/** "Ask Him for everything": the original Arabic narration, every scene rebuilt in English. 1080×1920 at 30 fps. */
+/** "Ask Allah for everything": the original Arabic narration, every scene rebuilt in English. 1080×1920 at 30 fps. */
 export const GenerousVideo: React.FC = () => {
   useFonts();
   const frame = useCurrentFrame();
