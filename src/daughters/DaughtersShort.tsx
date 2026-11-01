@@ -278,6 +278,9 @@ const Captions: React.FC<{t: number}> = ({t}) => {
         return (
           <span key={j} style={{display: 'inline-block', whiteSpace: 'nowrap', color: live ? N.gold : t < s ? 'rgba(245,239,226,0.5)' : N.cream, marginRight: '0.26em'}}>
             {w.replace(/[:]$/, '').replace(/\.\.\.$/, '…')}
+            {w === 'Aisha' && (
+              <span style={{fontFamily: NF.arabic, fontWeight: 700, fontSize: 64, direction: 'rtl', marginLeft: '0.3em', verticalAlign: '-4px'}}>رضي‌اللّٰه‌عنها</span>
+            )}
           </span>
         );
       })}
