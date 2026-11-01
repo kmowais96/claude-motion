@@ -11,6 +11,8 @@ import {GFPS, GT} from './generous/theme';
 import {MFPS, MH, MT, MW} from './mercy/theme';
 import {GiftVideo} from './gift/GiftVideo';
 import {AFPS, AT} from './gift/theme';
+import {GiftShort} from './giftshort/GiftShort';
+import {AT as ST} from './giftshort/theme';
 
 export const Root: React.FC = () => (
   <>
@@ -50,6 +52,14 @@ export const Root: React.FC = () => (
       id="GiftVideo"
       component={GiftVideo}
       durationInFrames={Math.round(AT.duration * AFPS)}
+      fps={AFPS}
+      width={MW}
+      height={MH}
+    />
+    <Composition
+      id="GiftShort"
+      component={GiftShort}
+      durationInFrames={Math.round(ST.duration * AFPS)}
       fps={AFPS}
       width={MW}
       height={MH}
