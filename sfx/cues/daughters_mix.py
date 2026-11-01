@@ -108,11 +108,22 @@ def clink(g=1.0):
     y = sum(a * np.sin(2 * np.pi * f * tt) * np.exp(-tt * d) for f, a, d in [(2400, 1, 6), (3910, 0.6, 9), (5630, 0.4, 12), (7180, 0.2, 16)])
     return y * g
 
+def hit(g=1.0):
+    n = int(0.5 * SR)
+    tt = np.arange(n) / SR
+    return np.sin(2 * np.pi * (55 + 70 * np.exp(-tt * 25)) * tt) * np.exp(-tt * 9) * g
+
+# every picture change: a short rising whoosh landing on a soft low hit with the flash
+thisEnd = at('this.', B['two'])
+cuts = [B['first'], at('says:') - 0.3, B['jahil'], at('Being') - 0.2, B['two'], thisEnd + 0.5, B['date'], at('split') - 0.3, B['ahmad'], B['close']]
+for c in cuts:
+    put(sfx, c - 0.32, whoosh(0.36), 0.2)
+    put(sfx, c, hit(), 0.3)
+# chapter beats get the bigger hit; the hand-to-two-fingers moment gets a long riser first
 for name in ['first', 'jahil', 'two', 'date', 'ahmad', 'close']:
-    put(sfx, B[name] - 0.35, whoosh(0.7), 0.12)
-put(sfx, at('says:') - 0.6, whoosh(0.5), 0.08)
-put(sfx, at('Being') - 0.5, whoosh(0.6, up=False), 0.1)
-put(sfx, at('split') - 0.6, whoosh(0.5), 0.08)
+    put(sfx, B[name], hit(), 0.15)
+put(sfx, thisEnd - 1.2, whoosh(1.2), 0.18)
+put(sfx, thisEnd + 0.5, hit(), 0.25)
 # daughters lit gold in the verse; the one date
 put(sfx, at('daughters...'), clink(0.25))
 put(sfx, at('one', B['date']), clink(0.25))

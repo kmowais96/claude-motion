@@ -82,13 +82,13 @@ const cover = (s: Shot) => {
   return {w, h, x: (NW - w) * s.fx, y: (NH - h) * s.fy};
 };
 
-const XF = 0.5;
+const XF = 0.28;
 
 const Photo: React.FC<{t: number; s: Shot}> = ({t, s}) => {
   if (t < s.from - 0.05 || t > s.to + XF) return null;
   const o = Math.min(prog(t, s.from, s.from + XF, easeInOut), 1 - prog(t, s.to, s.to + XF, easeInOut));
   const k = prog(t, s.from, s.to + XF, (x) => x);
-  const z = lerp(s.zoom[0], s.zoom[1], k);
+  const z = lerp(s.zoom[0], s.zoom[1], k) * (1 + (s.from > 0 ? 0.07 * (1 - prog(t, s.from, s.from + 0.55, easeOut)) : 0));
   const c = cover(s);
   const img = (style: React.CSSProperties) => <Img src={staticFile(`daughters/${s.src}.jpg`)} style={{position: 'absolute', ...style}} />;
   return (
@@ -111,6 +111,7 @@ const Photo: React.FC<{t: number; s: Shot}> = ({t, s}) => {
 
 const Grade: React.FC<{t: number}> = ({t}) => {
   const dim = band(t, T.follow - 0.3, T.follow + 0.6);
+  const flash = Math.max(0, ...SHOTS.filter((x) => x.from > 0).map((x) => Math.max(0, 1 - Math.abs(t - x.from - 0.04) / 0.14) * 0.22));
   return (
     <>
       <AbsoluteFill
@@ -121,6 +122,7 @@ const Grade: React.FC<{t: number}> = ({t}) => {
       />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 90% 70% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%)'}} />
       <AbsoluteFill style={{background: N.ink, opacity: dim * 0.45}} />
+      <AbsoluteFill style={{background: '#f4e4c1', opacity: flash, mixBlendMode: 'screen'}} />
     </>
   );
 };
