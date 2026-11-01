@@ -13,7 +13,7 @@ The third Short in the Ibn al-Qayyim series, after the newborn and naming Shorts
 | `src/daughters/DaughtersShort.tsx` | Composition `DaughtersShort` (palette and fonts from `src/newborn/theme.ts`) |
 | `src/daughters/words.json` | Word timings of the raw narration (ElevenLabs Scribe) |
 | `src/daughters/timeline.json` | Generated: beat starts and shifted word timings |
-| `public/daughters/*.jpg` | The 13 photos used, from the client's set, resized |
+| `public/daughters/*.jpg` | The client's photos, resized: 10 in the cut, plus `date-palm-wide`, `mudbrick` and `palm-bw` as spares |
 | `public/daughters-vo-raw.mp3` | Narration: ElevenLabs eleven_v4, voice "Jerry B. - Hyper-Real Conversational Voice" (same as the naming Short) |
 | `sfx/cues/daughters_vo.py` | Speeds the take up 7%, cuts it at its pauses, writes the timeline |
 | `public/naming-nasheed.mp3` | Supplied input, not committed: the same client nasheed as the naming Short, used from 0:20 |
