@@ -23,9 +23,9 @@ const at = (w: string, after = 0) => {
 
 const T = {
   hoping: at('hoping'),
-  listen: at('Listen'),
+  listen: at('boy?') + 0.45,
   daughters: at('daughters...'),
-  says: at('says:'),
+  says: at('put'),
   ignorance: at('ignorance'),
   being: at('Being'),
   jahiliyyah: at('Jahiliyyah.'),
@@ -41,7 +41,7 @@ const T = {
   worry: at('worry'),
   prophets: at('Prophets'),
   /** End card: no spoken line, it lands after the last line has had room to sit. */
-  follow: TL.voEnd + 1.7,
+  follow: TL.voEnd + 1.5,
 };
 
 /* ---------- photos ---------- */
@@ -347,7 +347,7 @@ const Seven: React.FC<{t: number}> = ({t}) => {
         })}
       </div>
       <div style={{marginTop: 70, fontFamily: NF.serif, fontStyle: 'italic', fontSize: 66, lineHeight: 1.15, color: N.cream, opacity: prog(t, T.same - 0.1, T.same + 0.4, easeOut), textShadow: '0 2px 20px rgba(0,0,0,0.85)'}}>
-        Every time, the same <span style={{color: N.gold}}>one line</span>…
+        Every time, the same <span style={{color: N.gold}}>line</span>…
       </div>
     </div>
   );
@@ -437,7 +437,7 @@ export const DaughtersShort: React.FC = () => {
       <Hook t={t} />
 
       <Header t={t} from={B.first} to={B.jahil} num="01" title="Daughters first" />
-      <Panel t={t} from={B.first + 1.2} to={T.says - 0.3} y={720}>
+      <Panel t={t} from={B.first + 1.0} to={T.says - 0.2} y={720}>
         <Verse t={t} />
       </Panel>
       <Panel t={t} from={T.says - 0.1} to={B.jahil} y={720}>

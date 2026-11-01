@@ -14,18 +14,18 @@ SR = 48000
 RAW = 'public/daughters-vo-raw.mp3'
 OUT = 'public/daughters-vo.wav'
 TIMELINE = 'src/daughters/timeline.json'
-DURATION = 78.1
-# The take runs 71 s; 7% faster tightens it without sounding rushed.
-TEMPO = 1.07
+DURATION = 58.1
+# The take runs 71 s; 15% faster tightens it without sounding rushed.
+TEMPO = 1.15
 
 # Cut points (raw-take seconds) sit inside pauses measured with silencedetect -38 dB.
 BEATS = ['hook', 'first', 'jahil', 'two', 'date', 'ahmad', 'close']
-CUTS = [0.0, 5.9, 19.1, 23.8, 32.5, 51.7, 65.65]
+CUTS = [0.0, 4.9, 15.24, 18.8, 26.1, 40.05, 50.06]
 # The long gap after "like this." holds the two-fingers photo.
-GAPS = [0.25, 0.3, 0.35, 1.65, 0.35, 0.45, 0.0]
+GAPS = [0.2, 0.25, 0.3, 1.0, 0.3, 0.4, 0.0]
 LEAD = 0.2
 # The narration ends on "fathers of daughters."; the follow line lives on the end card only.
-END = 74.7
+END = 59.3
 
 pcm = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', RAW, '-af', f'atempo={TEMPO}', '-ac', '1', '-ar', str(SR),
                       '-f', 's16le', '-'], capture_output=True, check=True).stdout
