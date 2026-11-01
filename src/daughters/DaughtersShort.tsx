@@ -12,7 +12,8 @@ export const DAUGHTERS_FPS = TL.fps;
 export const DAUGHTERS_FRAMES = Math.round(TL.duration * TL.fps);
 const HANDLE = 'TheTazkiyyahGuide';
 
-const words = TL.words as [string, number][];
+// The spoken "radiyallahu anha" is shown as Arabic on the caption instead of as transcribed words.
+const words = (TL.words as [string, number][]).filter(([w]) => !/^(radiyallahu|anha,?)$/i.test(w));
 /** Start of the first spoken word `w` at or after `after` seconds. */
 const at = (w: string, after = 0) => {
   const hit = words.find(([x, s]) => x === w && s >= after);
@@ -277,8 +278,8 @@ const Captions: React.FC<{t: number}> = ({t}) => {
         const live = t >= s - 0.04 && t < nextS - 0.02;
         return (
           <span key={j} style={{display: 'inline-block', whiteSpace: 'nowrap', color: live ? N.gold : t < s ? 'rgba(245,239,226,0.5)' : N.cream, marginRight: '0.26em'}}>
-            {w.replace(/[:]$/, '').replace(/\.\.\.$/, '…')}
-            {w === 'Aisha' && (
+            {w.replace(/[:]$/, '').replace(/\.\.\.$/, '…').replace(/^(Aisha),$/, '$1')}
+            {w.startsWith('Aisha') && (
               <span style={{fontFamily: NF.arabic, fontWeight: 700, fontSize: 64, direction: 'rtl', marginLeft: '0.3em', verticalAlign: '-4px'}}>رضي‌اللّٰه‌عنها</span>
             )}
           </span>
