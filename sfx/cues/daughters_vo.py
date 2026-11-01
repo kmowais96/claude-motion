@@ -14,14 +14,15 @@ SR = 48000
 RAW = 'public/daughters-vo-raw.mp3'
 OUT = 'public/daughters-vo.wav'
 TIMELINE = 'src/daughters/timeline.json'
-DURATION = 73.6
+DURATION = 74.9
 # The take runs 71 s; 7% faster tightens it without sounding rushed.
 TEMPO = 1.07
 
 # Cut points (raw-take seconds) sit inside pauses measured with silencedetect -38 dB.
 BEATS = ['hook', 'first', 'jahil', 'two', 'date', 'ahmad', 'close']
 CUTS = [0.0, 6.0, 19.0, 23.9, 32.2, 48.2, 62.0]
-GAPS = [0.25, 0.3, 0.35, 0.35, 0.35, 0.45, 0.0]
+# The long gap after "like this." holds the two-fingers photo.
+GAPS = [0.25, 0.3, 0.35, 1.65, 0.35, 0.45, 0.0]
 LEAD = 0.2
 # The narration ends on "fathers of daughters."; the follow line lives on the end card only.
 END = 71.4

@@ -30,6 +30,7 @@ const T = {
   jahiliyyah: at('Jahiliyyah.'),
   whoever: at('whoever', B.two),
   like: at('like', B.two),
+  thisEnd: at('this.', B.two),
   one: at('one', B.date),
   split: at('split'),
   prophet2: at('Prophet', B.date),
@@ -65,7 +66,8 @@ const SHOTS: Shot[] = [
   {src: 'mushaf', w: 1532, h: 2000, from: T.says - 0.3, to: B.jahil, fx: 0.5, fy: 0.5, zoom: [1.06, 1.14], drift: [20, 0]},
   {src: 'ruins', w: 1333, h: 2000, from: B.jahil, to: T.being - 0.2, fx: 0.5, fy: 0.6, zoom: [1.04, 1.1], drift: [0, 0]},
   {src: 'badlands', w: 1500, h: 2000, from: T.being - 0.2, to: B.two, fx: 0.5, fy: 0.5, zoom: [1.06, 1.16], drift: [-20, 0]},
-  {src: 'finger', w: 1335, h: 2000, from: B.two, to: B.date, fx: 0.45, fy: 0.5, zoom: [1.02, 1.12], drift: [0, -20]},
+  {src: 'finger', w: 1335, h: 2000, from: B.two, to: T.thisEnd + 0.5, fx: 0.45, fy: 0.5, zoom: [1.02, 1.12], drift: [0, -20]},
+  {src: 'fingers', w: 1500, h: 2000, from: T.thisEnd + 0.5, to: B.date, fx: 0.5, fy: 0.55, zoom: [1.0, 1.08], drift: [0, 0]},
   {src: 'date-palm', w: 1195, h: 1600, from: B.date, to: T.split - 0.3, fx: 0.5, fy: 0.45, zoom: [1.02, 1.1], drift: [0, 10]},
   {src: 'date-split', w: 1195, h: 1600, from: T.split - 0.3, to: B.ahmad, fx: 0.5, fy: 0.55, zoom: [1.02, 1.12], drift: [0, -20]},
   {src: 'study', w: 897, h: 1600, from: B.ahmad, to: B.close, fx: 0.5, fy: 0.5, zoom: [1.02, 1.1], drift: [0, -10]},
@@ -446,7 +448,7 @@ export const DaughtersShort: React.FC = () => {
       <Cite t={t} from={B.jahil + 0.4} to={B.two} label={`${C} · P.21`} />
 
       <Header t={t} from={B.two} to={B.date} num="03" title="Raise two girls" />
-      <Panel t={t} from={T.whoever - 0.1} to={B.date} y={640}>
+      <Panel t={t} from={T.whoever - 0.1} to={T.thisEnd + 0.6} y={640}>
         <Quote
           arabic="من عال جاريتين حتى تبلغا جاء يوم القيامة أنا وهو"
           english="“Whoever raises two girls until they come of age, he and I will come on the Day of Resurrection like this.”"
