@@ -10,6 +10,7 @@ export const useFonts = () => {
       document.fonts.load('400 20px "JetBrains Mono"'),
       document.fonts.load('600 20px "JetBrains Mono"'),
       document.fonts.load('400 20px "Inter Variable"'),
+      document.fonts.load('400 40px "Amiri"', 'ب'),
     ]).then(() => continueRender(handle));
   }, [handle]);
 };
