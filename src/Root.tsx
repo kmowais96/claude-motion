@@ -3,6 +3,7 @@ import {Composition, Still} from 'remotion';
 import {ArticleCover} from './ArticleCover';
 import {EffortVideo} from './EffortVideo';
 import {FPS, H, TL, W} from './lib';
+import {MANNERS_FPS, MANNERS_FRAMES, MannersShort} from './manners/MannersShort';
 
 export const Root: React.FC = () => (
   <>
@@ -13,6 +14,15 @@ export const Root: React.FC = () => (
       fps={FPS}
       width={W}
       height={H}
+    />
+    <Composition
+      id="MannersShort"
+      component={MannersShort}
+      durationInFrames={MANNERS_FRAMES}
+      fps={MANNERS_FPS}
+      width={1080}
+      height={1920}
+      defaultProps={{audio: true}}
     />
     <Still id="ArticleCover" component={ArticleCover} width={2000} height={800} />
   </>
