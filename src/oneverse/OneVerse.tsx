@@ -178,7 +178,7 @@ const Caption: React.FC<{t: number; g: string[]; next: number}> = ({t, g, next})
 const Captions: React.FC<{t: number}> = ({t}) => (
   <>
     {GROUPS.map((g, i) => (
-      <Caption key={g[0]} t={t} g={g} next={i + 1 < GROUPS.length ? S(GROUPS[i + 1][0]) : FOLLOW} />
+      <Caption key={g[0]} t={t} g={g} next={i + 1 < GROUPS.length ? (GROUPS[i + 1][0] === 'heal' ? S('says') : S(GROUPS[i + 1][0])) : FOLLOW} />
     ))}
   </>
 );
@@ -205,7 +205,7 @@ const Labels: React.FC<{t: number}> = ({t}) => {
       )}
       {lab('hasan', S('clay'), 'AL-HASAN AL-BASRI SAID')}
       {lab('hsaid', S('more') + 0.1, 'AL-HASAN SAID')}
-      {lab('says', E('loss') + 1.2, 'ALLAH SAYS · AL-ISRA 17:82')}
+      {lab('says', S('same2') - 0.2, 'ALLAH SAYS · AL-ISRA 17:82')}
     </>
   );
 };
@@ -275,7 +275,7 @@ const ArabicPhrase: React.FC<{t: number}> = ({t}) => {
 };
 
 const Isra: React.FC<{t: number}> = ({t}) => {
-  const k = prog(t, S('says') - 0.1, S('says') + 0.6, easeOut) * (1 - prog(t, E('loss') + 0.9, E('loss') + 1.3, easeIn));
+  const k = prog(t, S('says') - 0.1, S('says') + 0.6, easeOut) * (1 - prog(t, S('same2') - 0.55, S('same2') - 0.2, easeIn));
   if (k <= 0) return null;
   const second = prog(t, S('loss') - 0.1, S('loss') + 0.4, easeOut);
   return (
