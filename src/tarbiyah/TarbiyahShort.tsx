@@ -210,6 +210,20 @@ const Panel: React.FC<{t: number; from: number; to: number; y: number; children:
   );
 };
 
+/** One panel whose content changes at `swap`: the box stays, the quotes crossfade in the same cell. */
+const SwapPanel: React.FC<{t: number; from: number; swap: number; to: number; y: number; a: React.ReactNode; b: React.ReactNode}> = ({t, from, swap, to, y, a, b}) => {
+  const xOut = prog(t, swap - 0.3, swap, easeIn);
+  const xIn = prog(t, swap, swap + 0.3, easeOut);
+  return (
+    <Panel t={t} from={from} to={to} y={y}>
+      <div style={{display: 'grid'}}>
+        <div style={{gridArea: '1 / 1', opacity: 1 - xOut, alignSelf: 'center'}}>{a}</div>
+        <div style={{gridArea: '1 / 1', opacity: xIn, alignSelf: 'center'}}>{b}</div>
+      </div>
+    </Panel>
+  );
+};
+
 const Quote: React.FC<{arabic: string; english: string; by: string; weak?: boolean}> = ({arabic, english, by, weak}) => (
   <>
     <div style={{fontFamily: NF.arabic, fontSize: 52, lineHeight: 1.5, color: N.gold, direction: 'rtl', textAlign: 'right'}}>{arabic}</div>
@@ -265,7 +279,7 @@ const Hold: React.FC<{t: number}> = ({t}) => {
             transformOrigin: 'left center',
           }}
         >
-          ? WHO IS ASKED FIRST
+          WHO IS ASKED FIRST?
         </div>
       )}
     </>
@@ -310,7 +324,8 @@ const Close: React.FC<{t: number}> = ({t}) => {
 
 /** Darkens the top of the full-frame photos so the answer and close read over bright doorways and cuffs. */
 const TopScrim: React.FC<{t: number}> = ({t}) => {
-  const o = prog(t, B.ask - 0.4, B.ask + 0.2, easeOut) * (1 - prog(t, T.follow - 0.3, T.follow));
+  const hold = prog(t, B.hold - 0.3, B.hold + 0.3, easeOut) * (1 - prog(t, B.q2 - 0.5, B.q2 + 0.1, easeInOut));
+  const o = Math.max(hold * 0.85, prog(t, B.ask - 0.4, B.ask + 0.2, easeOut) * (1 - prog(t, T.follow - 0.3, T.follow)));
   if (o <= 0) return null;
   return (
     <AbsoluteFill
@@ -368,16 +383,20 @@ export const TarbiyahShort: React.FC = () => {
       ))}
       <LastNow t={t} />
       <Labels t={t} seam={seam} />
+      <TopScrim t={t} />
 
       <Open t={t} />
 
       <Question t={t} from={B.q1} to={B.hold} num="01 / 03" text="Did you teach them?" seam={seam} y={660} />
-      <Panel t={t} from={B.a1} to={T.order - 0.2} y={PY}>
-        <Quote arabic="علموهم وأدبوهم" english="“Educate them, discipline them.”" by="ʿAli ؓ · Bab 15 · p.224" />
-      </Panel>
-      <Panel t={t} from={T.order - 0.1} to={B.hold} y={PY}>
-        <Quote arabic="مروا أبناءكم بالصلاة لسبع" english="“Order your children to pray at seven.”" by="Abu Dawud · Hasan · Bab 15 · p.224" />
-      </Panel>
+      <SwapPanel
+        t={t}
+        from={B.a1}
+        swap={T.order}
+        to={B.hold}
+        y={PY}
+        a={<Quote arabic="علموهم وأدبوهم" english="“Educate them, discipline them.”" by="ʿAli ؓ · Bab 15 · p.224" />}
+        b={<Quote arabic="مروا أبناءكم بالصلاة لسبع" english="“Order your children to pray at seven.”" by="Abu Dawud · Hasan · Bab 15 · p.224" />}
+      />
 
       <Hold t={t} />
 
@@ -391,18 +410,20 @@ export const TarbiyahShort: React.FC = () => {
         <Quote arabic="ما نحل والد ولدا أفضل من أدب حسن" english="“No gift a father gives is better than a good upbringing.”" by="Bab 15 · p.225" weak />
       </Panel>
 
-      <Panel t={t} from={B.neglect + 0.1} to={B.ask} y={PY}>
+      <Panel t={t} from={B.neglect + 0.55} to={B.ask} y={PY}>
         <Quote arabic="وأكثر الأولاد إنما جاء فسادهم من قبل الآباء" english="“Most children who go wrong were lost through their fathers.”" by="Ibn al-Qayyim · Bab 15 · p.229" />
       </Panel>
 
-      <TopScrim t={t} />
       <Answer t={t} />
-      <Panel t={t} from={T.father + 0.3} to={T.allah - 0.15} y={PY}>
-        <Quote arabic="يسأل الوالد عن ولده يوم القيامة قبل أن يسأل الولد عن والده" english="“Allah asks the father about his child before He asks the child about his father.”" by="Some scholars · quoted in Bab 15 · p.229" />
-      </Panel>
-      <Panel t={t} from={T.allah - 0.05} to={B.close} y={PY}>
-        <Quote arabic="وصية الله للآباء بأولادهم سابقة على وصية الأولاد بآبائهم" english="“Allah’s charge to fathers about their children came before His charge to children about their fathers.”" by="Ibn al-Qayyim · Bab 15 · p.229" />
-      </Panel>
+      <SwapPanel
+        t={t}
+        from={T.father - 0.1}
+        swap={T.allah + 0.5}
+        to={B.close - 0.45}
+        y={PY}
+        a={<Quote arabic="يسأل الوالد عن ولده يوم القيامة قبل أن يسأل الولد عن والده" english="“Allah asks the father about his child before He asks the child about his father.”" by="Some scholars · quoted in Bab 15 · p.229" />}
+        b={<Quote arabic="وصية الله للآباء بأولادهم سابقة على وصية الأولاد بآبائهم" english="“Allah’s charge to fathers about their children came before His charge to children about their fathers.”" by="Ibn al-Qayyim · Bab 15 · p.229" />}
+      />
 
       <Close t={t} />
       <EndCard t={t} />

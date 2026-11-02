@@ -49,3 +49,5 @@ python3 sfx/cues/tarbiyah_mux.py        # -> out/tarbiyah.mp4
 The full research, Arabic text, gradings and Shamela links are in the project's `ibn-al-qayyim-tarbiyah/bab15-script-and-sources.md`.
 
 **Review fix:** the answer and close text were gold on bright doorways and cuffs, so a top scrim darkens the full-frame photos from "So… who is asked first?" to the end card.
+
+**Second review (client notes):** the quote box no longer blinks out between two quotes in the same beat (at 0:13 and 0:50 it stays and the quote swaps inside it); the pinned chip reads "WHO IS ASKED FIRST?" with the mark at the end; the held question gets the same top scrim; the first answer quote lands with "the father" and stays ~2 s; panels clear before scene cuts at 0:41 and 0:55.
