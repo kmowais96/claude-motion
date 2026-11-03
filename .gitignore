@@ -7,3 +7,5 @@ __pycache__/
 .env
 drafts/
 sims/dist/
+public/manners/sfx.wav
+public/manners/mix.wav

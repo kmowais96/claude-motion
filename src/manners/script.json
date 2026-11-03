@@ -1,0 +1,75 @@
+{
+ "_note": "Narration, one entry per on-screen line. [r]/[g]/[t] colour the next word red/gold/teal. Lines in the same group stack; a new group clears the text.",
+ "lines": [
+  {
+   "key": "hook1",
+   "group": "hook",
+   "text": "Most people don't [r]listen."
+  },
+  {
+   "key": "hook2",
+   "group": "hook",
+   "text": "They just [g]wait for their turn to talk."
+  },
+  {
+   "key": "check1",
+   "group": "check",
+   "text": "Here's a manners check that's [g]1,200 years old."
+  },
+  {
+   "key": "check2",
+   "group": "check",
+   "text": "Be honest. How many do you [t]pass?"
+  },
+  {
+   "key": "r1",
+   "group": "r1",
+   "text": "[g]One. Don't [r]talk over anyone."
+  },
+  {
+   "key": "r2",
+   "group": "r2",
+   "text": "[g]Two. If someone [t]else gets asked, don't answer for them."
+  },
+  {
+   "key": "r3a",
+   "group": "r3a",
+   "text": "[g]Three. When someone's telling a [t]story, let them tell it."
+  },
+  {
+   "key": "r3b",
+   "group": "r3b",
+   "text": "Don't [r]cut in."
+  },
+  {
+   "key": "r3c",
+   "group": "r3b",
+   "text": "And don't let them see you [g]already know it."
+  },
+  {
+   "key": "r4a",
+   "group": "r4a",
+   "text": "[g]Four. If you [t]win the argument, be [g]gentle."
+  },
+  {
+   "key": "r4b",
+   "group": "r4b",
+   "text": "Give them a [g]graceful way out."
+  },
+  {
+   "key": "r4c",
+   "group": "r4b",
+   "text": "And don't [r]flex the win."
+  },
+  {
+   "key": "r5",
+   "group": "r5",
+   "text": "[g]Five. Learn to [t]listen well, the way you learn to [g]speak well."
+  },
+  {
+   "key": "close",
+   "group": "close",
+   "text": "[t]Listen first. Then [g]speak."
+  }
+ ]
+}
