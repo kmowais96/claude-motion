@@ -7,6 +7,8 @@ import '@fontsource-variable/inter/index.css';
 import '@fontsource/baloo-2/600.css';
 import '@fontsource/baloo-2/700.css';
 import '@fontsource/baloo-2/800.css';
+import '@fontsource/amiri/arabic-400.css';
+import '@fontsource/amiri/arabic-700.css';
 import {Root} from './Root';
 
 registerRoot(Root);
