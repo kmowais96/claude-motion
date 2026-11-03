@@ -301,8 +301,8 @@ const DeadEnd: React.FC<{t: number; o: number; a: number}> = ({t, o, a}) => {
     <g opacity={o} transform={`translate(540,${HEAD - 150})`}>
       <rect x={-240} y={-30} width={110} height={60} rx={30} fill={P.white} stroke={P.red} strokeWidth={5} />
       <SvgText x={-185} y={3} size={34} color={P.red}>sin</SvgText>
-      <line x1={-110} y1={0} x2={-110 + 260 * k} y2={0} stroke={P.white} strokeWidth={6} strokeLinecap="round" strokeDasharray="4 16" />
-      <SvgText x={190} y={-6} size={70} color={P.white} weight={800}>{k > 0.95 ? '…' : ''}</SvgText>
+      <line x1={-110} y1={0} x2={-110 + 260 * k} y2={0} stroke={P.red} strokeWidth={6} strokeLinecap="round" strokeDasharray="4 16" />
+      <SvgText x={190} y={-6} size={70} color={P.red} weight={800}>{k > 0.95 ? '…' : ''}</SvgText>
     </g>
   );
 };
@@ -379,10 +379,10 @@ const Stage: React.FC<{t: number; frame: number}> = ({t, frame}) => {
         {/* the whisper */}
         {t > S.voice - 0.1 && t < S.prophet + 0.3 && (
           <g opacity={1 - prog(t, S.prophet - 0.1, S.prophet + 0.3)}>
-            <Bubble x={HOME + 250} y={HEAD - 60} w={330} h={110} tx={HOME + 60} ty={HEAD - 10} k={pop(w('voice', 'what') - 0.1)} fill={P.night} stroke={P.ink}>
+            <Bubble x={HOME + 300} y={HEAD - 90} w={340} h={100} tx={HOME + 70} ty={HEAD - 20} k={pop(w('voice', 'what') - 0.1)} fill={P.night} stroke={P.ink}>
               <SvgText x={0} y={4} size={38} color={P.white}>What's the point?</SvgText>
             </Bubble>
-            <Bubble x={HOME + 230} y={HEAD + 80} w={330} h={100} tx={HOME + 60} ty={HEAD + 40} k={pop(w('voice', 'done') - 0.15)} fill={P.night} stroke={P.ink}>
+            <Bubble x={HOME + 330} y={HEAD + 50} w={340} h={96} tx={HOME + 70} ty={HEAD + 20} k={pop(w('voice', 'done') - 0.15)} fill={P.night} stroke={P.ink}>
               <SvgText x={0} y={4} size={34} color={P.white}>He's done with you.</SvgText>
             </Bubble>
           </g>
