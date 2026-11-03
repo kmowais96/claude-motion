@@ -1,0 +1,20 @@
+{
+ "_note": "Narration, one entry per on-screen line. [r]/[g]/[t] colour the next word red/gold/teal. Lines in the same group stack; a new group clears the text.",
+ "lines": [
+  {"key": "hook1", "group": "hook", "text": "You've repented from the [r]same [r]sin so many times..."},
+  {"key": "hook2", "group": "hook", "text": "you're [t]embarrassed to ask Allah again."},
+  {"key": "voice", "group": "voice", "text": "And a voice says: \"What's the [r]point? He's [r]done with you.\""},
+  {"key": "prophet", "group": "prophet", "text": "The Prophet ﷺ described [g]exactly this person."},
+  {"key": "h1a", "group": "h1a", "text": "A servant [r]sins. He says, \"My Lord, [g]forgive me.\""},
+  {"key": "h1b", "group": "h1b", "text": "And Allah says: \"My servant [t]knew he has a Lord who [t]forgives.\" [g]Forgiven."},
+  {"key": "h2", "group": "h2", "text": "He sins [r]again. Asks [t]again. [g]Forgiven."},
+  {"key": "h3", "group": "h3", "text": "A [r]third time. Same sin. Same \"forgive me.\" [g]Forgiven."},
+  {"key": "flip1", "group": "flip", "text": "So the loop that [r]ruins you isn't \"sin, repent, sin, repent.\""},
+  {"key": "flip2", "group": "flip2", "text": "It's \"sin...\" and then you [r]stop [r]asking."},
+  {"key": "iq1", "group": "iq1", "text": "Ibn al-Qayyim quotes one of the early scholars:"},
+  {"key": "iq2", "group": "iq1", "text": "a person can commit a sin that takes him to [g]Jannah."},
+  {"key": "iq3", "group": "iq3", "text": "Because it keeps him [t]humble, ashamed, and [g]running [g]back to Allah."},
+  {"key": "close", "group": "close", "text": "So keep [r]fighting the sin. But never stop [g]coming [g]back."},
+  {"key": "ayah", "group": "ayah", "text": "\"Do not [g]lose [g]hope in the mercy of Allah.\""}
+ ]
+}
