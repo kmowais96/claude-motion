@@ -4,6 +4,11 @@ import '@fontsource/instrument-serif/400-italic.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/600.css';
 import '@fontsource-variable/inter/index.css';
+import '@fontsource/baloo-2/600.css';
+import '@fontsource/baloo-2/700.css';
+import '@fontsource/baloo-2/800.css';
+import '@fontsource/amiri/arabic-400.css';
+import '@fontsource/amiri/arabic-700.css';
 import {Root} from './Root';
 
 registerRoot(Root);
