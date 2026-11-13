@@ -65,6 +65,8 @@ export const CaptionWord: React.FC<{word: Word; t: number; at: number | null; si
         fontSize: big ? size * 1.5 : size,
         fontStyle: big ? 'italic' : 'normal',
         fontWeight: big ? 600 : 500,
+        // EB Garamond has no U+FDFA; Amiri does
+        ...(word.w === 'ﷺ' ? {fontFamily: T.arabic, fontStyle: 'normal', fontWeight: 700, fontSize: size * 1.25} : {}),
         lineHeight: 1.04,
         padding: big ? '0 0.05em' : 0,
         backgroundImage: word.style === 'gold' ? `linear-gradient(${P.goldWash}, ${P.goldWash})` : undefined,
@@ -212,7 +214,7 @@ export const Pill: React.FC<{reel: Reel}> = ({reel}) => (
       whiteSpace: 'nowrap',
     }}
   >
-    {reel.series} · {String(reel.number).padStart(2, '0')}/{reel.total}
+    {reel.number ? `${reel.series} · ${String(reel.number).padStart(2, '0')}/${reel.total}` : reel.series}
   </div>
 );
 
@@ -265,7 +267,7 @@ const Chrome: React.FC<{reel: Reel; t: number}> = ({reel, t}) => {
           boxShadow: `0 4px 14px ${P.shadow}`,
         }}
       >
-        p. {reel.page}
+        {typeof reel.page === 'number' ? `p. ${reel.page}` : `${reel.book} · ${reel.page}`}
       </div>
     </>
   );
@@ -312,7 +314,7 @@ const EndCard: React.FC<{reel: Reel; t: number}> = ({reel, t}) => {
           ...rise(0.9),
         }}
       >
-        {reel.book.toUpperCase()} · P. {reel.page}
+        {reel.book.toUpperCase()} · {typeof reel.page === 'number' ? `P. ${reel.page}` : reel.page.toUpperCase()}
       </div>
       <div
         style={{

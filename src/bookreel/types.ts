@@ -20,7 +20,8 @@ export type Reel = {
   total: number;
   series: string;
   book: string;
-  page: number;
+  /** A printed page, or a reference such as "no. 5075" for a Reel outside the series. */
+  page: number | string;
   handle: string;
   hook: Word[];
   action: Word[];
