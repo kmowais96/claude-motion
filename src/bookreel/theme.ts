@@ -33,7 +33,7 @@ export const useBookFonts = () => {
       document.fonts.load('italic 600 60px "EB Garamond"'),
       document.fonts.load('italic 500 60px "EB Garamond"'),
       document.fonts.load('600 20px "Inter Variable"'),
-      document.fonts.load('700 60px Amiri', 'الله'),
+      document.fonts.load('700 60px Amiri', 'الله ﷺ'),
       document.fonts.load('400 60px "Amiri Quran"', 'ٱللَّهُ'),
     ]).then(() => continueRender(handle));
   }, [handle]);

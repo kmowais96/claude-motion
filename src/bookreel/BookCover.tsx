@@ -33,7 +33,7 @@ export const BookCover: React.FC<Reel> = (reel) => {
           textShadow: `5px 6px 0 ${P.ink}`,
         }}
       >
-        {String(reel.number).padStart(2, '0')}
+        {reel.number ? String(reel.number).padStart(2, '0') : ''}
       </div>
       <Card y={reel.cover.y} k={1} tilt={-0.8} width={920}>
         <Words words={reel.hook} t={0} size={86} timed={false} />

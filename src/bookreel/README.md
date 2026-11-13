@@ -34,6 +34,10 @@ Each scene in `day.json`:
 - `"hook": true` on the first scene shows the on-screen hook instead of captions, readable from frame 0.
 - `"turn": true` marks the scene where the answer lands: the "?" badge goes and the sound swells.
 
+A Reel outside a numbered series sets `"number": 0` (the tag shows `series` alone and the cover has no number) and can give `page` as a string such as `"no. 5075"`, shown after `book` on the chip and the end card.
+
+To show ﷺ where the voice says "peace be upon him", write `ﷺ` in the scene text and replace those four words in `words.json` with one `["ﷺ", start]` entry.
+
 Every time in the video comes from `words.json`. The build stops with a clear message if a scene's text does not match the narration.
 
 ## What the build does
