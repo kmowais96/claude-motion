@@ -1,4 +1,4 @@
-export type Word = {w: string; style: 'n' | 'gold' | 'red'; t?: number};
+export type Word = {w: string; style: 'n' | 'gold' | 'red'; t?: number; hon?: string};
 export type Chunk = {start: number; words: Word[]};
 export type Arabic = {kind: 'ayah' | 'his'; text: string; ref: string; y: number; start: number};
 export type Scene = {

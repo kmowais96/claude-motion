@@ -76,6 +76,22 @@ export const CaptionWord: React.FC<{word: Word; t: number; at: number | null; si
       }}
     >
       {word.w}
+      {word.hon ? (
+        <span
+          style={{
+            fontFamily: T.arabic,
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: size * 0.62,
+            marginInlineStart: '0.25em',
+            direction: 'rtl',
+            unicodeBidi: 'isolate',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {word.hon}
+        </span>
+      ) : null}
       {word.style === 'red' ? <Squiggle k={mark} /> : null}
     </span>
   );

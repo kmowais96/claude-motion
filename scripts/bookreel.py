@@ -32,8 +32,12 @@ def norm(word):
     return re.sub(r"[^a-z0-9']", "", word.lower().replace("’", "'"))
 
 
+# Honorific written after a name and shown, unspoken, in Arabic: "Umar^ra" -> Umar رضي الله عنه
+HONORIFIC = {"ra": "رضي الله عنه", "raha": "رضي الله عنها", "ranhum": "رضي الله عنهم", "rh": "رحمه الله"}
+
+
 def parse(text):
-    """'a *big gold* / next _red_' -> chunks of {w, style}."""
+    """'a *big gold* / next _red_ / Umar^ra' -> chunks of {w, style, hon?}."""
     chunks = []
     for part in text.split("/"):
         tokens, style = [], "n"
@@ -45,8 +49,14 @@ def parse(text):
             closes = bool(raw) and raw[-1] in "*_"
             if closes:
                 raw = raw[:-1]
+            hon = None
+            if "^" in raw:
+                raw, key = raw.split("^", 1)
+                tail = key.lstrip("abcdefghijklmnopqrstuvwxyz")
+                hon = HONORIFIC[key[:len(key) - len(tail)]]
+                raw += tail
             if raw:
-                tokens.append({"w": raw, "style": style})
+                tokens.append({"w": raw, "style": style, **({"hon": hon} if hon else {})})
             if closes:
                 style = "n"
         if tokens:

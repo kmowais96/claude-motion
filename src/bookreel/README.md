@@ -36,6 +36,8 @@ Each scene in `day.json`:
 
 A Reel outside a numbered series sets `"number": 0` (the tag shows `series` alone and the cover has no number) and can give `page` as a string such as `"no. 5075"`, shown after `book` on the chip and the end card.
 
+An honorific the voice does not say goes after the name with `^`: `Umar^ra` shows Umar رضي الله عنه (`ra`, `raha` for a woman, `ranhum` for several, `rh` for رحمه الله). Punctuation can follow: `Umar^ra:`.
+
 To show ﷺ where the voice says "peace be upon him", write `ﷺ` in the scene text and replace those four words in `words.json` with one `["ﷺ", start]` entry.
 
 Every time in the video comes from `words.json`. The build stops with a clear message if a scene's text does not match the narration.
