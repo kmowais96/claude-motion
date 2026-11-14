@@ -83,7 +83,7 @@ export const CaptionWord: React.FC<{word: Word; t: number; at: number | null; si
             fontStyle: 'normal',
             fontWeight: 700,
             fontSize: size * 0.62,
-            marginInlineStart: '0.25em',
+            marginLeft: '0.3em',
             direction: 'rtl',
             unicodeBidi: 'isolate',
             whiteSpace: 'nowrap',
