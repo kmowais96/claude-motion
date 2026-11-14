@@ -46,7 +46,7 @@ def parse(text):
             if closes:
                 raw = raw[:-1]
             if raw:
-                tokens.append({"w": raw, "style": style})
+                tokens.append({"w": raw.replace("~", " "), "style": style})
             if closes:
                 style = "n"
         if tokens:
@@ -57,11 +57,16 @@ def parse(text):
 def align(scenes, words):
     """Give every scene token the start time of the spoken word it matches, in order."""
     spoken = [(norm(w), t) for w, t in words]
-    pos = 0
+    pos, last = 0, 0.0
     for si, scene in enumerate(scenes):
         for chunk in scene["chunks"]:
             for tok in chunk:
                 key = norm(tok["w"])
+                if not key:
+                    # an honorific shown in Arabic (ﷺ, رضي~الله~عنه) while the voice says it in
+                    # transliteration: it rides on the word before, and the spoken words are skipped
+                    tok["t"] = last
+                    continue
                 hit = next((j for j in range(pos, min(pos + 6, len(spoken))) if spoken[j][0] == key), None)
                 if hit is None:
                     sys.exit(
@@ -69,7 +74,7 @@ def align(scenes, words):
                         f"'{' '.join(w for w, _ in words[pos:pos + 6])}'. "
                         "The scene text has to be the narration, word for word."
                     )
-                tok["t"] = round(spoken[hit][1], 3)
+                tok["t"] = last = round(spoken[hit][1], 3)
                 pos = hit + 1
     if pos < len(spoken) - 1:
         sys.exit(f"words.json has {len(spoken) - pos} spoken words after the last scene; add them to a scene")
