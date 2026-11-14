@@ -11,6 +11,7 @@
   "hook": "This verse about *Ramadan nights* is about your *future child.*",
   "action": "Tonight, ask Allah for *that child.*",
   "next": "Next: the du'a the Prophets made for children",
+  "badge": true,
   "cover": {"still": "02-01", "y": 1040},
   "scenes": [
     {"still": "02-04", "hook": true, "y": 1290,
