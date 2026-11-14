@@ -15,7 +15,7 @@ export const P = {
 };
 
 export const T = {
-  serif: '"EB Garamond", Georgia, serif',
+  serif: '"EB Garamond", Amiri, Georgia, serif',
   sans: '"Inter Variable", Inter, system-ui, sans-serif',
   arabic: 'Amiri, serif',
   quran: '"Amiri Quran", Amiri, serif',

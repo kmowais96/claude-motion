@@ -29,6 +29,7 @@ Each scene in `day.json`:
 ```
 
 - `text` is the narration for that picture, word for word. `/` starts a new caption card, `*…*` makes big gold words, `_…_` puts a red squiggle under them.
+- An honorific can be shown in Arabic while the voice says it aloud: write `ﷺ` or `رضي~الله~عنه` (`~` keeps the words on one card) and leave the transliteration out of `text`; it appears with the word before it.
 - `y` is the centre of the caption card (safe area is 270–1500). Pick it so the card misses the subject of the still.
 - `arabic` is optional: `kind` is `ayah` (Amiri Quran, in brackets) or `his` (the author's words, Amiri Bold); `at` is the spoken word it appears on.
 - `"hook": true` on the first scene shows the on-screen hook instead of captions, readable from frame 0.
