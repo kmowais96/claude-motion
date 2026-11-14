@@ -33,7 +33,7 @@ Each scene in `day.json`:
 - `y` is the centre of the caption card (safe area is 270–1500). Pick it so the card misses the subject of the still.
 - `arabic` is optional: `kind` is `ayah` (Amiri Quran, in brackets) or `his` (the author's words, Amiri Bold); `at` is the spoken word it appears on.
 - `"hook": true` on the first scene shows the on-screen hook instead of captions, readable from frame 0.
-- `"turn": true` marks the scene where the answer lands: the "?" badge goes and the sound swells.
+- `"turn": true` marks the scene where the answer lands and the sound swells. With `"badge": true` at the top of `day.json` a gold "?" sits next to the tag until the turn; it is off by default (Reel 01 used it, later Reels do not).
 
 Every time in the video comes from `words.json`. The build stops with a clear message if a scene's text does not match the narration.
 

@@ -172,6 +172,7 @@ def main():
         "hook": parse(day["hook"])[0],
         "action": parse(day["action"])[0],
         "next": day.get("next", ""),
+        "badge": bool(day.get("badge", False)),
         "cover": {"still": f"bookreel/{rid}/{cover_still}.png", "y": cover.get("y", 1180)},
         "turn": turn if turn is not None else end_at,
         "endAt": end_at,

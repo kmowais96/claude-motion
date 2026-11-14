@@ -229,25 +229,27 @@ const Chrome: React.FC<{reel: Reel; t: number}> = ({reel, t}) => {
       </div>
       <div style={{position: 'absolute', left: SAFE.left, top: SAFE.top + 14, display: 'flex', alignItems: 'center', gap: 12}}>
         <Pill reel={reel} />
-        <div
-          style={{
-            width: 50,
-            height: 50,
-            borderRadius: 25,
-            background: P.gold,
-            color: P.ink,
-            fontFamily: T.serif,
-            fontWeight: 600,
-            fontStyle: 'italic',
-            fontSize: 38,
-            lineHeight: '48px',
-            textAlign: 'center',
-            opacity: asked,
-            transform: `scale(${lerp(1.5, 1, asked)})`,
-          }}
-        >
-          ?
-        </div>
+        {reel.badge ? (
+          <div
+            style={{
+              width: 50,
+              height: 50,
+              borderRadius: 25,
+              background: P.gold,
+              color: P.ink,
+              fontFamily: T.serif,
+              fontWeight: 600,
+              fontStyle: 'italic',
+              fontSize: 38,
+              lineHeight: '48px',
+              textAlign: 'center',
+              opacity: asked,
+              transform: `scale(${lerp(1.5, 1, asked)})`,
+            }}
+          >
+            ?
+          </div>
+        ) : null}
       </div>
       <div
         style={{

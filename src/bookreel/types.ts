@@ -25,6 +25,8 @@ export type Reel = {
   hook: Word[];
   action: Word[];
   next: string;
+  /** The gold "?" next to the tag until the turn. Off by default; Reel 01 used it. */
+  badge?: boolean;
   cover: {still: string; y: number};
   turn: number;
   endAt: number;
