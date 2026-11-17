@@ -1,6 +1,7 @@
 export type Word = {w: string; style: 'n' | 'gold' | 'red'; t?: number};
 export type Chunk = {start: number; words: Word[]};
-export type Arabic = {kind: 'ayah' | 'his'; text: string; ref: string; y: number; start: number};
+/** `text` may hold \n for a second line; `size` overrides the font size in px. */
+export type Arabic = {kind: 'ayah' | 'his'; text: string; ref: string; y: number; start: number; size?: number};
 export type Scene = {
   start: number;
   end: number;

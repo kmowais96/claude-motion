@@ -170,10 +170,10 @@ const ArabicLine: React.FC<{arabic: Arabic; t: number}> = ({arabic, t}) => {
         style={{
           direction: 'rtl',
           textAlign: 'center',
-          whiteSpace: 'nowrap',
+          whiteSpace: 'pre',
           fontFamily: ayah ? T.quran : T.arabic,
           fontWeight: ayah ? 400 : 700,
-          fontSize: ayah ? 58 : 72,
+          fontSize: arabic.size ?? (ayah ? 58 : 72),
           lineHeight: ayah ? 1.9 : 1.5,
           clipPath: `inset(-20% 0 -20% ${(1 - wipe) * 100}%)`,
         }}
