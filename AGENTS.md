@@ -26,6 +26,10 @@ The skills in `.claude/skills/` are the core of this repo. Claude Code and Curso
 
 When the idea is a simulation (agents, particles, a machine the camera flies through) rather than motion graphics, use the `sims/` pipeline instead of Remotion: one HTML page per piece, `render(t)` pure in time, `node sims/capture.mjs` steps it frame by frame into an mp4. Guide and commands: `sims/README.md`; workflow: `web-sims/SKILL.md`. Capture needs a Chromium: `npx playwright install chromium` once, or set `$CHROMIUM`.
 
+## Narrated book Reels
+
+For a vertical narrated Reel (stills, word-by-word captions, one line of Arabic, end card, cover) use the `BookReel` template instead of writing scenes: `python3 scripts/bookreel.py <reel-folder> [--draft]`. Format and options: `src/bookreel/README.md`; example inputs: `examples/02-bookreel/`.
+
 ## Tools
 
 | Command | What it does |
